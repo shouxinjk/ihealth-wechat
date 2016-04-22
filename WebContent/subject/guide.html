@@ -12,60 +12,10 @@
 <body>
     <div class="container">
         <div class="guidecont col-lg-12 col-xs-12 col-md-12 col-sm-12">
-            <div class="article_cont">
+            <div id="content" class="article_cont">
 
 
-                <a href="#" class="article col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                    <h3 >你会做体检吗？</h3>
-                    <div class="essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                        <span class="article_span col-lg-9 col-xs-9 col-md-9 col-sm-9">你以为单位每年给你买了体检就高枕无忧了么？</span>
-                        <div class="article_d col-lg-3 col-xs-3 col-md-3 col-sm-3">
-                            <img class="article_img " src="../WEB-INF/images/p_e.jpg" alt=""/>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="article col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                    <h3 >你会做体检吗？</h3>
-                    <div class="essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                        <span class="article_span col-lg-9 col-xs-9 col-md-9 col-sm-9">你以为单位每年给你买了体检就高枕无忧了么？</span>
-                        <div class="article_d col-lg-3 col-xs-3 col-md-3 col-sm-3">
-                            <img class="article_img " src="../WEB-INF/images/p_e.jpg" alt=""/>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="article col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                    <h3 >你会做体检吗？</h3>
-                    <div class="essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                        <span class="article_span col-lg-9 col-xs-9 col-md-9 col-sm-9">你以为单位每年给你买了体检就高枕无忧了么？</span>
-                        <div class="article_d col-lg-3 col-xs-3 col-md-3 col-sm-3">
-                            <img class="article_img " src="../WEB-INF/images/p_e.jpg" alt=""/>
-                        </div>
-                    </div>
-                </a>  <a href="#" class="article col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                <h3 >你会做体检吗？</h3>
-                <div class="essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                    <span class="article_span col-lg-9 col-xs-9 col-md-9 col-sm-9">你以为单位每年给你买了体检就高枕无忧了么？</span>
-                    <div class="article_d col-lg-3 col-xs-3 col-md-3 col-sm-3">
-                        <img class="article_img " src="../WEB-INF/images/p_e.jpg" alt=""/>
-                    </div>
-                </div>
-            </a>  <a href="#" class="article col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                <h3 >你会做体检吗？</h3>
-                <div class="essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                    <span class="article_span col-lg-9 col-xs-9 col-md-9 col-sm-9">你以为单位每年给你买了体检就高枕无忧了么？</span>
-                    <div class="article_d col-lg-3 col-xs-3 col-md-3 col-sm-3">
-                        <img class="article_img " src="../WEB-INF/images/p_e.jpg" alt=""/>
-                    </div>
-                </div>
-            </a>  <a href="#" class="article col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                <h3 >你会做体检吗？</h3>
-                <div class="essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                    <span class="article_span col-lg-9 col-xs-9 col-md-9 col-sm-9">你以为单位每年给你买了体检就高枕无忧了么？</span>
-                    <div class="article_d col-lg-3 col-xs-3 col-md-3 col-sm-3">
-                        <img class="article_img " src="../WEB-INF/images/p_e.jpg" alt=""/>
-                    </div>
-                </div>
-            </a>
+                
             </div>
         </div>
         <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -78,6 +28,27 @@
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+    	$(document).ready(function () {
+        	//获取前20条数据 
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/ihealth/rest/findByTopTwenty",
+                contentType:"application/json;charset=utf8",
+                dataType: "json",
+                success: function (r) {
+                    if(r.result == "success"){
+                    	var data = r.data;
+                    	$("#content").empty();
+                    	for (var i = 0; i < data.length; i++) {
+                    		$("#content").append("<a href='#' class='article col-lg-12 col-xs-12 col-md-12 col-sm-12'><h3 >"+data[i].TITLE+"</h3><div class='essay_list col-lg-12 col-xs-12 col-md-12 col-sm-12'><span class='article_span col-lg-9 col-xs-9 col-md-9 col-sm-9'>"+data[i].SUMMARY+"</span><div class='article_d col-lg-3 col-xs-3 col-md-3 col-sm-3'><img class='article_img ' src='../images/p_e.jpg' alt=''/></div></div></a>");
+    					}
+                    }
+                },
+                error : function(){
+                	alert("获取文章信息失败！");
+                }
+            });
+        });
         $('.TJ_guide').css('border-top','0.1rem solid #9c9ee9');
     });
 </script>
