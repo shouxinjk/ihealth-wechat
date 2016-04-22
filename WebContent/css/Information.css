@@ -1,0 +1,235 @@
+html,body{
+    font-size:125%;
+    font-size: 20px;
+    height: 100%;
+}
+body{
+    font-family: 'SimHei', sans-serif;
+    width: 100%;
+    background:#f8f8f8;
+    background-size: cover;
+}
+a {text-decoration:none !important;}
+.information_header,.information_header ul{
+    padding: 0;
+    margin: 0.2rem 0 0.2rem 0;
+}
+.information_header  ul li{
+    list-style: none;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 0;
+}
+.livefs{
+     background:#9c9ee9 !important; 
+    color: #ffffff !important;;
+}
+.content,.container {
+    padding: 0;
+}
+.content{
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+.container{
+    height: 100%;
+}
+.content .height,.weigth{
+    width: 45%;
+}
+.content table tbody tr {
+    margin: 0.4rem 0 0.4rem 0;
+}
+input[type="radio"] {
+    position: relative;
+    top: 0.1rem;
+}
+.content .boy,.marriage{
+    padding-right: 1rem;
+}
+.content table tbody tr td {
+    font-size: 0.8rem;
+}
+#s1,#s2{
+    margin-left: .65rem;
+}
+option {
+    line-height: 1rem;
+    height: 1rem;
+}
+.message_next_a1,.message_next_a2,.message_next_a3{
+    width: 50% !important;
+    height: 1.5rem !important;
+    line-height: 1.5rem !important;
+    margin-top: 1rem;
+}
+
+
+.footer{
+    margin-top: 0.5rem;
+    padding: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0rem;
+    background: #ffffff;
+}
+.footer span {
+    border: 0.01rem solid #e9ebec;
+    /*padding: 0.1rem 0.3rem;*/
+    font-size: 0.8rem;
+    /*width: 5.5rem;*/
+    display: block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+}
+.footer a{
+    padding: 0;
+}
+/*td {*/
+    /*padding: 1rem;*/
+    /*display: inline-block;*/
+/*}*/
+.ddiv span{
+    font-size: .8rem;
+    float: left;
+    padding:0 ;
+    top: .5rem;
+}
+.ddiv ul{
+    float: right;
+    padding: 0;
+}
+.ddiv ul li{
+    display: inline-block;
+    font-size: .6rem;
+    background: #ffffff;
+    border: 0.01rem solid #9c9ee9;
+    color: #9c9ee9;
+    margin: 0.2rem;
+    padding: 0.1rem 0.3rem .1rem .3rem;
+    border-radius: .5rem;
+}
+.active{
+    border-bottom: 0.1rem solid #9c9ee9;
+}
+.information_header_li{
+    cursor: pointer;
+}
+
+
+/*疾病信息*/
+.family,.personage{
+    margin: 0;
+    padding-bottom: .5rem;
+    border-bottom: 0.1rem solid;
+}
+.personage_illness,.family_illness{
+    padding: 0;
+}
+.personage_illness ul li ,.personage_illness ul .one{
+    padding: 0.1rem 0.3rem .1rem .3rem;
+    list-style: none;
+    display: inline-block;
+    color: #f7b779;
+    border: 0.01rem solid #f7b779;
+    margin: 0.2rem;
+    border-radius: .5rem;
+    background: #ffffff;
+}
+.personage_illness ul .two{
+    padding: 0.1rem 0.3rem .1rem .3rem;
+    list-style: none;
+    display: inline-block;
+    color: #ffffff;
+    border: 0.01rem solid #f7b779;
+    margin: 0.2rem;
+    border-radius: .5rem;
+    background: #f7b779;
+}
+
+
+.family_illness ul li,.family_illness ul .one{
+    padding: 0.1rem 0.3rem .1rem .3rem;
+    list-style: none;
+    display: inline-block;
+    border: 0.01rem solid #88d9c6;
+    margin: 0.2rem;
+    color: #88d9c6;
+    border-radius: .5rem;
+    background: #ffffff;
+}
+.family_illness ul .two{
+    padding: 0.1rem 0.3rem .1rem .3rem;
+    list-style: none;
+    display: inline-block;
+    border: 0.01rem solid #88d9c6;
+    margin: 0.2rem;
+    color: #ffffff;
+    border-radius: .5rem;
+    background: #88d9c6;
+}
+.personage_illness ul,.family_illness ul{
+    padding: .5rem;
+    margin:0 .4rem;
+    font-size: .7rem;
+}
+.family{
+    margin-top: 1rem;
+}
+
+/*关心的人*/
+.Care_one {
+    line-height: 4rem;
+    margin-bottom: 1rem;
+}
+.Care_one div{
+    /*width: 4rem;*/
+    /*height: 4rem;*/
+    padding: 0;
+}
+.Care_one div img{
+    width: 100%;
+    padding: 0;
+}
+.Care_one span{
+    padding: 0 0 0 2rem;
+}
+.add{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.33333333;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow: hidden;
+    width: 50% !important;
+    height: 1.5rem !important;
+    line-height: 1.5rem !important;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

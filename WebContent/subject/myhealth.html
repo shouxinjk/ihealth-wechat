@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no,minimal-ui" />
+    <link rel="stylesheet" href="../css/dist/style/weui.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/myhealth.css"/>
+    <title>我的健康</title>
+</head>
+<body>
+<div class="container">
+    <div class="relevance col-lg-12 col-xs-12 col-md-12 col-sm-12">
+        <ul class="relevance col-lg-12 col-xs-12 col-md-12 col-sm-12">
+            <li class="relevanceMY col-lg-4 col-xs-4 col-md-4 col-sm-4">自己</li>
+            <li  class="col-lg-4 col-xs-4 col-md-4 col-sm-4">老爸</li>
+            <li  class="col-lg-4 col-xs-4 col-md-4 col-sm-4">老妈</li>
+        </ul>
+    </div>
+    <div class="cont col-lg-12 col-xs-12 col-md-12 col-sm-12">
+        <h4>我的体检项目</h4>
+        <article>以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。</article>
+    </div>
+    <main class="xmtable col-lg-12 col-xs-12 col-md-12 col-sm-12">
+
+        <!--<table border="1" >-->
+            <!--<tr class="xm col-lg-12 col-xs-12 col-md-12 col-sm-12">-->
+                <!--<th class="col-lg-4 col-xs-4 col-md-4 col-sm-4">检查项目</th>-->
+                <!--<th class="col-lg-4 col-xs-4 col-md-4 col-sm-4">检查频率</th>-->
+                <!--<th class="col-lg-4 col-xs-4 col-md-4 col-sm-4">指南来源</th>-->
+            <!--</tr>-->
+         <!---->
+        <!--</table>-->
+    </main>
+
+    <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
+        <a href="guide.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>体检指南</span></a>
+        <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>我的健康</span></a>
+        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>我的信息</span></a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+	var userId  = ReadCookie("userId");
+	
+	function ReadCookie(cookieName) {
+	    var theCookie = "" + document.cookie;
+	    var ind = theCookie.indexOf(cookieName);
+	    if(ind==-1 || cookieName=="") return "";
+	    var ind1 = theCookie.indexOf(';',ind);
+	    if(ind1==-1) ind1 = theCookie.length;
+	    /*读取Cookie值*/
+	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	}
+        $('.My_health').css('border-top','0.1rem solid #9c9ee9');
+        var deluserId =delCookie("userId");
+        console.log(userId);
+   <!--我的体检项目-->
+   intn(userId);
+});       
+
+function intn(userId){
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/ihealth/rest/findCheckItems",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"userId":userId}),
+        dataType: "json",
+        success: function (r) {
+        	 if (r.result == "success") {
+	        	 if(r.data.length>0){ 
+	        		 $(r.data).each(function (i){
+	        			 var status= r.data[i].STATUS;
+	        			 var checkupItemId= r.data[i].CHECKUPITEM_ID;
+	        			
+	        			 console.log(userId);
+	        			 //通过状态判断项目是否显示
+	        			 if(!(status == "已删除")){
+	        				 console.log(status);
+		        			 var cont = '<div class="touch item col-lg-12 col-xs-12 col-md-12 col-sm-12" id="touch'+i+'" userAddressId="1" ">';
+		        		        cont += '<div class="jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
+		        		                    '<span class="jcxm col-lg-3 col-xs-3 col-md-3 col-sm-3">检查项目：</span>' +
+		        		                    '<div class="pl col-lg-9 col-xs-9 col-md-9 col-sm-9"><span>'+r.data[i].NAME+'</span><span>【'+r.data[i].FREQUENCY+'】</span>' +
+		        		                    '</div>' +
+		        		                '</div>';
+		        		        cont += '<div class="zhiN col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
+		        		                    '<span class="source col-lg-3 col-xs-3 col-md-3 col-sm-3">指南来源：</span>' +
+		        		                    '<div class="source_adr col-lg-9 col-xs-9 col-md-9 col-sm-9">'+r.data[i].ORIGINATE+'</div></div>';
+		        		        cont += '<div class="deletli"><a href="javascript:;" id="de'+i+'" class="remove weui_btn weui_btn_mini weui_btn_primary">删除</a></div>';
+		        		        cont += '<div class="weui_dialog_alert" style="display:none;">' +
+		        		                    '<div class="weui_mask"></div>' +
+		        		                    '<div class="weui_dialog">' +
+		        		                        '<div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>' +
+		        		                        '<div class="weui_dialog_bd">您确定删除吗？</div>' +
+		        		                        '<div class="weui_dialog_ft">' +
+		        		                            '<a href="#" class="weui_btn_dialog default">取消</a>'+
+		        		                            '<a href=\"javascript:del('+r.data[i].CHECKUPITEM_ID+',\''+status+'\')\" class="weui_btn_dialog primary" >确定</a>' +
+		        		                        '</div>' +
+		        		                    '</div>' +
+		        		                '</div>';
+		        		        cont += '</div>';
+	        		        }
+	                     $('.xmtable').append(cont);
+	        			 
+						//	                   弹出框
+	                     $(".touch").delegate(".remove","click" ,function(){	                    	 
+	                          var  s =$($(this).parent().parent().children().last());
+	                          s.css("display","block");
+	                      });
+						//	                    取消
+	                      $(".weui_dialog_ft").delegate(".weui_dialog_ft .default","click" ,function(){
+	                          $('.weui_dialog_alert').css("display","none");
+	                      });
+	                     
+	        		 		});
+	        	 		}
+	        	 	}
+        		}, error: function() {
+                    
+                   
+                }
+        });
+        
+}
+//	                      确定
+//删除体检项目
+
+    	function del(ID,status){
+    		 $.ajax({
+			        type: "post",
+			        url: "http://localhost:8080/ihealth/rest/editCheckItem",
+			        contentType:"application/json;charset=utf8",
+			        data: JSON.stringify({"checkupItemId":ID,"stauts":status}),
+			        dataType: "json",
+			        success: function (r) {
+			        	if (r.result == "success") {
+					        	//$(this).parent().parent().parent().parent().remove();
+					        	var userId  = ReadCookie("userId");
+					        	 $('.xmtable').html("");
+					        	intn(userId);
+					        	console.log('删除成功');
+					        	
+			        		}
+			        	}
+			   });
+    	}
+
+//        关联
+    $('.relevance').delegate(".relevance li","click" ,function(){
+        $('.relevance li').removeClass('relevanceMY');
+        $(this).addClass('relevanceMY');
+    });
+</script>
+</html>

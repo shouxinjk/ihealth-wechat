@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no,minimal-ui" />
+    <!--<link rel="stylesheet" href="css/dist/style/weui.min.css"/>-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/Message.css"/>
+    <title>我的信息</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="Header col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                <img class="head_portrait"  src="../WEB-INF/images/head_portrait.jpg" alt=""/>
+        </div>
+    </header>
+    <div class="content ">
+        <div class="basic_message col-lg-12 col-xs-12 col-md-12 col-sm-12">
+            <a class="message col-lg-12 col-xs-12 col-md-12 col-sm-12" href="Information.html#message">
+                <div class="div_img col-lg-3 col-xs-3 col-md-3 col-sm-3">
+                <img class="message_img " src="../WEB-INF/images/message.jpg" alt=""/></div>
+                <lable class="label_message col-lg-3 col-xs-3 col-md-3 col-sm-3">基本信息</lable>
+               <span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">
+                    <i></i>
+                </span>
+                <i class="live_percentage col-lg-1 col-xs-1 col-md-1 col-sm-1">50%</i>
+            </a>
+        </div>
+        <div class="life_style col-lg-12 col-xs-12 col-md-12 col-sm-12">
+            <a class="live col-lg-12 col-xs-12 col-md-12 col-sm-12" href="Information.html#live">
+                <div class="div_img col-lg-3 col-xs-3 col-md-3 col-sm-3">
+                    <img class="live_img " src="../WEB-INF/images/live.png" alt=""/>
+                </div>
+                <lable class="live_s col-lg-3 col-xs-3 col-md-3 col-sm-3">生活方式</lable>
+                <span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">
+                    <i></i>
+                </span>
+                <i class="live_percentage col-lg-1 col-xs-1 col-md-1 col-sm-1">50%</i>
+            </a>
+        </div>
+        <div class="disease_information col-lg-12 col-xs-12 col-md-12 col-sm-12">
+            <a class="illness col-lg-12 col-xs-12 col-md-12 col-sm-12" href="Information.html#disease_information">
+                <div class="div_img col-lg-3 col-xs-3 col-md-3 col-sm-3">
+                <img class="illness_img " src="../WEB-INF/images/illness.png" alt=""/></div>
+                <lable class="illness_massage col-lg-3 col-xs-3 col-md-3 col-sm-3">疾病信息</lable>
+               <span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">
+                    <i></i>
+                </span>
+                <i class="live_percentage col-lg-1 col-xs-1 col-md-1 col-sm-1">50%</i>
+            </a>
+        </div>
+        <div class="Care_People col-lg-12 col-xs-12 col-md-12 col-sm-12">
+            <a class="care_for col-lg-12 col-xs-12 col-md-12 col-sm-12" href="Information.html#Care_People">
+                <div class="div_img col-lg-3 col-xs-3 col-md-3 col-sm-3">
+                <img class="care_for_img " src="../WEB-INF/images/care_for.png" alt=""/></div>
+                    <lable class="concern col-lg-3 col-xs-3 col-md-3 col-sm-3">关心的人</lable>
+                   <span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">
+                    <i></i>
+                </span>
+                <i class="live_percentage col-lg-1 col-xs-1 col-md-1 col-sm-1">50%</i>
+            </a>
+        </div>
+    </div>
+    <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
+        <a href="guide.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>体检指南</span></a>
+        <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>我的健康</span></a>
+        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>我的信息</span></a>
+    </div>
+</div>
+</body>
+<script type="text/javascript "src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
+<script type="text/javascript "src="../js/public.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+    	function ReadCookie(cookieName) {
+    	    var theCookie = "" + document.cookie;
+    	    var ind = theCookie.indexOf(cookieName);
+    	    if(ind==-1 || cookieName=="") return "";
+    	    var ind1 = theCookie.indexOf(';',ind);
+    	    if(ind1==-1) ind1 = theCookie.length;
+    	    /*读取Cookie值*/
+    	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+    	}
+        $('.my_message').css('border-top','0.1rem solid #9c9ee9');
+    });
+</script>
+</html>

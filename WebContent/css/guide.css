@@ -1,0 +1,110 @@
+html,body{
+    font-size:125%;
+    font-size: 20px;
+    /*height: 100%;*/
+}
+body{
+    font-family: 'SimHei', sans-serif;
+    width: 100%;
+    /*height: auto;*/
+    background:#f8f8f8;
+    background-size: cover;
+}
+a {text-decoration:none !important;}
+.container .article_span{
+    padding: .4rem 0 0 0;
+    font-size: .76rem;
+}
+.essay_list{
+    padding: 0;
+    border-bottom: 0.06rem dashed gray;
+}
+
+.guidecont a {
+    font-size: 0.4rem;
+    color: black;
+    padding: 0;
+    margin-bottom: .2rem;
+}
+.guidecont .article_cont h3{
+    font-size: 0.9rem;
+    padding: 0;
+    color: #428bca;
+    margin: 0;
+    line-height: 1.5rem;
+}
+.article_cont{
+    float: left;
+    margin-bottom: 2rem;
+}
+.article_img{
+    padding: 0;
+}
+
+.guidecont {
+    padding: 0;
+    margin-bottom: 2rem;
+}
+.article_d{
+    display: block;
+    margin: .1rem 0 .5rem 0;
+    width: 2.5rem;
+    padding: 0;
+    height: 2.5rem;
+    float: right;
+}
+img.article_img{
+    width: 100%;
+}
+
+
+.footer{
+    margin-top: 0.5rem;
+    padding: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0rem;
+    background: #ffffff;
+}
+.footer span {
+    border: 0.01rem solid #e9ebec;
+    /*padding: 0.1rem 0.3rem;*/
+    font-size: 0.8rem;
+    /*width: 5.5rem;*/
+    display: block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+}
+.footer a{
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
