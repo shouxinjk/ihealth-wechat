@@ -50,12 +50,18 @@
 			<!--</div>-->
 		</div>
 		<div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
-			<a href="guide.html"
-				class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>体检指南</span></a>
-			<a href="myhealth.html"
-				class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>我的健康</span></a>
-			<a href="Message.html"
-				class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4"><span>我的信息</span></a>
+			 <a href="guide.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4">
+	        	<img class="TJ_guide_img " src="../images/TJ_guide.png" alt=""/>
+	        	<span>体检指南</span>
+        	</a>
+	        <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4">
+	     		<img class="My_health_img " src="../images/My_health.png" alt=""/>
+	        	<span>我的健康</span>
+	        </a>
+	        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4">
+	        	<img class="my_message_img " src="../images/my_message.png" alt=""/>
+	        	<span>我的信息</span>
+	       	</a>
 		</div>
 	</div>
 </body>
@@ -86,7 +92,8 @@
 				var userId = ReadCookie("userId");
 
 				jibenxinxi(userId);
-				$('.my_message').css('border-top', '0.1rem solid #9c9ee9');
+				  $('.my_message_img ').attr("src", "../images/my_message_1.png");
+			        $('.my_message span').css('color','rgb(126, 200, 136)');
 				//liv();
 			});
 	
@@ -103,7 +110,7 @@
 			success : function(r) {
 				if (r.result == "success") {
 					var data = eval(r.data);
-					var sex = $(".Sex span").val(data.SEX);//获取性别
+					var sex = data.SEX;//获取性别
 					$('#username').val(data.NAME);//获取姓名
 					$("#user_id").val(data.USER_ID);
 					$("option[value='m0']").text(data.MARRIAGESTATUS);//获取婚姻状况
@@ -116,13 +123,14 @@
 					$('.Wdate').val(data.BIRTHDAY);//获取生日
 					$('.height').val(data.HEIGHT);//获取身高
 					$('.weigth').val(data.WEIGHT);//获取体重
+					console.log(sex)
 					if (sex == '女') {
-						$('#girl').attr("checked", "checked");
-						$('#boy').attr("checked", "false");
+						$('#girl').attr("checked", "true");
+						$('#boy').removeAttr("checked");
 
 					} else if (sex == '男') {
-						$('#boy').attr("checked", "checked");
-						$('#girl').attr("checked", "false");
+						$('#boy').attr("checked", "true");
+						$('#girl').removeAttr("checked");
 					}
 				}
 			}
@@ -150,6 +158,8 @@
 		$("#li1").removeClass('active');
 	}
 
+	
+	//获取生活方式
 	function tagCategory(userId) {
 		$.ajax({
 					url : 'http://localhost:8080/ihealth/resttag/listAllTagCategory',

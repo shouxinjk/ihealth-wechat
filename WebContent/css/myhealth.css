@@ -6,7 +6,7 @@ html,body{
 body{
     font-family: 'SimHei', sans-serif;
     width: 100%;
-    background:#f8f8f8;
+    background:#ffffff;
     background-size: cover;
 }
 a {text-decoration:none !important;}
@@ -32,6 +32,31 @@ a {text-decoration:none !important;}
 .footer a{
     padding: 0;
 }
+.footer a .TJ_guide_img{
+	height: 2.3rem;
+	width: 2.3rem;
+ 	margin-left: 29%;
+}
+.footer a .my_message_img {
+	height: 2.3rem;
+	width: 2.3rem;
+ 	margin-left: 29%;
+}
+.My_health span{
+	margin-top:.32rem;
+}
+.footer a img{
+   margin-left: 31%;
+	width: 2rem;
+	height: 2rem;
+	top: .2rem;
+	position: relative;
+}
+
+
+
+
+
 
 .relevance ul{
     display: inline-block;

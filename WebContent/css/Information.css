@@ -29,7 +29,7 @@ a {text-decoration:none !important;}
 }
 .content{
     margin-top: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 .container{
     height: 100%;
@@ -57,6 +57,7 @@ option {
     line-height: 1rem;
     height: 1rem;
 }
+
 .message_next_a1,.message_next_a2,.message_next_a3{
     width: 50% !important;
     height: 1.5rem !important;
@@ -100,6 +101,9 @@ option {
     float: right;
     padding: 0;
 }
+.ddiv {
+min-height: 2rem;
+}
 .ddiv ul li{
     display: inline-block;
     font-size: .6rem;
@@ -111,7 +115,8 @@ option {
     border-radius: .5rem;
 }
 .active{
-    border-bottom: 0.1rem solid #9c9ee9;
+	color:rgb(126, 200, 136);
+    border-bottom: 0.1rem solid rgb(126, 200, 136);
 }
 .information_header_li{
     cursor: pointer;
@@ -216,6 +221,26 @@ option {
     margin-top: 1rem;
 }
 
+.footer a .TJ_guide_img{
+	height: 2.3rem;
+	width: 2.3rem;
+ 	margin-left: 29%;
+}
+.footer a .my_message_img {
+	height: 2.3rem;
+	width: 2.3rem;
+ 	margin-left: 29%;
+}
+.My_health span{
+	margin-top:.32rem;
+}
+.footer a img{
+   margin-left: 31%;
+	width: 2rem;
+	height: 2rem;
+	top: .2rem;
+	position: relative;
+}
 
 
 
