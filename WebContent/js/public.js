@@ -137,7 +137,7 @@ function msgsave(userId){
     var WEIGHT=$('.weigth').val();//获取体重
     $.ajax({
         type: "post",
-        url: "http://localhost:8080/ihealth/rest/updateUser",
+        url: url+"/rest/updateUser",
         contentType:"application/json;charset=utf8",
         data: JSON.stringify({"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
         dataType: "json",

@@ -81,6 +81,7 @@
 </div>
 </body>
 <script type="text/javascript "src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/URL.js"></script>
 <script type="text/javascript" src="../js/content.js"></script><!--cookie-->
 <script type="text/javascript "src="../js/public.js"></script>
 <script type="text/javascript">
@@ -103,7 +104,7 @@
 		//用户名
 		$.ajax({
 			type : "post",
-			url : "http://localhost:8080/ihealth/rest/findUserById",
+			url : url+"/rest/findUserById",
 			contentType : "application/json;charset=utf8",
 			data : JSON.stringify({
 				"userId" : userId

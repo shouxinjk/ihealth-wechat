@@ -67,7 +67,7 @@
 </body>
 <!--<script type="text/javascript" src="../js/tcal.js"></script>-->
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-
+<script type="text/javascript" src="../js/URL.js"></script>
 <script type="text/javascript" src="../js/City.js"></script>
 <script type="text/javascript" src="../js/message.js"></script>
 <script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
@@ -101,7 +101,7 @@
 		//用户基本信息
 		$.ajax({
 			type : "post",
-			url : "http://localhost:8080/ihealth/rest/findUserById",
+			url : url+"/rest/findUserById",
 			contentType : "application/json;charset=utf8",
 			data : JSON.stringify({
 				"userId" : userId
@@ -162,7 +162,7 @@
 	//获取生活方式
 	function tagCategory(userId) {
 		$.ajax({
-					url : 'http://localhost:8080/ihealth/resttag/listAllTagCategory',
+					url : url+'/resttag/listAllTagCategory',
 					type : 'post',
 					success : function(r) {
 						var data = eval(r.data);
@@ -192,7 +192,7 @@
 							$('.content').html(str);
 
 							$.ajax({
-								url : 'http://localhost:8080/ihealth/resttag/listAllTagByUserID',
+								url : url+'/resttag/listAllTagByUserID',
 								type : 'post',
 								contentType : "application/json;charset=utf8",
 								data : JSON
@@ -206,7 +206,7 @@
 									var urd = eval(ur.data);
 									for (var j = 0; j < data.length; j++) {
 										$.ajax({
-											url : 'http://localhost:8080/ihealth/resttag/listAllTagByTagCategoryID',
+											url : url+'/resttag/listAllTagByTagCategoryID',
 											type : 'post',
 											contentType : "application/json;charset=utf8",
 											data : JSON
