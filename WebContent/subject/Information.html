@@ -94,6 +94,7 @@
 				jibenxinxi(userId);
 				  $('.my_message_img ').attr("src", "../images/my_message_1.png");
 			        $('.my_message span').css('color','rgb(126, 200, 136)');
+			        //duoDisliv();
 				//liv();
 			});
 	
@@ -172,7 +173,7 @@
 							for (var i = 0; i < data.length; i++) {
 								
 								if(data[i].ISEXCLUSIVE == '1'){
-									str += "<div class='ddiv col-lg-12 col-xs-12 col-md-12 col-sm-12' id='ddiv"
+									str += "<div class='ddiv livediv col-lg-12 col-xs-12 col-md-12 col-sm-12' id='ddiv"
 										+ (i + 1)
 										+ "' onclick='duoliv(\"ddiv"+(i+1)+"\")'>"
 										+ "<span class='col-lg-3 col-xs-3 col-md-3 col-sm-3' >"
@@ -225,7 +226,7 @@
 														if(urd!=undefined){
 															for(var b =0;b<urd.length;b++){
 																if(data1[a].TAG_ID == urd[b].TAG_ID){
-																	str1 += "class='livefs'"
+																	str1 += "class='livefs livefs_3'"
 																}
 															}
 														}

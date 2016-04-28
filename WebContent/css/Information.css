@@ -20,8 +20,16 @@ a {text-decoration:none !important;}
     text-align: center;
     padding: 0;
 }
-.livefs{
-     background:#9c9ee9 !important; 
+.livefs_1{
+     background:#f7b779 !important; 
+    color: #ffffff !important;;
+}
+.livefs_2{
+     background:#79A1F7 !important; 
+    color: #ffffff !important;;
+}
+.livefs_3{
+     background:#A279F7 !important; 
     color: #ffffff !important;;
 }
 .content,.container {
@@ -129,8 +137,28 @@ min-height: 2rem;
     padding-bottom: .5rem;
     border-bottom: 0.1rem solid;
 }
-.personage_illness,.family_illness{
+.personage_illness_3,.personage_illness_2,.personage_illness_1{
     padding: 0;
+}
+
+.personage_illness_1 ul li{
+	color: #f7b779 ;
+}
+.personage_illness_2 ul li{
+	color: #79A1F7;
+}
+.personage_illness_3 ul li{
+	color: #A279F7;
+}
+.personage_illness_1 ul li ,.personage_illness_2 ul li,.personage_illness_3 ul li{
+    padding: 0.1rem 0.3rem .1rem .3rem;
+    list-style: none;
+    display: inline-block;
+    border: 0.01rem solid #f7b779;
+    margin: 0.2rem;
+    border-radius: .5rem;
+    font-size: .6rem;
+    background: #ffffff;
 }
 .personage_illness ul li ,.personage_illness ul .one{
     padding: 0.1rem 0.3rem .1rem .3rem;
@@ -173,6 +201,13 @@ min-height: 2rem;
     color: #ffffff;
     border-radius: .5rem;
     background: #88d9c6;
+}
+
+
+.personage_illness_3 ul,..personage_illness_2 ul ,.personage_illness_1 ul{
+    padding: .5rem;
+    margin:0 .4rem;
+    font-size: .7rem;
 }
 .personage_illness ul,.family_illness ul{
     padding: .5rem;

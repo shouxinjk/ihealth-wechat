@@ -53,16 +53,13 @@ a {text-decoration:none !important;}
 	position: relative;
 }
 
-
-
-
-
-
 .relevance ul{
     display: inline-block;
 }
 .relevance ,.relevance ul{
-    padding: 0;}
+    padding: 0;
+    width:100%;
+    }
 .relevance ul li{
     list-style: none;
     float: left;
@@ -75,7 +72,7 @@ a {text-decoration:none !important;}
     font-size: .8rem;
     margin: 1.2%;
     line-height: 1rem;
-    width: 30%;
+   
 }
 .relevance ul .relevanceMY{
     background: #9b91f5;

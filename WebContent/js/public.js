@@ -14,13 +14,13 @@ $(function(){
         $('#li2').addClass('active');
         //$('.content').html(liveway);
         tagCategory(userId);
-        liv();
+        //liv();
     }
     if(thisId == '#disease_information'){	//疾病信息
         $('#li1').removeClass('active');
         $('#li3').addClass('active');
         listDisease(userId);
-        disease();
+        //disease();
     }
     if(thisId == '#Care_People'){			//关心的人
         $('#li1').removeClass('active');
@@ -31,47 +31,44 @@ $(function(){
 });
 //生活方式
 function liv(id){
-    $('.ddiv').delegate("#"+id+" .liveul li","click" ,function(){
-            $('#'+id+' .liveul li').removeClass('livefs');
-            $(this).addClass('livefs');
-    });
+            $("#"+id+" li").click(function(){
+            	 $(this).siblings('li').removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
+                 $(this).addClass('livefs livefs_3');
+        	})
+    //});
 }
 
-//生活方式
-function duoliv(id){
-    $('.ddiv').delegate("#"+id+" .liveul li","click" ,function(){
-    		$(this).toggleClass('livefs');
-    });
+//生活方式livediv
+//function duoliv(id){
+	
+	//$("#"+id+" .liveul li").click(function(){$(this).toggleClass('livefs livefs_3');})
+   // $('.ddiv').delegate("#"+id+" .liveul li","click" ,function(){
+    		//$(this).toggleClass('livefs livefs_3');
+    //});
+//}
+
+function duoliv(){
+	
+	$(".livediv .liveul li").live('click',function(){$(this).toggleClass('livefs livefs_3');
+	 })
+
 }
 
-function duoDisliv(){
-    $('.content').delegate("li","click" ,function(){
-    		$(this).toggleClass('livefs');
-    });
+function duoDisliv_1(){
+	$('.personage_illness_1 ul li').click(function(){
+		$(this).toggleClass('livefs_1 livefs');
+	})
+}
+function duoDisliv_2(){
+	$('.personage_illness_2 ul li').click(function(){
+		$(this).toggleClass('livefs_2 livefs');
+	})
 }
 
-//疾病信息
-function disease(){
-    $(".personage_illness ul li").toggle(
-        function(){
-            $(this).removeClass("one");
-            $(this).addClass("two");
-        },
-        function(){
-            $(this).removeClass("two");
-            $(this).addClass("one");
-        }
-    );
-    $(".family_illness ul li").toggle(
-        function(){
-            $(this).removeClass("one");
-            $(this).addClass("two");
-        },
-        function(){
-            $(this).removeClass("two");
-            $(this).addClass("one");
-        }
-    )
+function duoDisliv_3(){
+	$('.personage_illness_3 ul li').click(function(){
+		$(this).toggleClass('livefs_3 livefs');
+	})
 }
 
 
@@ -90,17 +87,12 @@ $('.information_header .information_header_li').click(function(){
         Height();//身高 体重验证
     }
     if(liID == 'li2'){
-        //$('.content').html(liveway);
-        liv();
         tagCategory(userId);
     }
     if(liID == 'li3'){
-        //$('.content').html(illnessMassage);
-        disease();
         listDisease(userId);
     }
     if(liID == 'li4'){
-        //$('.content').html(Care_People);
         carep(userId);
     }
 });
@@ -162,7 +154,7 @@ function obtainId(){
 }
 
 function on_click2(userId){   //生活方式
-	duoDisliv();
+	//duoDisliv_1();
 	$.ajax({
 		url:"http://localhost:8080/ihealth/resttag/updateTag",
   		type:"post",
@@ -181,10 +173,6 @@ function on_click2(userId){   //生活方式
 			}
 		}
 	});
-	
- 
-   // liv();
-   
     $("#li3").addClass('active');
     $("#li2").removeClass('active');
 }
@@ -217,14 +205,14 @@ function listDisease(userId){//疾病信息
 				    			var IsInheritableDiseaseData = eval(r.IsInheritableDiseaseData);//家族疾病
 				    			var IsHighIncidence = eval(r.IsHighIncidence);//关注疾病（高发疾病）
 				    			str+="<h4 class='personage col-lg-12 col-xs-12 col-md-12 col-sm-12'>个人疾病信息</h4>"+
-				                	 "<div class='personage_illness  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+				                	 "<div class='personage_illness_1  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 				                	 	"<ul>";
 				    			for(var i=0;i<allData.length;i++){
 				    				str+= "<li ";
 				    				if(urallData!=undefined){
 				    					for(var j=0;j<urallData.length;j++){
 					    					if(allData[i].DISEASE_ID == urallData[j].DISEASE_ID){
-					    						str+= "class='livefs'";
+					    						str+= "class='livefs_1 livefs'";
 					    					}
 					    				}
 				    				}
@@ -233,14 +221,14 @@ function listDisease(userId){//疾病信息
 				    			str += "</ul>"+
 				               			"</div>"+
 						                "<h4 class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>家族疾病信息</h4>"+
-						                "<div class='family_illness  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+						                "<div class='personage_illness_2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 						                   "<ul>";
 				    			for(var i=0;i<IsInheritableDiseaseData.length;i++){
 				    				str+= "<li ";
 				    				if(urIsInheritableDiseaseData!=undefined){
 					    				for(var j=0;j<urIsInheritableDiseaseData.length;j++){
 					    					if(IsInheritableDiseaseData[i].DISEASE_ID == urIsInheritableDiseaseData[j].DISEASE_ID){
-					    						str+= "class='livefs'";
+					    						str+= "class='livefs_2 livefs'";
 					    					}
 					    				}
 				    				}
@@ -250,14 +238,14 @@ function listDisease(userId){//疾病信息
 				    			str += "</ul>"+
 				       			"</div>"+
 				                "<h4 class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>关注疾病信息</h4>"+
-				                "<div class='family_illness  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+				                "<div class='personage_illness_3  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 				                   "<ul>";
 				    			for(var i=0;i<IsHighIncidence.length;i++){
 				    				str+= "<li ";
 				    				if(urIsHighIncidence!=undefined){
 					    				for(var j=0;j<urIsHighIncidence.length;j++){
 					    					if(IsHighIncidence[i].DISEASE_ID == urIsHighIncidence[j].DISEASE_ID){
-					    						str+= "class='livefs'";
+					    						str+= "class='livefs_3 livefs'";
 					    					}
 					    				}
 				    				}
@@ -266,7 +254,7 @@ function listDisease(userId){//疾病信息
 				    			}
 				    			str+=  "</ul>"+
 				                "</div>"  +
-				                "<div class='message_next3  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+				                "<div class='message_next3  col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
 				                 "<p style=\"display: block\">";
 				    			if(userId == ReadCookie("userId")){
 				    				 str+="<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='on_click3(\""+userId+"\")'>下一步</a>" ;
@@ -277,6 +265,9 @@ function listDisease(userId){//疾病信息
 				                str+= "</p>" +
 				                "</div>" ;
 				    			  $('.content').html(str);
+				    			  duoDisliv_1();
+				    			  duoDisliv_2();
+				    			  duoDisliv_3();
 				    		}
 				    	}
 				    });
@@ -304,8 +295,6 @@ function on_click3(userId){   //关心的人
 			}
 		}
 	});
-   
-//    liv();
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
 }
@@ -323,18 +312,16 @@ function carep(userId){
   		dataType : "json",
   		async : false,
 		cache : false,
-		success:function(r){alert(r.result)
-			
-//			if(r.result == "success"){
+		success:function(r){
 				var str = "<div class=\"Care\">";
 				var data = eval(r.data);
 				if(data!=undefined){
 					for(var i=0;i<data.length;i++){
 						str+="<div class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 								"<div class=\"Care_img col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
-									
+									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+
-								"<span class=\"col-lg-9 col-xs-9 col-md-9 col-sm-9\">"+data[i].USERNAME+"</span>"+
+								"<span class=\"col-lg-9 col-xs-9 col-md-9 col-sm-9\">"+data[i].NAME+"</span>"+
 							"</div>";
 					}
 				}

@@ -11,11 +11,9 @@
 </head>
 <body>
 <div class="container">
-    <div class="relevance col-lg-12 col-xs-12 col-md-12 col-sm-12">
-        <ul class="relevance col-lg-12 col-xs-12 col-md-12 col-sm-12">
-            <li id='my' class="relevanceMY col-lg-4 col-xs-4 col-md-4 col-sm-4">自己</li>
-            <li id='father' class="col-lg-4 col-xs-4 col-md-4 col-sm-4">老爸</li>
-            <li id='mather' class="col-lg-4 col-xs-4 col-md-4 col-sm-4">老妈</li>
+    <div class="relevance ">
+        <ul class="relevance ">
+            <li id='my' class="relevanceMY">自己</li>
         </ul>
     </div>
     <div class="cont col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -54,8 +52,9 @@
 <script type="text/javascript" src="../js/URL.js"></script>
 <script type="text/javascript" src="../js/content.js"></script><!--cookie-->
 <script type="text/javascript">
+var userId  = ReadCookie("userId");
 $(document).ready(function () {
-	var userId  = ReadCookie("userId");
+	
 	function ReadCookie(cookieName) {
 	    var theCookie = "" + document.cookie;
 	    var ind = theCookie.indexOf(cookieName);
@@ -68,11 +67,38 @@ $(document).ready(function () {
         $('.My_health_img ').attr("src", "../images/My_health_1.png");
         $('.My_health span').css('color','rgb(126, 200, 136)');
         var deluserId =delCookie("userId");
-        console.log(userId);
    <!--我的体检项目-->
-   guanlian(userId);
-   intn(userId);
+   		intn(userId);
+   		relevance(userId);
 });       
+
+function relevance(userId){    //获取关联用户名
+	$.ajax({
+		url:"http://localhost:8080/ihealth/rest/findUsersById",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"userId" : userId
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(r){
+				var data = eval(r.data);
+				var str = "";
+					for(var i=0;i<data.length;i++){
+						str+="<li id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
+					}
+				$('#my').attr("onclick","guanlian1('"+userId+"')");
+				 $('#my').after(str);
+			}
+	});
+}
+
+
+
+
 
 function intn(userId){
 	$.ajax({
@@ -82,17 +108,16 @@ function intn(userId){
         data: JSON.stringify({"userId":userId}),
         dataType: "json",
         success: function (r) {
+        	 $('.xmtable').html("");
         	 if (r.result == "success") {
 	        	 if(r.data.length>0){ 
+	        		
 	        		 $(r.data).each(function (i){
 	        			 var status= r.data[i].STATUS;
 	        			 var checkupItemId= r.data[i].CHECKUPITEM_ID;
-	        		
-	        			 console.log(userId);
 	        			 //通过状态判断项目是否显示
 	        			 var cont='';
 	        			 if(!(status == "已删除")){
-	        				 console.log(status);
 		        			 cont = '<div class="touch item col-lg-12 col-xs-12 col-md-12 col-sm-12" id="touch'+i+'" userAddressId="1" ">';
 		        		        cont += '<div class="jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
 		        		                    '<span class="jcxm col-lg-3 col-xs-3 col-md-3 col-sm-3" ">检查项目：</span>' +
@@ -123,7 +148,6 @@ function intn(userId){
 	        			 setTimeout(function(){
 	        				 $('.xmtable').append(cont);
 	        				 $('.touch').fadeIn("slow");
-	        				    
 	        				  }, 300);
 	                    
 	        		 		});
@@ -148,17 +172,11 @@ function intn(userId){
 			        dataType: "json",
 			        success: function (r) {
 			        	if (r.result == "success") {
-					        	//$(this).parent().parent().parent().parent().remove();
 					        	var userId  = ReadCookie("userId");
-					        	 //$('.xmtable').html("");
-					        	
-					        	console.log('删除成功');
 					        	  $('.xmtable').html("");
 					        	if(status == '已删除'){
-					       
 					        		intn(userId);
 					        	}else if(status == '已选中'){
-					        		
 					        		 $('.weui_dialog_alert').css("display","none");
 						        	intn(userId);
 					        	}
@@ -172,18 +190,43 @@ function intn(userId){
 
 
 //        关联
-function guanlian(userId){
-    $('.relevance').delegate(".relevance li","click" ,function(){
-        
-       var IDname = $(".relevance li").attr("id"); 
-        if(IDname == 'my'){
-        	intn(userId);
+function guanlian(id){
+   // $('.relevance').delegate(".relevance li","click" ,function(){
+      		var user_id = $("#"+id).find("input").val();
+        	intn(user_id);
         	$('.relevance li').removeClass('relevanceMY');
-            $(this).addClass('relevanceMY');
-        }else {
-        	
-        }
-    });
+            $("#"+id).addClass('relevanceMY');
+            //getuser(userId);
+     //   });
     }
+function guanlian1(id){
+	   // $('.relevance').delegate(".relevance li","click" ,function(){
+	        	intn(id);
+	        	$('.relevance li').removeClass('relevanceMY');
+	            $("#my").addClass('relevanceMY');
+	            //getuser(userId);
+	     //   });
+	    }
+    
+    function getuser(userId){
+    	$.ajax({
+    		url:"http://localhost:8080/ihealth/rest/findUsersById",
+      		type:"post",
+      		contentType:'application/json;charset=utf8',
+      		data:JSON.stringify({"userId" : userId}),
+      		dataType : "json",
+      		async : false,
+    		cache : false,
+    		success:function(r){
+    			 if(r.data.length>0){ 
+	        		 $(r.data).each(function (i){
+	        			  });
+    			 		}
+	        		 }
+    		
+    	});
+    }
+    
+    
 </script>
 </html>
