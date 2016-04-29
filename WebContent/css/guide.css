@@ -35,7 +35,12 @@ a {text-decoration:none !important;}
     font-size: 0.4rem;
     color: black;
     padding: 0;
-    margin-bottom: .2rem;
+    padding-top: 0.5rem;
+    padding-bottom: .2rem;
+    border-bottom: 0.06rem solid gray;
+}
+a.article{
+	border-bottom:0.06rem solid rgb(216, 209, 209);
 }
 .guidecont .article_cont h3{
     font-size: 0.9rem;
@@ -48,7 +53,7 @@ a {text-decoration:none !important;}
     float: left;
     padding: .5rem 0 0 0;
     margin-bottom: 2rem;
-    border-bottom: 0.06rem dashed gray;
+
     background: #ffffff;
 }
 .article_img{
@@ -82,39 +87,46 @@ img.article_img{
 }
 .footer span {
     border: 0.01rem solid #e9ebec;
-    /*padding: 0.1rem 0.3rem;*/
-    font-size: 0.8rem;
-    /*width: 5.5rem;*/
-    display: block;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
+	/* padding: 0.1rem 0.3rem; */
+	font-size: 0.8rem;
+	/* width: 5.5rem; */
+	display: block;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	text-align: center;
 }
-.footer a{
+/*.footer a{
     padding: 0;
-}
+}*/
 
 .footer a .TJ_guide_img{
-	height: 2.3rem;
-	width: 2.3rem;
- 	margin-left: 29%;
+	height: 1.5rem;
+	width: 1.5rem;
+	/* margin-left: 36%; */
+	margin-bottom: .1rem;
+	margin-top: .7rem;
 }
 .footer a .my_message_img {
-	height: 2.3rem;
-	width: 2.3rem;
- 	margin-left: 29%;
+	height: 1.5rem;
+	width: 1.5rem;
+ 	margin-bottom: .1rem;
+	margin-top: .7rem;
 }
-.My_health span{
-	margin-top:.32rem;
-}
+
 .footer a img{
    margin-left: 31%;
-	width: 2rem;
-	height: 2rem;
+	height: 1.5rem;
+	width: 1.5rem;
 	top: .2rem;
 	position: relative;
 }
-
+.footer a .My_health_img  {
+	height: 1.5rem;
+	width: 1.5rem;
+	/* margin-left: 36%; */
+	margin-bottom: .1rem;
+	margin-top: .7rem;
+}
 
 
 

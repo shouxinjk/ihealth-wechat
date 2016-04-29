@@ -122,8 +122,8 @@ function wxdu(userId){
     
     
     
-var  basic = "<table style='display: block; width:100%;'>" +
-    "<tbody style='display: block' >" +
+var  basic = "<table style='display: block; width:100%;height:100%;'>" +
+    "<tbody style='display: block;width:100%;height:100%;' >" +
     "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
     "<td>姓名：</td>" +
             "<td>" +

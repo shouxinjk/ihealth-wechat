@@ -411,7 +411,8 @@ function addUserAndUser(userId){
   		data:JSON
   			.stringify({
   				"userId" : user_id,
-  				"user_Id":userId
+  				"user_Id":userId,
+  				"connection":"好友"
   			}),
   		dataType : "json",
   		async : false,
