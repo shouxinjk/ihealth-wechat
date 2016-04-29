@@ -38,20 +38,8 @@ $(document).ready(function () {
     }
  
     
-    var userNumber= $('#userNumber').text();
-	var tagNumber= $('#tagNumber').text();
-	var diseaseNumber= $('#diseaseNumber').text();
-	var connectionNumber= $('#connectionNumber').text();
-	if((userNumber >='0%')  &&( userNumber<'30%')){
-		$('#userNumber').css("color",'red');
-	}
-	else if((userNumber <="80%" )&& (userNumber>='30%')){
-		$('#userNumber').css("color",'rgb(247, 38, 205)');
-	}
-	else if((userNumber <='100%') && (userNumber>'80%')){
-		console.log(userNumber);
-		$('#userNumber').css("color",'#00ff00');
-	}
+  
+	
     
 
 function wxdu(userId){
@@ -67,26 +55,66 @@ function wxdu(userId){
 		success : function(r) {
 			if (r.result == "success") {
 				var data = eval(r.data);
-				$('#userNumber').text(data.userNumber +'%');//
-				$('#tagNumber').text(data.tagNumber +'%');
-				$('#diseaseNumber').text(data.diseaseNumber +'%');
-				$('#connectionNumber').text(data.connectionNumber +'%');
-				var userNumber= $('#userNumber').text();
-				var tagNumber= $('#tagNumber').text();
-				var diseaseNumber= $('#diseaseNumber').text();
-				var connectionNumber= $('#connectionNumber').text();
+				$('#userNumber em').text(data.userNumber);//
+				$('#tagNumber em').text(data.tagNumber);
+				$('#diseaseNumber em').text(data.diseaseNumber );
+				$('#connectionNumber em').text(data.connectionNumber);
+				var userNumber= $('#userNumber em').text();
+				var tagNumber= $('#tagNumber em').text();
+				var diseaseNumber= $('#diseaseNumber em').text();
+				var connectionNumber= $('#connectionNumber em').text();
+				
+				
+
+				if((userNumber >=0)  &&( userNumber<=30)){ //基本信息
+						$('#userNumber').css("color",'red');
+					}
+					else if((userNumber <=80 )&& (userNumber>30)){
+						$('#userNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((userNumber <=100) && (userNumber>80)){
+						$('#userNumber').css("color",'#00ff00');
+					}
+				
+				
+				if((tagNumber >=0)  &&( tagNumber<=30)){//生活方式
+						$('#tagNumber').css("color",'red');
+					}
+					else if((tagNumber <=80 )&& (tagNumber>30)){
+						$('#tagNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((tagNumber <=100) && (tagNumber>80)){
+						$('#tagNumber').css("color",'#00ff00');
+					}
+					
+				
+				if((diseaseNumber >=0)  &&( diseaseNumber<=30)){//疾病信息
+						$('#diseaseNumber').css("color",'red');
+					}
+					else if((diseaseNumber <=80 )&& (diseaseNumber>30)){
+						$('#diseaseNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((diseaseNumber <=100) && (diseaseNumber>80)){
+						$('#diseaseNumber').css("color",'#00ff00');
+					}
+
+
+
+				if((connectionNumber >=0)  &&( connectionNumber<=30)){//关心的人
+						$('#connectionNumber').css("color",'red');
+					}
+					else if((connectionNumber <=80 )&& (connectionNumber>30)){
+						$('#connectionNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((connectionNumber>80) && (connectionNumber <=100)){
+						$('#connectionNumber').css("color",'#00ff00');
+					}
 				
 			}
 		}
 
 	});
 }
-    
-    
-    
-    
-    
-    
     
     
     

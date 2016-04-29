@@ -12,6 +12,7 @@ a {text-decoration:none !important;}
 .container{
     /*margin: 2%;*/
     height: 100%;
+    padding:0;
 }
 header {
     width: 100%;
@@ -108,7 +109,7 @@ span.Username {
     -moz-box-margin-top: .03rem;
     -ms-margin-top: .03rem;
 }
-.container .content i{
+.container .content i,em{
     font-style:normal;
 }
 
@@ -117,6 +118,7 @@ span.Username {
     right: 0;
     /*right: 16%;*/
     /*top: 33%;*/
+    font-weight: bolder;
     line-height: 3rem;
     font-size: 0.6rem;
     padding: 0;
