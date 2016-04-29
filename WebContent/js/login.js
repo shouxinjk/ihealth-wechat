@@ -15,7 +15,7 @@ $('.verification_code'). click (function (){
 //   }
    $.ajax({
        type: "post",
-       url: "http://localhost:8080/ihealth/rest/register",
+       url: url+"/rest/register",
        contentType:"application/json;charset=utf8",
        data: JSON.stringify({"phone":mobilep,"openId":"ajshskdha"}),
        dataType: "json",
