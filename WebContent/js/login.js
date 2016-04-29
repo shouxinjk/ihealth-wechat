@@ -1,7 +1,8 @@
 $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
-$('.verification_code'). click (function (){
+$('.verification_code').click (function (){
+	var openId = $("#openId").val();
     var mobilep = $('.vali').val();
    if(!mobilep.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
        $(".vali").val('');
@@ -14,10 +15,10 @@ $('.verification_code'). click (function (){
 	   
 //   }
    $.ajax({
+       url: "http://www.shouxinjk.net/ihealth/rest/register",
        type: "post",
-       url: "http://localhost:8080/ihealth/rest/register",
        contentType:"application/json;charset=utf8",
-       data: JSON.stringify({"phone":mobilep,"openId":"ajshskdha"}),
+       data: JSON.stringify({"phone":mobilep,"openId":openId}),
        dataType: "json",
        success: function (r) {
            if (r.result == "success") {
@@ -25,21 +26,19 @@ $('.verification_code'). click (function (){
         	   SetCookie("mobilep",mobilep,7);
         	   SetCookie("userId",userId,7);
         	   alert("注册成功");
-        	   window.location="subject/Message.html?userId="+r.data.USER_ID;
+        	   window.location="http://www.shouxinjk.net/wechat/subject/Message.jsp?userId="+r.data.USER_ID;
            }else if(r.result == "existence"){
         	   var userId = r.data.USER_ID;
         	   SetCookie("mobilep",mobilep,7);
         	   SetCookie("userId",userId,7);
         	   alert("该手机号已经注册"+ r.data.USER_ID);
-        	   window.location ="subject/Message.html?userId="+r.data.USER_ID;
+        	   window.location="http://www.shouxinjk.net/wechat/subject/Message.jsp?userId="+r.data.USER_ID;
            }
        },
        error: function () {
            alert("注册失败!");
        }
    });
-   
- 
 });
 
 
