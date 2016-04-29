@@ -22,7 +22,7 @@
 
 function relevance(userId){    //获取关联用户名
 	$.ajax({
-		url:"http://localhost:8080/ihealth/rest/findUsersById",
+		url:url+"/rest/findUsersById",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON

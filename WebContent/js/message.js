@@ -1,3 +1,99 @@
+
+$(document).ready(function () {
+    	function ReadCookie(cookieName) {
+    	    var theCookie = "" + document.cookie;
+    	    var ind = theCookie.indexOf(cookieName);
+    	    if(ind==-1 || cookieName=="") return "";
+    	    var ind1 = theCookie.indexOf(';',ind);
+    	    if(ind1==-1) ind1 = theCookie.length;
+    	    /*读取Cookie值*/
+    	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+    	}
+        $('.my_message_img ').attr("src", "../images/my_message_1.png");
+        $('.my_message span').css('color','rgb(126, 200, 136)');
+        var userId  = ReadCookie("userId");
+        Usern(userId);
+        wxdu(userId);
+    });
+    function Usern(userId){
+		//用户名
+		$.ajax({
+			type : "post",
+			url : url+"/rest/findUserById",
+			contentType : "application/json;charset=utf8",
+			data : JSON.stringify({
+				"userId" : userId
+			}),
+			dataType : "json",
+			success : function(r) {
+				if (r.result == "success") {
+					var data = eval(r.data);
+					$('.Username').text(data.NAME);//获取姓名
+					
+				}
+			}
+
+		});
+
+    }
+ 
+    
+    var userNumber= $('#userNumber').text();
+	var tagNumber= $('#tagNumber').text();
+	var diseaseNumber= $('#diseaseNumber').text();
+	var connectionNumber= $('#connectionNumber').text();
+	if((userNumber >='0%')  &&( userNumber<'30%')){
+		$('#userNumber').css("color",'red');
+	}
+	else if((userNumber <="80%" )&& (userNumber>='30%')){
+		$('#userNumber').css("color",'rgb(247, 38, 205)');
+	}
+	else if((userNumber <='100%') && (userNumber>'80%')){
+		console.log(userNumber);
+		$('#userNumber').css("color",'#00ff00');
+	}
+    
+
+function wxdu(userId){
+//用户名
+	$.ajax({
+		type : "post",
+		url : url+"/rest/findMessageIntegrity",
+		contentType : "application/json;charset=utf8",
+		data : JSON.stringify({
+			"userId" : userId
+		}),
+		dataType : "json",
+		success : function(r) {
+			if (r.result == "success") {
+				var data = eval(r.data);
+				$('#userNumber').text(data.userNumber +'%');//
+				$('#tagNumber').text(data.tagNumber +'%');
+				$('#diseaseNumber').text(data.diseaseNumber +'%');
+				$('#connectionNumber').text(data.connectionNumber +'%');
+				var userNumber= $('#userNumber').text();
+				var tagNumber= $('#tagNumber').text();
+				var diseaseNumber= $('#diseaseNumber').text();
+				var connectionNumber= $('#connectionNumber').text();
+				
+			}
+		}
+
+	});
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 var  basic = "<table style='display: block; width:100%;'>" +
     "<tbody style='display: block' >" +
     "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
