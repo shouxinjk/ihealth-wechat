@@ -278,8 +278,12 @@ min-height: 2rem;
 }
 
 
-
-
+input.Wdate {
+width: 70%;
+}
+select#pro, #pro1{
+width: 47%;
+}
 
 
 
