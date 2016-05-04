@@ -39,6 +39,6 @@
 </body>
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="../js/URL.js"></script>
+<script type="text/javascript" src="js/URL.js"></script>
 <script type="text/javascript" src="js/content.js"></script>
 </html>

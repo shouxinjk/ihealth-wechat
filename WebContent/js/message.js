@@ -133,9 +133,9 @@ function wxdu(userId){
     
     
 var guanxin ="<tr id='guanxin' class='occupation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-		"<td>关系：</td>" +
+		"<td>关系:</td>" +
 		"<td>" +
-		 "<input id='s3' type='text' placeholder='如:\"父子!\"/>" +
+		 "&nbsp;<input id='s3' type='text' placeholder='如:父子!'/>" +
 		"</td>" +
 		"</tr>" ; 
     
