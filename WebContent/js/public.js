@@ -112,6 +112,7 @@ function Height(){
 
 //next 基本信息保存下一步
 function msgsave(userId){
+	
 	var SEX = $(".Sex input[name='Sex']:checked").val();
 	if(SEX == 'man'){
 		SEX = '男';
@@ -173,6 +174,7 @@ function on_click2(userId){   //生活方式
 			}
 		}
 	});
+	$('#guanxin').css('display','none');
     $("#li3").addClass('active');
     $("#li2").removeClass('active');
 }
@@ -295,6 +297,7 @@ function on_click3(userId){   //关心的人
 			}
 		}
 	});
+	$('#guanxin').css('disply','none');
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
 }
@@ -321,7 +324,8 @@ function carep(userId){
 								"<div class=\"Care_img col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+
-								"<span class=\"col-lg-9 col-xs-9 col-md-9 col-sm-9\">"+data[i].NAME+"</span>"+
+								"<span class=\"col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+data[i].NAME+"</span>"+
+								"<span class=\"col-lg-4 col-xs-4 col-md-4 col-sm-4\">"+data[i].connection+"</span>"+
 							"</div>";
 					}
 				}
@@ -344,7 +348,7 @@ function addUser(){
     "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
     "<td>电话：</td>" +
             "<td>" +
-                "<input id='phone' type='text' maxlength='11'/>" +
+                "<input id='phone' type='text' maxlength='11' placeholder='请输入您要关心人的手机号！'/>" +
             "</td>" +
         "</tr>" +
         "<tr class='message_next  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
@@ -361,7 +365,7 @@ function addUser(){
 
 
 
-function lookupUser(){
+function lookupUser(userId){
 	var phone = $("#phone").val();
 	   if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
 	       $("#phone").val('');
@@ -376,7 +380,8 @@ function lookupUser(){
   		contentType:'application/json;charset=utf8',
   		data:JSON
   			.stringify({
-  				"phone" : phone
+  				"phone" : phone,
+  				"openId":""
   			}),
   		dataType : "json",
   		async : false,
@@ -394,6 +399,7 @@ function lookupUser(){
 
 function findByUserId(userId){
 	$('.content').html(basic);
+	$(".information_header").append(guanxin);
 	$("#li1,#li2,#li3").css('display','none');
 	$('#li4').css('margin-left', '40%');
 	 $.initProv("#pro", "#city", "北京市", "北京市");
@@ -404,6 +410,8 @@ function findByUserId(userId){
 
 function addUserAndUser(userId){
 	var user_id = ReadCookie("userId");
+	var connection = ReadCookie("connection");
+	alert(connection);
 	$.ajax({
 		url:url+"/rest/saveUserAndUser",
   		type:"post",
@@ -412,7 +420,7 @@ function addUserAndUser(userId){
   			.stringify({
   				"userId" : user_id,
   				"user_Id":userId,
-  				"connection":"好友"
+  				"connection":connection
   			}),
   		dataType : "json",
   		async : false,

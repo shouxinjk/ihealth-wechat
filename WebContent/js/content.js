@@ -9,7 +9,7 @@ function SetCookie(cookieName,cookieValue,nDays) {
             /*计算Cookie过期时间*/
             expire.setTime(today.getTime() + 3600000 * 24 * nDays);
             /*设置Cookie值*/
-            document.cookie = cookieName + "=" + escape(cookieValue)
+            document.cookie = cookieName + "=" + encodeURIComponent(cookieValue)
                     + ";expires=" + expire.toGMTString();
         }
 
@@ -21,7 +21,7 @@ function SetCookie(cookieName,cookieValue,nDays) {
 	    var ind1 = theCookie.indexOf(';',ind);
 	    if(ind1==-1) ind1 = theCookie.length;
 	    /*读取Cookie值*/
-	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	    return decodeURIComponent(theCookie.substring(ind+cookieName.length+1,ind1));
 	}
 
 	function delCookie(cookieName)//删除cookie

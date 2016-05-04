@@ -9,10 +9,6 @@ $('.verification_code'). click (function (){
        $('.verification_code').css('background',"#e9ebec");
        return;
    }
-//   else{
-//       window.location ="subject/Message.html";
-	   
-//   }
    $.ajax({
        type: "post",
        url: url+"/rest/register",

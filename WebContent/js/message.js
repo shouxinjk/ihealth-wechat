@@ -68,46 +68,58 @@ function wxdu(userId){
 
 				if((userNumber >=0)  &&( userNumber<=30)){ //基本信息
 						$('#userNumber').css("color",'red');
+						$('#userNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 					}
 					else if((userNumber <=80 )&& (userNumber>30)){
 						$('#userNumber').css("color",'rgb(247, 38, 205)');
+						$('#userNumber').css("background-image", "url(\"../images/jiantou2.png\")");
 					}
 					else if((userNumber <=100) && (userNumber>80)){
 						$('#userNumber').css("color",'#00ff00');
+						$('#userNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 					}
 				
 				
 				if((tagNumber >=0)  &&( tagNumber<=30)){//生活方式
 						$('#tagNumber').css("color",'red');
+						$('#tagNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 					}
 					else if((tagNumber <=80 )&& (tagNumber>30)){
 						$('#tagNumber').css("color",'rgb(247, 38, 205)');
+						$('#tagNumber').css("background-image", "url(\"../images/jiantou2.png\")");
 					}
 					else if((tagNumber <=100) && (tagNumber>80)){
 						$('#tagNumber').css("color",'#00ff00');
+						$('#tagNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 					}
 					
 				
 				if((diseaseNumber >=0)  &&( diseaseNumber<=30)){//疾病信息
 						$('#diseaseNumber').css("color",'red');
+						$('#diseaseNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 					}
 					else if((diseaseNumber <=80 )&& (diseaseNumber>30)){
 						$('#diseaseNumber').css("color",'rgb(247, 38, 205)');
+						$('#diseaseNumber').css("background-image", "url(\"../images/jiantou2.png\")");
 					}
 					else if((diseaseNumber <=100) && (diseaseNumber>80)){
 						$('#diseaseNumber').css("color",'#00ff00');
+						$('#diseaseNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 					}
 
 
 
 				if((connectionNumber >=0)  &&( connectionNumber<=30)){//关心的人
 						$('#connectionNumber').css("color",'red');
+						$('#connectionNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 					}
 					else if((connectionNumber <=80 )&& (connectionNumber>30)){
 						$('#connectionNumber').css("color",'rgb(247, 38, 205)');
+						$('#connectionNumber').css("background-image", "url(\"../images/jiantou2.png\")");
 					}
 					else if((connectionNumber>80) && (connectionNumber <=100)){
 						$('#connectionNumber').css("color",'#00ff00');
+						$('#connectionNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 					}
 				
 			}
@@ -120,7 +132,12 @@ function wxdu(userId){
     
     
     
-    
+var guanxin ="<tr id='guanxin' class='occupation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+		"<td>关系：</td>" +
+		"<td>" +
+		 "<input id='s3' type='text' placeholder='如:\"父子!\"/>" +
+		"</td>" +
+		"</tr>" ; 
     
 var  basic = "<table style='display: block; width:100%;height:100%;'>" +
     "<tbody style='display: block;width:100%;height:100%;' >" +

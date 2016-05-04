@@ -31,32 +31,31 @@ a {text-decoration:none !important;}
 }
 
 .footer a .TJ_guide_img{
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1rem;
+	width: 1rem;
 	/* margin-left: 36%; */
 	margin-bottom: .1rem;
-	margin-top: .7rem;
+	margin-top: 1.2rem;
 }
 .footer a .my_message_img {
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1rem;
+	width: 1rem;
  	margin-bottom: .1rem;
-	margin-top: .7rem;
+	margin-top: 1.2rem;
 }
 
 .footer a img{
    margin-left: 31%;
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1rem;
+	width: 1rem;
 	top: .2rem;
 	position: relative;
 }
 .footer a .My_health_img {
-height: 1.5rem;
-width: 1.5rem;
-/* margin-left: 36%; */
-margin-bottom: .1rem;
-margin-top: .7rem;
+	height: 1rem;
+	width: 1rem;
+	margin-bottom: .1rem;
+	margin-top: 1.2rem;
 }
 .relevance ul{
     display: inline-block;
@@ -107,6 +106,22 @@ article {
     /*display: -ms-flexbox;	  *//* TWEENER - IE 10 */
     /*display: -webkit-flex;	 *//* NEW - Chrome */
     /*display: flex;*/
+}
+.weui_btn_primary {
+ background-color: #ffffff;
+}
+.weui_btn:after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: none;
+	-webkit-transform: scale(.5);
+	transform: scale(.5);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	box-sizing: border-box;
+	border-radius: 10px;
 }
 .jcxm,.source{
 

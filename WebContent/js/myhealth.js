@@ -74,7 +74,7 @@ function intn(userId){
 		        		        cont += '<div class="zhiN col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
 		        		                    '<span class="source col-lg-3 col-xs-3 col-md-3 col-sm-3">指南来源：</span>' +
 		        		                    '<div class="source_adr col-lg-9 col-xs-9 col-md-9 col-sm-9">'+r.data[i].ORIGINATE+'</div></div>';
-		        		        cont += '<div class="deletli"><a href=\"javascript:del('+r.data[i].CHECKUPITEM_ID+',\''+status+'\',\''+userId+'\')\" id="de'+i+'" class="remove weui_btn weui_btn_mini weui_btn_primary" style="float:right;">删除</a></div>';
+		        		        cont += '<div class="deletli"><a href=\"javascript:del('+r.data[i].CHECKUPITEM_ID+',\''+status+'\',\''+userId+'\')\" id="de'+i+'" class="remove weui_btn weui_btn_mini weui_btn_primary" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a></div>';
 		        		        
 		        		        cont += '</div>';
 	        		        }else{
@@ -87,7 +87,7 @@ function intn(userId){
 			        		        cont += '<div class="zhiN col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
 			        		                    '<span class="source col-lg-3 col-xs-3 col-md-3 col-sm-3" style="color: #BEBABA">指南来源：</span>' +
 			        		                    '<div class="source_adr col-lg-9 col-xs-9 col-md-9 col-sm-9" style="color: #BEBABA">'+r.data[i].ORIGINATE+'</div></div>';
-			        		        cont += '<div class="deletli"><a href=\"javascript:del('+r.data[i].CHECKUPITEM_ID+',\''+status+'\',\''+userId+'\')\" id="de'+i+'" class="remove weui_btn weui_btn_mini weui_btn_primary" style="background-color: #828B82;color: #ffffff;float:right">恢复</a></div>';
+			        		        cont += '<div class="deletli"><a href=\"javascript:del('+r.data[i].CHECKUPITEM_ID+',\''+status+'\',\''+userId+'\')\" id="de'+i+'" class="remove weui_btn weui_btn_mini weui_btn_primary" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/huifu.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
 			        		       
 			        		        cont += '</div>';
 	        		        }

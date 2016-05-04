@@ -26,7 +26,6 @@ function jibenxinxi(userId){
 					$('.Wdate').val(data.BIRTHDAY);//获取生日
 					$('.height').val(data.HEIGHT);//获取身高
 					$('.weigth').val(data.WEIGHT);//获取体重
-					console.log(sex)
 					if (sex == '女') {
 						$('#girl').attr("checked", "true");
 						$('#boy').removeAttr("checked");
@@ -44,24 +43,18 @@ function jibenxinxi(userId){
 
 	function on_click() { //基本信息
 		var userId = $("#user_id").val();
-		//liv();
 		var Height = $('.height').val();
 		var Weigth = $('.weigth').val();
 		var Username = $('#username').val();
-		//      if(Height!=''&& Weigth!=''&&Username!=''){
-		//
-		//      }
-		//if(Height!=''&& Weigth!=''&&Username!=''){
-		//	console.log(userId);
+		var connection= $("#s3").val();
+		SetCookie("connection",connection,7);
+		$('#guanxin').css('display','none');
 		msgsave(userId);//基本信息保存
-
 		tagCategory(userId);
-		//}
+		var connection =  ReadCookie("connection");
 		$("#li2").addClass('active');
 		$("#li1").removeClass('active');
 	}
-
-	
 	//获取生活方式
 	function tagCategory(userId) {
 		$.ajax({
@@ -137,8 +130,7 @@ function jibenxinxi(userId){
 														+ "<input type='hidden' value='"+data1[a].TAG_ID+"'/></li>";
 													}
 													str1 += "</ul>";
-													$("#ddiv" + (j + 1))
-															.append(str1);
+													$("#ddiv" + (j + 1)).append(str1);
 													
 												}
 											}
@@ -150,6 +142,7 @@ function jibenxinxi(userId){
 
 							
 						}
+						
 					}
 				});
 	}
