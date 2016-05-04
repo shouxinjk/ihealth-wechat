@@ -22,6 +22,7 @@ function SetCookie(cookieName,cookieValue,nDays) {
 	    if(ind1==-1) ind1 = theCookie.length;
 	    /*读取Cookie值*/
 	    return decodeURIComponent(theCookie.substring(ind+cookieName.length+1,ind1));
+
 	}
 
 	function delCookie(cookieName)//删除cookie
