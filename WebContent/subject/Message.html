@@ -26,7 +26,7 @@
                <!--   <span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">-->
                  <!--   <i></i>-->
               <!--  </span>-->
-                <i class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2">50%</i>
+                <i id='userNumber' class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2"><em></em>%</i>
             </a>
         </div>
         <div class="life_style col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -38,7 +38,7 @@
                 <!--<span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">-->
                   <!--  <i></i>-->
                <!-- </span>-->
-                <i class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2">50%</i>
+                <i id='tagNumber' class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2"><em></em>%</i>
             </a>
         </div>
         <div class="disease_information col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -49,7 +49,7 @@
                 <!--<span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">-->
                    <!--  <i></i>-->
                <!--  </span>-->
-                <i class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2">50%</i>
+                <i id='diseaseNumber' class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2"><em></em>%</i>
             </a>
         </div>
         <div class="Care_People col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -60,7 +60,7 @@
                    <!--<span class="project-progress2 col-lg-5 col-xs-5 col-md-5 col-sm-5">-->
                    <!-- <i></i>-->
                 <!--</span>-->
-                <i class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2">50%</i>
+                <i id='connectionNumber' class="live_percentage col-lg-2 col-xs-2 col-md-2 col-sm-2"><em></em>%</i>
             </a>
         </div>
     </div>
@@ -83,43 +83,6 @@
 <script type="text/javascript "src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../js/URL.js"></script>
 <script type="text/javascript" src="../js/content.js"></script><!--cookie-->
-<script type="text/javascript "src="../js/public.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-    	function ReadCookie(cookieName) {
-    	    var theCookie = "" + document.cookie;
-    	    var ind = theCookie.indexOf(cookieName);
-    	    if(ind==-1 || cookieName=="") return "";
-    	    var ind1 = theCookie.indexOf(';',ind);
-    	    if(ind1==-1) ind1 = theCookie.length;
-    	    /*读取Cookie值*/
-    	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
-    	}
-        $('.my_message_img ').attr("src", "../images/my_message_1.png");
-        $('.my_message span').css('color','rgb(126, 200, 136)');
-        var userId  = ReadCookie("userId");
-        Usern(userId);
-    });
-	function Usern(userId){
-		//用户名
-		$.ajax({
-			type : "post",
-			url : url+"/rest/findUserById",
-			contentType : "application/json;charset=utf8",
-			data : JSON.stringify({
-				"userId" : userId
-			}),
-			dataType : "json",
-			success : function(r) {
-				if (r.result == "success") {
-					var data = eval(r.data);
-					$('.Username').text(data.NAME);//获取姓名
-					
-				}
-			}
-
-		});
-		
-	}
-</script>
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript" src="../js/message.js"></script>
 </html>

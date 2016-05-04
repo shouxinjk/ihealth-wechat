@@ -1,5 +1,129 @@
-var  basic = "<table style='display: block; width:100%;'>" +
-    "<tbody style='display: block' >" +
+
+$(document).ready(function () {
+    	function ReadCookie(cookieName) {
+    	    var theCookie = "" + document.cookie;
+    	    var ind = theCookie.indexOf(cookieName);
+    	    if(ind==-1 || cookieName=="") return "";
+    	    var ind1 = theCookie.indexOf(';',ind);
+    	    if(ind1==-1) ind1 = theCookie.length;
+    	    /*读取Cookie值*/
+    	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+    	}
+        $('.my_message_img ').attr("src", "../images/my_message_1.png");
+        $('.my_message span').css('color','rgb(126, 200, 136)');
+        var userId  = ReadCookie("userId");
+        Usern(userId);
+        wxdu(userId);
+    });
+    function Usern(userId){
+		//用户名
+		$.ajax({
+			type : "post",
+			url : url+"/rest/findUserById",
+			contentType : "application/json;charset=utf8",
+			data : JSON.stringify({
+				"userId" : userId
+			}),
+			dataType : "json",
+			success : function(r) {
+				if (r.result == "success") {
+					var data = eval(r.data);
+					$('.Username').text(data.NAME);//获取姓名
+					
+				}
+			}
+
+		});
+
+    }
+ 
+    
+  
+	
+    
+
+function wxdu(userId){
+//用户名
+	$.ajax({
+		type : "post",
+		url : url+"/rest/findMessageIntegrity",
+		contentType : "application/json;charset=utf8",
+		data : JSON.stringify({
+			"userId" : userId
+		}),
+		dataType : "json",
+		success : function(r) {
+			if (r.result == "success") {
+				var data = eval(r.data);
+				$('#userNumber em').text(data.userNumber);//
+				$('#tagNumber em').text(data.tagNumber);
+				$('#diseaseNumber em').text(data.diseaseNumber );
+				$('#connectionNumber em').text(data.connectionNumber);
+				var userNumber= $('#userNumber em').text();
+				var tagNumber= $('#tagNumber em').text();
+				var diseaseNumber= $('#diseaseNumber em').text();
+				var connectionNumber= $('#connectionNumber em').text();
+				
+				
+
+				if((userNumber >=0)  &&( userNumber<=30)){ //基本信息
+						$('#userNumber').css("color",'red');
+					}
+					else if((userNumber <=80 )&& (userNumber>30)){
+						$('#userNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((userNumber <=100) && (userNumber>80)){
+						$('#userNumber').css("color",'#00ff00');
+					}
+				
+				
+				if((tagNumber >=0)  &&( tagNumber<=30)){//生活方式
+						$('#tagNumber').css("color",'red');
+					}
+					else if((tagNumber <=80 )&& (tagNumber>30)){
+						$('#tagNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((tagNumber <=100) && (tagNumber>80)){
+						$('#tagNumber').css("color",'#00ff00');
+					}
+					
+				
+				if((diseaseNumber >=0)  &&( diseaseNumber<=30)){//疾病信息
+						$('#diseaseNumber').css("color",'red');
+					}
+					else if((diseaseNumber <=80 )&& (diseaseNumber>30)){
+						$('#diseaseNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((diseaseNumber <=100) && (diseaseNumber>80)){
+						$('#diseaseNumber').css("color",'#00ff00');
+					}
+
+
+
+				if((connectionNumber >=0)  &&( connectionNumber<=30)){//关心的人
+						$('#connectionNumber').css("color",'red');
+					}
+					else if((connectionNumber <=80 )&& (connectionNumber>30)){
+						$('#connectionNumber').css("color",'rgb(247, 38, 205)');
+					}
+					else if((connectionNumber>80) && (connectionNumber <=100)){
+						$('#connectionNumber').css("color",'#00ff00');
+					}
+				
+			}
+		}
+
+	});
+}
+    
+    
+    
+    
+    
+    
+    
+var  basic = "<table style='display: block; width:100%;height:100%;'>" +
+    "<tbody style='display: block;width:100%;height:100%;' >" +
     "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
     "<td>姓名：</td>" +
             "<td>" +

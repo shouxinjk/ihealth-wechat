@@ -156,7 +156,7 @@ function obtainId(){
 function on_click2(userId){   //生活方式
 	//duoDisliv_1();
 	$.ajax({
-		url:"http://localhost:8080/ihealth/resttag/updateTag",
+		url:url+"/resttag/updateTag",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
@@ -179,7 +179,7 @@ function on_click2(userId){   //生活方式
 
 function listDisease(userId){//疾病信息
 	 $.ajax({
-		  	url:"http://localhost:8080/ihealth/restdisease/listAllDiseaseByUserID",
+		  	url:url+"/restdisease/listAllDiseaseByUserID",
 	  		type:"post",
 	  		contentType:'application/json;charset=utf8',
 	  		data:JSON
@@ -194,7 +194,7 @@ function listDisease(userId){//疾病信息
 				var urIsInheritableDiseaseData = eval(ur.IsInheritableDiseaseData);
 				var urIsHighIncidence = eval(ur.IsHighIncidence);
 				 $.ajax({
-				    	url:"http://localhost:8080/ihealth/restdisease/listAllDisease",
+				    	url:url+"/restdisease/listAllDisease",
 				    	type:"post",
 				    	async : false,
 						cache : false,
@@ -277,7 +277,7 @@ function listDisease(userId){//疾病信息
 
 function on_click3(userId){   //关心的人
 	$.ajax({
-		url:"http://localhost:8080/ihealth/restdisease/updateDisease",
+		url:url+"/restdisease/updateDisease",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
@@ -302,7 +302,7 @@ function on_click3(userId){   //关心的人
 //获取关心的人
 function carep(userId){
 	$.ajax({
-		url:"http://localhost:8080/ihealth/rest/findUsersById",
+		url:url+"/rest/findUsersById",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
@@ -371,7 +371,7 @@ function lookupUser(){
 	   };
 	 
 	$.ajax({
-		url:"http://localhost:8080/ihealth/rest/register",
+		url:url+"/rest/register",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
@@ -405,13 +405,14 @@ function findByUserId(userId){
 function addUserAndUser(userId){
 	var user_id = ReadCookie("userId");
 	$.ajax({
-		url:"http://localhost:8080/ihealth/rest/saveUserAndUser",
+		url:url+"/rest/saveUserAndUser",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
   			.stringify({
   				"userId" : user_id,
-  				"user_Id":userId
+  				"user_Id":userId,
+  				"connection":"好友"
   			}),
   		dataType : "json",
   		async : false,

@@ -12,6 +12,7 @@ a {text-decoration:none !important;}
 .container{
     /*margin: 2%;*/
     height: 100%;
+    padding:0;
 }
 header {
     width: 100%;
@@ -108,7 +109,7 @@ span.Username {
     -moz-box-margin-top: .03rem;
     -ms-margin-top: .03rem;
 }
-.container .content i{
+.container .content i,em{
     font-style:normal;
 }
 
@@ -117,6 +118,7 @@ span.Username {
     right: 0;
     /*right: 16%;*/
     /*top: 33%;*/
+    font-weight: bolder;
     line-height: 3rem;
     font-size: 0.6rem;
     padding: 0;
@@ -144,26 +146,33 @@ span.Username {
     text-align: center;
     color: #2a6496;
 }
-.footer a{
-    padding: 0;
-}
+
 .footer a .TJ_guide_img{
-	height: 2.3rem;
-	width: 2.3rem;
- 	margin-left: 29%;
+	height: 1.5rem;
+	width: 1.5rem;
+	/* margin-left: 36%; */
+	margin-bottom: .1rem;
+	margin-top: .7rem;
+}
+
+.footer a .My_health_img  {
+	height: 1.5rem;
+	width: 1.5rem;
+	/* margin-left: 36%; */
+	margin-bottom: .1rem;
+	margin-top: .7rem;
 }
 .footer a .my_message_img {
-	height: 2.3rem;
-	width: 2.3rem;
- 	margin-left: 29%;
+	height: 1.5rem;
+	width: 1.5rem;
+ 	margin-bottom: .1rem;
+	margin-top: .7rem;
 }
-.My_health span{
-	margin-top:.32rem;
-}
+
 .footer a img{
    margin-left: 31%;
-	width: 2rem;
-	height: 2rem;
+	height: 1.5rem;
+	width: 1.5rem;
 	top: .2rem;
 	position: relative;
 }
