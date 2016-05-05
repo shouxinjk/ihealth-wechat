@@ -21,7 +21,6 @@
 <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
 </head>
 <% 
-
 Object openIdObj = request.getSession().getAttribute("openId");
 Date startDate = (Date)request.getSession().getAttribute("startDate");
 Date endDate = new Date();
@@ -40,7 +39,8 @@ System.out.println("=====openIdObj===="+openIdObj);
 System.out.println(Long.parseLong(((2*60*60*1000)-20000)+"")+"====endDate哈哈=======");
 
 if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
-	System.out.println("haha=====");
+	System.out.println(111111);
+	//System.out.println("haha=====");
 	String code = "";
 	try{
 		code = request.getParameter("code");
@@ -57,13 +57,13 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	String turl = String.format(
 	"%s?appid=%s&secret=%s&code=%s&grant_type=authorization_code", url,
 	appid, secrt,code);
-	HttpClient client = new DefaultHttpClient();
+	HttpClient client1 = new DefaultHttpClient();
 	HttpGet get = new HttpGet(turl);
 	JsonParser jsonparer = new JsonParser();// 初始化解析json格式的对象
 	String result = null;
 	try
 	{
-	HttpResponse res = client.execute(get);
+	HttpResponse res = client1.execute(get);
 	String responseContent = null; // 响应内容
 	HttpEntity entity = res.getEntity();
 	responseContent = EntityUtils.toString(entity, "UTF-8");
@@ -87,7 +87,7 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	startDate = new Date();
 	request.getSession().setAttribute("startDate", startDate);
 	request.getSession().setAttribute("openId", openId);
-	response.sendRedirect("http://www.shouxinjk.net/wechat/subject/"+state+".html");
+	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 	}
 	}
 	}
@@ -98,17 +98,18 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	finally
 	{
 	// 关闭连接 ,释放资源
-	client.getConnectionManager().shutdown();
+	client1.getConnectionManager().shutdown();
 	}
 }else{
+	System.out.println(222);
 	endDate = new Date();
+	openId = openIdObj.toString();
 	System.out.println("+++++++++state++++++++"+state);
-	response.sendRedirect("http://www.shouxinjk.net/wechat/subject/"+state+".html");
+	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 }
 %>
 
 <body>
-
 </body>
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 
@@ -120,8 +121,9 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 <!--cookie-->
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript">
+
 var openId = "<%=openId%>";
-if(openId!=""){
+//if(openId!=""){
 	$.ajax({
 		url:url+"/rest/findUserByOpenId",
   		type:"post",
@@ -134,11 +136,30 @@ if(openId!=""){
   		async : false,
 		cache : false,
 		success:function(ur){
+			alert(ur.result);
+			var data = eval(ur.data);
 			if(ur.result == "no"){
-				window.location.href=wechatUrl+"/login.jsp";
+				window.location.href="http://www.shouxinjk.net/wechat/login.jsp";
+			}else{
+	        	SetCookie("userId",data.USER_ID,7);
+				window.location.href="http://www.shouxinjk.net/wechat/subject/Message.html";
 			}
 		}
 	});
-}
+	
+	function SetCookie(cookieName,cookieValue,nDays) {
+        /*当前日期*/
+        var today = new Date();
+        /*Cookie过期时间*/
+        var expire = new Date();
+        /*如果未设置nDays参数或者nDays为0，取默认值1*/
+        if(nDays == null || nDays == 0) nDays = 1;
+        /*计算Cookie过期时间*/
+        expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+        /*设置Cookie值*/
+        document.cookie = cookieName + "=" + encodeURIComponent(cookieValue)
+                + ";expires=" + expire.toGMTString();
+    }
+//}
 </script>
 </html>
