@@ -34,13 +34,13 @@ if(startDate!=null){
 	numSeconds = endSeconds - startSeconds;
 }
 	
-String state = request.getParameter("state");
-System.out.println("=====openIdObj===="+openIdObj);
-System.out.println(Long.parseLong(((2*60*60*1000)-20000)+"")+"====endDate哈哈=======");
+	String state = request.getParameter("state");
+//System.out.println("=====openIdObj===="+openIdObj);
+//System.out.println(Long.parseLong(((2*60*60*1000)-20000)+"")+"====endDate哈哈=======");
 
 if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	System.out.println(111111);
-	//System.out.println("haha=====");
+	System.out.println("haha=====");
 	String code = "";
 	try{
 		code = request.getParameter("code");
@@ -58,6 +58,7 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	"%s?appid=%s&secret=%s&code=%s&grant_type=authorization_code", url,
 	appid, secrt,code);
 	HttpClient client1 = new DefaultHttpClient();
+	//HttpClient client2 = new DefaultHttpClient();
 	HttpGet get = new HttpGet(turl);
 	JsonParser jsonparer = new JsonParser();// 初始化解析json格式的对象
 	String result = null;
@@ -77,7 +78,7 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	System.out.println(json.get("errcode")+"**************");
 	}
 	else
-	{// 正常情况下{"access_token":"ACCESS_TOKEN","expires_in":7200}
+	{ //正常情况下{"access_token":"ACCESS_TOKEN","expires_in":7200}
 	System.out.println("\n\r==access_token==="+json.get("access_token"));
 	System.out.println("\n\r==openId==="+json.get("openid"));
 	System.out.println(json+"====JSON=======");
@@ -87,7 +88,34 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	startDate = new Date();
 	request.getSession().setAttribute("startDate", startDate);
 	request.getSession().setAttribute("openId", openId);
-	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
+	/* //获取用户信息
+	String userUrl = "https://api.weixin.qq.com/cgi-bin/user/info";
+	String uurl = String.format("%s?access_token=%s&openid=%s&lang=zh_CN ", userUrl, result,openId);
+	System.out.println("=====https://api.weixin.qq.com/cgi-bin/user/info?access_token="+result+"&openid="+openId+"&lang=zh_CN====");
+	HttpGet userget = new HttpGet("https://api.weixin.qq.com/cgi-bin/user/info?access_token=Oi-kgttJXAhaWAIrPgrW-nkMZFWGdiTkbu554z-mqXo8nu93gpM453dW4zkjjZ-1HO2Q1C-NPTbkfZ40oibRY8OEo-UlM_4mTnBnI-AuI7UKUPcCEAAKF&openid="+openId+"&lang=zh_CN");
+	JsonParser userjsonparer = new JsonParser();// 初始化解析json格式的对象
+	HttpResponse userres = client2.execute(userget);
+	String userresponseContent = null; // 响应内容
+	HttpEntity userentity = userres.getEntity();
+	userresponseContent = EntityUtils.toString(userentity, "UTF-8");
+	JsonObject userjson = jsonparer.parse(userresponseContent)
+	.getAsJsonObject();
+	if(userres.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
+		System.out.println(userjson+"22**************");
+		if (userjson.get("errcode") != null)
+		{// 错误时微信会返回错误码等信息，{"errcode":40013,"errmsg":"invalid appid"}
+		System.out.println(json.get("errcode")+"11**************");
+		}
+		else
+		{
+			String nickname = userjson.get("nickname").getAsString();
+			String headimgurl = userjson.get("headimgurl").getAsString();
+			request.getSession().setAttribute("headimgurl", headimgurl);
+			request.getSession().setAttribute("nickname", nickname);
+			System.out.println(nickname+"=========nickname微信用户名========");
+			System.out.println(userjson+"=========userjson用户信息========");
+		}
+	} */
 	}
 	}
 	}
@@ -104,7 +132,7 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 	System.out.println(222);
 	endDate = new Date();
 	openId = openIdObj.toString();
-	System.out.println("+++++++++state++++++++"+state);
+	//System.out.println("+++++++++state++++++++"+state);
 	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 }
 %>
@@ -123,6 +151,7 @@ if(openIdObj==null||numSeconds>Long.parseLong(((2*60*60*1000)-20000)+"")){
 <script type="text/javascript">
 
 var openId = "<%=openId%>";
+var state = "<%=state%>";
 //if(openId!=""){
 	$.ajax({
 		url:url+"/rest/findUserByOpenId",
@@ -136,13 +165,13 @@ var openId = "<%=openId%>";
   		async : false,
 		cache : false,
 		success:function(ur){
-			alert(ur.result);
+			//alert(ur.result);
 			var data = eval(ur.data);
 			if(ur.result == "no"){
-				window.location.href="http://www.shouxinjk.net/wechat/login.jsp";
+				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
 			}else{
 	        	SetCookie("userId",data.USER_ID,7);
-				window.location.href="http://www.shouxinjk.net/wechat/subject/Message.html";
+				window.location.href="http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
 			}
 		}
 	});
