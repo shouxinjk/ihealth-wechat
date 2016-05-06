@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+	alert(22);
     	function ReadCookie(cookieName) {
     	    var theCookie = "" + document.cookie;
     	    var ind = theCookie.indexOf(cookieName);
@@ -12,6 +13,7 @@ $(document).ready(function () {
         $('.my_message_img ').attr("src", "../images/my_message_1.png");
         $('.my_message span').css('color','rgb(126, 200, 136)');
         var userId  = ReadCookie("userId");
+        alert(userId);
         Usern(userId);
         wxdu(userId);
     });
