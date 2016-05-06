@@ -144,7 +144,7 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
     "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
     "<td>姓名：</td>" +
             "<td>" +
-                "<input id='username' type='text'/>" +
+                "<input id='username' type='text' placeholder='请填写姓名!'/>" +
                 "<input id='user_id' type='hidden' value=''/>" +
             "</td>" +
         "</tr>" +
@@ -178,7 +178,7 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
         "<tr class='birthday col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
             "<td>生日：</td>" +
             "<td>" +
-                "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
+                "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"如:19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
             "</td>" +
         "</tr>" +
         "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
