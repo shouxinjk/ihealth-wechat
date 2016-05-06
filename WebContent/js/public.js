@@ -332,8 +332,9 @@ function carep(userId){
 								"<div class=\"Care_img col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+
-								"<span class=\"col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+data[i].NAME+"</span>"+
-								"<span class=\"col-lg-4 col-xs-4 col-md-4 col-sm-4\">"+data[i].connection+"</span>"+
+								"<span class=\"guanming col-lg-4 col-xs-4 col-md-4 col-sm-4\">"+data[i].NAME+"</span>"+
+								"<span style='text-align: center;' class=\"col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+data[i].connection+"</span>"+
+								/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
 							"</div>";
 					}
 				}

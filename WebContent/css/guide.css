@@ -14,9 +14,17 @@ a {text-decoration:none !important;}
 .container .article_span{
     padding: .2rem 0 0 0;
 	font-size: .4rem;
+	color: rgb(131, 130, 130);
+	max-height: 4.3rem;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
 }
 .essay_list{
-    padding: 0 0 0 .5rem;
+    padding: 0 0 0 0;
 }
 .container{
 	padding:0;
@@ -40,14 +48,14 @@ a {text-decoration:none !important;}
     border-bottom: 0.06rem solid gray;
 }
 a.article{
-	border-bottom:0.06rem solid rgb(216, 209, 209);
+	border-bottom:0.1rem solid rgb(216, 209, 209);
 }
 .guidecont .article_cont h3{
     font-size: 0.9rem;
     padding: 0;
     color: #000000;
     margin: 0;
-    line-height: 1.5rem;
+    line-height: 1.2rem;
 }
 .article_cont{
     float: left;
@@ -78,7 +86,6 @@ img.article_img{
 
 
 .footer{
-    margin-top: 0.5rem;
     padding: 0;
     position: fixed;
     left: 0;
@@ -86,29 +93,22 @@ img.article_img{
     background: #ffffff;
 }
 .footer span {
-	/* padding: 0.1rem 0.3rem; */
 	font-size: 0.8rem;
-	/* width: 5.5rem; */
 	display: block;
 	height: 1.5rem;
 	line-height: 1.5rem;
 	text-align: center;
 }
-/*.footer a{
-    padding: 0;
-}*/
 
 .footer a .TJ_guide_img{
 	height: 1rem;
 	width: 1rem;
 	margin-bottom: .1rem;
-	margin-top: 1.2rem;
 }
 .footer a .my_message_img {
 	height: 1rem;
 	width: 1rem;
 	margin-bottom: .1rem;
-	margin-top: 1.2rem;
 }
 
 .footer a img{
@@ -123,7 +123,6 @@ img.article_img{
 	width: 1rem;
 	/* margin-left: 36%; */
 	margin-bottom: .1rem;
-	margin-top: 1.2rem;
 }
 
 

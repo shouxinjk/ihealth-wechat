@@ -3,7 +3,6 @@ $(".vali").bind('input vali',function(){
 });
 function register(){
 	var openId = $("#openId").val();
-	alert(openId);
     var mobilep = $('.vali').val();
    if(!mobilep.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
        $(".vali").val('');
@@ -17,7 +16,7 @@ function register(){
        type: "post",
        url: url+"/rest/register",
        contentType:"application/json;charset=utf8",
-       data: JSON.stringify({"phone":mobilep,"openId":openId}),
+       data: JSON.stringify({"phone":mobilep,"openId":"idop"}),
        dataType: "json",
        success: function (r) {
            if (r.result == "success") {
@@ -25,13 +24,13 @@ function register(){
         	  SetCookie("mobilep",mobilep,7);
         	  SetCookie("userId",userId,7);
         	   alert("注册成功11"+userId);
-        	   window.location="http://www.shouxinjk.net/wechat/subject/Message.html?userId="+r.data.USER_ID;
+        	   window.location="subject/Message.html?userId="+r.data.USER_ID;
            }else if(r.result == "existence"){
         	   var userId = r.data.USER_ID;
         	   SetCookie("mobilep",mobilep,7);
         	   SetCookie("userId",userId,7);
         	   alert("该手机号已经注册"+ r.data.USER_ID);
-        	   window.location ="http://www.shouxinjk.net/wechat/subject/Message.html?userId="+r.data.USER_ID;
+        	   window.location ="subject/Message.html?userId="+r.data.USER_ID;
            }
        },
        error: function () {

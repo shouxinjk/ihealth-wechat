@@ -66,9 +66,12 @@ function intn(userId){
 	        			 var cont='';
 	        			 if(!(status == "已删除")){
 		        			 cont = '<div class="touch item col-lg-12 col-xs-12 col-md-12 col-sm-12" id="touch'+i+'" userAddressId="1" ">';
+			        			cont += '<div class="tijian_pl col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
+				 		                    '<span class="tijian_pl1 col-lg-3 col-xs-3 col-md-3 col-sm-3">体检频率：</span>' +
+				 		                    '<div class="tijian_pl2 col-lg-9 col-xs-9 col-md-9 col-sm-9">'+r.data[i].FREQUENCY+'</div></div>';
 		        		        cont += '<div class="jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
 		        		                    '<span class="jcxm col-lg-3 col-xs-3 col-md-3 col-sm-3" ">检查项目：</span>' +
-		        		                    '<div class="pl col-lg-9 col-xs-9 col-md-9 col-sm-9 "><span>'+r.data[i].NAME+'</span><span>【'+r.data[i].FREQUENCY+'】</span>' +
+		        		                    '<div class="pl col-lg-9 col-xs-9 col-md-9 col-sm-9 "><span>'+r.data[i].NAME+'</span>' +
 		        		                    '</div>' +
 		        		                '</div>';
 		        		        cont += '<div class="zhiN col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
@@ -79,9 +82,12 @@ function intn(userId){
 		        		        cont += '</div>';
 	        		        }else{
 			        			 cont = '<div class="touch item col-lg-12 col-xs-12 col-md-12 col-sm-12" id="touch'+i+'" userAddressId="1" ">';
+				        			 cont += '<div class="tijian_pl col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
+			 		                    '<span class="tijian_pl1 col-lg-3 col-xs-3 col-md-3 col-sm-3">体检频率：</span>' +
+		 		                    '<div class="tijian_pl2 col-lg-9 col-xs-9 col-md-9 col-sm-9">'+r.data[i].FREQUENCY+'</div></div>';
 			        		        cont += '<div class="jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
 			        		                    '<span class="jcxm col-lg-3 col-xs-3 col-md-3 col-sm-3" style="color: #BEBABA">检查项目：</span>' +
-			        		                    '<div class="pl col-lg-9 col-xs-9 col-md-9 col-sm-9" style="color: #BEBABA"><span>'+r.data[i].NAME+'</span><span>【'+r.data[i].FREQUENCY+'】</span>' +
+			        		                    '<div class="pl col-lg-9 col-xs-9 col-md-9 col-sm-9" style="color: #BEBABA"><span>'+r.data[i].NAME+'</span>' +
 			        		                    '</div>' +
 			        		                '</div>';
 			        		        cont += '<div class="zhiN col-lg-12 col-xs-12 col-md-12 col-sm-12">' +
