@@ -48,10 +48,9 @@ function liv(id){
 //}
 
 function duoliv(){
-	
-	$(".livediv .liveul li").live('click',function(){$(this).toggleClass('livefs livefs_3');
+	$(".livediv .liveul li").live('click',function(){
+		$(this).toggleClass('livefs livefs_3');
 	 })
-
 }
 
 function duoDisliv_1(){
@@ -121,8 +120,17 @@ function msgsave(userId){
 	}
 	var NAME= $('#username').val();
 	var MARRIAGESTATUS= $("#marriageM option:selected").val();
-	var BIRTHPLACE=$("#city option:selected").text();
-	var LIVEPLACE=$("#city1 option:selected").text();
+	//获取出生地
+	var pro=$("#pro option:selected").text();
+	var pro1=$("#pro1 option:selected").text();
+	//获取常住地
+	var city=$("#city option:selected").text();
+	var city1=$("#city1 option:selected").text();
+	//以逗号分隔
+	var BIRTHPLACE = pro + "," + city;
+	var LIVEPLACE = pro1 + "," + city1;
+	console.log(BIRTHPLACE);
+	console.log(LIVEPLACE);
 	var CAREER=$("#s1 option:selected").text();//获取职业
     var DEGREE=$("#s2 option:selected").val();//获取学历
     var BIRTHDAY=$('.Wdate').val();//获取生日
@@ -324,8 +332,9 @@ function carep(userId){
 								"<div class=\"Care_img col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+
-								"<span class=\"col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+data[i].NAME+"</span>"+
-								"<span class=\"col-lg-4 col-xs-4 col-md-4 col-sm-4\">"+data[i].connection+"</span>"+
+								"<span class=\"guanming col-lg-4 col-xs-4 col-md-4 col-sm-4\">"+data[i].NAME+"</span>"+
+								"<span style='text-align: center;' class=\"col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+data[i].connection+"</span>"+
+								/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
 							"</div>";
 					}
 				}
@@ -344,20 +353,23 @@ function carep(userId){
 
 function addUser(){
 	var str = "<table style='display: block; width:100%;'>" +
-    "<tbody style='display: block' >" +
-    "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-    "<td>电话：</td>" +
-            "<td>" +
-                "<input id='phone' type='text' maxlength='11' placeholder='请输入您要关心人的手机号！'/>" +
-            "</td>" +
-        "</tr>" +
-        "<tr class='message_next  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-        "<td style=\"display: block\">" +
-            "<a href=\"#\" id='message_next' class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='lookupUser()'>下一步</a>" +
-        "</td>" +
-    "</tr>" +
-        "</tbody>" +
-    "</table>";
+				    "<tbody style='display: block' >" +
+				    "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+				    "<td>" +
+				    		"<img style='width:1rem;margin-right: .5rem;' class='guan_phone' src=\"../images/phone.png\" alt=\"\"/>"+
+				    "</td>" +
+				    "<td>手机号</td>" +
+				            "<td>" +
+				                "<input id='phone'style='margin-left: .5rem;' type='text' maxlength='11' placeholder='请输入您要关心人的手机号！'/>" +
+				            "</td>" +
+				        "</tr>" +
+				        "<tr class='message_next  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+				        "<td style=\"display: block\">" +
+				            "<a href=\"#\" id='message_next' class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='lookupUser()'>下一步</a>" +
+				        "</td>" +
+				    "</tr>" +
+				        "</tbody>" +
+			    "</table>";
 	$('.content').html(str);
 	$("#li4").addClass('active');
     $("#li3").removeClass('active');

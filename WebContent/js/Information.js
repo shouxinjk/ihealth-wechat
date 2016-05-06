@@ -14,13 +14,32 @@ function jibenxinxi(userId){
 				if (r.result == "success") {
 					var data = eval(r.data);
 					var sex = data.SEX;//获取性别
+					//获取出生地
+					
+					var birs = data.BIRTHPLACE;
+				if (birs != null && birs !=''){
+					var birthArr= new Array();
+					//按逗号拆分
+					birthArr = birs.split(",");
+					//循环取值
+					$("#pro option:selected").text(birthArr[0]);
+					$("#city option:selected").text(birthArr[1]);
+					
+					var livs = data.LIVEPLACE;
+					var livsArr= new Array();
+					livsArr = livs.split(",");
+					$("#pro1 option:selected").text(livsArr[0]);
+					$("#city1 option:selected").text(livsArr[1]);
+				}
 					$('#username').val(data.NAME);//获取姓名
 					$("#user_id").val(data.USER_ID);
 					$("option[value='m0']").text(data.MARRIAGESTATUS);//获取婚姻状况
-					//                  $("#pro option:selected").text(data.);//获取出生地
-					$("#city option:selected").text(data.BIRTHPLACE);
-					//                  $("#pro1 option:selected").text(data.);//获取常住地
-					$("#city1 option:selected").text(data.LIVEPLACE);
+					
+					//$("#pro option:selected").text(data.);//获取出生地
+					//$("#city option:selected").text(data.BIRTHPLACE);
+					//$("#pro1 option:selected").text(data.);//获取常住地
+					//$("#city1 option:selected").text(data.LIVEPLACE);
+					
 					$("#s1 option:selected").text(data.CAREER);//获取职业
 					$("#s2 option:selected").text(data.DEGREE);//获取学历
 					$('.Wdate').val(data.BIRTHDAY);//获取生日

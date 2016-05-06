@@ -90,17 +90,15 @@ span.Username {
     width: 5.5rem;
     border: 0.01rem solid #B6B6B9;
     height: 1rem;
-    top: 1.5rem;
+    top: 1rem;
     border-radius: .5rem;
     background: #EAEAEA;
     overflow: hidden;
     padding: 0;
 }
 .project-progress1 i,.project-progress2 i,.project-progress3 i,.project-progress4 i {
-    width: 10%;
     height: .95rem;
     position: absolute;
-    background: red;
     padding: 0;
     -webkit-box-top: 0.05rem;
     border-radius: .5rem;
@@ -128,7 +126,6 @@ span.Username {
 	background-size: 18% 30%;
 }
 .footer{
-    margin-top: 0.5rem;
     padding: 0;
     position: fixed;
     left: 0;
@@ -136,7 +133,6 @@ span.Username {
     background: #Ffffff;
 }
 .footer span {
-    border: 0.01rem solid #e9ebec;
     /*padding: 0.1rem 0.3rem;*/
     font-size: 0.8rem;
     /*width: 5.5rem;*/
@@ -152,20 +148,18 @@ span.Username {
 	width: 1rem;
 	/* margin-left: 36%; */
 	margin-bottom: .1rem;
-	margin-top: 1.2rem;
 }
 
 .footer a .My_health_img  {
 	height: 1rem;
 	width: 1rem;
 	margin-bottom: .1rem;
-	margin-top: 1.2rem;
+	
 }
 .footer a .my_message_img {
 	height: 1rem;
 	width: 1rem;
 	margin-bottom: .1rem;
-	margin-top: 1.2rem;
 }
 
 .footer a img{
