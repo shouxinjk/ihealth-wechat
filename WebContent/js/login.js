@@ -44,7 +44,7 @@ function register(){
 
 }
 
-function register1(){
+function register2(){
 	//var openId = $("#openId").val();
 	//alert(openId);
     var mobilep = $('.vali').val();
@@ -58,11 +58,12 @@ function register1(){
 //   alert(ReadCookie("openId"));
    $.ajax({
        type: "post",
-       url: url+"/rest/register",
+       url: "http://localhost:8080/ihealth/rest/register",
        contentType:"application/json;charset=utf8",
        data: JSON.stringify({"phone":mobilep,"openId":"aaa"}),
        dataType: "json",
        success: function (r) {
+    	   alert(r);
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
         	  SetCookie("mobilep",mobilep,7);

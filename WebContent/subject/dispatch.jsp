@@ -169,7 +169,7 @@ var state = "<%=state%>";
 			var data = eval(ur.data);
 			if(ur.result == "no"){
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
-			}else{
+			}else if(ur.result == "success"){
 	        	SetCookie("userId",data.USER_ID,7);
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
 			}
