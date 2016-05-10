@@ -16,7 +16,19 @@
     	if(openIdObj!=null){
     		openId = openIdObj.toString();
     	}
-    System.out.println(openId+"======openID22======");
+    	
+    	Object nameObj = request.getSession().getAttribute("nickname");
+    	String name = null;
+    	if(nameObj!=null){
+    		name = nameObj.toString();
+    	}
+    	Object headimgurlObj = request.getSession().getAttribute("headimgurl");
+    	String headimgurl = null;
+    	if(nameObj!=null){
+    		headimgurl = headimgurlObj.toString();
+    	}
+    	System.out.println(openId+"======openID22======");
+    	System.out.println(name+"======name======");
     %>
 </head>
 <body>
@@ -33,7 +45,9 @@
         <div class="Validate_member">验证手机号后，您将成为（手心健康）的认证会员</div>
     </div>
     <div class="gain col-lg-12 col-xs-12 col-md-12 col-sm-12">
-        <div class="verification_code" onclick="register()">注册<input type="hidden" value="<%=openId%>" id="openId"></div>
+        <div class="verification_code" onclick="register()">注册<input type="hidden" value="<%=openId%>" id="openId">
+        <input type="hidden" value="<%=name%>" id="name"><input type="hidden" value="<%=headimgurl%>" id="headimgurl">
+        </div>
     </div>
 </div>
 </body>
