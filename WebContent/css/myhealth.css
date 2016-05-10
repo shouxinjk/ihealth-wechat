@@ -89,12 +89,12 @@ article {
     display: block;
     font-size: 0.7rem !important;
 }
-.tijian_pl2{
+.tijian_pl2,.jc_project{
 	padding: 0;
-	font-size: 0.6rem !important;
-	color: #867E7E;
+	font-size: 0.7rem !important;
+	
 }
-.pl,.source_adr{
+.source_adr{
    padding: 0;
 	max-height: 2rem;
 	font-size: 0.6rem !important;
@@ -102,7 +102,6 @@ article {
 	overflow: hidden;
 	word-wrap: break-word;
 	text-overflow: -o-ellipsis-lastline;
-	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
@@ -137,9 +136,17 @@ article {
 
     text-align: left;
 }
+.xm{
+	padding:0;
+	font-size: .8rem;
+}
 .pl,.source_adr{
-
+	padding:0;
     text-align: left;
+    margin: 0 0 0.3rem 0 !important;
+}
+#subgroup1:before{
+	
 }
 .jc_project,.zhiN,.tijian_pl{
     padding: 0;
@@ -147,7 +154,7 @@ article {
     line-height: 1rem;
 }
 .touch {
-    border-bottom: 0.06rem solid #CEC5D6!important;
+    border-bottom: 0.06rem solid #CEC5D6 !important;
 
 }
 .row {
@@ -159,9 +166,34 @@ article {
     /*height: 100%;*/
     background: #ffffff;
 }
+div#group_ li {
+	list-style: none;
+	font-size: .8rem;
+	padding: 0;
+	float: left;
+	text-align: center;
+}
+#group_ .subgroup{
+	color: #ADACAC;
+}
+#group_ .active{
+	color:#000000;
+}
+em{
+	font-style: normal;
+}
+.trait {
+	font-size: .6rem;
+	float: left;
+	padding: .05rem .2rem;
+	border: .07rem solid #CEC5D6;
+	margin: .1rem;
+	border-radius: 1rem;
+	text-align: center;
+/* height: 2rem; */
+}
 .xmtable {
-    overflow: hidden;
-    margin-top: 1rem;
+    margin-top: .5rem;
     margin-bottom: 3rem;
 }
 .xmtable .item:first-child{
