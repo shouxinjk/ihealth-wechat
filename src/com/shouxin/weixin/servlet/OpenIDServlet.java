@@ -14,6 +14,7 @@ public class OpenIDServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("openID=========ªÒ»°");
 		String code = req.getParameter("code");
 		WeiXinUtil we = new WeiXinUtil();
 		String openId = we.getOauthOpenID(code);
