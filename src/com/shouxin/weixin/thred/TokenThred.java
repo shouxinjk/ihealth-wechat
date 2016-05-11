@@ -42,5 +42,4 @@ public class TokenThred implements Runnable {
 	public synchronized static void setAccessToken(AccessToken accesstoken){
 		accessToken = accesstoken;
 	}
-
 }

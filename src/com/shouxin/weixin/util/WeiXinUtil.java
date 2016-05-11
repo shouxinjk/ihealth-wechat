@@ -11,47 +11,48 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.shouxin.weixin.pojo.AccessToken;
+import com.shouxin.weixin.pojo.WeiXinUserInfo;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
 public class WeiXinUtil {
 
-	// »ñÈ¡access_tokenµÄ½Ó¿ÚµØÖ·£¨GET£© ÏÞ200£¨´Î/Ìì£©
+	// ï¿½ï¿½È¡access_tokenï¿½Ä½Ó¿Úµï¿½Ö·ï¿½ï¿½GETï¿½ï¿½ ï¿½ï¿½200ï¿½ï¿½ï¿½ï¿½/ï¿½ì£©
 	public final static String access_token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
-
+	
 	/**
-	 * »ñÈ¡access_token
+	 * ï¿½ï¿½È¡access_token
 	 * 
 	 * @param appid
 	 *            Æ¾Ö¤
 	 * @param appsecret
-	 *            ÃÜÔ¿
+	 *            ï¿½ï¿½Ô¿
 	 * @return
 	 */
 	@SuppressWarnings("null")
 	public static AccessToken getAccessToken(String appid, String appsecret) {
-		AccessToken accessToken = null;
+		
+		AccessToken accessToken = new AccessToken();
 		String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+		System.out.println(requestUrl);
 		HttpClient client1 = new DefaultHttpClient();
-		HttpGet get = new HttpGet(access_token_url);
-		JsonParser jsonparer = new JsonParser();// ³õÊ¼»¯½âÎöjson¸ñÊ½µÄ¶ÔÏó
+		HttpGet get = new HttpGet(requestUrl);
+		JsonParser jsonparer = new JsonParser();// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jsonï¿½ï¿½Ê½ï¿½Ä¶ï¿½ï¿½ï¿½
 		String result = null;
 		try {
 			HttpResponse res = client1.execute(get);
-			String responseContent = null; // ÏìÓ¦ÄÚÈÝ
+			String responseContent = null; // ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 			HttpEntity entity = res.getEntity();
 			responseContent = EntityUtils.toString(entity, "UTF-8");
 			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
-			// ½«json×Ö·û´®×ª»»Îªjson¶ÔÏó
+			// ï¿½ï¿½jsonï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªjsonï¿½ï¿½ï¿½ï¿½
 			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-				if (json.get("errcode") != null) {// ´íÎóÊ±Î¢ÐÅ»á·µ»Ø´íÎóÂëµÈÐÅÏ¢£¬{"errcode":40013,"errmsg":"invalid
+				if (json.get("errcode") != null) {// ï¿½ï¿½ï¿½ï¿½Ê±Î¢ï¿½Å»á·µï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½{"errcode":40013,"errmsg":"invalid
 													// appid"}
 					System.out.println(json.get("errcode") + "**************");
-				} else { // Õý³£Çé¿öÏÂ{"access_token":"ACCESS_TOKEN","expires_in":7200}
+				} else { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{"access_token":"ACCESS_TOKEN","expires_in":7200}
 					System.out.println("\n\r==access_token===" + json.get("access_token"));
-					System.out.println("\n\r==openId===" + json.get("openid"));
-					System.out.println(json + "====JSON=======");
 					accessToken.setAccess_token(json.get("access_token").getAsString());
 					accessToken.setExpiresIn(Integer.parseInt(json.get("expires_in").getAsString()));
 					//result = json.get("access_token").getAsString();
@@ -61,10 +62,50 @@ public class WeiXinUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// ¹Ø±ÕÁ¬½Ó ,ÊÍ·Å×ÊÔ´
+			// ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ ,ï¿½Í·ï¿½ï¿½ï¿½Ô´
 			client1.getConnectionManager().shutdown();
 		}
 		return accessToken;
 	}
+	
+	public WeiXinUserInfo getUserInfo(String accessToken){
+		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=o8NoVwjmZyLmwWcUt6Y9JJleWsmY&lang=zh_CN";
+		WeiXinUserInfo userInfo = new WeiXinUserInfo();
+		String requestUrl = user_info_url.replace("ACCESS_TOKEN", accessToken);
+		System.out.println(requestUrl);
+		HttpClient client1 = new DefaultHttpClient();
+		HttpGet get = new HttpGet(requestUrl);
+		JsonParser jsonparer = new JsonParser();// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jsonï¿½ï¿½Ê½ï¿½Ä¶ï¿½ï¿½ï¿½
+		String result = null;
+		try {
+			HttpResponse res = client1.execute(get);
+			String responseContent = null; // ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
+			HttpEntity entity = res.getEntity();
+			responseContent = EntityUtils.toString(entity, "UTF-8");
+			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
+			// ï¿½ï¿½jsonï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªjsonï¿½ï¿½ï¿½ï¿½
+			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				if (json.get("errcode") != null) {// ï¿½ï¿½ï¿½ï¿½Ê±Î¢ï¿½Å»á·µï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½{"errcode":40013,"errmsg":"invalid
+													// appid"}
+					System.out.println(json.get("errcode") + "**************");
+				} else { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{"access_token":"ACCESS_TOKEN","expires_in":7200}
+					System.out.println("\n\r==json===" + json);
+					userInfo.setName(json.get("nickname").getAsString());
+					userInfo.setOpenID(json.get("openid").getAsString());
+					userInfo.setImageUrl(json.get("headimgurl").getAsString());
+					//result = json.get("access_token").getAsString();
+					// openId = json.get("openid").getAsString();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ ,ï¿½Í·ï¿½ï¿½ï¿½Ô´
+			client1.getConnectionManager().shutdown();
+		}
+		return userInfo;
+	} 
+	
+	
 
 }

@@ -4,7 +4,7 @@ public class AccessToken {
 
 	private String access_token;// token
 	private int expiresIn;// token有效时间
-
+	
 	public String getAccess_token() {
 		return access_token;
 	}

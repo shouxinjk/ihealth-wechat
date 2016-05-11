@@ -91,7 +91,7 @@ span.Username {
     border: 0.01rem solid #B6B6B9;
     height: 1rem;
     top: 1rem;
-    border-radius: .5rem;
+    /*border-radius: .5rem;*/
     background: #EAEAEA;
     overflow: hidden;
     padding: 0;
@@ -101,7 +101,7 @@ span.Username {
     position: absolute;
     padding: 0;
     -webkit-box-top: 0.05rem;
-    border-radius: .5rem;
+    /*border-radius: .5rem;*/
     -webkit-box-margin-top: .03rem;
     -webkit-margin-top: .03rem;
     -moz-box-margin-top: .03rem;

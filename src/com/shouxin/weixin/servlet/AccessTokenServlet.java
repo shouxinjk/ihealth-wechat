@@ -15,8 +15,7 @@ public class AccessTokenServlet extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("initServlet================");
-		//new Thread(new TokenThred()).start();
+		new Thread(new TokenThred()).start();
 	}
 	
 }
