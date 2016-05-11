@@ -86,4 +86,15 @@
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript" src="../js/message.js"></script>
 <script type="text/javascript" src="../js/add.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"/ihealth-wechat/userInfoServlet",
+			type:"post",
+			success:function(data){
+				$(".head_portrait").attr("src",data);
+			}
+		});
+	});
+</script>
 </html>
