@@ -48,7 +48,7 @@ function liv(id){
 //}
 
 function duoliv(){
-	$(".livediv .liveul li").live('click',function(){
+	$(".livediv .liveul li").click(function(){
 		$(this).toggleClass('livefs livefs_3');
 	 })
 }
@@ -129,13 +129,13 @@ function msgsave(userId){
 	//以逗号分隔
 	var BIRTHPLACE = pro + "," + city;
 	var LIVEPLACE = pro1 + "," + city1;
-	console.log(BIRTHPLACE);
-	console.log(LIVEPLACE);
+	
 	var CAREER=$("#s1 option:selected").text();//获取职业
     var DEGREE=$("#s2 option:selected").val();//获取学历
     var BIRTHDAY=$('.Wdate').val();//获取生日
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
+   
     $.ajax({
         type: "post",
         url: url+"/rest/updateUser",
@@ -182,7 +182,7 @@ function on_click2(userId){   //生活方式
 			}
 		}
 	});
-	$('#guanxin').css('display','none');
+	//$('#guanxin').css('display','none');
     $("#li3").addClass('active');
     $("#li2").removeClass('active');
 }
@@ -356,7 +356,7 @@ function addUser(){
 				    "<tbody style='display: block' >" +
 				    "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 				    "<td>" +
-				    		"<img style='width:1rem;margin-right: .5rem;' class='guan_phone' src=\"../images/phone.png\" alt=\"\"/>"+
+				    		"<img style='width:.7rem;margin-right: .5rem;' class='guan_phone' src=\"../images/phone.png\" alt=\"\"/>"+
 				    "</td>" +
 				    "<td>手机号</td>" +
 				            "<td>" +
@@ -412,10 +412,12 @@ function lookupUser(userId){
 function findByUserId(userId){
 	$('.content').html(basic);
 	$(".information_header").append(guanxin);
-	$("#li1,#li2,#li3").css('display','none');
-	$('#li4').css('margin-left', '40%');
-	 $.initProv("#pro", "#city", "北京市", "北京市");
-     $.initProv1("#pro1", "#city1", "北京市", "北京市");
+	$("#li1,#li2,#li3,#li4").css('display','none');
+	$('#li1').css('color', 'rgb(126, 200, 136)');
+	
+	$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" class="addname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在添加关心人的信息！</span>');
+	$.initProv("#pro", "#city", "北京市", "北京市");
+    $.initProv1("#pro1", "#city1", "北京市", "北京市");
 	jibenxinxi(userId);
 	
 }
@@ -423,7 +425,6 @@ function findByUserId(userId){
 function addUserAndUser(userId){
 	var user_id = ReadCookie("userId");
 	var connection = ReadCookie("connection");
-	alert(connection);
 	$.ajax({
 		url:url+"/rest/saveUserAndUser",
   		type:"post",
@@ -440,8 +441,10 @@ function addUserAndUser(userId){
 		success:function(r){
 			if(r.result == "success"){
 				on_click3(user_id);
-				$("#li1,#li2,#li3").css('display','block');
+				$("#li1,#li2,#li3,#li4").css('display','block');
 				$('#li4').css('margin-left', '0');
+				$('.addname').css('display','none');
+				$("#li1").css('color','#000000');
 			}
 		}
 	});

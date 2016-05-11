@@ -146,9 +146,9 @@ min-height: 2rem;
 
 
 .family,.personage{
-    margin: .5rem 0 1rem 0;
+    margin: .3rem 0 .4rem 0;
 	padding-bottom: .4rem;
-	border-bottom: 0.1rem solid rgb(207, 204, 204);
+	border-bottom: 0.06rem solid rgb(226, 226, 226);
 }
 .personage_illness_3,.personage_illness_2,.personage_illness_1{
     padding: 0;
@@ -172,7 +172,7 @@ min-height: 2rem;
 	display: inline-block;
 	margin: 0.2rem;
 	border-radius: .5rem;
-	font-size: .7rem;
+	font-size: .6rem;
 	min-width: 3rem;
 	text-align: center;
     background: #ffffff;
@@ -231,9 +231,7 @@ min-height: 2rem;
     margin:0 .4rem;
     font-size: .7rem;
 }
-.family{
-    margin-top: 1rem;
-}
+
 
 /*关心的人*/
 .Care_one {

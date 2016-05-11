@@ -1,7 +1,7 @@
 
 
 function jibenxinxi(userId){
-		//用户基本信息
+		//获取用户基本信息
 		$.ajax({
 			type : "post",
 			url : url+"/rest/findUserById",
@@ -31,10 +31,10 @@ function jibenxinxi(userId){
 					$("#pro1 option:selected").text(livsArr[0]);
 					$("#city1 option:selected").text(livsArr[1]);
 				}
+				
 					$('#username').val(data.NAME);//获取姓名
 					$("#user_id").val(data.USER_ID);
-					$("option[value='m0']").text(data.MARRIAGESTATUS);//获取婚姻状况
-					
+					$("#marriageM option:selected").text(data.MARRIAGESTATUS);//获取婚姻状况
 					//$("#pro option:selected").text(data.);//获取出生地
 					//$("#city option:selected").text(data.BIRTHPLACE);
 					//$("#pro1 option:selected").text(data.);//获取常住地
@@ -61,19 +61,51 @@ function jibenxinxi(userId){
 	}
 
 	function on_click() { //基本信息
+	
 		var userId = $("#user_id").val();
 		var Height = $('.height').val();
 		var Weigth = $('.weigth').val();
 		var Username = $('#username').val();
 		var connection= $("#s3").val();
+		var career=$("#s1 option:selected").text();//获取职业
+		var degree=$("#s2 option:selected").val();//获取学历
 		SetCookie("connection",connection,7);
-		$('#guanxin').css('display','none');
+		//$('#guanxin').css('display','none');
+		if(connection ==""){
+	    	alert('请输入您们的关系！');
+	    	 return;
+	    }
+		 if(Username ==""){
+		    	alert('请输入姓名！');
+		    	 return;
+		    }
+		    if(career ==""){
+		    	alert('请输入职业！');
+		    	 return;
+		    }
+		    if(degree ==""){
+		    	alert('请输入学历！');
+		    	 return;
+		    }
+		    if(Height ==""){
+		    	alert('请输入身高！');
+		    	 return;
+		    }
+		    if(Weigth ==""){
+		    	alert('请输入体重！');
+		    	 return;
+		    }
+		    
 		msgsave(userId);//基本信息保存
 		tagCategory(userId);
 		var connection =  ReadCookie("connection");
 		$("#li2").addClass('active');
 		$("#li1").removeClass('active');
+		$('#guanxin').css('display','none');
 	}
+	
+	
+	
 	//获取生活方式
 	function tagCategory(userId) {
 		$.ajax({
