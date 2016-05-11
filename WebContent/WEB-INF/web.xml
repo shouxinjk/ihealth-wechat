@@ -8,15 +8,6 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	<!-- <servlet>
-		<servlet-name>initServlet</servlet-name>
-		<servlet-class>com.shouxin.weixin.servlet.AaServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>initServlet</servlet-name>
-		<url-pattern>/init</url-pattern>
-	</servlet-mapping> -->
-	
 	<servlet>
 		<servlet-name>initServlet</servlet-name>
 		<servlet-class>com.shouxin.weixin.servlet.AccessTokenServlet</servlet-class>
@@ -30,6 +21,15 @@
 	<servlet-mapping>
 		<servlet-name>userInfoServlet</servlet-name>
 		<url-pattern>/userInfoServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>openIdServiet</servlet-name>
+		<servlet-class>com.shouxin.weixin.servlet.OpenIDServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>openIdServiet</servlet-name>
+		<url-pattern>/openIdServiet</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

@@ -20,7 +20,7 @@ public class WeiXinUtil {
 
 	// ��ȡaccess_token�Ľӿڵ�ַ��GET�� ��200����/�죩
 	public final static String access_token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
-	
+
 	/**
 	 * ��ȡaccess_token
 	 * 
@@ -32,7 +32,6 @@ public class WeiXinUtil {
 	 */
 	@SuppressWarnings("null")
 	public static AccessToken getAccessToken(String appid, String appsecret) {
-		
 		AccessToken accessToken = new AccessToken();
 		String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
 		System.out.println(requestUrl);
@@ -55,7 +54,7 @@ public class WeiXinUtil {
 					System.out.println("\n\r==access_token===" + json.get("access_token"));
 					accessToken.setAccess_token(json.get("access_token").getAsString());
 					accessToken.setExpiresIn(Integer.parseInt(json.get("expires_in").getAsString()));
-					//result = json.get("access_token").getAsString();
+					// result = json.get("access_token").getAsString();
 					// openId = json.get("openid").getAsString();
 				}
 			}
@@ -68,11 +67,58 @@ public class WeiXinUtil {
 		return accessToken;
 	}
 	
-	public WeiXinUserInfo getUserInfo(String accessToken){
-		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=o8NoVwjmZyLmwWcUt6Y9JJleWsmY&lang=zh_CN";
+	/**
+	 * 根据oauth2授权获取用户基本信息
+	 * @param code
+	 * @return
+	 */
+	public String getOauthOpenID(String code) {
+		String user_info_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
+		String openId = "";
+		String requestUrl = user_info_url.replace("APPID", "").replace("SECRET", "").replace("CODE", code);
+		HttpClient client1 = new DefaultHttpClient();
+		HttpGet get = new HttpGet(requestUrl);
+		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
+		String result = null;
+		try {
+			HttpResponse res = client1.execute(get);
+			String responseContent = null; // ��Ӧ����
+			HttpEntity entity = res.getEntity();
+			responseContent = EntityUtils.toString(entity, "UTF-8");
+			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
+			// ��json�ַ���ת��Ϊjson����
+			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				if (json.get("errcode") != null) {// ����ʱ΢�Ż᷵�ش��������Ϣ��{"errcode":40013,"errmsg":"invalid
+													// appid"}
+					System.out.println(json.get("errcode") + "**************");
+				} else { // ���������{"access_token":"ACCESS_TOKEN","expires_in":7200}
+					System.out.println("\n\r==json===" + json);
+					openId = json.get("openid").getAsString();
+//					userInfo.setOpenID(json.get("openid").getAsString());
+//					userInfo.setImageUrl(json.get("headimgurl").getAsString());
+					// result = json.get("access_token").getAsString();
+					// openId = json.get("openid").getAsString();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// �ر����� ,�ͷ���Դ
+			client1.getConnectionManager().shutdown();
+		}
+		return openId;
+	}
+
+	/**
+	 * 根据access_token获取用户信息s
+	 * 
+	 * @param accessToken
+	 * @return
+	 */
+	public WeiXinUserInfo getUserInfo(String accessToken,String openId) {
+		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID=zh_CN";
 		WeiXinUserInfo userInfo = new WeiXinUserInfo();
-		String requestUrl = user_info_url.replace("ACCESS_TOKEN", accessToken);
-		System.out.println(requestUrl);
+		String requestUrl = user_info_url.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openId);
 		HttpClient client1 = new DefaultHttpClient();
 		HttpGet get = new HttpGet(requestUrl);
 		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
@@ -93,7 +139,7 @@ public class WeiXinUtil {
 					userInfo.setName(json.get("nickname").getAsString());
 					userInfo.setOpenID(json.get("openid").getAsString());
 					userInfo.setImageUrl(json.get("headimgurl").getAsString());
-					//result = json.get("access_token").getAsString();
+					// result = json.get("access_token").getAsString();
 					// openId = json.get("openid").getAsString();
 				}
 			}
@@ -104,8 +150,6 @@ public class WeiXinUtil {
 			client1.getConnectionManager().shutdown();
 		}
 		return userInfo;
-	} 
-	
-	
+	}
 
 }

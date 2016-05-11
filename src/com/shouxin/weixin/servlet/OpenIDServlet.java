@@ -8,34 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shouxin.weixin.pojo.AccessToken;
-import com.shouxin.weixin.pojo.WeiXinUserInfo;
-import com.shouxin.weixin.thred.TokenThred;
 import com.shouxin.weixin.util.WeiXinUtil;
 
-import net.sf.json.JSONObject;
-
-public class UserInfoServlet extends HttpServlet {
-	
-	@Override
-	public void init() throws ServletException {
-		//System.out.println(TokenThred.getAccessToken()+"*****");
-	}
+public class OpenIDServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		AccessToken accessToken = TokenThred.getAccessToken();
-		String openId = (String) req.getSession().getAttribute("openId");
+		String code = req.getParameter("code");
 		WeiXinUtil we = new WeiXinUtil();
-		WeiXinUserInfo userInfo = we.getUserInfo(accessToken.getAccess_token(),openId);
+		String openId = we.getOauthOpenID(code);
+		req.getSession().setAttribute("openId", openId);
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		//JSONObject json = new JSONObject();
-//		json.put("name", userInfo.getName());
-//		json.put("url", userInfo.getImageUrl());
-//		json.put("openID", userInfo.getOpenID());
-		pw.print(userInfo.getImageUrl());
+		pw.print(openId);
 		pw.close();
 	}
 	
