@@ -117,7 +117,7 @@ public class WeiXinUtil {
 	 * @return
 	 */
 	public WeiXinUserInfo getUserInfo(String accessToken,String openId) {
-		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID=zh_CN";
+		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN ";
 		WeiXinUserInfo userInfo = new WeiXinUserInfo();
 		String requestUrl = user_info_url.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openId);
 		System.out.println(requestUrl);
