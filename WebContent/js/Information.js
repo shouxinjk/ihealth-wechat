@@ -192,6 +192,12 @@ function jibenxinxi(userId){
 							});
 
 							
+						}else{
+							var str1 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+								+ "<p style=\"display: block\">"
+								+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='on_click2(\""+userId+"\")'>下一步</a>"
+								+ "</p>" + "</div>";
+						$('.content').html(str1);
 						}
 						
 					}

@@ -98,6 +98,21 @@
 				if(name == ""){
 					$(".Username").html(d.name);
 				}
+				$.ajax({
+			        type: "post",
+			        url: url+"/rest/updateUser",
+			        contentType:"application/json;charset=utf8",
+			        data: JSON.stringify({"userId":userId,"name":d.name,"avatar":d.url}),
+			        dataType: "json",
+			        success: function (r) {
+			            if (r.result == "success") {
+			            	 console.log('保存成功');
+			            }else{
+			            	
+			            }
+			        }
+			       
+			    });
 			}
 		});
 	});
