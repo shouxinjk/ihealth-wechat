@@ -1,1 +1,1 @@
-var url="http://www.weixin.net/ihealth";
+var url="http://www.shouxinjk.net/ihealth";
