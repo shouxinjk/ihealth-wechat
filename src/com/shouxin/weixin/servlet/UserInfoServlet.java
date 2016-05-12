@@ -30,7 +30,7 @@ public class UserInfoServlet extends HttpServlet {
 		WeiXinUtil we = new WeiXinUtil();
 		WeiXinUserInfo userInfo = we.getUserInfo(accessToken.getAccess_token(),"o8NoVwgE-JJvYHeV548LsGAG0S1k");
 		resp.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;charset=utf-8");
+		resp.setContentType("application/json;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
 		JSONObject json = new JSONObject();
 		json.put("name", userInfo.getName());
