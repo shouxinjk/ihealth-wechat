@@ -32,11 +32,11 @@ public class UserInfoServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		//JSONObject json = new JSONObject();
-//		json.put("name", userInfo.getName());
-//		json.put("url", userInfo.getImageUrl());
-//		json.put("openID", userInfo.getOpenID());
-		pw.print(userInfo.getImageUrl());
+		JSONObject json = new JSONObject();
+		json.put("name", userInfo.getName());
+		json.put("url", userInfo.getImageUrl());
+		json.put("openID", userInfo.getOpenID());
+		pw.print(json);
 		pw.close();
 	}
 	
