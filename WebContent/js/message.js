@@ -15,6 +15,43 @@ $(document).ready(function () {
         alert(userId+"massageuserid");
         Usern(userId);
         wxdu(userId);
+        var name1 = $(".Username").html();
+		if (name1 == "") {
+			$.ajax({
+				url : "/ihealth-wechat/userInfoServlet",
+				type : "post",
+				success : function(data) {
+					var d = eval(data);
+					$(".head_portrait").attr("src", d.url);
+					var name = $(".Username").html();
+					if (name == "") {
+						$(".Username").html(d.name);
+					}
+					alert(d.url.length+"====urlLength");
+					var userId = ReadCookie("userId");
+					alert(userId+"====htmluserId");
+					$.ajax({
+						type : "post",
+						url : url + "/rest/updateUser",
+						contentType : "application/json;charset=utf8",
+						data : JSON.stringify({
+							"userId" : userId,
+							"name" : d.name,
+							"avatar" : d.url
+						}),
+						dataType : "json",
+						success : function(r) {
+							if (r.result == "success") {
+								console.log('保存成功');
+							} else {
+
+							}
+						}
+
+					});
+				}
+			});
+		}
     });
     function Usern(userId){
 		//用户名
