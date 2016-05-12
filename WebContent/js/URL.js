@@ -1,1 +1,1 @@
-var url="http://localhost:8080/ihealth";
+var url="http://www.weixin.net/ihealth";
