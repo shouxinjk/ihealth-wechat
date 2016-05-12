@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shouxin.weixin.thred.TokenThred;
 import com.shouxin.weixin.util.WeiXinUtil;
 
 public class OpenIDServlet extends HttpServlet {
@@ -18,7 +19,7 @@ public class OpenIDServlet extends HttpServlet {
 		String code = req.getParameter("code");
 		WeiXinUtil we = new WeiXinUtil();
 		String openId = we.getOauthOpenID(code);
-		req.getSession().setAttribute("openId", openId);
+		//req.getSession().setAttribute("openId", openId);
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();

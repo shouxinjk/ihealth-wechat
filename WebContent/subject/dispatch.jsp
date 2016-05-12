@@ -21,7 +21,6 @@
 <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
 </head>
 <% 
-String openId="";
 String state = request.getParameter("state");
 String code = "";
 try{
@@ -74,6 +73,7 @@ $(function(){
 			alert(ur.result+"==");
 			var data = eval(ur.data);
 			if(ur.result == "no"){
+				SetCookie("openId",openId);
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
 			}else if(ur.result == "success"){
 				alert(data.USER_ID+"====successuserid");

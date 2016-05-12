@@ -2,7 +2,8 @@ $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
 function register(){
-	var openId = $("#openId").val();
+	var openId = ReadCookie("openId");
+	alert(openId+"=====longinOpenId");
 	var headimgurl = $("#headimgurl").val();
 	var name = $("#name").val();
 	//alert(openId);
