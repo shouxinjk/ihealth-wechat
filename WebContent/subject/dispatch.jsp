@@ -43,13 +43,10 @@ if(openIdObj==null){
 <body>
 </body>
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../js/City.js"></script>
 <script type="text/javascript" src="../js/URL.js"></script>
-<script type="text/javascript" src="../js/message.js"></script>
 <script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="../js/content.js"></script>
 <!--cookie-->
-<script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript">
 var openId = "<%=openId%>";
 
