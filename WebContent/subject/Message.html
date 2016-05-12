@@ -92,6 +92,7 @@
 			url:"/ihealth-wechat/userInfoServlet",
 			type:"post",
 			success:function(data){
+				alert(data);
 				$(".head_portrait").attr("src",data);
 			}
 		});

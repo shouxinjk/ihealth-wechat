@@ -55,7 +55,7 @@ var openId = "<%=openId%>";
 
 $(function(){
 	var code = "<%=code%>";
-		alert(code)
+		alert(openId)
 	if(openId == ""){
 		alert(11)
 		$.ajax({
