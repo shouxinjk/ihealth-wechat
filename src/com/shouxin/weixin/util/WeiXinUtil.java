@@ -12,6 +12,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.shouxin.weixin.pojo.AccessToken;
 import com.shouxin.weixin.pojo.WeiXinUserInfo;
+import com.shouxin.weixin.thred.TokenThred;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
@@ -94,6 +95,7 @@ public class WeiXinUtil {
 				} else { // ���������{"access_token":"ACCESS_TOKEN","expires_in":7200}
 					System.out.println("\n\r==json===" + json);
 					openId = json.get("openid").getAsString();
+					TokenThred.getAccessToken().setAccess_token(json.get("access_token").getAsString());
 //					userInfo.setOpenID(json.get("openid").getAsString());
 //					userInfo.setImageUrl(json.get("headimgurl").getAsString());
 					// result = json.get("access_token").getAsString();
