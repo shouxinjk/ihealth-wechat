@@ -21,7 +21,6 @@
 <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
 </head>
 <% 
-Object openIdObj = request.getSession().getAttribute("openId");
 String openId="";
 String state = request.getParameter("state");
 String code = "";
@@ -29,14 +28,6 @@ try{
 	code = request.getParameter("code");
 }catch(Exception e){
 	e.printStackTrace();
-}
-if(openIdObj==null){
-	System.out.println(111111);
-}else{
-	System.out.println(222);
-	openId = openIdObj.toString();
-	//System.out.println("+++++++++state++++++++"+state);
-	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 }
 %>
 
@@ -48,7 +39,7 @@ if(openIdObj==null){
 <script type="text/javascript" src="../js/content.js"></script>
 <!--cookie-->
 <script type="text/javascript">
-var openId = "<%=openId%>";
+var openId = "";
 
 $(function(){
 	var code = "<%=code%>";
