@@ -11,42 +11,44 @@ function register(){
        $('.vali').attr('placeholder','请正确输入手机号！');
        $('.verification_code').css('background',"#e9ebec");
        return;
+   }else{
+	   $.ajax({
+			url : "/ihealth-wechat/userInfoServlet",
+			type : "post",
+			async : false,
+			cache : false,
+			success : function(data) {
+				var d = eval(data);
+				alert(d)
+				 $.ajax({
+				       type: "post",
+				       url: url+"/rest/register",
+				       contentType:"application/json;charset=utf8",
+				       data: JSON.stringify({"phone":mobilep,"openId":openId,"avatar":d.url,"name":d.name}),
+				       dataType: "json",
+				       success: function (r) {
+				           if (r.result == "success") {
+				        	  var userId = r.data.USER_ID;
+				        	  SetCookie("mobilep",mobilep,7);
+				        	  SetCookie("userId",userId,7);
+				        	   window.location="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
+				           }else if(r.result == "existence"){
+				        	   var userId = r.data.USER_ID;
+				        	   SetCookie("mobilep",mobilep,7);
+				        	   SetCookie("userId",userId,7);
+				        	   window.location ="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
+				           }
+				       },
+				       error: function () {
+				           alert("注册失败!");
+				       }
+				   });
+			}
+	   });
+	  
    }
 //   var openId = ReadCookie("openId");
 //   alert(ReadCookie("openId"));
-   $.ajax({
-		url : "/ihealth-wechat/userInfoServlet",
-		type : "post",
-		async : false,
-		cache : false,
-		success : function(data) {
-			var d = eval(data);
-			alert(d)
-			 $.ajax({
-			       type: "post",
-			       url: url+"/rest/register",
-			       contentType:"application/json;charset=utf8",
-			       data: JSON.stringify({"phone":mobilep,"openId":openId,"avatar":d.url,"name":d.name}),
-			       dataType: "json",
-			       success: function (r) {
-			           if (r.result == "success") {
-			        	  var userId = r.data.USER_ID;
-			        	  SetCookie("mobilep",mobilep,7);
-			        	  SetCookie("userId",userId,7);
-			        	   window.location="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
-			           }else if(r.result == "existence"){
-			        	   var userId = r.data.USER_ID;
-			        	   SetCookie("mobilep",mobilep,7);
-			        	   SetCookie("userId",userId,7);
-			        	   window.location ="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
-			           }
-			       },
-			       error: function () {
-			           alert("注册失败!");
-			       }
-			   });
-		}
-   });
   
    
 
