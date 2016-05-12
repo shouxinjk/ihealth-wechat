@@ -1,1 +1,1 @@
-var url="http://www.shouxinjk.net/ihealth";
+var url="http://localhost:8080/ihealth";

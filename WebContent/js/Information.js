@@ -71,30 +71,7 @@ function jibenxinxi(userId){
 		var degree=$("#s2 option:selected").val();//获取学历
 		SetCookie("connection",connection,7);
 		//$('#guanxin').css('display','none');
-		if(connection ==""){
-	    	alert('请输入您们的关系！');
-	    	 return;
-	    }
-		 if(Username ==""){
-		    	alert('请输入姓名！');
-		    	 return;
-		    }
-		    if(career ==""){
-		    	alert('请输入职业！');
-		    	 return;
-		    }
-		    if(degree ==""){
-		    	alert('请输入学历！');
-		    	 return;
-		    }
-		    if(Height ==""){
-		    	alert('请输入身高！');
-		    	 return;
-		    }
-		    if(Weigth ==""){
-		    	alert('请输入体重！');
-		    	 return;
-		    }
+		
 		    
 		msgsave(userId);//基本信息保存
 		tagCategory(userId);
