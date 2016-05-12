@@ -92,7 +92,7 @@
 			url:"/ihealth-wechat/userInfoServlet",
 			type:"post",
 			success:function(data){
-				alert(data.name);
+				alert(data);
 				var d = eval(data);
 				alert(d.url);
 				$(".head_portrait").attr("src",d.url);
