@@ -26,6 +26,7 @@ public class UserInfoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		AccessToken accessToken = TokenThred.getAccessToken();
 		String openId = (String) req.getSession().getAttribute("openId");
+		System.out.println(openId+"====userInfoOpenId");
 		WeiXinUtil we = new WeiXinUtil();
 		WeiXinUserInfo userInfo = we.getUserInfo(accessToken.getAccess_token(),openId);
 		resp.setCharacterEncoding("utf-8");
