@@ -119,6 +119,7 @@ public class WeiXinUtil {
 		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID=zh_CN";
 		WeiXinUserInfo userInfo = new WeiXinUserInfo();
 		String requestUrl = user_info_url.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openId);
+		System.out.println(requestUrl);
 		HttpClient client1 = new DefaultHttpClient();
 		HttpGet get = new HttpGet(requestUrl);
 		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
