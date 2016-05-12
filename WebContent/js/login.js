@@ -27,6 +27,7 @@ function register(){
         	  alert(userId+"===loginuserId");
         	  SetCookie("mobilep",mobilep,7);
         	  SetCookie("userId",userId,7);
+        	  alert(ReadCookie("userId")+"=====cookieuserid11");
         	   alert("注册成功11"+userId);
         	   window.location="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
            }else if(r.result == "existence"){
