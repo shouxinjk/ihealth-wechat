@@ -57,7 +57,6 @@ $(function(){
 	var code = "<%=code%>";
 		alert(openId)
 	if(openId == ""){
-		alert(11)
 		$.ajax({
 			url:"/ihealth-wechat/openIdServlet",
 			type:"post",
@@ -65,9 +64,7 @@ $(function(){
 			cache : false,
 			data:{"code":code},
 			success:function(data){
-				alert(data+"====data");
 				openId = data;
-				alert(openId+"===openId");
 			}
 		});
 	}
@@ -85,6 +82,7 @@ $(function(){
 		cache : false,
 		success:function(ur){
 			//alert(ur.result);
+			alert(ur);
 			var data = eval(ur.data);
 			if(ur.result == "no"){
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
