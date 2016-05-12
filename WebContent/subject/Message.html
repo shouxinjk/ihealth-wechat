@@ -98,6 +98,8 @@
 				if(name == ""){
 					$(".Username").html(d.name);
 				}
+				var userId = ReadCookie("userId");
+				alert(userId);
 				$.ajax({
 			        type: "post",
 			        url: url+"/rest/updateUser",
