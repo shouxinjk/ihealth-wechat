@@ -52,7 +52,7 @@ var openId = "<%=openId%>";
 
 $(function(){
 	var code = "<%=code%>";
-		var state = "<%=state%>";
+	var state = "<%=state%>";
 	if(openId == ""){
 		$.ajax({
 			url:"/ihealth-wechat/openIdServlet",
@@ -61,6 +61,7 @@ $(function(){
 			cache : false,
 			data:{"code":code},
 			success:function(data){
+				alert(data)
 				openId = data;
 			}
 		});
