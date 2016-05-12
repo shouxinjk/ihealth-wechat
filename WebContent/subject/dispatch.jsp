@@ -49,6 +49,7 @@ if(openIdObj==null){
 <!--cookie-->
 <script type="text/javascript">
 var openId = "<%=openId%>";
+
 $(function(){
 	var code = "<%=code%>";
 		var state = "<%=state%>";
@@ -82,7 +83,6 @@ $(function(){
 			if(ur.result == "no"){
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
 			}else if(ur.result == "success"){
-				delCookie("userId");
 	        	SetCookie("userId",data.USER_ID,7);
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
 			}

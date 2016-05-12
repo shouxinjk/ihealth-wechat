@@ -21,21 +21,15 @@ function register(){
        contentType:"application/json;charset=utf8",
        data: JSON.stringify({"phone":mobilep,"openId":openId,"avatar":headimgurl,"name":name}),
        dataType: "json",
-       async : false,
-		cache : false,
        success: function (r) {
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
         	  SetCookie("mobilep",mobilep,7);
-        	  delCookie("userId");
-        	  alert(ReadCookie("userId")+"oldloginCookieUserid");
         	  SetCookie("userId",userId,7);
-        	  alert(ReadCookie("userId")+"loginCookieUserid");
         	   window.location="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
            }else if(r.result == "existence"){
         	   var userId = r.data.USER_ID;
         	   SetCookie("mobilep",mobilep,7);
-        	   delCookie("userId");
         	   SetCookie("userId",userId,7);
         	   window.location ="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
            }
