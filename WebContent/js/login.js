@@ -21,10 +21,14 @@ function register(){
        contentType:"application/json;charset=utf8",
        data: JSON.stringify({"phone":mobilep,"openId":openId,"avatar":headimgurl,"name":name}),
        dataType: "json",
+       async : false,
+		cache : false,
        success: function (r) {
     	   $.ajax({
    			url:"/ihealth-wechat/userInfoServlet",
    			type:"post",
+   			async : false,
+   			cache : false,
    			success:function(data){
    				var d = eval(data);
    				$.ajax({
@@ -33,6 +37,8 @@ function register(){
    			        contentType:"application/json;charset=utf8",
    			        data: JSON.stringify({"userId":r.data.USER_ID,"name":d.name,"avatar":d.url}),
    			        dataType: "json",
+   			    	async : false,
+   			    	cache : false,
    			        success: function (r) {
    			            if (r.result == "success") {
    			            	 console.log('保存成功');
