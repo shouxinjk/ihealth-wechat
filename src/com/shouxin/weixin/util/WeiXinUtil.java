@@ -75,7 +75,7 @@ public class WeiXinUtil {
 	public String getOauthOpenID(String code) {
 		String user_info_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 		String openId = "";
-		String requestUrl = user_info_url.replace("APPID", "").replace("SECRET", "").replace("CODE", code);
+		String requestUrl = user_info_url.replace("APPID", "wx9160e991d49b4a97").replace("SECRET", "6a0fa0d2a21b2a1a22bd51d7daa695da").replace("CODE", code);
 		HttpClient client1 = new DefaultHttpClient();
 		HttpGet get = new HttpGet(requestUrl);
 		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
