@@ -94,6 +94,10 @@
 			success:function(data){
 				var d = eval(data);
 				$(".head_portrait").attr("src",d.url);
+				var name = $(".Username").html();
+				if(name == ""){
+					$(".Username").html(d.name);
+				}
 				alert($(".Username").html());
 			}
 		});
