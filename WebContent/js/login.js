@@ -35,6 +35,7 @@ function register(){
            }else if(r.result == "existence"){
         	   var userId = r.data.USER_ID;
         	   SetCookie("mobilep",mobilep,7);
+        	   delCookie("userId");
         	   SetCookie("userId",userId,7);
         	   window.location ="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
            }
