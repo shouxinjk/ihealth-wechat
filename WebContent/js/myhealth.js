@@ -52,6 +52,7 @@ function intn(userId){
 	$('.xmtable').html('');
 	var group;
 	var CHECKUPITEMid;
+	alert(11);
 	$.ajax({
         type: "post",
         url: url+"/rest/findCheckItems",
