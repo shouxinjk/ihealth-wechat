@@ -24,6 +24,7 @@ function register(){
        success: function (r) {
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
+        	  alert(userId+"===loginuserId");
         	  SetCookie("mobilep",mobilep,7);
         	  SetCookie("userId",userId,7);
         	   alert("注册成功11"+userId);
