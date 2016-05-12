@@ -21,12 +21,22 @@
 <link rel="stylesheet" type="text/css" href="../css/tcal.css" />
 </head>
 <% 
+Object openIdObj = request.getSession().getAttribute("openId");
+String openId="";
 String state = request.getParameter("state");
 String code = "";
 try{
 	code = request.getParameter("code");
 }catch(Exception e){
 	e.printStackTrace();
+}
+if(openIdObj==null){
+	System.out.println(111111);
+}else{
+	System.out.println(222);
+	openId = openIdObj.toString();
+	//System.out.println("+++++++++state++++++++"+state);
+	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 }
 %>
 
@@ -38,7 +48,7 @@ try{
 <script type="text/javascript" src="../js/content.js"></script>
 <!--cookie-->
 <script type="text/javascript">
-var openId = "";
+var openId = "<%=openId%>";
 
 $(function(){
 	var code = "<%=code%>";
@@ -73,7 +83,6 @@ $(function(){
 			alert(ur.result+"==");
 			var data = eval(ur.data);
 			if(ur.result == "no"){
-				SetCookie("openId",openId);
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
 			}else if(ur.result == "success"){
 				alert(data.USER_ID+"====successuserid");

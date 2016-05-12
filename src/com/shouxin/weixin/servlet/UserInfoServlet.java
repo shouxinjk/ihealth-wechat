@@ -28,7 +28,7 @@ public class UserInfoServlet extends HttpServlet {
 		String openId = (String) req.getSession().getAttribute("openId");
 		System.out.println(openId+"====userInfoOpenId");
 		WeiXinUtil we = new WeiXinUtil();
-		WeiXinUserInfo userInfo = we.getUserInfo(accessToken.getAccess_token(),"o8NoVwgE-JJvYHeV548LsGAG0S1k");
+		WeiXinUserInfo userInfo = we.getUserInfo(accessToken.getAccess_token(),openId);
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("application/json;charset=utf-8");
 		PrintWriter pw = resp.getWriter();

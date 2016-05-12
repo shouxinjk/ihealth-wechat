@@ -19,7 +19,7 @@ public class OpenIDServlet extends HttpServlet {
 		String code = req.getParameter("code");
 		WeiXinUtil we = new WeiXinUtil();
 		String openId = we.getOauthOpenID(code);
-		//req.getSession().setAttribute("openId", openId);
+		req.getSession().setAttribute("openId", openId);
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();

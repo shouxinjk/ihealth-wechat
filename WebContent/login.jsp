@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="css/login.css"/>
     <title>手心健康注册</title>
     <%
-    	/* Object openIdObj =request.getSession().getAttribute("openId");
+    	Object openIdObj =request.getSession().getAttribute("openId");
     	String openId = null;
     	if(openIdObj!=null){
     		openId = openIdObj.toString();
-    	} */
-    	//System.out.println(openId+"======openID22======");
+    	}
+    	System.out.println(openId+"======openID22======");
     %>
 </head>
 <body>
@@ -33,7 +33,8 @@
         <div class="Validate_member">验证手机号后，您将成为（手心健康）的认证会员</div>
     </div>
     <div class="gain col-lg-12 col-xs-12 col-md-12 col-sm-12">
-        <div class="verification_code" onclick="register()">注册<input type="hidden" value="" id="openId">
+        <div class="verification_code" onclick="register()">注册<input type="hidden" value="<%=openId%>" id="openId">
+      
         </div>
     </div>
 </div>
