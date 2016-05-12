@@ -99,9 +99,6 @@
 					$(".Username").html(d.name);
 				}
 				var userId = ReadCookie("userId");
-				alert(userId+"==messageUSERID");
-				alert(d.name);
-				alert(d.url);
 				$.ajax({
 			        type: "post",
 			        url: url+"/rest/updateUser",

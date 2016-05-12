@@ -2,8 +2,7 @@ $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
 function register(){
-	var openId = ReadCookie("openId");
-	alert(openId+"=====longinOpenId");
+	var openId = $("#openId").val();
 	var headimgurl = $("#headimgurl").val();
 	var name = $("#name").val();
 	//alert(openId);
@@ -25,17 +24,13 @@ function register(){
        success: function (r) {
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
-        	  alert(userId+"===loginuserId");
         	  SetCookie("mobilep",mobilep,7);
         	  SetCookie("userId",userId,7);
-        	  alert(ReadCookie("userId")+"=====cookieuserid11");
-        	   alert("注册成功11"+userId);
         	   window.location="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
            }else if(r.result == "existence"){
         	   var userId = r.data.USER_ID;
         	   SetCookie("mobilep",mobilep,7);
         	   SetCookie("userId",userId,7);
-        	   alert("该手机号已经注册"+ r.data.USER_ID);
         	   window.location ="http://www.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
            }
        },
