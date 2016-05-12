@@ -19,13 +19,15 @@ function register(){
 			cache : false,
 			success : function(data) {
 				var d = eval(data);
-				alert(d)
+				alert(d.name)
 				 $.ajax({
 				       type: "post",
 				       url: url+"/rest/register",
 				       contentType:"application/json;charset=utf8",
 				       data: JSON.stringify({"phone":mobilep,"openId":openId,"avatar":d.url,"name":d.name}),
 				       dataType: "json",
+				       async : false,
+						cache : false,
 				       success: function (r) {
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
