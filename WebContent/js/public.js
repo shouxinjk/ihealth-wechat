@@ -328,19 +328,19 @@ function carep(userId){
 				var data = eval(r.data);
 				if(data!=undefined){
 					for(var i=0;i<data.length;i++){
-						str+="<div class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
-								"<div class=\"Care_img col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
+						str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
+								"<div class=\"Care_img\">"+
 									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+
-								"<span class=\"guanming col-lg-4 col-xs-4 col-md-4 col-sm-4\">"+data[i].NAME+"</span>"+
-								"<span style='text-align: center;' class=\"col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+data[i].connection+"</span>"+
+								"<span style='float: left;' class=\"guanming\">"+data[i].NAME+"</span>"+
+								"<span style='text-align: center;float: right;' class=\"relation\">"+data[i].connection+"</span>"+
 								/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
 							"</div>";
 					}
 				}
 				
 				str+= "</div>"+
-					  "<div class=\"button_sp_area\">"+
+					  "<div class=\"button_sp_area col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 					  	"<a href=\"#\"  class=\"add weui_btn_plain_primary\" onclick='addUser()'>添加</a>"+
 					  "</div>";
 				 $('.content').html(str);

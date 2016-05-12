@@ -1,7 +1,7 @@
 var guanxin ="<tr id='guanxin' class='occupation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 		"<td>关系:</td>" +
 		"<td>" +
-		 "&nbsp;<input id='s3' type='text' placeholder='如:父子!'/>" +
+		 "&nbsp;<input id='s3' type='text' value='父子' placeholder='如:父子!'/>" +
 		"</td>" +
 		"</tr>" ; 
     
@@ -10,7 +10,7 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
     "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
     "<td>姓名：</td>" +
             "<td>" +
-                "<input id='username' type='text' placeholder='请填写姓名!'/>" +
+                "<input id='username' value='张三' type='text' placeholder='请填写姓名!'/>" +
                 "<input id='user_id' type='hidden' value=''/>" +
             "</td>" +
         "</tr>" +
@@ -50,12 +50,12 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
         "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
             "<td style='display: inline-block;'>身高：</td>" +
             "<td style='display: inline-block;width:29%;'>" +
-                "<input type='text' maxlength=\"4\" id='stature' name='height' class='height' value=''  placeholder=\"170\" />" +
+                "<input type='text' maxlength=\"4\" id='stature' name='height' class='height' value='175'  placeholder=\"170\" />" +
                 "<span style='margin-left:0.2rem;'>cm</span>" +
             "</td>" +
             "<td style='display: inline-block;'>体重：</td>" +
             "<td style='display: inline-block;width:29%;'>" +
-                "<input type='text' name='weigth' class='weigth' value='' placeholder=\"50\"/><span style='margin-left:0.2rem;'>kg</span>" +
+                "<input type='text' name='weigth' class='weigth' value='65' placeholder=\"50\"/><span style='margin-left:0.2rem;'>kg</span>" +
             "</td>" +
         "</tr>" +
         

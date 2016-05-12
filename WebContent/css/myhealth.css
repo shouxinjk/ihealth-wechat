@@ -98,7 +98,7 @@ article {
    padding: 0;
 	max-height: 2rem;
 	font-size: 0.6rem !important;
-	color: #867E7E;
+	/*color: #867E7E;*/
 	overflow: hidden;
 	word-wrap: break-word;
 	text-overflow: -o-ellipsis-lastline;
@@ -153,6 +153,12 @@ article {
     margin: 0 0 0.5rem 0;
     line-height: 1rem;
 }
+.active_{
+	color: #000 !important;
+}
+.subgroup1{
+	color: #C0BEBE;
+}
 .touch {
     border-bottom: 0.06rem solid #CEC5D6 !important;
 
@@ -182,7 +188,7 @@ div#group_ li {
 em{
 	font-style: normal;
 }
-.trait {
+.trait,.zhi_source {
 	font-size: .6rem;
 	float: left;
 	padding: .05rem .2rem;
@@ -190,11 +196,14 @@ em{
 	margin: .1rem;
 	border-radius: 1rem;
 	text-align: center;
-/* height: 2rem; */
+}
+.comma1 {
+	float: left;
 }
 .xmtable {
     margin-top: .5rem;
     margin-bottom: 3rem;
+    padding: 0rem;
 }
 .xmtable .item:first-child{
     border-top: 0.06rem solid #CEC5D6 !important;
@@ -208,7 +217,7 @@ em{
 }
 .item{
     overflow: hidden;
-    padding: 0.5rem 0;
+    padding: 0.2rem 0.5rem;
 }
 .item td{
     padding: 0;
