@@ -52,8 +52,6 @@ if(openIdObj==null){
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript">
 var openId = "<%=openId%>";
-
-
 $(function(){
 	var code = "<%=code%>";
 		alert(code)
