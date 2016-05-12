@@ -24,33 +24,6 @@ function register(){
        async : false,
 		cache : false,
        success: function (r) {
-    	   $.ajax({
-   			url:"/ihealth-wechat/userInfoServlet",
-   			type:"post",
-   			async : false,
-   			cache : false,
-   			success:function(data){
-   				var d = eval(data);
-   				alert(d.url.length)
-   				$.ajax({
-   			        type: "post",
-   			        url: url+"/rest/updateUser",
-   			        contentType:"application/json;charset=utf8",
-   			        data: JSON.stringify({"userId":r.data.USER_ID,"name":d.name,"avatar":d.url}),
-   			        dataType: "json",
-   			    	async : false,
-   			    	cache : false,
-   			        success: function (r) {
-   			            if (r.result == "success") {
-   			            	 console.log('保存成功');
-   			            }else{
-   			            	
-   			            }
-   			        }
-   			       
-   			    });
-   			}
-   		});
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
         	  SetCookie("mobilep",mobilep,7);
