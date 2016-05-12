@@ -88,7 +88,7 @@ $(function(){
 			if(ur.result == "no"){
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
 			}else if(ur.result == "success"){
-				alert(data.USER_ID);
+				alert(data.USER_ID+"====successuserid");
 				alert(state);
 	        	SetCookie("userId",data.USER_ID,7);
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
