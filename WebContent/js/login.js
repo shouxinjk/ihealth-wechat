@@ -27,6 +27,7 @@ function register(){
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
         	  SetCookie("mobilep",mobilep,7);
+        	  delCookie("userId");
         	  alert(ReadCookie("userId")+"oldloginCookieUserid");
         	  SetCookie("userId",userId,7);
         	  alert(ReadCookie("userId")+"loginCookieUserid");
