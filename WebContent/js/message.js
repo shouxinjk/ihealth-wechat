@@ -12,7 +12,7 @@ $(document).ready(function () {
         $('.my_message_img ').attr("src", "../images/my_message_1.png");
         $('.my_message span').css('color','rgb(126, 200, 136)');
         var userId  = ReadCookie("userId");
-        alert(userId);
+        alert(userId+"massageuserid");
         Usern(userId);
         wxdu(userId);
     });
