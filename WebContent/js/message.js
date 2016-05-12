@@ -29,7 +29,7 @@ $(document).ready(function () {
 				if (r.result == "success") {
 					var data = eval(r.data);
 					$('.Username').text(data.NAME);//获取姓名
-					
+					$(".head_portrait").attr("src",data.AVATAR);
 				}
 			}
 

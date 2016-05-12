@@ -13,7 +13,7 @@
 <div class="container">
     <header>
         <div class="Header col-lg-12 col-xs-12 col-md-12 col-sm-12">
-                <img class="head_portrait "  src="../images/head_portrait.jpg" alt=""/>
+                <img class="head_portrait " alt=""/>
                 <span class='Username '></span>
         </div>
     </header>
@@ -88,34 +88,7 @@
 <script type="text/javascript" src="../js/add.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$.ajax({
-			url:"/ihealth-wechat/userInfoServlet",
-			type:"post",
-			success:function(data){
-				var d = eval(data);
-				$(".head_portrait").attr("src",d.url);
-				var name = $(".Username").html();
-				if(name == ""){
-					$(".Username").html(d.name);
-				}
-				var userId = ReadCookie("userId");
-				$.ajax({
-			        type: "post",
-			        url: url+"/rest/updateUser",
-			        contentType:"application/json;charset=utf8",
-			        data: JSON.stringify({"userId":userId,"name":d.name,"avatar":d.url}),
-			        dataType: "json",
-			        success: function (r) {
-			            if (r.result == "success") {
-			            	 console.log('保存成功');
-			            }else{
-			            	
-			            }
-			        }
-			       
-			    });
-			}
-		});
+		
 	});
 </script>
 </html>

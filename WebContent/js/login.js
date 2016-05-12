@@ -22,6 +22,29 @@ function register(){
        data: JSON.stringify({"phone":mobilep,"openId":openId,"avatar":headimgurl,"name":name}),
        dataType: "json",
        success: function (r) {
+    	   $.ajax({
+   			url:"/ihealth-wechat/userInfoServlet",
+   			type:"post",
+   			success:function(data){
+   				var d = eval(data);
+   				var userId = ReadCookie("userId");
+   				$.ajax({
+   			        type: "post",
+   			        url: url+"/rest/updateUser",
+   			        contentType:"application/json;charset=utf8",
+   			        data: JSON.stringify({"userId":userId,"name":d.name,"avatar":d.url}),
+   			        dataType: "json",
+   			        success: function (r) {
+   			            if (r.result == "success") {
+   			            	 console.log('保存成功');
+   			            }else{
+   			            	
+   			            }
+   			        }
+   			       
+   			    });
+   			}
+   		});
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
         	  SetCookie("mobilep",mobilep,7);
