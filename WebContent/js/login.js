@@ -31,6 +31,7 @@ function register(){
    			cache : false,
    			success:function(data){
    				var d = eval(data);
+   				alert(d.url)
    				$.ajax({
    			        type: "post",
    			        url: url+"/rest/updateUser",
