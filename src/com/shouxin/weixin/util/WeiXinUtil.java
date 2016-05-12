@@ -132,6 +132,7 @@ public class WeiXinUtil {
 			responseContent = EntityUtils.toString(entity, "UTF-8");
 			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
 			// ��json�ַ���ת��Ϊjson����
+			System.out.println(res.getStatusLine().getStatusCode()+"*********");
 			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				if (json.get("errcode") != null) {// ����ʱ΢�Ż᷵�ش��������Ϣ��{"errcode":40013,"errmsg":"invalid
 													// appid"}
