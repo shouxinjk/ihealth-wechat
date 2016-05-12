@@ -52,9 +52,13 @@ if(openIdObj==null){
 <script type="text/javascript" src="../js/public.js"></script>
 <script type="text/javascript">
 var openId = "<%=openId%>";
-var code = "<%=code%>"
+
+
 $(function(){
+	var code = "<%=code%>";
+		alert(code)
 	if(openId == ""){
+		alert(11)
 		$.ajax({
 			url:"/ihealth-wechat/openIdServlet",
 			type:"post",
