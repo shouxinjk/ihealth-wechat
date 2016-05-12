@@ -100,6 +100,8 @@
 				}
 				var userId = ReadCookie("userId");
 				alert(userId);
+				alert(d.name);
+				alert(d.url);
 				$.ajax({
 			        type: "post",
 			        url: url+"/rest/updateUser",
