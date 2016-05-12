@@ -82,7 +82,7 @@ $(function(){
 		cache : false,
 		success:function(ur){
 			//alert(ur.result);
-			alert(ur);
+			alert(ur.result+"==");
 			var data = eval(ur.data);
 			if(ur.result == "no"){
 				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
