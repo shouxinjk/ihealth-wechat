@@ -27,12 +27,11 @@ function register(){
    			type:"post",
    			success:function(data){
    				var d = eval(data);
-   				var userId = ReadCookie("userId");
    				$.ajax({
    			        type: "post",
    			        url: url+"/rest/updateUser",
    			        contentType:"application/json;charset=utf8",
-   			        data: JSON.stringify({"userId":userId,"name":d.name,"avatar":d.url}),
+   			        data: JSON.stringify({"userId":r.data.USER_ID,"name":d.name,"avatar":d.url}),
    			        dataType: "json",
    			        success: function (r) {
    			            if (r.result == "success") {
