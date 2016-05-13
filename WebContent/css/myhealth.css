@@ -159,6 +159,9 @@ article {
 .subgroup1{
 	color: #C0BEBE;
 }
+.del{
+	color: #C0BEBE !important;
+}
 .touch {
     border-bottom: 0.06rem solid #CEC5D6 !important;
 

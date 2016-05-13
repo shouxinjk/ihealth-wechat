@@ -14,19 +14,22 @@ $(function(){
         $('#li2').addClass('active');
         //$('.content').html(liveway);
         tagCategory(userId);
+        $('#guanxin').css('display','none');
         //liv();
     }
     if(thisId == '#disease_information'){	//疾病信息
         $('#li1').removeClass('active');
         $('#li3').addClass('active');
         listDisease(userId);
+        $('#guanxin').css('display','none');
         //disease();
     }
     if(thisId == '#Care_People'){			//关心的人
         $('#li1').removeClass('active');
         $('#li4').addClass('active');
         //$('.content').html(Care_People);
-        carep(userId)
+        carep(userId);
+        $('#guanxin').css('display','none');
     }
 });
 //生活方式
@@ -330,12 +333,14 @@ function carep(userId){
 				var data = eval(r.data);
 				if(data!=undefined){
 					for(var i=0;i<data.length;i++){
-						str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
+						str+="<div  class=\"Care_one col-lg-6 col-xs-6 col-md-6 col-sm-6\">"+
 								"<div class=\"Care_img\">"+
 									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+
-								"<span style='float: left;' class=\"guanming\">"+data[i].NAME+"</span>"+
-								"<span style='text-align: center;float: right;' class=\"relation\">"+data[i].connection+"</span>"+
+								"<div class=\"Care_guanxi\" style='text-align: center;'>"+
+									"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
+									"<span  class=\"relation\">("+data[i].connection+")</span>"+
+								"</div>"+
 								/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
 							"</div>";
 					}

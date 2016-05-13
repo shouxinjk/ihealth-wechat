@@ -89,7 +89,7 @@ span.Username {
 .container .content .project-progress1,.project-progress2,.project-progress3,.project-progress4 {
     display: inline-block;
     position: relative;
-    width: 5.5rem;
+    width: 7.5rem;
     border: 0.01rem solid #B6B6B9;
     height: 1rem;
     top: 1rem;
@@ -99,7 +99,7 @@ span.Username {
     padding: 0;
 }
 .project-progress1 i,.project-progress2 i,.project-progress3 i,.project-progress4 i {
-    height: .95rem;
+    height: 1rem;
     position: absolute;
     padding: 0;
     -webkit-box-top: 0.05rem;
@@ -111,6 +111,7 @@ span.Username {
 }
 .container .content i,em{
     font-style:normal;
+    text-align: center;
 }
 
 .care_for_percentage,.illness_percentage,.live_percentage,.message_percentage{

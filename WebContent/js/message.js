@@ -76,51 +76,51 @@ function wxdu(userId){
 
 				if((userNumber >=0)  &&( userNumber<=30)){ //基本信息
 						$('#userNumber').css("color",'red');
-						$('#userNumber').css("background-image", "url(\"../images/jiantou1.png\")");
+						//$('#userNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 						$('.project-progress1 i').css({"background":'red',"width":data.userNumber+'%'});
 					}
 					else if((userNumber <=80 )&& (userNumber>30)){
-						$('#userNumber').css("color",'rgb(247, 38, 205)');
-						$('#userNumber').css("background-image", "url(\"../images/jiantou2.png\")");
-						$('.project-progress1 i').css({"background":'rgb(247, 38, 205)',"width":data.userNumber+'%'});
+						$('#userNumber').css("color",'#ff7f58');
+						//$('#userNumber').css("background-image", "url(\"../images/jiantou2.png\")");
+						$('.project-progress1 i').css({"background":'#ff7f58',"width":data.userNumber+'%'});
 					}
 					else if((userNumber <=100) && (userNumber>80)){
 						$('#userNumber').css("color",'#00ff00');
-						$('#userNumber').css("background-image", "url(\"../images/jiantou3.png\")");
+						//$('#userNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 						$('.project-progress1 i').css({"background":'#00ff00',"width":data.userNumber+'%'});
 					}
 				
 				
 				if((tagNumber >=0)  &&( tagNumber<=30)){//生活方式
 						$('#tagNumber').css("color",'red');
-						$('#tagNumber').css("background-image", "url(\"../images/jiantou1.png\")");
+						//$('#tagNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 						$('.project-progress2 i').css({"background":'red',"width":data.tagNumber+'%'});
 					}
 					else if((tagNumber <=80 )&& (tagNumber>30)){
-						$('#tagNumber').css("color",'rgb(247, 38, 205)');
-						$('#tagNumber').css("background-image", "url(\"../images/jiantou2.png\")");
-						$('.project-progress2 i').css({"background":'rgb(247, 38, 205)',"width":data.tagNumber+'%'});
+						$('#tagNumber').css("color",'#ff7f58');
+						//$('#tagNumber').css("background-image", "url(\"../images/jiantou2.png\")");
+						$('.project-progress2 i').css({"background":'#ff7f58',"width":data.tagNumber+'%'});
 					}
 					else if((tagNumber <=100) && (tagNumber>80)){
 						$('#tagNumber').css("color",'#00ff00');
-						$('#tagNumber').css("background-image", "url(\"../images/jiantou3.png\")");
+						//$('#tagNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 						$('.project-progress2 i').css({"background":'#00ff00',"width":data.tagNumber+'%'});
 					}
 					
 				
 				if((diseaseNumber >=0)  &&( diseaseNumber<=30)){//疾病信息
 						$('#diseaseNumber').css("color",'red');
-						$('#diseaseNumber').css("background-image", "url(\"../images/jiantou1.png\")");
+						//$('#diseaseNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 						$('.project-progress3 i').css({"background":'red',"width":data.diseaseNumber+'%'});
 					}
 					else if((diseaseNumber <=80 )&& (diseaseNumber>30)){
-						$('#diseaseNumber').css("color",'rgb(247, 38, 205)');
-						$('#diseaseNumber').css("background-image", "url(\"../images/jiantou2.png\")");
-						$('.project-progress3 i').css({"background":'rgb(247, 38, 205)',"width":data.diseaseNumber+'%'});
+						$('#diseaseNumber').css("color",'#ff7f58');
+						//$('#diseaseNumber').css("background-image", "url(\"../images/jiantou2.png\")");
+						$('.project-progress3 i').css({"background":'#ff7f58',"width":data.diseaseNumber+'%'});
 					}
 					else if((diseaseNumber <=100) && (diseaseNumber>80)){
 						$('#diseaseNumber').css("color",'#00ff00');
-						$('#diseaseNumber').css("background-image", "url(\"../images/jiantou3.png\")");
+						//$('#diseaseNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 						$('.project-progress3 i').css({"background":'#00ff00',"width":data.diseaseNumber+'%'});
 					}
 
@@ -128,17 +128,17 @@ function wxdu(userId){
 
 				if((connectionNumber >=0)  &&( connectionNumber<=30)){//关心的人
 						$('#connectionNumber').css("color",'red');
-						$('#connectionNumber').css("background-image", "url(\"../images/jiantou1.png\")");
+						//$('#connectionNumber').css("background-image", "url(\"../images/jiantou1.png\")");
 						$('.project-progress4 i').css({"background":'red',"width":data.connectionNumber+'%'});
 					}
 					else if((connectionNumber <=80 )&& (connectionNumber>30)){
-						$('#connectionNumber').css("color",'rgb(247, 38, 205)');
-						$('#connectionNumber').css("background-image", "url(\"../images/jiantou2.png\")");
-						$('.project-progress4 i').css({"background":'rgb(247, 38, 205)',"width":data.connectionNumber+'%'});
+						$('#connectionNumber').css("color",'#ff7f58');
+						//$('#connectionNumber').css("background-image", "url(\"../images/jiantou2.png\")");
+						$('.project-progress4 i').css({"background":'#ff7f58',"width":data.connectionNumber+'%'});
 					}
 					else if((connectionNumber>80) && (connectionNumber <=100)){
 						$('#connectionNumber').css("color",'#00ff00');
-						$('#connectionNumber').css("background-image", "url(\"../images/jiantou3.png\")");
+						//$('#connectionNumber').css("background-image", "url(\"../images/jiantou3.png\")");
 						$('.project-progress4 i').css({"background":'#00ff00',"width":data.connectionNumber+'%'});
 					}
 				
