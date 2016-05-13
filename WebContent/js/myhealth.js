@@ -116,10 +116,11 @@ function intn(userId){
 	                    	alert(333)
 	                    	var d = eval(r1.data);
 	                    	var sub1 = d.SUBGROUP;
+	                    	alert(sub1);
 	    		        	var sub = MD5(sub1);
+	    		        	alert(sub+"===sub")
 	                    	//通过状态判断项目是否显示
 	        		        if(!(d.STATUS == "已删除")){
-	        		        	
 	        		        	str+="<div id='laiyuan' class='zhiN subgroup1 active_ source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+d.DESCRIPTION+"</div>";
 	        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a></div>';
 	        		        }else {
@@ -127,6 +128,7 @@ function intn(userId){
 	        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/huifu.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
 	        		        }
 	        		        str+="</div>";
+	        		        alert(str+"====str")
 	               		 var source = '';
 	       				 source ='<div  class="comma">'+
 	       				 			'<div  class="zhi_source">'+d.ORIGINATE+'</div></div>';
@@ -135,7 +137,6 @@ function intn(userId){
 	           					var birthArr= new Array();
 	           					//按逗号拆分
 	           					birthArr = d.FEATURES.split(",");
-	           				
 	           					if(birthArr.length > 0){
 	           						var len = '';
 	           						for(var p=0;p<birthArr.length;p++){
@@ -143,7 +144,6 @@ function intn(userId){
 	           										'<div class="trait">'+birthArr[p]+'</div>'+
 	       										'</div>';
 	           						}
-	           						alert(str)
 	           						$('.xmtable').append(str);
 	           						$('#'+sub).append(len);
 	           						$('#'+sub).append(source);
