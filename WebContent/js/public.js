@@ -153,9 +153,9 @@ function msgsave(userId){
     });
 }
 
-function obtainId(){
+function obtainId(id){
 	var strId = "";
-	$(".livefs").find("input").each(function(){
+	$("."+id).find("input").each(function(){
 		strId += $(this).val()+",";
 	});
 	strId = strId.substring(0,strId.length-1);
@@ -222,7 +222,7 @@ function listDisease(userId){//疾病信息
 				    				if(urallData!=undefined){
 				    					for(var j=0;j<urallData.length;j++){
 					    					if(allData[i].DISEASE_ID == urallData[j].DISEASE_ID){
-					    						str+= "class='livefs_1 livefs'";
+					    						str+= "id='personal' class='livefs_1 livefs'";
 					    					}
 					    				}
 				    				}
@@ -238,7 +238,7 @@ function listDisease(userId){//疾病信息
 				    				if(urIsInheritableDiseaseData!=undefined){
 					    				for(var j=0;j<urIsInheritableDiseaseData.length;j++){
 					    					if(IsInheritableDiseaseData[i].DISEASE_ID == urIsInheritableDiseaseData[j].DISEASE_ID){
-					    						str+= "class='livefs_2 livefs'";
+					    						str+= "id='family' class='livefs_2 livefs'";
 					    					}
 					    				}
 				    				}
@@ -255,7 +255,7 @@ function listDisease(userId){//疾病信息
 				    				if(urIsHighIncidence!=undefined){
 					    				for(var j=0;j<urIsHighIncidence.length;j++){
 					    					if(IsHighIncidence[i].DISEASE_ID == urIsHighIncidence[j].DISEASE_ID){
-					    						str+= "class='livefs_3 livefs'";
+					    						str+= "id='focus' class='livefs_3 livefs'";
 					    					}
 					    				}
 				    				}
@@ -286,6 +286,9 @@ function listDisease(userId){//疾病信息
 }
 
 function on_click3(userId){   //关心的人
+	alert(obtainId("livefs_1"));
+	alert(obtainId("livefs_2"));
+	alert(obtainId("livefs_3"));
 	$.ajax({
 		url:url+"/restdisease/updateDisease",
   		type:"post",
@@ -293,7 +296,9 @@ function on_click3(userId){   //关心的人
   		data:JSON
   			.stringify({
   				"userID" : userId,
-  				"diseaseID" :obtainId()
+  				"personalDiseaseID" :obtainId("livefs_1"),
+  				"familyDiseaseID" :obtainId("livefs_2"),
+  				"focusDiseaseID" :obtainId("livefs_3")
   			}),
   		dataType : "json",
   		async : false,
