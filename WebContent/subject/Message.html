@@ -92,42 +92,5 @@
 <script type="text/javascript" src="../js/message.js"></script>
 <script type="text/javascript" src="../js/add.js"></script>
 <script type="text/javascript">
-	$(function() {
-		var name = $(".Username").html();
-		if (name == "") {
-			$.ajax({
-				url : "/ihealth-wechat/userInfoServlet",
-				type : "post",
-				success : function(data) {
-					var d = eval(data);
-					$(".head_portrait").attr("src", d.url);
-					var name = $(".Username").html();
-					if (name == "") {
-						$(".Username").html(d.name);
-					}
-					var userId = ReadCookie("userId");
-					$.ajax({
-						type : "post",
-						url : url + "/rest/updateUser",
-						contentType : "application/json;charset=utf8",
-						data : JSON.stringify({
-							"userId" : userId,
-							"name" : d.name,
-							"avatar" : d.url
-						}),
-						dataType : "json",
-						success : function(r) {
-							if (r.result == "success") {
-								console.log('保存成功');
-							} else {
-
-							}
-						}
-
-					});
-				}
-			});
-		}
-	});
 </script>
 </html>
