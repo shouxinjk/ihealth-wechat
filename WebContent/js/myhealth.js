@@ -103,6 +103,7 @@ function intn(userId){
 	        			}
 	        		}
 	        		str+="</div>";
+	        		alert(str);
 	        		$.ajax({
 	                    type: "post",
 	                    url: url+"/rest/getCheckItem",
@@ -112,6 +113,7 @@ function intn(userId){
 	                    async : false,
 	            		cache : false,
 	                    success: function (r1) {
+	                    	alert(333)
 	                    	var d = eval(r1.data);
 	                    	var sub1 = d.SUBGROUP;
 	    		        	var sub = MD5(sub1);
@@ -140,8 +142,9 @@ function intn(userId){
 	           							len +=  '<div class="" >'+
 	           										'<div class="trait">'+birthArr[p]+'</div>'+
 	       										'</div>';
-	           						}$('.xmtable').append(str);
-	           					
+	           						}
+	           						alert(str)
+	           						$('.xmtable').append(str);
 	           						$('#'+sub).append(len);
 	           						$('#'+sub).append(source);
 	           						
