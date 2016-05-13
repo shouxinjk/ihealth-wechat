@@ -122,7 +122,7 @@ function intn(userId){
 	         		        	str +='<div class="'+sub+'"></div>';
 	         		        }else {
 	         		        	str+="<div onclick='onc(\"laiyuan"+sub+"\")' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>";
-	         		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/huifu.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
+	         		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
 	         		        	str +='<div class="'+sub+' subgroup1"></div>';
 	         		        }
 	        		        str+="</div>";
@@ -167,8 +167,6 @@ function intn(userId){
 	
 }
 function onc(e){
-	
-	
 	if($("#"+e).css('maxHeight')=="40px"){
 		$("#"+e).css({maxHeight:"100%",overflow:"auto",display:"block"});
 	}else{
@@ -186,6 +184,7 @@ $(document).delegate(".subgroup1",'click',function(){
 	var userId = ReadCookie("userId");
 	var ORIGINATE;
 	var FEATURES;
+	var sub1;
 	var sub;
 	$(this).addClass("active_").siblings().removeClass("active_");
 	var CHECKUPITEMid = $(this).find("input").val();
@@ -225,11 +224,25 @@ $(document).delegate(".subgroup1",'click',function(){
 			}
 		}
 	}
-	//$('#31').html("");
 	$('.'+sub).find("div").remove();
 	$('.'+sub).append(len);
 	$('.'+sub).append(source);
 	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);
+	$.ajax({
+        type: "post",
+        url: url+"/rest/editCheckItem",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"checkupItemId":itemID,"stauts":"已删除","subGroup":sub1}),
+        dataType: "json",
+        success: function (r) {
+        	if (r.result == "success") {
+		        		$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
+		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','##8033C3');
+        		}
+        	$('.xmtable').html('');
+        	intn(userId);
+        	}
+   });
 	$(this).parent().siblings(".deletli").find("a").attr("href","javascript:del('"+itemID+"','"+status+"','"+sub1+"','"+userId+"')");
 	$(this).parent().siblings(".deletli").find("a").attr("id",itemID);
 	if(status == '已选中'){
@@ -248,25 +261,19 @@ $(document).delegate(".subgroup1",'click',function(){
 
 //确定
 //删除体检项目
-
     	function del(ID,status,group,userId){
     		 $.ajax({
 			        type: "post",
 			        url: url+"/rest/editCheckItem",
 			        contentType:"application/json;charset=utf8",
-			        data: JSON.stringify({"checkupItemId":ID,"stauts":status,"subGroup":group}),
+			        data: JSON.stringify({"checkupItemId":ID,"stauts":"已选中","subGroup":group}),
 			        dataType: "json",
 			        success: function (r) {
 			        	if (r.result == "success") {
-					        	if(status == '已删除'){
 					        		//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 					        		 $("#"+ID ).parent().find('#laiyuan').css('color','##8033C3');
-					        	}else if(status == '已选中'){
-					        		 $('.weui_dialog_alert').css("display","none");
-					        		 $("#"+ID ).attr("href","javascript:del('"+ID+"','已删除','"+userId+"')");
-					        		 $("#"+ID ).parent().find('#laiyuan').css('color','red');
-					        	}
+					        	
 			        		}
 			        	$('.xmtable').html('');
 			        	intn(userId);

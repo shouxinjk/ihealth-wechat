@@ -247,7 +247,7 @@ min-height: 2rem;
     width: 4rem;
     height: 4rem;
     padding: 0;
-    margin-left: 25%;
+    margin-left: 19%;
 }
 .Care_one div img{
     width: 100%;
@@ -256,6 +256,11 @@ min-height: 2rem;
 .Care_one span{
     padding: 0 0 0 0rem;
     font-size: .7rem;
+}
+.Care_one i{
+	padding: 0 0 0 0rem;
+    font-size: .7rem;
+    font-style:normal;
 }
 .quxiao{
 	padding: 0;

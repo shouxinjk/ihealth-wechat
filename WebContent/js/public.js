@@ -339,7 +339,7 @@ function carep(userId){
 								"</div>"+
 								"<div class=\"Care_guanxi\" style='text-align: center;'>"+
 									"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
-									"<span  class=\"relation\">("+data[i].connection+")</span>"+
+									"<i  class=\"relation\">("+data[i].connection+")</i>"+
 								"</div>"+
 								/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
 							"</div>";
