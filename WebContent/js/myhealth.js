@@ -75,7 +75,6 @@ function intn(userId){
         async : false,
 		cache : false,
         success: function (r) {
-        	
         	var data = eval(r.data);
         	for(var j=0;j<group.length;j++){
         		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";

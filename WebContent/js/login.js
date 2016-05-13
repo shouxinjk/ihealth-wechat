@@ -19,7 +19,6 @@ function register(){
 			cache : false,
 			success : function(data) {
 				var d = eval(data);
-				alert(d.name)
 				 $.ajax({
 				       type: "post",
 				       url: url+"/rest/register",
@@ -76,7 +75,6 @@ function register2(){
        data: JSON.stringify({"phone":mobilep,"openId":"aaa"}),
        dataType: "json",
        success: function (r) {
-    	   alert(r);
            if (r.result == "success") {
         	  var userId = r.data.USER_ID;
         	  SetCookie("mobilep",mobilep,7);

@@ -286,7 +286,6 @@ function listDisease(userId){//疾病信息
 }
 
 function on_click3(userId){   //关心的人
-	alert(obtainId("livefs_1"));
 	$.ajax({
 		url:url+"/restdisease/updateDisease",
   		type:"post",
