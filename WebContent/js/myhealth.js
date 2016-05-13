@@ -62,7 +62,7 @@ function intn(userId){
         async : false,
 		cache : false,
         success: function (r) {
-        	aerlt(111)
+        	alert(111)
         	group = eval(r.group);
         		}
         });
