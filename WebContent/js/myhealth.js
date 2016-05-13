@@ -53,7 +53,6 @@ function intn(userId){
 	var judge = true;
 	var group;
 	var CHECKUPITEMid;
-	alert(11);
 	$.ajax({
         type: "post",
         url: url+"/rest/findCheckItems",
@@ -63,7 +62,6 @@ function intn(userId){
         async : false,
 		cache : false,
         success: function (r) {
-        	alert(111)
         	if(r.result == "success"){
         		group = eval(r.group);
         	}else if(r.result == "no"){
@@ -81,7 +79,6 @@ function intn(userId){
 	        async : false,
 			cache : false,
 	        success: function (r) {
-	        	alert(22)
 	        	var data = eval(r.data);
 	        	for(var j=0;j<group.length;j++){
 	        		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
@@ -103,7 +100,6 @@ function intn(userId){
 	        			}
 	        		}
 	        		str+="</div>";
-	        		alert(str);
 	        		$.ajax({
 	                    type: "post",
 	                    url: url+"/rest/getCheckItem",
@@ -113,12 +109,9 @@ function intn(userId){
 	                    async : false,
 	            		cache : false,
 	                    success: function (r1) {
-	                    	alert(333)
 	                    	var d = eval(r1.data);
 	                    	var sub1 = d.SUBGROUP;
-	                    	alert(sub1);
 	    		        	var sub = MD5(sub1);
-	    		        	alert(sub+"===sub")
 	                    	//通过状态判断项目是否显示
 	        		        if(!(d.STATUS == "已删除")){
 	        		        	str+="<div id='laiyuan' class='zhiN subgroup1 active_ source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+d.DESCRIPTION+"</div>";
@@ -128,7 +121,6 @@ function intn(userId){
 	        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/huifu.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
 	        		        }
 	        		        str+="</div>";
-	        		        alert(str+"====str")
 	               		 var source = '';
 	       				 source ='<div  class="comma">'+
 	       				 			'<div  class="zhi_source">'+d.ORIGINATE+'</div></div>';
