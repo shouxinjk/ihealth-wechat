@@ -171,7 +171,7 @@ function on_click2(userId){   //生活方式
   		data:JSON
   			.stringify({
   				"userID" : userId,
-  				"tagID" :obtainId()
+  				"tagID" :obtainId("livefs")
   			}),
   		dataType : "json",
   		async : false,

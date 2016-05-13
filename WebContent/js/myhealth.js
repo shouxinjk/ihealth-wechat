@@ -63,7 +63,7 @@ function intn(userId){
 		cache : false,
         success: function (r) {
         	alert(111)
-        	group = eval(r.group);
+        	//group = eval(r.group);
         		}
         });
 	$.ajax({
