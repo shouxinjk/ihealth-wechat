@@ -229,16 +229,16 @@ $(document).delegate(".subgroup1",'click',function(){
 	$('.'+sub).find("div").remove();
 	$('.'+sub).append(len);
 	$('.'+sub).append(source);
-	$(this).parent().siblings("#laiyuan").html(DESCRIPTION);
+	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);
 	$(this).parent().siblings(".deletli").find("a").attr("href","javascript:del('"+itemID+"','"+status+"','"+sub1+"','"+userId+"')");
 	$(this).parent().siblings(".deletli").find("a").attr("id",itemID);
 	if(status == '已选中'){
 		$(this).parent().siblings(".deletli").find("a").find("img").attr("src","../images/delete.png");
-		$(this).parent().siblings("#laiyuan").css('color','#000');
+		$(this).parent().siblings("#laiyuan"+sub).css('color','#000');
 		$(this).parent().siblings(".deletli").next("div").css('color','#000');
 	}else{
 		$(this).parent().siblings(".deletli").find("a").find("img").attr("src","../images/huifu.png");
-		$(this).parent().siblings("#laiyuan").css('color','#C0BEBE');
+		$(this).parent().siblings("#laiyuan"+sub).css('color','#C0BEBE');
 		$(this).parent().siblings(".deletli").next("div").css('color','#C0BEBE');
 	}
 	
