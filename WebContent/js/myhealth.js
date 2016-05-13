@@ -50,8 +50,10 @@ function relevance(userId){    //获取关联用户名
 
 function intn(userId){
 	$('.xmtable').html('');
+	var judge = true;
 	var group;
 	var CHECKUPITEMid;
+	alert(11);
 	$.ajax({
         type: "post",
         url: url+"/rest/findCheckItems",
@@ -61,90 +63,100 @@ function intn(userId){
         async : false,
 		cache : false,
         success: function (r) {
-        	
-        	group = eval(r.group);
-        		}
-        });
-	$.ajax({
-        type: "post",
-        url: url+"/rest/getCheckItemsByGroup",
-        contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"userId":userId}),
-        dataType: "json",
-        async : false,
-		cache : false,
-        success: function (r) {
-        	
-        	var data = eval(r.data);
-        	for(var j=0;j<group.length;j++){
-        		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
-        		for(var i=0;i<data.length;i++){
-        			if(group[j].SUBGROUP == data[i].SUBGROUP){
-        				var name;
-        				if(data[i].STATUS == "已选中"){
-        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
-        					name = data[i].NAME;
-        					str +="<span class='subgroup1 active_' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'></span>"+"/";
-        				
-        				}else{
-        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
-        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'></span>"+"/";
-        				}
-        			}
-        			if(i==data.length-1){
-        				str = str.substring(0,str.length-1);
-        			}
-        		}
-        		str+="</div>";
-        		$.ajax({
-                    type: "post",
-                    url: url+"/rest/getCheckItem",
-                    contentType:"application/json;charset=utf8",
-                    data: JSON.stringify({"id":CHECKUPITEMid}),
-                    dataType: "json",
-                    async : false,
-            		cache : false,
-                    success: function (r1) {
-                    	var d = eval(r1.data);
-                    	var sub1 = d.SUBGROUP;
-    		        	var sub = MD5(sub1);
-                    	//通过状态判断项目是否显示
-        		        if(!(d.STATUS == "已删除")){
-        		        	
-        		        	str+="<div id='laiyuan' class='zhiN subgroup1 active_ source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+d.DESCRIPTION+"</div>";
-        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a></div>';
-        		        }else {
-        		        	str+="<div id='laiyuan' class='zhiN subgroup1 source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+d.DESCRIPTION+"</div>";
-        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/huifu.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
-        		        }
-        		        str+="</div>";
-               		 var source = '';
-       				 source ='<div  class="comma">'+
-       				 			'<div  class="zhi_source">'+d.ORIGINATE+'</div></div>';
-       				//添加体检项目的特性
-       				 if (d.FEATURES != null && d.FEATURES !=''){
-           					var birthArr= new Array();
-           					//按逗号拆分
-           					birthArr = d.FEATURES.split(",");
-           				
-           					if(birthArr.length > 0){
-           						var len = '';
-           						for(var p=0;p<birthArr.length;p++){
-           							len +=  '<div class="" >'+
-           										'<div class="trait">'+birthArr[p]+'</div>'+
-       										'</div>';
-           						}$('.xmtable').append(str);
-           					
-           						$('#'+sub).append(len);
-           						$('#'+sub).append(source);
-           						
-           					}
-           		    	}
-                    }
-            	});
-        	  }
+        	alert(111)
+        	if(r.result == "success"){
+        		group = eval(r.group);
+        	}else if(r.result == "no"){
+        		judge = false;
         	}
-        })
+        }
+        });
+	if(judge){
+		$.ajax({
+	        type: "post",
+	        url: url+"/rest/getCheckItemsByGroup",
+	        contentType:"application/json;charset=utf8",
+	        data: JSON.stringify({"userId":userId}),
+	        dataType: "json",
+	        async : false,
+			cache : false,
+	        success: function (r) {
+	        	alert(22)
+	        	var data = eval(r.data);
+	        	for(var j=0;j<group.length;j++){
+	        		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
+	        		for(var i=0;i<data.length;i++){
+	        			if(group[j].SUBGROUP == data[i].SUBGROUP){
+	        				var name;
+	        				if(data[i].STATUS == "已选中"){
+	        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
+	        					name = data[i].NAME;
+	        					str +="<span class='subgroup1 active_' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'></span>"+"/";
+	        				
+	        				}else{
+	        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
+	        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'></span>"+"/";
+	        				}
+	        			}
+	        			if(i==data.length-1){
+	        				str = str.substring(0,str.length-1);
+	        			}
+	        		}
+	        		str+="</div>";
+	        		alert(str);
+	        		$.ajax({
+	                    type: "post",
+	                    url: url+"/rest/getCheckItem",
+	                    contentType:"application/json;charset=utf8",
+	                    data: JSON.stringify({"id":CHECKUPITEMid}),
+	                    dataType: "json",
+	                    async : false,
+	            		cache : false,
+	                    success: function (r1) {
+	                    	alert(333)
+	                    	var d = eval(r1.data);
+	                    	var sub1 = d.SUBGROUP;
+	                    	alert(sub1);
+	    		        	var sub = MD5(sub1);
+	    		        	alert(sub+"===sub")
+	                    	//通过状态判断项目是否显示
+	        		        if(!(d.STATUS == "已删除")){
+	        		        	str+="<div id='laiyuan' class='zhiN subgroup1 active_ source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+d.DESCRIPTION+"</div>";
+	        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a></div>';
+	        		        }else {
+	        		        	str+="<div id='laiyuan' class='zhiN subgroup1 source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+d.DESCRIPTION+"</div>";
+	        		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/huifu.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
+	        		        }
+	        		        str+="</div>";
+	        		        alert(str+"====str")
+	               		 var source = '';
+	       				 source ='<div  class="comma">'+
+	       				 			'<div  class="zhi_source">'+d.ORIGINATE+'</div></div>';
+	       				//添加体检项目的特性
+	       				 if (d.FEATURES != null && d.FEATURES !=''){
+	           					var birthArr= new Array();
+	           					//按逗号拆分
+	           					birthArr = d.FEATURES.split(",");
+	           					if(birthArr.length > 0){
+	           						var len = '';
+	           						for(var p=0;p<birthArr.length;p++){
+	           							len +=  '<div class="" >'+
+	           										'<div class="trait">'+birthArr[p]+'</div>'+
+	       										'</div>';
+	           						}
+	           						$('.xmtable').append(str);
+	           						$('#'+sub).append(len);
+	           						$('#'+sub).append(source);
+	           						
+	           					}
+	           		    	}
+	                    }
+	            	});
+	        	  }
+	        	}
+	        });
+	}
+	
         
 }
 $(document).delegate(".subgroup1",'click',function(){
