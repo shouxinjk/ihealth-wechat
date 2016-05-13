@@ -208,9 +208,19 @@ $(document).delegate(".subgroup1",'click',function(){
         }
 	});
 	
-	var source = '';
-		 source ='<div  class="comma">'+
-		 			'<div  class="zhi_source">'+ORIGINATE+'</div></div>';
+	
+    if(d.ORIGINATE != null && d.ORIGINATE !='')  {
+    	
+    	var birthArr1= new Array();
+			//按逗号拆分
+			birthArr1 = d.ORIGINATE.split(",");
+			if(birthArr1.length > 0){
+			 var source = '';
+				for(var c=0 ; c<birthArr1.length;c++){
+					source += '<div class="zhi_source">'+birthArr1[c]+'</div>';
+				}
+			}
+    }
 		//添加体检项目的特性
 	if (FEATURES != null && FEATURES !=''){
 		var birthArr= new Array();
