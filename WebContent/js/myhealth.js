@@ -209,11 +209,11 @@ $(document).delegate(".subgroup1",'click',function(){
 	});
 	
 	
-    if(d.ORIGINATE != null && d.ORIGINATE !='')  {
+    if(ORIGINATE != null && ORIGINATE !='')  {
     	
     	var birthArr1= new Array();
 			//按逗号拆分
-			birthArr1 = d.ORIGINATE.split(",");
+			birthArr1 = ORIGINATE.split(",");
 			if(birthArr1.length > 0){
 			 var source = '';
 				for(var c=0 ; c<birthArr1.length;c++){
