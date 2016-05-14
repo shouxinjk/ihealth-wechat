@@ -333,7 +333,7 @@ function carep(userId){
 				var data = eval(r.data);
 				if(data!=undefined){
 					for(var i=0;i<data.length;i++){
-						str+="<div  class=\"Care_one col-lg-6 col-xs-6 col-md-6 col-sm-6\">"+
+						str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
 								"<div class=\"Care_img\">"+
 									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 								"</div>"+

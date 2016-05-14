@@ -241,13 +241,14 @@ min-height: 2rem;
 
 /*关心的人*/
 .Care_one {
-    margin-bottom: 1rem;
+    margin-left: 4%;
+	margin-bottom: 1rem;
 }
 .Care_one .Care_img{
     width: 4rem;
     height: 4rem;
     padding: 0;
-    margin-left: 19%;
+    margin-left: 23%;
 }
 .Care_one div img{
     width: 100%;

@@ -12,7 +12,6 @@
 				if (r.result == "success") {
 					var data = eval(r.data);
 					$('.Username').text(data.NAME);//获取姓名
-					
 				}
 			}
 
@@ -36,9 +35,9 @@ function relevance(userId){    //获取关联用户名
 				var data = eval(r.data);
 				var str = "";
 					for(var i=0;i<data.length;i++){
-						str+="<li id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
+						str+="<li data-val='"+data[i].USER_ID+"'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
 					}
-				$('#my').attr("onclick","guanlian1('"+userId+"')");
+				$('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
 				 $('#my').after(str);
 			}
 	});
@@ -81,7 +80,7 @@ function intn(userId){
 	        success: function (r) {
 	        	var data = eval(r.data);
 	        	for(var j=0;j<group.length;j++){
-	        		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
+	        		var str1 ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
 	        		var k =0;
 	        		for(var i=0;i<data.length;i++){
 	        			if(group[j].SUBGROUP == data[i].SUBGROUP){
@@ -89,20 +88,24 @@ function intn(userId){
 	        				if(data[i].STATUS == "已选中"){
 	        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					name = data[i].NAME;
-	        					str +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'></span>"+"/";
+	        					str1 +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i></span>";
+	        						
 	        					k++;
 	        				}else{
 	        					if(k==0){
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					}
-	        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'></span>"+"/";
+	        					str1 +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i></span>";
+	        					
 	        				}
 	        			}
+	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
-	        				str = str.substring(0,str.length-1);
+	        				str1 = str1.substring(0,str1.length-1);
 	        			}
 	        		}
-	        		str+="</div>";
+	        		str1+="</div>";
+	        		 $('.xmtable').append(str1);
 	        		$.ajax({
 	                    type: "post",
 	                    url: url+"/rest/getCheckItem",
@@ -117,18 +120,22 @@ function intn(userId){
 	    		        	var sub = MD5(sub1);
 	                    	//通过状态判断项目是否显示
 	    		        	 if(!(d.STATUS == "已删除")){
-	         		        	str+="<div onclick='onc(\"laiyuan"+sub+"\")' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>";
-	         		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a></div>';
-	         		        	str +='<div class="'+sub+'"></div>';
+	         		        	 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+d.DESCRIPTION+"</div>"+
+	         		        	 
+				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
+				         		        	'<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a></div>'+
+				         		        	'</div>';
+	         		        	
 	         		        }else {
-	         		        	str+="<div onclick='onc(\"laiyuan"+sub+"\")' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>";
-	         		        	str += '<div class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a></div>';
-	         		        	str +='<div class="'+sub+' subgroup1"></div>';
+	         		        	var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>"+
+					         		        //deletli 原来在sub外面
+					         		        	'<div class="'+sub+' subdiv subgroup1 col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
+					         		        		'<div  class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a></div>'+
+					         		        	'</div>';
 	         		        }
-	        		        str+="</div>";
-	        		        
+	    		        	 $(".subgroup1").last().find(".iss").remove();
 	        		        $('.xmtable').append(str);
-	        		        
+	        		       
 	        		      //添加体检项目的特性
 		       				 if (d.FEATURES != null && d.FEATURES !=''){
 		           					var birthArr= new Array();
@@ -164,16 +171,34 @@ function intn(userId){
 	        	}
 	        });
 	}
+	$(".subgroup1").last().find(".iss").remove();
 	
 }
 function onc(e){
-	if($("#"+e).css('maxHeight')=="40px"){
+	if($("#"+e).attr("data-flag")==1){
 		$("#"+e).css({maxHeight:"100%",overflow:"auto",display:"block"});
+		$("#"+e).attr("data-flag","0");
+		alert("0");
 	}else{
 		$("#"+e).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
 		$("#"+e).css({display:"-webkit-box"});
+		$("#"+e).attr("data-flag","1");
+		alert("1");
 	}
 }
+
+$(document).delegate(".zhiN","click",function(){
+	var flag = $(this).attr("data-flag");
+	if(flag==1){
+		$(this).css({maxHeight:"100%",overflow:"auto",display:"block"});
+		$(this).attr("data-flag","0");
+	}else{
+		$(this).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
+		$(this).css({display:"-webkit-box"});
+		$(this).attr("data-flag","1");
+//		alert("1");
+	}
+})
     
 
 
@@ -181,7 +206,7 @@ $(document).delegate(".subgroup1",'click',function(){
 	var DESCRIPTION;
 	var status;
 	var itemID ;
-	var userId = ReadCookie("userId");
+	var userId = $(".relevanceMY").attr("data-val");
 	var ORIGINATE;
 	var FEATURES;
 	var sub1;
@@ -210,14 +235,13 @@ $(document).delegate(".subgroup1",'click',function(){
 	
 	
     if(ORIGINATE != null && ORIGINATE !='')  {
-    	
     	var birthArr1= new Array();
 			//按逗号拆分
 			birthArr1 = ORIGINATE.split(",");
 			if(birthArr1.length > 0){
 			 var source = '';
 				for(var c=0 ; c<birthArr1.length;c++){
-					source += '<div class="zhi_source">'+birthArr1[c]+'</div>';
+					source += '<div class="zhi_source" style="color:#000">'+birthArr1[c]+'</div>';
 				}
 			}
     }
@@ -230,7 +254,7 @@ $(document).delegate(".subgroup1",'click',function(){
 		if(birthArr.length > 0){
 			var len = '';
 			for(var p=0;p<birthArr.length;p++){
-				len += '<div class="trait">'+birthArr[p]+'</div>';
+				len += '<div class="trait" style="color:#000">'+birthArr[p]+'</div>';
 			}
 		}
 	}
@@ -247,7 +271,7 @@ $(document).delegate(".subgroup1",'click',function(){
         success: function (r) {
         	if (r.result == "success") {
 		        		$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
-		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','##8033C3');
+		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');
         		}
         	$('.xmtable').html('');
         	intn(userId);
@@ -256,13 +280,12 @@ $(document).delegate(".subgroup1",'click',function(){
 	$(this).parent().siblings(".deletli").find("a").attr("href","javascript:del('"+itemID+"','"+status+"','"+sub1+"','"+userId+"')");
 	$(this).parent().siblings(".deletli").find("a").attr("id",itemID);
 	if(status == '已选中'){
-		$(this).parent().siblings(".deletli").find("a").find("img").attr("src","../images/delete.png");
-		$(this).parent().siblings("#laiyuan"+sub).css('color','#000');
-		$(this).parent().siblings(".deletli").next("div").css('color','#000');
+		$(this).find(".deletli").find("a").find("img").attr("src","../images/delete.png");
+		$(this).find("#laiyuan"+sub).css('color','#000');
+		$(this).find(".deletli").next("div").css('color','#000');
 	}else{
-		$(this).parent().siblings(".deletli").find("a").find("img").attr("src","../images/huifu.png");
-		$(this).parent().siblings("#laiyuan"+sub).css('color','#C0BEBE');
-		$(this).parent().siblings(".deletli").next("div").css('color','#C0BEBE');
+		$(this).find(".deletli").find("a").find("img").attr("src","../images/huifu.png");
+		$(this).find("#laiyuan"+sub).css('color','#C0BEBE');
 	}
 	
 })
@@ -282,11 +305,13 @@ $(document).delegate(".subgroup1",'click',function(){
 			        	if (r.result == "success") {
 					        		//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
-					        		 $("#"+ID ).parent().find('#laiyuan').css('color','##8033C3');
-					        	
+					        		 //$("#"+ID ).parent().find('#laiyuan').css('color','#8033C3');
+					        		$("#"+ID ).find('div').css('color','#8033C3');
+					        		///alert($("#"+ID ).nextAll('div').length);
 			        		}
 			        	$('.xmtable').html('');
 			        	intn(userId);
+			        	
 			        	}
 			   });
     	}

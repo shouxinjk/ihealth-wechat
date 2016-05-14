@@ -159,13 +159,18 @@ article {
 .subgroup1{
 	color: #C0BEBE;
 }
+.subdiv{
+	border-bottom: 0.06rem solid #CEC5D6 !important;
+	float: left;
+	padding-bottom: .3rem;
+}
 .del{
 	color: #C0BEBE !important;
 }
-.touch {
+/* .touch {
     border-bottom: 0.06rem solid #CEC5D6 !important;
 
-}
+} */
 .row {
     margin-right: -10px;
     margin-left: -11px;
@@ -199,6 +204,7 @@ em{
 	margin: .1rem;
 	border-radius: 1rem;
 	text-align: center;
+	color:#000;
 }
 .comma1 {
 	float: left;
@@ -208,10 +214,10 @@ em{
     margin-bottom: 3rem;
     padding: 0rem;
 }
-.xmtable .item:first-child{
+/* .xmtable .item:first-child{
     border-top: 0.06rem solid #CEC5D6 !important;
     border-bottom: 0.06rem solid #CEC5D6 !important;
-}
+} */
 .xmtable tbody  tr:nth-child(2n+1){
     background: #f8f8f8;
 }
