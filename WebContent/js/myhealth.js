@@ -128,10 +128,12 @@ function intn(userId){
 	         		        	
 	         		        }else {
 	         		        	var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>"+
-					         		        //deletli 原来在sub外面
-					         		        	'<div class="'+sub+' subdiv subgroup1 col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
+					         		        //deletli 原来在sub外面  sub 后面有个class（ subgroup1）
+					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        		'<div  class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a></div>'+
 					         		        	'</div>';
+	         		        				$('#idcolor1').css('color','red');
+	         		        	$('.tex').attr('id','idname')
 	         		        }
 	    		        	 $(".subgroup1").last().find(".iss").remove();
 	        		        $('.xmtable').append(str);
@@ -144,7 +146,12 @@ function intn(userId){
 		           					if(birthArr.length > 0){
 		           						var len = '';
 		           						for(var p=0;p<birthArr.length;p++){
-		           							len += '<div class="trait">'+birthArr[p]+'</div>';
+		           						 if(!(d.STATUS == "已删除")){
+		           							len += '<div class="tex trait">'+birthArr[p]+'</div>';
+		           						  }
+		           						 else{
+		           							len += '<div id="idname" class="tex trait">'+birthArr[p]+'</div>';
+		           						 }
 		           						}
 		           					}
 		           		    	}
@@ -159,7 +166,11 @@ function intn(userId){
            					if(birthArr1.length > 0){
            					 var source = '';
            						for(var c=0 ; c<birthArr1.length;c++){
-           							source += '<div class="zhi_source">'+birthArr1[c]+'</div>';
+           						 if(!(d.STATUS == "已删除")){
+           							source += '<div class="tex zhi_source">'+birthArr1[c]+'</div>';
+           						  }else{
+           							source += '<div id="idname" class="tex zhi_source">'+birthArr1[c]+'</div>';
+           						  }
            						}
            					}
 	        		    }
@@ -178,12 +189,10 @@ function onc(e){
 	if($("#"+e).attr("data-flag")==1){
 		$("#"+e).css({maxHeight:"100%",overflow:"auto",display:"block"});
 		$("#"+e).attr("data-flag","0");
-		alert("0");
 	}else{
 		$("#"+e).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
 		$("#"+e).css({display:"-webkit-box"});
 		$("#"+e).attr("data-flag","1");
-		alert("1");
 	}
 }
 
@@ -196,7 +205,6 @@ $(document).delegate(".zhiN","click",function(){
 		$(this).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
 		$(this).css({display:"-webkit-box"});
 		$(this).attr("data-flag","1");
-//		alert("1");
 	}
 })
     
@@ -305,9 +313,7 @@ $(document).delegate(".subgroup1",'click',function(){
 			        	if (r.result == "success") {
 					        		//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
-					        		 //$("#"+ID ).parent().find('#laiyuan').css('color','#8033C3');
-					        		$("#"+ID ).find('div').css('color','#8033C3');
-					        		///alert($("#"+ID ).nextAll('div').length);
+					        		 $("#"+ID ).parent().find('.tex').css('color','#8033C3');
 			        		}
 			        	$('.xmtable').html('');
 			        	intn(userId);

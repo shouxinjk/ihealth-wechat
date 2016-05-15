@@ -180,6 +180,8 @@ article {
     /*height: 100%;*/
     background: #ffffff;
 }
+
+
 div#group_ li {
 	list-style: none;
 	font-size: .8rem;
@@ -206,6 +208,15 @@ em{
 	text-align: center;
 	color:#000;
 }
+#idname{
+	color:#C0BEBE;
+}
+/* .tex {
+	color: #C0BEBE;
+}
+#idcolor1 ,#idcolor{
+	color: #C0BEBE;
+} */
 .comma1 {
 	float: left;
 }
