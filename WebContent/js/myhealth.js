@@ -80,7 +80,7 @@ function intn(userId){
 	        success: function (r) {
 	        	var data = eval(r.data);
 	        	for(var j=0;j<group.length;j++){
-	        		var str1 ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
+	        		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
 	        		var k =0;
 	        		for(var i=0;i<data.length;i++){
 	        			if(group[j].SUBGROUP == data[i].SUBGROUP){
@@ -88,24 +88,24 @@ function intn(userId){
 	        				if(data[i].STATUS == "已选中"){
 	        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					name = data[i].NAME;
-	        					str1 +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i></span>";
+	        					str +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        						
 	        					k++;
 	        				}else{
 	        					if(k==0){
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					}
-	        					str1 +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i></span>";
+	        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        					
 	        				}
 	        			}
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
-	        				str1 = str1.substring(0,str1.length-1);
+	        				str = str.substring(0,str.length-1);
 	        			}
 	        		}
-	        		str1+="</div>";
-	        		 $('.xmtable').append(str1);
+	        		str+="</div>";
+	        		 $('.xmtable').append(str);
 	        		$.ajax({
 	                    type: "post",
 	                    url: url+"/rest/getCheckItem",
@@ -132,11 +132,9 @@ function intn(userId){
 					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        		'<div  class="deletli" id="'+sub+'"><a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini weui_btn_primary hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a></div>'+
 					         		        	'</div>';
-	         		        				$('#idcolor1').css('color','red');
-	         		        	$('.tex').attr('id','idname')
 	         		        }
 	    		        	 $(".subgroup1").last().find(".iss").remove();
-	        		        $('.xmtable').append(str);
+	        		        $("#touch"+j).append(str);
 	        		       
 	        		      //添加体检项目的特性
 		       				 if (d.FEATURES != null && d.FEATURES !=''){
