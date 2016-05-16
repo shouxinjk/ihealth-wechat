@@ -70,7 +70,7 @@ function register2(){
 //   alert(ReadCookie("openId"));
    $.ajax({
        type: "post",
-       url: "http://localhost:8080/ihealth/rest/register",
+       url: url+"/rest/register",
        contentType:"application/json;charset=utf8",
        data: JSON.stringify({"phone":mobilep,"openId":"aaa"}),
        dataType: "json",
