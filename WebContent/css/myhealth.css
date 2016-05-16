@@ -162,7 +162,7 @@ article {
 .subdiv{
 	border-bottom: 0.06rem solid #CEC5D6 !important;
 	float: left;
-	padding-bottom: .3rem;
+	padding: 0 0 .3rem 0;
 }
 .del{
 	color: #C0BEBE !important;
@@ -224,6 +224,21 @@ em{
     margin-top: .5rem;
     margin-bottom: 3rem;
     padding: 0rem;
+}
+.remove{
+	width: 1.7rem;
+	display: block;
+	text-align: center;
+	padding: 0;
+	color: #000;
+	font-size: .6rem;
+}
+.deletli{
+	border: .07rem solid #F4F0F8;
+	width: 3.5rem;
+	border-radius: .5rem;
+	line-height: 1rem;
+	margin-top: .07rem;
 }
 /* .xmtable .item:first-child{
     border-top: 0.06rem solid #CEC5D6 !important;
