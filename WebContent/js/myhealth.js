@@ -129,7 +129,7 @@ function intn(userId){
 						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
-	         		        	
+	         		        	console.log('11111');
 	         		        }else {
 	         		        	var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>"+
 					         		        //deletli 原来在sub外面  sub 后面有个class（ subgroup1）
@@ -139,7 +139,7 @@ function intn(userId){
 						         		        		'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">恢复</div>'+
 							         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;"  >删除</div>'+	
 					         		        		'</div>'+
-					         		        	'</div>';
+					         		        	'</div>';console.log('22222');
 	         		        }
 	    		        	 $(".subgroup1").last().find(".iss").remove();
 	        		        $("#touch"+j).append(str);
@@ -191,31 +191,6 @@ function intn(userId){
 	$(".subgroup1").last().find(".iss").remove();
 	
 }
-
-function onc(e){
-	if($("#"+e).attr("data-flag")==1){
-		$("#"+e).css({maxHeight:"100%",overflow:"auto",display:"block"});
-		$("#"+e).attr("data-flag","0");
-	}else{
-		$("#"+e).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
-		$("#"+e).css({display:"-webkit-box"});
-		$("#"+e).attr("data-flag","1");
-	}
-}
-
-$(document).delegate(".zhiN","click",function(){
-	var flag = $(this).attr("data-flag");
-	if(flag==1){
-		$(this).css({maxHeight:"100%",overflow:"auto",display:"block"});
-		$(this).attr("data-flag","0");
-	}else{
-		$(this).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
-		$(this).css({display:"-webkit-box"});
-		$(this).attr("data-flag","1");
-	}
-})
-    
-
 
 $(document).delegate(".subgroup1",'click',function(){
 	var DESCRIPTION;
@@ -285,6 +260,7 @@ $(document).delegate(".subgroup1",'click',function(){
         dataType: "json",
         success: function (r) {
         	if (r.result == "success") {
+        		
 		        	/*	$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
 		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');*/
         		}
@@ -304,6 +280,31 @@ $(document).delegate(".subgroup1",'click',function(){
 	}*/
 	
 })
+function onc(e){
+	if($("#"+e).attr("data-flag")==1){
+		$("#"+e).css({maxHeight:"100%",overflow:"auto",display:"block"});
+		$("#"+e).attr("data-flag","0");
+	}else{
+		$("#"+e).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
+		$("#"+e).css({display:"-webkit-box"});
+		$("#"+e).attr("data-flag","1");
+	}
+}
+
+$(document).delegate(".zhiN","click",function(){
+	var flag = $(this).attr("data-flag");
+	if(flag==1){
+		$(this).css({maxHeight:"100%",overflow:"auto",display:"block"});
+		$(this).attr("data-flag","0");
+	}else{
+		$(this).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
+		$(this).css({display:"-webkit-box"});
+		$(this).attr("data-flag","1");
+	}
+})
+    
+
+
 
 
 //确定
@@ -317,18 +318,23 @@ $(document).delegate(".subgroup1",'click',function(){
 			        dataType: "json",
 			        success: function (r) {
 			        	if (r.result == "success") {
+			        		
 					        		/*//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 					        		 $("#"+ID ).parent().find('.tex').css('color','#8033C3');*/
-			        		/*if(status == '已删除'){
+			        		if(status == '已删除'){
+			        			console.log('11');
 				        		//$("#group_").find(".active").click(); 
 				        		//$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 				        	}else if(status == '已选中'){
+				        		console.log('22');
 				        		 //$("#"+ID ).attr("href","javascript:del('"+ID+"','已删除','"+userId+"')");
-				        	}*/
+				        	}
+			        		$('.xmtable').html('');
+				        	intn(userId);
 			        		}
-			        	$('.xmtable').html('');
-			        	intn(userId);
+			        	/*$('.xmtable').html('');
+			        	intn(userId);*/
 			        	}
 			   });
     	}
