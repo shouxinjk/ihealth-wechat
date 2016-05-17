@@ -191,7 +191,7 @@ function intn(userId){
 	
 }
 
-$(".subgroup1").live('click', function() {
+$(document).delegate(".subgroup1",'click',function(){
 	var DESCRIPTION;
 	var status;
 	var itemID ;
@@ -247,9 +247,24 @@ $(".subgroup1").live('click', function() {
 			}
 		}
 	}
+	if(status == '已删除'){
+	 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
+ 	 
+  	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
+      	'<div class="deletli" style="float: right;" id="'+sub+'">'+
+//					         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
+	        	'<div id="'+itemID+'" class="remove delet" style="float:right;">恢复</div>'+
+	        	'<div id="'+itemID+'" class="remove  recover" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
+      	'</div>'+
+  	'</div>';
+	}
+	
+	
+	
 	$('.'+sub).find("div").remove();
 	$('.'+sub).append(len);
 	$('.'+sub).append(source);
+	$('.'+sub).append(str);
 	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);
 	$.ajax({
         type: "post",
@@ -262,9 +277,10 @@ $(".subgroup1").live('click', function() {
         		
 		        	/*	$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
 		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');*/
+        		$('.xmtable').html('');
+            	intn(userId);
         		}
-        	$('.xmtable').html('');
-        	intn(userId);
+        	
         	}
    });
 	/*$(this).parent().siblings(".deletli").find("a").attr("href","javascript:del('"+itemID+"','"+status+"','"+sub1+"','"+userId+"')");
