@@ -129,7 +129,6 @@ function intn(userId){
 						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
-	         		        	console.log('11111');
 	         		        }else {
 	         		        	var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>"+
 					         		        //deletli 原来在sub外面  sub 后面有个class（ subgroup1）
@@ -139,7 +138,7 @@ function intn(userId){
 						         		        		'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">恢复</div>'+
 							         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;"  >删除</div>'+	
 					         		        		'</div>'+
-					         		        	'</div>';console.log('22222');
+					         		        	'</div>';
 	         		        }
 	    		        	 $(".subgroup1").last().find(".iss").remove();
 	        		        $("#touch"+j).append(str);
@@ -192,7 +191,7 @@ function intn(userId){
 	
 }
 
-$(document).delegate(".subgroup1",'click',function(){
+$(".subgroup1").live('click', function() {
 	var DESCRIPTION;
 	var status;
 	var itemID ;
@@ -279,7 +278,7 @@ $(document).delegate(".subgroup1",'click',function(){
 		$(this).find("#laiyuan"+sub).css('color','#C0BEBE');
 	}*/
 	
-})
+});
 function onc(e){
 	if($("#"+e).attr("data-flag")==1){
 		$("#"+e).css({maxHeight:"100%",overflow:"auto",display:"block"});
@@ -322,14 +321,12 @@ $(document).delegate(".zhiN","click",function(){
 					        		/*//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 					        		 $("#"+ID ).parent().find('.tex').css('color','#8033C3');*/
-			        		if(status == '已删除'){
-			        			console.log('11');
+			        	/*	if(status == '已删除'){
 				        		//$("#group_").find(".active").click(); 
 				        		//$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 				        	}else if(status == '已选中'){
-				        		console.log('22');
 				        		 //$("#"+ID ).attr("href","javascript:del('"+ID+"','已删除','"+userId+"')");
-				        	}
+				        	}*/
 			        		$('.xmtable').html('');
 				        	intn(userId);
 			        		}
