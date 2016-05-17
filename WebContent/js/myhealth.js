@@ -285,8 +285,8 @@ $(document).delegate(".subgroup1",'click',function(){
         dataType: "json",
         success: function (r) {
         	if (r.result == "success") {
-		        		$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
-		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');
+		        	/*	$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
+		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');*/
         		}
         	$('.xmtable').html('');
         	intn(userId);
@@ -306,7 +306,6 @@ $(document).delegate(".subgroup1",'click',function(){
 })
 
 
-
 //确定
 //删除体检项目
     	function del(ID,status,group,userId){
@@ -321,16 +320,15 @@ $(document).delegate(".subgroup1",'click',function(){
 					        		/*//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 					        		 $("#"+ID ).parent().find('.tex').css('color','#8033C3');*/
-			        		if(status == '已删除'){
+			        		/*if(status == '已删除'){
 				        		//$("#group_").find(".active").click(); 
 				        		//$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 				        	}else if(status == '已选中'){
 				        		 //$("#"+ID ).attr("href","javascript:del('"+ID+"','已删除','"+userId+"')");
-				        	}
+				        	}*/
 			        		}
 			        	$('.xmtable').html('');
 			        	intn(userId);
-			        	
 			        	}
 			   });
     	}
