@@ -125,8 +125,8 @@ function intn(userId){
 				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        	'<div class="deletli" style="float: right;" id="'+sub+'">'+
 	//					         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
-						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;">恢复</div>'+
-						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
+						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;"></div>'+
+						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;background: red;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
 	         		        }else {
@@ -136,7 +136,7 @@ function intn(userId){
 					         		        		'<div  class="deletli" style="float: right;" id="'+sub+'">'+
 					         		        			//'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a>'+
 						         		        		'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;color: #fff;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')">恢复</div>'+
-							         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;"  >删除</div>'+	
+							         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;"></div>'+	
 					         		        		'</div>'+
 					         		        	'</div>';
 	         		        }
@@ -200,6 +200,7 @@ $(document).delegate(".subgroup1",'click',function(){
 	var FEATURES;
 	var sub1;
 	var sub;
+	$(this).attr('id','idactive');
 	$(this).addClass("active_").siblings().removeClass("active_");
 	var CHECKUPITEMid = $(this).find("input").val();
 	$.ajax({
@@ -213,7 +214,7 @@ $(document).delegate(".subgroup1",'click',function(){
         success: function (r1) {
         	var d = eval(r1.data);
         	DESCRIPTION = d.DESCRIPTION;
-        	status = d.STATUS;
+        	status = '已选中';
         	itemID = d.CHECKUPITEM_ID;
         	ORIGINATE = d.ORIGINATE;
         	FEATURES = d.FEATURES;
@@ -247,24 +248,36 @@ $(document).delegate(".subgroup1",'click',function(){
 			}
 		}
 	}
-	if(status == '已删除'){
-	 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
- 	 
-  	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
-      	'<div class="deletli" style="float: right;" id="'+sub+'">'+
-//					         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
-	        	'<div id="'+itemID+'" class="remove delet" style="float:right;">恢复</div>'+
-	        	'<div id="'+itemID+'" class="remove  recover" style="float:right;background: rgb(126, 200, 136);-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
-      	'</div>'+
-  	'</div>';
-	}
+	
+	if(status == '已选中'){
+		 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
+	 	 
+	
+	      	'<div class="deletli" style="float: right;" id="'+sub+'">'+
+//						         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
+		        	'<div id="'+itemID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;"></div>'+
+		        	'<div id="'+itemID+'" class="remove  recover" style="float:right;background: red;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
+	    
+	  	'</div>';
+		}else{
+			var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
+		 	 
+	
+		      	'<div class="deletli" style="float: right;" id="'+sub+'">'+
+//							         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
+			        	'<div id="'+itemID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;"></div>'+
+			        	'<div id="'+itemID+'" class="remove  recover" style="float:right;background: red;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #fff;"  onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
+		      
+		  	'</div>';
+		}
 	
 	
-	
+	$('#idactive').parent().next('.source_adr').remove();
 	$('.'+sub).find("div").remove();
+	
+	$('.'+sub).append(str);
 	$('.'+sub).append(len);
 	$('.'+sub).append(source);
-	$('.'+sub).append(str);
 	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);
 	$.ajax({
         type: "post",
@@ -275,14 +288,19 @@ $(document).delegate(".subgroup1",'click',function(){
         success: function (r) {
         	if (r.result == "success") {
         		
+        		
+        		$('#idactive').parent().next('.source_adr').remove();
+        		//$("#"+itemID).attr("onclick","del('"+itemID+"','已选中','"+sub1+"','"+userId+"')");
 		        	/*	$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
 		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');*/
-        		$('.xmtable').html('');
-            	intn(userId);
+        		//$('.xmtable').html('');
+            	//intn(userId);
         		}
         	
         	}
    });
+
+	
 	/*$(this).parent().siblings(".deletli").find("a").attr("href","javascript:del('"+itemID+"','"+status+"','"+sub1+"','"+userId+"')");
 	$(this).parent().siblings(".deletli").find("a").attr("id",itemID);*/
 	/*if(status == '已选中'){
