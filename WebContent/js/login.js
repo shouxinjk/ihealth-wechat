@@ -3,7 +3,7 @@ $(".vali").bind('input vali',function(){
 });
 function register(){
 	delCookie("userId");
-	 alert(ReadCookie("openId"));
+	 alert(ReadCookie("userId"));
 	var openId = $("#openId").val();
 	var headimgurl = $("#headimgurl").val();
 	//alert(openId);
