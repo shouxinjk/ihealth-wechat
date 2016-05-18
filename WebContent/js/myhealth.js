@@ -192,6 +192,7 @@ function intn(userId){
 }
 
 $(document).delegate(".subgroup1",'click',function(){
+	$('#idactive').parent().next('.source_adr').remove();
 	var DESCRIPTION;
 	var status;
 	var itemID ;
@@ -274,7 +275,6 @@ $(document).delegate(".subgroup1",'click',function(){
 	
 	$('#idactive').parent().next('.source_adr').remove();
 	$('.'+sub).find("div").remove();
-	
 	$('.'+sub).append(str);
 	$('.'+sub).append(len);
 	$('.'+sub).append(source);
@@ -287,31 +287,11 @@ $(document).delegate(".subgroup1",'click',function(){
         dataType: "json",
         success: function (r) {
         	if (r.result == "success") {
-        		
-        		
         		$('#idactive').parent().next('.source_adr').remove();
-        		//$("#"+itemID).attr("onclick","del('"+itemID+"','已选中','"+sub1+"','"+userId+"')");
-		        	/*	$("#"+itemID).attr("href","javascript:del('"+itemID+"','已选中','"+userId+"')");
-		        		 $("#"+itemID ).parent().find('#laiyuan').css('color','#000');*/
-        		//$('.xmtable').html('');
-            	//intn(userId);
         		}
         	
         	}
    });
-
-	
-	/*$(this).parent().siblings(".deletli").find("a").attr("href","javascript:del('"+itemID+"','"+status+"','"+sub1+"','"+userId+"')");
-	$(this).parent().siblings(".deletli").find("a").attr("id",itemID);*/
-	/*if(status == '已选中'){
-		$(this).find(".deletli").find("a").find("img").attr("src","../images/delete.png");
-		$(this).find("#laiyuan"+sub).css('color','#000');
-		$(this).find(".deletli").next("div").css('color','#000');
-	}else{
-		$(this).find(".deletli").find("a").find("img").attr("src","../images/huifu.png");
-		$(this).find("#laiyuan"+sub).css('color','#C0BEBE');
-	}*/
-	
 });
 function onc(e){
 	if($("#"+e).attr("data-flag")==1){
@@ -351,7 +331,6 @@ $(document).delegate(".zhiN","click",function(){
 			        dataType: "json",
 			        success: function (r) {
 			        	if (r.result == "success") {
-			        		
 					        		/*//$("#group_").find(".active").click(); 
 					        		$("#"+ID).attr("href","javascript:del('"+ID+"','已选中','"+userId+"')");
 					        		 $("#"+ID ).parent().find('.tex').css('color','#8033C3');*/
@@ -361,11 +340,11 @@ $(document).delegate(".zhiN","click",function(){
 				        	}else if(status == '已选中'){
 				        		 //$("#"+ID ).attr("href","javascript:del('"+ID+"','已删除','"+userId+"')");
 				        	}*/
-			        		$('.xmtable').html('');
-				        	intn(userId);
+			        		/*$('.xmtable').html('');
+				        	intn(userId);*/
 			        		}
-			        	/*$('.xmtable').html('');
-			        	intn(userId);*/
+			        	$('.xmtable').html('');
+			        	intn(userId);
 			        	}
 			   });
     	}
