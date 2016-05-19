@@ -14,14 +14,14 @@ $(function(){
         $('#li2').addClass('active');
         //$('.content').html(liveway);
         tagCategory(userId);
-        $('#guanxin').css('display','none');
+        $('#guanxin').remove();
         //liv();
     }
     if(thisId == '#disease_information'){	//疾病信息
         $('#li1').removeClass('active');
         $('#li3').addClass('active');
         listDisease(userId);
-        $('#guanxin').css('display','none');
+        $('#guanxin').remove();
         //disease();
     }
     if(thisId == '#Care_People'){			//关心的人
@@ -29,7 +29,7 @@ $(function(){
         $('#li4').addClass('active');
         //$('.content').html(Care_People);
         carep(userId);
-        $('#guanxin').css('display','none');
+        $('#guanxin').remove();
     }
 });
 //生活方式
@@ -185,7 +185,7 @@ function on_click2(userId){   //生活方式
 			}
 		}
 	});
-	//$('#guanxin').css('display','none');
+	$('#guanxin').remove();
     $("#li3").addClass('active');
     $("#li2").removeClass('active');
 }
@@ -310,7 +310,7 @@ function on_click3(userId){   //关心的人
 			}
 		}
 	});
-	$('#guanxin').css('disply','none');
+	$('#guanxin').remove();
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
 }
@@ -400,7 +400,9 @@ function lookupUser(userId){
   		data:JSON
   			.stringify({
   				"phone" : phone,
-  				"openId":""
+  				"openId":"",
+  				"avatar":"",
+  				"name":""
   			}),
   		dataType : "json",
   		async : false,
