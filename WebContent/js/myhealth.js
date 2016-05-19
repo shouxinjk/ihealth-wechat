@@ -192,7 +192,8 @@ function intn(userId){
 }
 
 $(document).delegate(".subgroup1",'click',function(){
-	$('#idactive').parent().next('.zhiN').remove();
+	$(this).parent().siblings('.zhiN').remove();
+	//console.log($(this).parent().siblings('.zhiN').attr('class'));
 	var DESCRIPTION;
 	var status;
 	var itemID ;
@@ -249,7 +250,6 @@ $(document).delegate(".subgroup1",'click',function(){
 			}
 		}
 	}
-	
 	if(status == '已选中'){
 		 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
 	 
@@ -260,36 +260,24 @@ $(document).delegate(".subgroup1",'click',function(){
 		        	'<div id="'+itemID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"   onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
 	    
 	  	'</div>';
-		}else{
-			var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
-		 	 
-	
-		      	'<div class="deletli" style="float: right;" id="'+sub+'">'+
-//							         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
-		      	'<div id="'+itemID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;background:rgb(126, 200, 136)"></div>'+
-	        	'<div id="'+itemID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"   onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')">删除</div>'+	
-		      
-		  	'</div>';
 		}
 	
-	
-	$('#idactive').parent().next('.zhiN').remove();
+	$(this).parent().siblings('.zhiN').remove();
 	$('.'+sub).find("div").remove();
 	$('.'+sub).append(str);
 	$('.'+sub).append(len);
 	$('.'+sub).append(source);
-	$(this).parent().siblings("#laiyuan"+sub).append(DESCRIPTION);
+	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);
 	$.ajax({
         type: "post",
         url: url+"/rest/editCheckItem",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"checkupItemId":itemID,"stauts":"已删除","subGroup":sub1}),
+        data: JSON.stringify({"checkupItemId":itemID,"stauts":'已删除',"subGroup":sub1}),
         dataType: "json",
         success: function (r) {
         	if (r.result == "success") {
-        		$('#idactive').parent().next('.zhiN').remove();
+        		$(this).parent().siblings('.zhiN').remove();
         		}
-        	
         	}
    });
 });
