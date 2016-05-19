@@ -20,8 +20,8 @@ public class TokenThred implements Runnable {
 				if (null != accessToken) {
 					// 休眠7000秒
 					System.out.println(accessToken.getAccess_token()+"==============");
-					//Thread.sleep((accessToken.getExpiresIn() - 200) * 1000);
-					Thread.sleep(15000);
+					Thread.sleep((accessToken.getExpiresIn() - 400) * 1000);
+					//Thread.sleep(15000);
 				} else {
 					// 如果access_token为null，60秒后再获取
 					Thread.sleep(60 * 1000);
