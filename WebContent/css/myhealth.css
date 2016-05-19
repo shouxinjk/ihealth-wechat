@@ -235,11 +235,11 @@ em{
 	font-size: .6rem;
 }
 .deletli{
-	border: .07rem solid #F4F0F8;
+	/* border: .07rem solid #F4F0F8;
 	width: 3.5rem;
-	border-radius: .5rem;
+	border-radius: .5rem; */
 	line-height: 1rem;
-	margin-top: .07rem;
+	margin-top: .1rem;
 }
 /* .xmtable .item:first-child{
     border-top: 0.06rem solid #CEC5D6 !important;
@@ -265,3 +265,11 @@ em{
     -webkit-transform: translate(-18%,0);
     -webkit-transition: all 0.3s linear;
 }
+
+
+
+
+
+
+
+
