@@ -2,8 +2,6 @@ $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
 function register(){
-	delCookie("userId");
-	 alert(ReadCookie("userId"));
 	var openId = $("#openId").val();
 	var headimgurl = $("#headimgurl").val();
 	//alert(openId);
@@ -74,7 +72,7 @@ function register2(){
        type: "post",
        url: url+"/rest/register",
        contentType:"application/json;charset=utf8",
-       data: JSON.stringify({"phone":mobilep,"openId":"aaa"}),
+       data: JSON.stringify({"phone":mobilep,"openId":"aaa","avatar":'http://www.baidu.com/img/bd_logo1.png',"name":'测试'}),
        dataType: "json",
        success: function (r) {
            if (r.result == "success") {
