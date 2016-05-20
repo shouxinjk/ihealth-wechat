@@ -35,11 +35,16 @@ function relevance(userId){    //获取关联用户名
 				var data = eval(r.data);
 				var str = "";
 					for(var i=0;i<data.length;i++){
-						str+="<li data-val='"+data[i].USER_ID+"'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
+						str+="<li data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
 					}
-				$('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
+				 $('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
 				 $('#my').after(str);
+				 
+				
 			}
+	
+	
+	
 	});
 }
 
@@ -189,6 +194,35 @@ function intn(userId){
 	}
 	$(".subgroup1").last().find(".iss").remove();
 	
+}
+
+
+
+function glide(){
+	var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        slidesPerView: 3,
+        spaceBetween: 50,
+        breakpoints: {
+            1024: {
+                slidesPerView: 10,
+                spaceBetween: 40
+            },
+            768: {
+                slidesPerView: 5,
+                spaceBetween: 30
+            },
+            640: {
+                slidesPerView: 4,
+                spaceBetween: 20
+            },
+            320: {
+                slidesPerView: 3.8,
+                spaceBetween: 10
+            }
+        }
+    });
 }
 
 $(document).delegate(".subgroup1",'click',function(){
@@ -349,6 +383,8 @@ function guanlian1(id){
 
 
 
+	
+			
 
 
 

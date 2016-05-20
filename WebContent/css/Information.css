@@ -262,6 +262,8 @@ min-height: 2rem;
 	padding: 0 0 0 0rem;
     font-size: .7rem;
     font-style:normal;
+    line-height: 1rem;
+	display: inline-block;
 }
 .quxiao{
 	padding: 0;

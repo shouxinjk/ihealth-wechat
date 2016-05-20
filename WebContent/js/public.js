@@ -333,16 +333,29 @@ function carep(userId){
 				var data = eval(r.data);
 				if(data!=undefined){
 					for(var i=0;i<data.length;i++){
-						str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-								"<div class=\"Care_img\">"+
-									"<img src="+data[i].AVATAR+" alt=\"\"/>"+
-								"</div>"+
-								"<div class=\"Care_guanxi\" style='text-align: center;'>"+
-									"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
-									"<i  class=\"relation\">("+data[i].connection+")</i>"+
-								"</div>"+
-								/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
-							"</div>";
+						if(data[i].AVATAR != null){
+							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
+									"<div class=\"Care_img\">"+
+										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
+									"</div>"+
+									"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
+										"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
+										"<i  class=\"relation\">("+data[i].connection+")</i>"+
+									"</div>"+
+									/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
+								"</div>";
+						}else{
+							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
+							"<div class=\"Care_img\">"+
+								"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
+							"</div>"+
+							"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
+								"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
+								"<i  class=\"relation\">("+data[i].connection+")</i>"+
+							"</div>"+
+							/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
+						"</div>";
+						}
 					}
 				}
 				

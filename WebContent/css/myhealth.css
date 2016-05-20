@@ -52,28 +52,49 @@ a {text-decoration:none !important;}
 	width: 1rem;
 	margin-bottom: .1rem;
 }
-.relevance ul{
+#nav ul{
     display: inline-block;
 }
-.relevance ,.relevance ul{
+#nav ,.relevance ul{
     padding: 0;
     width:100%;
     }
-.relevance ul li{
-    list-style: none;
-    float: left;
-    text-align: center;
-    border: .01rem solid #9b91f5;
-    border-radius: 1rem;
-    background: #ECECEC;
-    color: #9b91f5;
-    padding: .02rem .5rem;
-    font-size: .8rem;
-    margin: 1.2%;
-    line-height: 1rem;
-   
+.swiper-slide {
+            text-align: center;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+.relevance li {
+	list-style: none;
+	/* float: left; */
+	text-align: center;
+	border: .01rem solid #9b91f5;
+	border-radius: 1rem;
+	background: #ECECEC;
+	color: #9b91f5;
+	display: inline;
+	white-space: nowrap;
+	padding: .02rem .5rem;
+	font-size: .8rem;
+	margin: 1.2%;
+	line-height: 1rem;
 }
-.relevance ul .relevanceMY{
+#nav{
+	overflow: hidden;
+	width: 100%;
+}
+#nav ul .relevanceMY{
     background: #9b91f5;
     color: #f5fff5;
 }
@@ -234,6 +255,7 @@ em{
 	color: #000;
 	font-size: .6rem;
 }
+
 .deletli{
 	/* border: .07rem solid #F4F0F8;
 	width: 3.5rem;
