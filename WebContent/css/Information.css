@@ -243,6 +243,7 @@ min-height: 2rem;
 .Care_one {
     margin-left: 4%;
 	margin-bottom: 1rem;
+	min-height: 6.8rem;
 }
 .Care_one .Care_img{
     width: 4rem;

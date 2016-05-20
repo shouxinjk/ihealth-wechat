@@ -1,7 +1,7 @@
 var guanxin ="<tr id='guanxin' class='occupation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 		"<td>关系:</td>" +
 		"<td>" +
-		 "&nbsp;<input id='s3' type='text' value='父子' placeholder='如:父子!'/>" +
+		 "&nbsp;<input id='s3' type='text' value='朋友' placeholder='如:朋友!'/>" +
 		"</td>" +
 		"</tr>" ; 
     

@@ -219,7 +219,7 @@ function glide(){
             },
             320: {
                 slidesPerView: 3.8,
-                spaceBetween: 10
+                spaceBetween: 1
             }
         }
     });
