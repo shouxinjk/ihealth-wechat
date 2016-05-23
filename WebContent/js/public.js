@@ -41,6 +41,7 @@ function liv(id){
     //});
 }
 
+  
 //生活方式livediv
 //function duoliv(id){
 	
@@ -217,7 +218,7 @@ function listDisease(userId){//疾病信息
 				    			var allData = eval(r.allData);//个人疾病
 				    			var IsInheritableDiseaseData = eval(r.IsInheritableDiseaseData);//家族疾病
 				    			var IsHighIncidence = eval(r.IsHighIncidence);//关注疾病（高发疾病）
-				    			str+="<h4 class='personage col-lg-12 col-xs-12 col-md-12 col-sm-12'>个人疾病信息</h4>"+
+				    			str+="<h4 id='personage1' class='personage col-lg-12 col-xs-12 col-md-12 col-sm-12'>个人疾病信息</h4>"+
 				                	 "<div class='personage_illness_1  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 				                	 	"<ul>";
 				    			for(var i=0;i<allData.length;i++){
@@ -233,7 +234,7 @@ function listDisease(userId){//疾病信息
 				    			}
 				    			str += "</ul>"+
 				               			"</div>"+
-						                "<h4 class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>家族疾病信息</h4>"+
+						                "<h4 id='personage2' class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>家族疾病信息</h4>"+
 						                "<div class='personage_illness_2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 						                   "<ul>";
 				    			for(var i=0;i<IsInheritableDiseaseData.length;i++){
@@ -250,7 +251,7 @@ function listDisease(userId){//疾病信息
 				    			}
 				    			str += "</ul>"+
 				       			"</div>"+
-				                "<h4 class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>关注疾病信息</h4>"+
+				                "<h4 id='personage3' class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>关注疾病信息</h4>"+
 				                "<div class='personage_illness_3  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 				                   "<ul>";
 				    			for(var i=0;i<IsHighIncidence.length;i++){
@@ -471,10 +472,15 @@ function addUserAndUser(userId){
 		}
 	});
 }
-
-
-
-
+$(document).delegate("#personage1",'click',function(){
+	$(".personage_illness_1").toggle(800);
+})
+$(document).delegate("#personage2",'click',function(){
+	$(".personage_illness_2").toggle(800);
+})
+$(document).delegate("#personage3",'click',function(){
+	$(".personage_illness_3").toggle(800);
+})
 
 
 
