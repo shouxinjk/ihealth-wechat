@@ -473,13 +473,13 @@ function addUserAndUser(userId){
 	});
 }
 $(document).delegate("#personage1",'click',function(){
-	$(".personage_illness_1").toggle(800);
+	$(".personage_illness_1").toggle(500);
 })
 $(document).delegate("#personage2",'click',function(){
-	$(".personage_illness_2").toggle(800);
+	$(".personage_illness_2").toggle(500);
 })
 $(document).delegate("#personage3",'click',function(){
-	$(".personage_illness_3").toggle(800);
+	$(".personage_illness_3").toggle(500);
 })
 
 
