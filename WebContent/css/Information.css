@@ -151,7 +151,8 @@ min-height: 2rem;
 
 .family,.personage{
     margin: .1rem 0 .1rem 0;
-	padding-bottom: .4rem;
+    line-height: 1.5rem;
+	/* padding-bottom: .4rem; */
 	font-size: .7rem;
 	border-bottom: 0.06rem solid rgb(226, 226, 226);
 }
@@ -239,7 +240,7 @@ min-height: 2rem;
 }
 
 
-/*关心的人*/
+
 .Care_one {
     margin-left: 4%;
 	margin-bottom: 1rem;

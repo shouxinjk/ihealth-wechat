@@ -197,7 +197,7 @@ function intn(userId){
 }
 
 
-
+//体检 顶部滑动
 function glide(){
 	var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
