@@ -34,7 +34,7 @@ $(function(){
 });
 //生活方式
 function liv(id){
-            $("#"+id+" li").click(function(){
+	$(document).delegate("#"+id+" .liveul li","click",function(){
             	 $(this).siblings('li').removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
                  $(this).addClass('livefs livefs_3');
         	})
@@ -52,24 +52,24 @@ function liv(id){
 //}
 
 function duoliv(){
-	$(".livediv .liveul li").click(function(){
+	$(document).delegate(".livediv .liveul li","click",function(){
 		$(this).toggleClass('livefs livefs_3');
 	 })
 }
 
 function duoDisliv_1(){
-	$('.personage_illness_1 ul li').click(function(){
+	$(document).delegate('.personage_illness_1 ul li',"click",function(){
 		$(this).toggleClass('livefs_1 livefs');
 	})
 }
 function duoDisliv_2(){
-	$('.personage_illness_2 ul li').click(function(){
+	$(document).delegate('.personage_illness_2 ul li',"click",function(){
 		$(this).toggleClass('livefs_2 livefs');
 	})
 }
 
 function duoDisliv_3(){
-	$('.personage_illness_3 ul li').click(function(){
+		$(document).delegate('.personage_illness_3 ul li',"click",function(){
 		$(this).toggleClass('livefs_3 livefs');
 	})
 }
