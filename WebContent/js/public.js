@@ -32,7 +32,7 @@ $(function(){
         $('#guanxin').remove();
     }
 });
-//生活方式
+//生活方式单选
 function liv(id){
 	$(document).delegate("#"+id+" .liveul li","click",function(){
             	 $(this).siblings('li').removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
@@ -50,13 +50,16 @@ function liv(id){
     		//$(this).toggleClass('livefs livefs_3');
     //});
 //}
-
+//生活方式
 function duoliv(){
-	$(document).delegate(".livediv .liveul li","click",function(){
+	$(document).delegate('.livediv .liveul li',"click",function(){
 		$(this).toggleClass('livefs livefs_3');
+		console.log('111');
 	 })
 }
 
+
+//疾病信息
 function duoDisliv_1(){
 	$(document).delegate('.personage_illness_1 ul li',"click",function(){
 		$(this).toggleClass('livefs_1 livefs');
