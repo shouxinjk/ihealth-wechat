@@ -48,7 +48,33 @@ function relevance(userId){    //获取关联用户名
 	});
 }
 
-
+function pend(userId){
+	$.ajax({
+        type: "post",
+        url: url+"/rest/findCheckPackage",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"userId":userId}),
+        dataType: "json",
+        async : false,
+		cache : false,
+        success: function (r) {
+        	var data = eval(r.data);
+        	if(data.STATUS == "pending"){
+        		 $('.xmtable').html('');
+        		var pend =  "<div style='height:3rem;margin-left: 20%;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
+        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
+        		$(".cont").after(pend); 
+        		 var t= setTimeout(function() {
+        			 intn(userId);
+        			 $('.pending_img').hide();
+                 }, 500);
+        		
+             }else if(data.STATUS == "ready"){
+				intn(userId);
+			}	
+       }
+    });
+}
 
 
 
@@ -197,7 +223,7 @@ function intn(userId){
 }
 
 
-//体检 顶部滑动
+
 function glide(){
 	var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
@@ -369,12 +395,12 @@ $(document).delegate(".zhiN","click",function(){
 //        关联
 function guanlian(id){
       		var user_id = $("#"+id).find("input").val();
-        	intn(user_id);
+      		pend(user_id);
         	$('.relevance li').removeClass('relevanceMY');
             $("#"+id).addClass('relevanceMY');
     }
 function guanlian1(id){
-	        	intn(id);
+			pend(id);
 	        	$('.relevance li').removeClass('relevanceMY');
 	            $("#my").addClass('relevanceMY');
 	    }
