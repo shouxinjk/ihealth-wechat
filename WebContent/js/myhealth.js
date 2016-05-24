@@ -62,7 +62,7 @@ function pend(userId){
 	        	var data = eval(r.data);
 	        	if(data.STATUS == "pending"){
 	        		 $('.xmtable').html('');
-	        		var pend =  "<div style='height:3rem;margin-left: 20%;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
+	        		var pend =  "<div style='height:3rem;margin-left: 21%;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 	        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
 	        		$(".cont").after(pend); 
 	        		 var t= setTimeout(function() {
