@@ -58,20 +58,24 @@ function pend(userId){
         async : false,
 		cache : false,
         success: function (r) {
-        	var data = eval(r.data);
-        	if(data.STATUS == "pending"){
-        		 $('.xmtable').html('');
-        		var pend =  "<div style='height:3rem;margin-left: 20%;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
-        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
-        		$(".cont").after(pend); 
-        		 var t= setTimeout(function() {
-        			 intn(userId);
-        			 $('.pending_img').hide();
-                 }, 500);
-        		
-             }else if(data.STATUS == "ready"){
-				intn(userId);
-			}	
+        	if(r.result == "success"){
+	        	var data = eval(r.data);
+	        	if(data.STATUS == "pending"){
+	        		 $('.xmtable').html('');
+	        		var pend =  "<div style='height:3rem;margin-left: 20%;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
+	        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
+	        		$(".cont").after(pend); 
+	        		 var t= setTimeout(function() {
+	        			 intn(userId);
+	        			 $('.pending_img').hide();
+	                 }, 500);
+	        		
+	             }else if(data.STATUS == "ready"){
+					intn(userId);
+				}
+        	}else if(r.result == "no"){
+        		intn(userId);
+        	}
        }
     });
 }
