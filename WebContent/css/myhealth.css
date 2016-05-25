@@ -90,6 +90,7 @@ a {text-decoration:none !important;}
 	font-size: .8rem;
 	margin: 1.2%;
 	line-height: 1rem;
+	margin-right: .2rem !important;
 }
 #nav{
 	overflow: hidden;
