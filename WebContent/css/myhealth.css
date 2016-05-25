@@ -8,6 +8,7 @@ body{
     width: 100%;
     background: #f8f8f8;
     background-size: cover;
+    overflow: hidden;
 }
 a {text-decoration:none !important;}
 .footer{
