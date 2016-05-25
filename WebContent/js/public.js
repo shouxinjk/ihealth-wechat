@@ -32,31 +32,19 @@ $(function(){
         $('#guanxin').remove();
     }
 });
-//生活方式单选
-function liv(id){
-	$(document).delegate("#"+id+" .liveul li","click",function(){
-            	 $(this).siblings('li').removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
-                 $(this).addClass('livefs livefs_3');
-        	})
-    //});
-}
 
-  
-//生活方式livediv
-//function duoliv(id){
-	
-	//$("#"+id+" .liveul li").click(function(){$(this).toggleClass('livefs livefs_3');})
-   // $('.ddiv').delegate("#"+id+" .liveul li","click" ,function(){
-    		//$(this).toggleClass('livefs livefs_3');
-    //});
-//}
-//生活方式
-function duoliv(){
-	$(document).delegate('.livediv .liveul li',"click",function(){
-		$(this).toggleClass('livefs livefs_3');
-		console.log('111');
-	 })
-}
+
+
+
+
+//生活方式多选
+$(document).delegate(".livediv li","click",function(){
+	$(this).toggleClass('livefs livefs_3');
+})
+//生活方式单选
+.delegate(".dandiv li","click",function(){
+    $(this).addClass('livefs livefs_3').siblings().removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
+ });
 
 
 //疾病信息

@@ -96,15 +96,15 @@ function jibenxinxi(userId){
 							for (var i = 0; i < data.length; i++) {
 								
 								if(data[i].ISEXCLUSIVE == '0'){
-									str += "<div class='ddiv livediv col-lg-12 col-xs-12 col-md-12 col-sm-12' id='ddiv"
+									str += "<div class='ddiv livediv col-lg-12 col-xs-12 col-md-12 col-sm-12' data-name='ddiv"+(i+1)+"' id='ddiv"
 										+ (i + 1)
-										+ "' onclick='duoliv(\"ddiv"+(i+1)+"\")'>"
+										+ "'>"
 										+ "<span class='col-lg-3 col-xs-3 col-md-3 col-sm-3' >"
 										+ data[i].NAME + "</span>" + "</div>";
 								}else if(data[i].ISEXCLUSIVE == '1'){
-									str += "<div class='ddiv col-lg-12 col-xs-12 col-md-12 col-sm-12' id='ddiv"
+									str += "<div class='ddiv dandiv col-lg-12 col-xs-12 col-md-12 col-sm-12' id='ddiv"
 										+ (i + 1)
-										+ "' onclick='liv(\"ddiv"+(i+1)+"\")'>"
+										+ "'>"
 										+ "<span class='col-lg-3 col-xs-3 col-md-3 col-sm-3' >"
 										+ data[i].NAME + "</span>" + "</div>";
 								}

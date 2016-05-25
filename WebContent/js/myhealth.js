@@ -47,8 +47,8 @@ function relevance(userId){    //获取关联用户名
 	
 	});
 }
-
-function pend(userId){
+var t;
+function spend(userId){
 	$.ajax({
         type: "post",
         url: url+"/rest/findCheckPackage",
@@ -62,18 +62,20 @@ function pend(userId){
 	        	var data = eval(r.data);
 	        	if(data.STATUS == "pending"){
 	        		 $('.xmtable').html('');
-	        		var pend =  "<div style='height:3rem;margin-left: 41.5%;margin-top: 1rem;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
+	        		var pendd = "<div style='height:3rem;margin-left: 41.5%;margin-top: 1rem;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 	        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
-	        		$(".cont").after(pend); 
-	        		 var t= setTimeout(function() {
-	        			 intn(userId);
-	        			 //$('.pending_img').hide();
-	        			 $('.pending_img').remove();
-	                 }, 500);
-	        		
+	        		$(".pendding").html(pendd); 
+	        		t =setTimeout(function() {
+	        			 spend(userId);
+	                 }, 1500);
+	        		 //clearTimeout(t); 
 	             }else if(data.STATUS == "ready"){
-					intn(userId);
+	            	 	 clearTimeout(t); 
+	        			 intn(userId);
+	        			 $('.pending_img').remove();
+	        			 return;
 				}
+	        	
         	}else if(r.result == "no"){
         		intn(userId);
         	}
@@ -224,7 +226,6 @@ function intn(userId){
 	        });
 	}
 	$(".subgroup1").last().find(".iss").remove();
-	
 }
 
 
@@ -399,14 +400,17 @@ $(document).delegate(".zhiN","click",function(){
 
 //        关联
 function guanlian(id){
+	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
-      		pend(user_id);
+      		spend(user_id);
         	$('.relevance li').removeClass('relevanceMY');
             $("#"+id).addClass('relevanceMY');
            
     }
 function guanlian1(id){
-			pend(id);
+	//$('.pending_img').remove();
+	clearTimeout(t); 
+			spend(id);
 	        	$('.relevance li').removeClass('relevanceMY');
 	            $("#my").addClass('relevanceMY');
 	            
