@@ -38,7 +38,7 @@ $(function(){
 
 
 //生活方式多选
-$(document).delegate(".livediv li","click",function(){
+$('.content').delegate(".livediv li","click",function(){
 	$(this).toggleClass('livefs livefs_3');
 })
 //生活方式单选
@@ -49,18 +49,18 @@ $(document).delegate(".livediv li","click",function(){
 
 //疾病信息
 function duoDisliv_1(){
-	$(document).delegate('.personage_illness_1 ul li',"click",function(){
+	$('.content').delegate('.personage_illness_1 ul li',"click",function(){
 		$(this).toggleClass('livefs_1 livefs');
 	})
 }
 function duoDisliv_2(){
-	$(document).delegate('.personage_illness_2 ul li',"click",function(){
+	$('.content').delegate('.personage_illness_2 ul li',"click",function(){
 		$(this).toggleClass('livefs_2 livefs');
 	})
 }
 
 function duoDisliv_3(){
-		$(document).delegate('.personage_illness_3 ul li',"click",function(){
+		$('.content').delegate('.personage_illness_3 ul li',"click",function(){
 		$(this).toggleClass('livefs_3 livefs');
 	})
 }
