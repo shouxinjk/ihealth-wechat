@@ -464,13 +464,13 @@ function addUserAndUser(userId){
 	});
 }
 $('.content').delegate("#personage1",'click',function(){
-	$(".personage_illness_1").toggle(500);
+	$(".personage_illness_1").toggle(300);
 })
 $('.content').delegate("#personage2",'click',function(){
-	$(".personage_illness_2").toggle(500);
+	$(".personage_illness_2").toggle(300);
 })
 $('.content').delegate("#personage3",'click',function(){
-	$(".personage_illness_3").toggle(500);
+	$(".personage_illness_3").toggle(300);
 })
 
 
