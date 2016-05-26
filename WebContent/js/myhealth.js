@@ -35,7 +35,7 @@ function relevance(userId){    //获取关联用户名
 				var data = eval(r.data);
 				var str = "";
 					for(var i=0;i<data.length;i++){
-						str+="<li style='margin-right: .2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
+						str+="<li style='margin-right:.2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
 					}
 				 $('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
 				 $('#my').after(str);
@@ -251,7 +251,7 @@ function glide(){
             },
             320: {
                 slidesPerView: 3.8,
-                spaceBetween: 1
+                spaceBetween: 0
             }
         }
     });
@@ -349,7 +349,7 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 });
 
 
-$('.xmtable').delegate(".zhiN","click",function(){
+$('.touch').delegate(".zhiN","click",function(){
 	var flag = $(this).attr("data-flag");
 	if(flag==1){
 		$(this).css({maxHeight:"100%",overflow:"auto",display:"block"});
