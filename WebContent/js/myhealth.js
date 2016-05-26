@@ -349,7 +349,7 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 });
 
 
-$('.touch').delegate(".zhiN","click",function(){
+$('.container').delegate(".zhiN","click",function(){
 	var flag = $(this).attr("data-flag");
 	if(flag==1){
 		$(this).css({maxHeight:"100%",overflow:"auto",display:"block"});
