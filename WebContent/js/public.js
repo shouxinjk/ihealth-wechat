@@ -334,7 +334,7 @@ function carep(userId){
 										"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
 										"<i  class=\"relation\">("+data[i].connection+")</i>"+
 									"</div>"+
-									/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
+									"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
 								"</div>";
 						}else{
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
@@ -345,7 +345,7 @@ function carep(userId){
 								"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
 								"<i  class=\"relation\">("+data[i].connection+")</i>"+
 							"</div>"+
-							/*"<lable class=\"quxiao col-lg-2 col-xs-2 col-md-2 col-sm-2\" onclick='delguan()'>取消关注</lable>"+  */
+							"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
 						"</div>";
 						}
 					}
@@ -390,6 +390,7 @@ function addUser(){
 
 
 function lookupUser(userId){
+	 var userId = ReadCookie("userId");
 	var phone = $("#phone").val();
 	   if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
 	       $("#phone").val('');
@@ -399,15 +400,13 @@ function lookupUser(userId){
 	   };
 	 
 	$.ajax({
-		url:url+"/rest/register",
+		url:url+"/rest/saveByPhone",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
   			.stringify({
   				"phone" : phone,
-  				"openId":"",
-  				"avatar":"",
-  				"name":""
+  				"userId":userId
   			}),
   		dataType : "json",
   		async : false,
@@ -415,7 +414,7 @@ function lookupUser(userId){
 		success:function(r){
 			var data = eval(r.data);
 			if(r.result == "existence"){
-				findByUserId(data.USER_ID);
+				alert('不能重复添加关系！');
 			}else if(r.result == "success"){
 				findByUserId(data.USER_ID);
 			}
@@ -474,8 +473,29 @@ $('.content').delegate("#personage3",'click',function(){
 })
 
 
+//取消关注
 
-
+function delguan(useranduserid,userId){
+	$.ajax({
+		url:url+"/rest/deleteRelationUser",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"useranduser_id" : useranduserid
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(r){
+			if(r.result == "success"){
+				carep(userId);
+				}else{
+					alert('程序异常！');
+				}
+			}
+	})
+}
 
 
 

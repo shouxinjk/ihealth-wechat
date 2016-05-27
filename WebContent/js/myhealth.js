@@ -34,13 +34,15 @@ function relevance(userId){    //获取关联用户名
 		success:function(r){
 				var data = eval(r.data);
 				var str = "";
+				if(data == undefined){
+					
+				}else{
 					for(var i=0;i<data.length;i++){
 						str+="<li style='margin-right:.2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
 					}
+				}
 				 $('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
 				 $('#my').after(str);
-				 
-				
 			}
 	
 	
@@ -60,24 +62,19 @@ function spend(userId){
         success: function (r) {
         	if(r.result == "success"){
 	        	var data = eval(r.data);
-	        	if(data.STATUS == "pending"){
-	        		 $('.xmtable').html('');
+		        	clearTimeout(t); 
+		   			intn(userId);
+		   			$('.pending_img').remove();
+		   			return;
+	        		 //clearTimeout(t); 
+        	}else if(r.result == "no"){
+        		 $('.xmtable').html('');
 	        		var pendd = "<div style='height:3rem;margin-left: 41.5%;margin-top: 1rem;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 	        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
 	        		$(".pendding").html(pendd); 
 	        		t =setTimeout(function() {
 	        			 spend(userId);
 	                 }, 1500);
-	        		 //clearTimeout(t); 
-	             }else if(data.STATUS == "ready"){
-	            	 	 clearTimeout(t); 
-	        			 intn(userId);
-	        			 $('.pending_img').remove();
-	        			 return;
-				}
-	        	
-        	}else if(r.result == "no"){
-        		intn(userId);
         	}
        }
     });
@@ -158,8 +155,25 @@ function intn(userId){
 	    		        	var sub = MD5(sub1);
 	                    	//通过状态判断项目是否显示
 	    		        	 if(!(d.STATUS == "已删除")){
-	         		        	 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+d.DESCRIPTION+"</div>"+
-	         		        	 
+	         		        	 var str ="<div  id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
+						         		        	 "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
+														 "<div   data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.DESCRIPTION+"</div>" +
+													 "</div>" +
+	         		        	 					 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>筛查疾病:</div>" +
+														 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.disease_name+"</div>" +
+													 "</div>" +
+													 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>关注因素:</div>" +
+														 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.concernedfactors+"</div>" +
+													 "</div>" +
+													 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>风险描述:</div>" +
+														 "<div data-flag='1' class=' zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.riskDefine+"</div>" +
+													 "</div>" +
+												 
+												 "</div>" +
 				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        	'<div class="deletli" style="float: right;" id="'+sub+'">'+
 	//					         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
@@ -168,7 +182,24 @@ function intn(userId){
 					         		        	'</div>'+
 				         		        	'</div>';
 	         		        }else {
-	         		        	var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >"+d.DESCRIPTION+"</div>"+
+	         		        	var str ="<div id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
+				         		        	"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
+												 "<div   data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.DESCRIPTION+"</div>" +
+											 "</div>" +
+				         		        	 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>筛查疾病:</div>" +
+												 "<div data-flag='1' class=zhiconceal 'col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.disease_name+"</div>" +
+											 "</div>" +
+											 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>关注因素:</div>" +
+												 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.concernedfactors+"</div>" +
+											 "</div>" +
+											 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>风险描述:</div>" +
+												 "<div data-flag='1' class='zhiconceal  col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.riskDefine+"</div>" +
+											 "</div>" +
+										 "</div>" +
 					         		        //deletli 原来在sub外面  sub 后面有个class（ subgroup1）
 					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        		'<div  class="deletli" style="float: right;" id="'+sub+'">'+
@@ -208,16 +239,20 @@ function intn(userId){
            					birthArr1 = d.ORIGINATE.split(",");
            					if(birthArr1.length > 0){
            					 var source = '';
-           						for(var c=0 ; c<birthArr1.length;c++){
-           						 if(!(d.STATUS == "已删除")){
-           							source += '<div class="tex zhi_source">'+birthArr1[c]+'</div>';
-           						  }else{
-           							source += '<div id="idname" class="tex zhi_source">'+birthArr1[c]+'</div>';
-           						  }
-           						}
+           					source += "<div class='trait_ col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+           						'<div class="trait_lai col-lg-2 col-xs-2 col-md-2 col-sm-2">指南来源:</div>'+
+           							'<div class="trait_div col-lg-10 col-xs-10 col-md-10 col-sm-10">'
+		           						for(var c=0 ; c<birthArr1.length;c++){
+		           						 if(!(d.STATUS == "已删除")){
+		           							source += '<div class="tex zhi_source">'+birthArr1[c]+'</div>';
+		           						  }else{
+		           							source += '<div id="idname" class="tex zhi_source">'+birthArr1[c]+'</div>';
+		           						  }
+		           						}
+           							source +='</div></div>';
            					}
 	        		    }
-   						$('.'+sub).append(source);
+   						$("#laiyuan"+sub).append(source);
    						
 	                    }
 	            	});
@@ -268,6 +303,9 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	var FEATURES;
 	var sub1;
 	var sub;
+	var disease_name;
+	var concernedfactors;
+	var riskDefine;
 	$(this).attr('id','idactive');
 	$(this).addClass("active_").siblings().removeClass("active_");
 	var CHECKUPITEMid = $(this).find("input").val();
@@ -282,6 +320,9 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
         success: function (r1) {
         	var d = eval(r1.data);
         	DESCRIPTION = d.DESCRIPTION;
+        	disease_name =d.disease_name;
+        	riskDefine = d.riskDefine;
+        	concernedfactors =d.concernedfactors;
         	status = '已选中';
         	itemID = d.CHECKUPITEM_ID;
         	ORIGINATE = d.ORIGINATE;
@@ -298,9 +339,13 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 			birthArr1 = ORIGINATE.split(",");
 			if(birthArr1.length > 0){
 			 var source = '';
-				for(var c=0 ; c<birthArr1.length;c++){
-					source += '<div class="zhi_source" style="color:#000">'+birthArr1[c]+'</div>';
-				}
+			 source += '<div class="trait_ col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
+			 		'<div class="trait_lai col-lg-2 col-xs-2 col-md-2 col-sm-2">指南来源:</div>'
+			 		'<div class="trait_div col-lg-10 col-xs-10 col-md-10 col-sm-10">'
+						for(var c=0 ; c<birthArr1.length;c++){
+							source += '<div class="zhi_source" style="color:#000">'+birthArr1[c]+'</div>';
+						}
+					 source +='</div></div>';
 			}
     }
 		//添加体检项目的特性
@@ -317,7 +362,25 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 		}
 	}
 	if(status == '已选中'){
-		 var str ="<div  data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>"+DESCRIPTION+"</div>"+
+		 var str ="<div   id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
+					 "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
+						 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+DESCRIPTION+"</div>" +
+					 "</div>" +
+					 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>筛查疾病:</div>" +
+						 "<div data-flag='1' class='zhiconceal  col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+disease_name+"</div>" +
+			 		"</div>" +
+			 		"<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>关注因素:</div>" +
+						 "<div data-flag='1' class='zhiconceal  col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+concernedfactors+"</div>" +
+					"</div>" +
+					"<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>风险描述:</div>" +
+						 "<div data-flag='1' class='zhiconceal  col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+riskDefine+"</div>" +
+					"</div>" +
+			 		
+		 		"</div>"+
 	 
 	
 	      	'<div class="deletli" style="float: right;" id="'+sub+'">'+
@@ -332,7 +395,7 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	$('.'+sub).find("div").remove();
 	$('.'+sub).append(str);
 	$('.'+sub).append(len);
-	$('.'+sub).append(source);
+	$("#laiyuan"+sub).append(source);
 	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);
 	$.ajax({
         type: "post",
@@ -349,13 +412,15 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 });
 
 
-$('.container').delegate(".zhiN","click",function(){
+$('.container').delegate(".zhiconceal","click",function(){
 	var flag = $(this).attr("data-flag");
 	if(flag==1){
-		$(this).css({maxHeight:"100%",overflow:"auto",display:"block"});
+		$(this).find('.zhiconceal').css({maxHeight:"100%",display:"block"});
+		$(this).css({maxHeight:"100%",display:"block"});
 		$(this).attr("data-flag","0");
 	}else{
-		$(this).css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
+		$(this).find('.zhiconceal').css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
+		$(this).find('.zhiconceal').css({display:"-webkit-box"});
 		$(this).css({display:"-webkit-box"});
 		$(this).attr("data-flag","1");
 	}
