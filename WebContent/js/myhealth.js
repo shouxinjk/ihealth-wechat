@@ -232,26 +232,12 @@ function intn(userId){
 		       				 
 		       				$('.'+sub).append(len);
 		       				
-	        		    if(d.ORIGINATE != null && d.ORIGINATE !='')  {
-	        		    	
-	        		    	var birthArr1= new Array();
-           					//按逗号拆分
-           					birthArr1 = d.ORIGINATE.split(",");
-           					if(birthArr1.length > 0){
-           					 var source = '';
-           					source += "<div   class='zhisource show_ trait_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>"+
-           						/*'<div class="trait_lai ">指南来源:</div>'+*/
-           							'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
-		           						for(var c=0 ; c<birthArr1.length;c++){
-		           						 if(!(d.STATUS == "已删除")){
-		           							source += '<div class="tex zhi_source">'+birthArr1[c]+'</div>';
-		           						  }else{
-		           							source += '<div id="idname" class="tex zhi_source">'+birthArr1[c]+'</div>';
-		           						  }
-		           						}
-           							source +='</div></div>';
-           					}
-	        		    }
+		       			 var source = '';
+		       			 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
+		       				'<div class="trait_lai ">指南来源:</div>'
+		       				'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
+		       						source += '<div class="zhi_source" style="color:#000">'+d.ORIGINATE+'</div>';
+		       				 source +='</div></div>';
    						$("#laiyuan"+sub).append(source);
    						
 	                    }
@@ -333,21 +319,30 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	});
 	
 	
-    if(ORIGINATE != null && ORIGINATE !='')  {
+    /*if(ORIGINATE != null && ORIGINATE !='')  {
     	var birthArr1= new Array();
 			//按逗号拆分
 			birthArr1 = ORIGINATE.split(",");
 			if(birthArr1.length > 0){
 			 var source = '';
 			 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
-			 		/*'<div class="trait_lai ">指南来源:</div>'*/
+			 		'<div class="trait_lai ">指南来源:</div>'
 			 		'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
 						for(var c=0 ; c<birthArr1.length;c++){
 							source += '<div class="zhi_source" style="color:#000">'+birthArr1[c]+'</div>';
 						}
 					 source +='</div></div>';
 			}
-    }
+    }*/
+	 var source = '';
+	 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
+		'<div class="trait_lai ">指南来源:</div>'
+		'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
+				source += '<div class="zhi_source" style="color:#000">'+ORIGINATE+'</div>';
+		 source +='</div></div>';
+
+
+
 		//添加体检项目的特性
 	if (FEATURES != null && FEATURES !=''){
 		var birthArr= new Array();
