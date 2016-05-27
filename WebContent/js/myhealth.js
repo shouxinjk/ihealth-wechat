@@ -156,10 +156,10 @@ function intn(userId){
 	                    	//通过状态判断项目是否显示
 	    		        	 if(!(d.STATUS == "已删除")){
 	         		        	 var str ="<div  id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
-						         		        	 "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+						         		        	/* "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
 														 "<div   data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.DESCRIPTION+"</div>" +
-													 "</div>" +
+													 "</div>" +*/
 	         		        	 					 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>筛查疾病:</div>" +
 														 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.disease_name+"</div>" +
@@ -183,10 +183,10 @@ function intn(userId){
 				         		        	'</div>';
 	         		        }else {
 	         		        	var str ="<div id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
-				         		        	"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+				         		        	/*"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
 												 "<div   data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.DESCRIPTION+"</div>" +
-											 "</div>" +
+											 "</div>" +*/
 				         		        	 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>筛查疾病:</div>" +
 												 "<div data-flag='1' class=zhiconceal 'col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.disease_name+"</div>" +
@@ -363,10 +363,10 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	}
 	if(status == '已选中'){
 		 var str ="<div   id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
-					 "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+					 /*"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
 						 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+DESCRIPTION+"</div>" +
-					 "</div>" +
+					 "</div>" +*/
 					 "<div class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>筛查疾病:</div>" +
 						 "<div data-flag='1' class='zhiconceal  col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+disease_name+"</div>" +
