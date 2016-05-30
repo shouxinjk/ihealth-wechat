@@ -49,11 +49,10 @@ if(openIdObj==null){
 var openId = "<%=openId%>";
 
 $(function(){
-	alert(openId)
+	
 	var code = "<%=code%>";
 	var state = "<%=state%>";
 	if(openId == ""){
-		alert(22)
 		$.ajax({
 			url:"/ihealth-wechat/openIdServlet",
 			type:"post",
@@ -61,12 +60,12 @@ $(function(){
 			cache : false,
 			data:{"code":code},
 			success:function(data){
-				alert(333);
 				openId = data;
+				
 			}
 		});
 	}
-	
+	alert(openId)
 	$.ajax({
 		url:url+"/rest/findUserByOpenId",
   		type:"post",
@@ -79,7 +78,6 @@ $(function(){
   		async : false,
 		cache : false,
 		success:function(ur){
-			alert(22);
 			var data = eval(ur.data);
 			if(ur.result == "no"){
 				window.location.href="http://test.shouxinjk.net/ihealth-wechat/login.jsp";
