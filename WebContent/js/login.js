@@ -30,6 +30,7 @@ function register(){
 				       success: function (r) {
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
+				        	  alert(userId);
 				        	  delCookie("userId");
 				        	  SetCookie("mobilep",mobilep,7);
 				        	  SetCookie("userId",userId,7);
