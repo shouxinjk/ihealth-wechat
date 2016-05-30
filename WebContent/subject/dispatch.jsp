@@ -51,6 +51,7 @@ if(openIdObj==null){
 var openId = "<%=openId%>";
 
 $(function(){
+	alert(111)
 	var code = "<%=code%>";
 	var state = "<%=state%>";
 	if(openId == ""){
@@ -78,6 +79,7 @@ $(function(){
   		async : false,
 		cache : false,
 		success:function(ur){
+			alert(22);
 			var data = eval(ur.data);
 			if(ur.result == "no"){
 				window.location.href="http://test.shouxinjk.net/ihealth-wechat/login.jsp";
