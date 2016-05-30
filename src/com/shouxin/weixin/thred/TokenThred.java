@@ -6,10 +6,10 @@ import com.shouxin.weixin.util.WeiXinUtil;
 
 public class TokenThred implements Runnable {
 	// 第三方用户唯一凭证
-	public static String appid = "wx9160e991d49b4a97";
+	public static String appid = "wx6dfe82ae4fab747f";
 	
 	// 第三方用户唯一凭证密钥
-	public static String appsecret = "6a0fa0d2a21b2a1a22bd51d7daa695da";
+	public static String appsecret = "d41ebffdf7ef39d976cea479473b693e";
 	
 	public static AccessToken accessToken = null;
 	@Override
