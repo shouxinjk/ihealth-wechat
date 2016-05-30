@@ -21,6 +21,7 @@ function register(){
 			cache : false,
 			success : function(data) {
 				var d = eval(data);
+				alert(d)
 				 $.ajax({
 				       type: "post",
 				       url: url+"/rest/register",
