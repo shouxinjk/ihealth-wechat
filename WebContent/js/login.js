@@ -2,9 +2,10 @@ $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
 function register(){
+	alert(1)
 	var openId = $("#openId").val();
 	var headimgurl = $("#headimgurl").val();
-	alert(openId)
+	
 	//alert(openId);
     var mobilep = $('.vali').val();
    if(!mobilep.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
