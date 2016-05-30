@@ -35,8 +35,6 @@ if(openIdObj==null){
 }else{
 	System.out.println(222);
 	openId = openIdObj.toString();
-	//System.out.println("+++++++++state++++++++"+state);
-	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 }
 %>
 
@@ -51,7 +49,7 @@ if(openIdObj==null){
 var openId = "<%=openId%>";
 
 $(function(){
-	alert(111)
+	alert(openId)
 	var code = "<%=code%>";
 	var state = "<%=state%>";
 	if(openId == ""){
