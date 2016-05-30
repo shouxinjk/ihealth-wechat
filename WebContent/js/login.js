@@ -28,6 +28,7 @@ function register(){
 				       async : false,
 						cache : false,
 				       success: function (r) {
+				    	   alert(r.result);
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
 				        	  alert(userId);
