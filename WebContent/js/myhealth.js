@@ -234,9 +234,9 @@ function intn(userId){
 		       				
 		       			 var source = '';
 		       			 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
-		       			/*	'<div class="trait_lai ">指南来源:</div>'*/
+		       				'<div class="trait_lai ">指南来源:</div>'
 		       				'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
-		       						source += ''+d.ORIGINATE+'</div>';
+		       						source += '<div class="zhi_source" style="color:#000">'+d.ORIGINATE+'</div>';
 		       				 source +='</div></div>';
    						$("#laiyuan"+sub).append(source);
    						
@@ -247,7 +247,6 @@ function intn(userId){
 	        });
 	}
 	$(".subgroup1").last().find(".iss").remove();
-
 }
 
 
@@ -337,9 +336,9 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
     }*/
 	 var source = '';
 	 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
-		/*'<div class="trait_lai ">指南来源:</div>'*/
+		'<div class="trait_lai ">指南来源:</div>'
 		'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
-				source += ''+ORIGINATE+'</div>';
+				source += '<div class="zhi_source" style="color:#000">'+ORIGINATE+'</div>';
 		 source +='</div></div>';
 
 

@@ -2,8 +2,10 @@ $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
 function register(){
+	alert(1)
 	var openId = $("#openId").val();
 	var headimgurl = $("#headimgurl").val();
+	
 	//alert(openId);
     var mobilep = $('.vali').val();
    if(!mobilep.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
@@ -19,6 +21,7 @@ function register(){
 			cache : false,
 			success : function(data) {
 				var d = eval(data);
+				alert(d)
 				 $.ajax({
 				       type: "post",
 				       url: url+"/rest/register",
@@ -28,8 +31,10 @@ function register(){
 				       async : false,
 						cache : false,
 				       success: function (r) {
+				    	   alert(r.result);
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
+				        	  alert(userId);
 				        	  delCookie("userId");
 				        	  SetCookie("mobilep",mobilep,7);
 				        	  SetCookie("userId",userId,7);

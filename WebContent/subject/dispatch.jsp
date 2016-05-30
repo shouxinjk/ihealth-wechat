@@ -35,8 +35,6 @@ if(openIdObj==null){
 }else{
 	System.out.println(222);
 	openId = openIdObj.toString();
-	//System.out.println("+++++++++state++++++++"+state);
-	//response.sendRedirect("http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html");
 }
 %>
 
@@ -51,6 +49,7 @@ if(openIdObj==null){
 var openId = "<%=openId%>";
 
 $(function(){
+	
 	var code = "<%=code%>";
 	var state = "<%=state%>";
 	if(openId == ""){
@@ -62,10 +61,11 @@ $(function(){
 			data:{"code":code},
 			success:function(data){
 				openId = data;
+				
 			}
 		});
 	}
-	
+	alert(openId)
 	$.ajax({
 		url:url+"/rest/findUserByOpenId",
   		type:"post",
@@ -80,10 +80,10 @@ $(function(){
 		success:function(ur){
 			var data = eval(ur.data);
 			if(ur.result == "no"){
-				window.location.href="http://www.shouxinjk.net/ihealth-wechat/login.jsp";
+				window.location.href="http://test.shouxinjk.net/ihealth-wechat/login.jsp";
 			}else if(ur.result == "success"){
 	        	SetCookie("userId",data.USER_ID,7);
-				window.location.href="http://www.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
+				window.location.href="http://test.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
 			}
 		}
 	});
