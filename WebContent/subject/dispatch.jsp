@@ -68,7 +68,7 @@ $(function(){
 	}
 	
 	$.ajax({
-		url:url+"/rest/findUserByOpenId",
+		url:"http://test.shouxinjk.net/ihealth/rest/findUserByOpenId",
   		type:"post",
   		contentType:'application/json;charset=utf8',
   		data:JSON
