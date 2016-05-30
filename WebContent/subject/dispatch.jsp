@@ -65,7 +65,6 @@ $(function(){
 			}
 		});
 	}
-	alert(openId)
 	$.ajax({
 		url:url+"/rest/findUserByOpenId",
   		type:"post",

@@ -2,7 +2,6 @@ $(".vali").bind('input vali',function(){
     $('.verification_code').css('background','#45c9a2');
 });
 function register(){
-	alert(1)
 	var openId = $("#openId").val();
 	var headimgurl = $("#headimgurl").val();
 	
@@ -31,10 +30,8 @@ function register(){
 				       async : false,
 						cache : false,
 				       success: function (r) {
-				    	   alert(r.result);
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
-				        	  alert(userId);
 				        	  delCookie("userId");
 				        	  SetCookie("mobilep",mobilep,7);
 				        	  SetCookie("userId",userId,7);
