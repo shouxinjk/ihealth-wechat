@@ -27,9 +27,8 @@ $(document).ready(function () {
 			dataType : "json",
 			success : function(r) {
 				if (r.result == "success") {
-					
 					var data = eval(r.data);
-					alert(data)
+					alert(data.NAME)
 					$('.Username').text(data.NAME);//获取姓名
 					$(".head_portrait").attr("src",data.AVATAR);
 				}
