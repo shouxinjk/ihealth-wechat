@@ -171,13 +171,10 @@ public class WeiXinUtil {
 			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
 			// ��json�ַ���ת��Ϊjson����
 			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-				if (json.get("errcode") != null) {// 
-					System.out.println(json.get("errcode") + "**************");
-				} else {
+				
 					System.out.println("\n\r==json===" + json);
 					ticket.setJsApiTicket(json.get("ticket").getAsString());
 					ticket.setExpiresIn(json.get("expires_in").getAsString());
-				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
