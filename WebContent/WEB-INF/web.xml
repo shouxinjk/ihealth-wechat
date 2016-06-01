@@ -32,4 +32,13 @@
 		<url-pattern>/openIdServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>wxPayServlet</servlet-name>
+		<servlet-class>com.shouxin.weixin.servlet.WxPayServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wxPayServlet</servlet-name>
+		<url-pattern>/wxPayServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

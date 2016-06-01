@@ -11,6 +11,7 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.shouxin.weixin.pojo.AccessToken;
+import com.shouxin.weixin.pojo.Ticket;
 import com.shouxin.weixin.pojo.WeiXinUserInfo;
 import com.shouxin.weixin.thred.TokenThred;
 
@@ -120,7 +121,6 @@ public class WeiXinUtil {
 		String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 		WeiXinUserInfo userInfo = new WeiXinUserInfo();
 		String requestUrl = user_info_url.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openId);
-		System.out.println(requestUrl);
 		HttpClient client1 = new DefaultHttpClient();
 		HttpGet get = new HttpGet(requestUrl);
 		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
@@ -153,6 +153,39 @@ public class WeiXinUtil {
 			client1.getConnectionManager().shutdown();
 		}
 		return userInfo;
+	}
+	
+	public Ticket getJsApiTicket(){
+		String url = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi";
+		String ticketUrl = url.replace("ACCESS_TOKEN", TokenThred.getAccessToken().getAccess_token());
+		Ticket ticket = new Ticket();
+		HttpClient client = new DefaultHttpClient();
+		HttpGet get = new HttpGet(ticketUrl);
+		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
+		String result = null;
+		try {
+			HttpResponse res = client.execute(get);
+			String responseContent = null; // ��Ӧ����
+			HttpEntity entity = res.getEntity();
+			responseContent = EntityUtils.toString(entity, "UTF-8");
+			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
+			// ��json�ַ���ת��Ϊjson����
+			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				if (json.get("errcode") != null) {// 
+					System.out.println(json.get("errcode") + "**************");
+				} else {
+					System.out.println("\n\r==json===" + json);
+					ticket.setJsApiTicket(json.get("ticket").getAsString());
+					ticket.setExpiresIn(json.get("expires_in").getAsString());
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// �ر����� ,�ͷ���Դ
+			client.getConnectionManager().shutdown();
+		}
+		return ticket;
 	}
 
 }

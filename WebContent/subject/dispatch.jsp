@@ -31,9 +31,7 @@ try{
 	e.printStackTrace();
 }
 if(openIdObj==null){
-	System.out.println(111111);
 }else{
-	System.out.println(222);
 	openId = openIdObj.toString();
 }
 %>
