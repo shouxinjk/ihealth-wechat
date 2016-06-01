@@ -17,7 +17,7 @@ $.ajax({
 	url:"/ihealth-wechat/wxPayServlet",
 	type:"post",
 	success:function(data){
-		
+		alert(1)
 	}
 });
 /* wx.config({
