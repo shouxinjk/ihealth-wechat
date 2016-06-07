@@ -2,14 +2,15 @@ package com.shouxin.weixin.thred;
 
 
 import com.shouxin.weixin.pojo.AccessToken;
+import com.shouxin.weixin.util.PropertiesUtil;
 import com.shouxin.weixin.util.WeiXinUtil;
 
 public class TokenThred implements Runnable {
-	// µÚÈý·½ÓÃ»§Î¨Ò»Æ¾Ö¤
-	public static String appid = "wx6dfe82ae4fab747f";
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Î¨Ò»Æ¾Ö¤
+	public static String appid = PropertiesUtil.getAppid("appid");
 	
-	// µÚÈý·½ÓÃ»§Î¨Ò»Æ¾Ö¤ÃÜÔ¿
-	public static String appsecret = "d41ebffdf7ef39d976cea479473b693e";
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Î¨Ò»Æ¾Ö¤ï¿½ï¿½Ô¿
+	public static String appsecret = PropertiesUtil.getAppid("appsecret");
 	
 	public static AccessToken accessToken = null;
 	@Override
@@ -18,12 +19,12 @@ public class TokenThred implements Runnable {
 			try {
 				accessToken = WeiXinUtil.getAccessToken(appid, appsecret);
 				if (null != accessToken) {
-					// ÐÝÃß7000Ãë
+					// ï¿½ï¿½ï¿½ï¿½7000ï¿½ï¿½
 					System.out.println(accessToken.getAccess_token()+"==============");
 					Thread.sleep((accessToken.getExpiresIn() - 400) * 1000);
 					//Thread.sleep(15000);
 				} else {
-					// Èç¹ûaccess_tokenÎªnull£¬60ÃëºóÔÙ»ñÈ¡
+					// ï¿½ï¿½ï¿½access_tokenÎªnullï¿½ï¿½60ï¿½ï¿½ï¿½ï¿½Ù»ï¿½È¡
 					Thread.sleep(60 * 1000);
 				}
 			} catch (InterruptedException e) {
