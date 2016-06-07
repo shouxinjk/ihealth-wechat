@@ -37,14 +37,21 @@
 </body>
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../js/URL.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
 <script type="text/javascript">
     $(document).ready(function () {
+    	var userId = ReadCookie("userId");
         	//获取前20条数据 
             $.ajax({
                 type: "post",
-                url: url+"/rest/findByTopTwenty",
+                url: url+"/rest/findArticleByParams",
                 contentType:"application/json;charset=utf8",
-                dataType: "json",
+                data : JSON.stringify({
+					"userId" : userId
+				}),
+				dataType : "json",
+				async : false,
+				cache : false,
                 success: function (r) {
                     if(r.result == "success"){
                     	var data = r.data;

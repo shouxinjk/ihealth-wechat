@@ -182,6 +182,33 @@ function on_click2(userId){   //生活方式
     $("#li2").removeClass('active');
 }
 
+function on_click_2(userId){   //修改关心人的生活方式
+	//duoDisliv_1();
+	$.ajax({
+		url:url+"/resttag/updateTag",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"userID" : userId,
+  				"tagID" :obtainId("livefs")
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(delr){
+			if(delr.msg == "success"){
+				listDisease_1(userId);
+			}
+		}
+	});
+	$('#guanxin').remove();
+    $("#li3").addClass('active');
+    $("#li2").removeClass('active');
+}
+
+
+
 function listDisease(userId){//疾病信息
 	 $.ajax({
 		  	url:url+"/restdisease/listAllDiseaseByUserID",
@@ -280,7 +307,109 @@ function listDisease(userId){//疾病信息
 	  });
 }
 
-function on_click3(userId){   //关心的人
+function listDisease_1(userId){//修改关心人的疾病信息
+	 $.ajax({
+		  	url:url+"/restdisease/listAllDiseaseByUserID",
+	  		type:"post",
+	  		contentType:'application/json;charset=utf8',
+	  		data:JSON
+	  			.stringify({
+	  				"userID" : userId
+	  			}),
+	  		dataType : "json",
+	  		async : false,
+			cache : false,
+			success:function(ur){
+				var urallData = eval(ur.allData);
+				var urIsInheritableDiseaseData = eval(ur.IsInheritableDiseaseData);
+				var urIsHighIncidence = eval(ur.IsHighIncidence);
+				 $.ajax({
+				    	url:url+"/restdisease/listAllDisease",
+				    	type:"post",
+				    	async : false,
+						cache : false,
+				    	success:function(r){
+				    		if(r.msg == "success"){
+				    			var str = "";
+				    			var allData = eval(r.allData);//个人疾病
+				    			var IsInheritableDiseaseData = eval(r.IsInheritableDiseaseData);//家族疾病
+				    			var IsHighIncidence = eval(r.IsHighIncidence);//关注疾病（高发疾病）
+				    			str+="<h4 id='personage1' class='personage col-lg-12 col-xs-12 col-md-12 col-sm-12'>个人疾病信息</h4>"+
+				                	 "<div class='personage_illness_1  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+				                	 	"<ul>";
+				    			for(var i=0;i<allData.length;i++){
+				    				str+= "<li ";
+				    				if(urallData!=undefined){
+				    					for(var j=0;j<urallData.length;j++){
+					    					if(allData[i].DISEASE_ID == urallData[j].DISEASE_ID){
+					    						str+= "id='personal' class='livefs_1 livefs'";
+					    					}
+					    				}
+				    				}
+				    				str+= " >"+allData[i].NAME+"<input type='hidden' value='"+allData[i].DISEASE_ID+"'></li>";
+				    			}
+				    			str += "</ul>"+
+				               			"</div>"+
+						                "<h4 id='personage2' class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>家族疾病信息</h4>"+
+						                "<div class='personage_illness_2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+						                   "<ul>";
+				    			for(var i=0;i<IsInheritableDiseaseData.length;i++){
+				    				str+= "<li ";
+				    				if(urIsInheritableDiseaseData!=undefined){
+					    				for(var j=0;j<urIsInheritableDiseaseData.length;j++){
+					    					if(IsInheritableDiseaseData[i].DISEASE_ID == urIsInheritableDiseaseData[j].DISEASE_ID){
+					    						str+= "id='family' class='livefs_2 livefs'";
+					    					}
+					    				}
+				    				}
+				    				str+= " >"+IsInheritableDiseaseData[i].NAME+"<input type='hidden' value='"+IsInheritableDiseaseData[i].DISEASE_ID+"'></li>";
+				    				//str+= "<li>"+IsInheritableDiseaseData[i].NAME+"</li>";
+				    			}
+				    			str += "</ul>"+
+				       			"</div>"+
+				                "<h4 id='personage3' class='family col-lg-12 col-xs-12 col-md-12 col-sm-12'>关注疾病信息</h4>"+
+				                "<div class='personage_illness_3  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+				                   "<ul>";
+				    			for(var i=0;i<IsHighIncidence.length;i++){
+				    				str+= "<li ";
+				    				if(urIsHighIncidence!=undefined){
+					    				for(var j=0;j<urIsHighIncidence.length;j++){
+					    					if(IsHighIncidence[i].DISEASE_ID == urIsHighIncidence[j].DISEASE_ID){
+					    						str+= "id='focus' class='livefs_3 livefs'";
+					    					}
+					    				}
+				    				}
+				    				str+= " >"+IsHighIncidence[i].NAME+"<input type='hidden' value='"+IsHighIncidence[i].DISEASE_ID+"'></li>";
+				    				//str+= "<li>"+IsHighIncidence[i].NAME+"</li>";
+				    			}
+				    			str+=  "</ul>"+
+				                "</div>"  +
+				                "<div class='message_next3  col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
+				                 "<p style=\"display: block\">";
+				    			
+				    				 str+="<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='on_click_3(\""+userId+"\")'>下一步</a>" ;
+				    			
+				                   
+				                str+= "</p>" +
+				                "</div>" ;
+				    			  $('.content').html(str);
+				    			  duoDisliv_1();
+				    			  duoDisliv_2();
+				    			  duoDisliv_3();
+				    		}
+				    	}
+				    });
+			}
+	  });
+}
+
+
+
+
+
+
+
+function on_click3(userId){   //疾病信息 下一步
 	$.ajax({
 		url:url+"/restdisease/updateDisease",
   		type:"post",
@@ -306,6 +435,37 @@ function on_click3(userId){   //关心的人
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
 }
+function on_click_3(userId){
+		$.ajax({
+			url:url+"/restdisease/updateDisease",
+	  		type:"post",
+	  		contentType:'application/json;charset=utf8',
+	  		data:JSON
+	  			.stringify({
+	  				"userID" : userId,
+	  				"personalDiseaseID" :obtainId("livefs_1"),
+	  				"familyDiseaseID" :obtainId("livefs_2"),
+	  				"focusDiseaseID" :obtainId("livefs_3")
+	  			}),
+	  		dataType : "json",
+	  		async : false,
+			cache : false,
+			success:function(delr){
+				if(delr.msg == "success"){
+					var userId = ReadCookie("userId");
+					carep(userId);
+				}
+			}
+		});
+		
+		$('.upname').hide();
+		$('.information_header li').show();
+	    $("#li4").addClass('active');
+	    $("#li3").removeClass('active');
+}
+
+
+
 
 //获取关心的人
 function carep(userId){
@@ -327,7 +487,7 @@ function carep(userId){
 					for(var i=0;i<data.length;i++){
 						if(data[i].AVATAR != null){
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-									"<div class=\"Care_img\">"+
+									"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\")'>"+
 										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 									"</div>"+
 									"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
@@ -338,7 +498,7 @@ function carep(userId){
 								"</div>";
 						}else{
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-							"<div class=\"Care_img\">"+
+							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\")'>"+
 								"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
 							"</div>"+
 							"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
@@ -353,38 +513,11 @@ function carep(userId){
 				
 				str+= "</div>"+
 					  "<div class=\"button_sp_area col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
-					  	"<a href=\"#\"  class=\"add weui_btn_plain_primary\" onclick='addUser()'>添加</a>"+
+					  	"<a href=\"../subject/addcare.html\"  class=\"add weui_btn_plain_primary\" >添加</a>"+
 					  "</div>";
 				 $('.content').html(str);
 			}
-//		}
 	});
-}
-
-
-
-function addUser(){
-	var str = "<table style='display: block; width:100%;'>" +
-				    "<tbody style='display: block' >" +
-				    "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-				    "<td>" +
-				    		"<img style='width:.7rem;margin-right: .5rem;' class='guan_phone' src=\"../images/phone.png\" alt=\"\"/>"+
-				    "</td>" +
-				    "<td>手机号</td>" +
-				            "<td>" +
-				                "<input id='phone'style='margin-left: .5rem;' type='text' maxlength='11' placeholder='请输入您要关心人的手机号！'/>" +
-				            "</td>" +
-				        "</tr>" +
-				        "<tr class='message_next  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-				        "<td style=\"display: block\">" +
-				            "<a href=\"#\" id='message_next' class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='lookupUser()'>下一步</a>" +
-				        "</td>" +
-				    "</tr>" +
-				        "</tbody>" +
-			    "</table>";
-	$('.content').html(str);
-	$("#li4").addClass('active');
-    $("#li3").removeClass('active');
 }
 
 

@@ -41,9 +41,8 @@ $(document).ready(function () {
   
 	
     
-
+//我的信息 完成度
 function wxdu(userId){
-//用户名
 	$.ajax({
 		type : "post",
 		url : url+"/rest/findMessageIntegrity",

@@ -334,7 +334,18 @@ em{
 	line-height: 1.1rem;
 	padding: .08rem;
 }
-
+.buy_div{
+	margin: 1rem 0 3rem 0;
+}
+.buy {
+	/* border: .05rem solid rgb(126, 200, 136); */
+	border-radius: .51rem;
+	text-align: center;
+	float: right;
+	padding: 0;
+	background:rgb(126, 200, 136);
+	color:#fff;
+}
 
 
 
