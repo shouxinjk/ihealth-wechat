@@ -71,7 +71,7 @@
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-				<directory>src/config</directory>
+				<directory>resources</directory>
 			</resource>
 		</resources>
 		<plugins>
