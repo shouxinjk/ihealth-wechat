@@ -14,7 +14,7 @@ public class PropertiesUtil {
 		Properties pro = new Properties();
 		String value = "";
 		try {
-			in = Thread.currentThread().getContextClassLoader().getResourceAsStream("/dbconfig.properties");
+			in = Thread.currentThread().getContextClassLoader().getResourceAsStream("ihealth-wechat/classes/dbconfig.properties");
 			System.out.println(in+"%%%%%%%%%");
 			pro.load(in);
 			value=pro.getProperty(name);
