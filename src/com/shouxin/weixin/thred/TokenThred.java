@@ -17,6 +17,7 @@ public class TokenThred implements Runnable {
 	public void run() {
 		while (true) {
 			try {
+				System.out.println(appid+")))))))))))))))))))))))))))0");
 				accessToken = WeiXinUtil.getAccessToken(appid, appsecret);
 				if (null != accessToken) {
 					// ����7000��
