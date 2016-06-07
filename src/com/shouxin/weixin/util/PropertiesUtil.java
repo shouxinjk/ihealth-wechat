@@ -1,5 +1,6 @@
 package com.shouxin.weixin.util;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,21 +10,35 @@ import java.util.Properties;
 
 public class PropertiesUtil {
 	
-	public static String getAppid(String name){
-		InputStream in = null;
-		Properties pro = new Properties();
-		String value = "";
+	public static String getAppid(String key){
+
+		String currentPath = PropertiesUtil.class.getResource("").toString();  
+		String TomcatPath = currentPath.replace("file:", "");//linux 必须要/开头
+		TomcatPath = TomcatPath.replace("/WEB-INF/classes/com/shouxin/weixin/util","/WEB-INF/classes");
+		String path = TomcatPath+"/dbconfig.properties";
+
+		Properties props = new Properties();
+		InputStream ips = null;
 		try {
-			in = Thread.currentThread().getContextClassLoader().getResourceAsStream("/WEB-INF/classes/dbconfig.properties");
-			System.out.println(in+"%%%%%%%%%");
-			pro.load(in);
-			value=pro.getProperty(name);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		    ips = new BufferedInputStream(new FileInputStream(path));
+			props.load(ips);
+			String value = props.getProperty(key);
+			return value;
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			return null;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}finally{
+			if(ips!=null){
+				try {
+					ips.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		
-		return value;
 	}
 
 	
