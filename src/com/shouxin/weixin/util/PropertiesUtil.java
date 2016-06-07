@@ -14,7 +14,7 @@ public class PropertiesUtil {
 
 		String currentPath = PropertiesUtil.class.getResource("").toString();  
 		String TomcatPath = currentPath.replace("file:", "");//linux 必须要/开头
-		TomcatPath = TomcatPath.replace("/target/classes/com/shouxin/weixin/util","/src/config");
+		TomcatPath = TomcatPath.replace("/WEB-INF/classes/com/shouxin/weixin/util","/WEB-INF/classes/config");
 		String path = TomcatPath+"/dbconfig.properties";
 
 		Properties props = new Properties();
