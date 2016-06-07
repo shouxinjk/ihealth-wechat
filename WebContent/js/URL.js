@@ -1,2 +1,2 @@
-var url="http://test.shouxinjk.net/ihealth";
-var wechatUrl="http://test.shouxinjk.net/ihealth-wechat";
+var url="http://www.shouxinjk.net/ihealth";
+var wechatUrl="http://www.shouxinjk.net/ihealth-wechat";
