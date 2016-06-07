@@ -35,12 +35,12 @@ function register(){
 				        	  delCookie("userId");
 				        	  SetCookie("mobilep",mobilep,7);
 				        	  SetCookie("userId",userId,7);
-				        	  window.location="http://test.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
+				        	  window.location=wechatUrl+"/subject/Message.html?userId="+r.data.USER_ID;
 				           }else if(r.result == "existence"){
 				        	   var userId = r.data.USER_ID;
 				        	   SetCookie("mobilep",mobilep,7);
 				        	   SetCookie("userId",userId,7);
-				        	   window.location ="http://test.shouxinjk.net/ihealth-wechat/subject/Message.html?userId="+r.data.USER_ID;
+				        	   window.location =wechatUrl+"/subject/Message.html?userId="+r.data.USER_ID;
 				           }
 				       },
 				       error: function () {

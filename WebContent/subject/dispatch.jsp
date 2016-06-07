@@ -77,10 +77,10 @@ $(function(){
 		success:function(ur){
 			var data = eval(ur.data);
 			if(ur.result == "no"){
-				window.location.href="http://test.shouxinjk.net/ihealth-wechat/login.jsp";
+				window.location.href=wechatUrl+"/login.jsp";
 			}else if(ur.result == "success"){
 	        	SetCookie("userId",data.USER_ID,7);
-				window.location.href="http://test.shouxinjk.net/ihealth-wechat/subject/"+state+".html";
+				window.location.href=wechatUrl+"/subject/"+state+".html";
 			}
 		}
 	});
