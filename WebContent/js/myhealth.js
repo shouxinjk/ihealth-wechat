@@ -164,14 +164,14 @@ function intn(userId){
 														
 														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"</div>" +
 													 "</div>" +
-													 "<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'> " +
+													 //"<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'> " +
 														
-														 "<div class='zhiconceal_ '><lable class='headline'>关注因素</lable>"+d.concernedfactors+"</div>" +
-													 "</div>" +
-													 "<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+														// "<div class='zhiconceal_ '><lable class='headline'>关注因素</lable>"+d.concernedfactors+"</div>" +
+													 //"</div>" +
+													 //"<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 														 
-														 "<div class=' zhiconceal_ '><lable class='headline'>风险描述</lable>"+d.riskDefine+"</div>" +
-													 "</div>" +
+														// "<div class=' zhiconceal_ '><lable class='headline'>风险描述</lable>"+d.riskDefine+"</div>" +
+													 //"</div>" +
 												 
 												 "</div>" +
 				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
@@ -191,14 +191,14 @@ function intn(userId){
 												 /*"<div class=''>筛查疾病:</div>" +*/
 												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"</div>" +
 											 "</div>" +
-											 "<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+											 //"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 												/* "<div class=''>关注因素:</div>" +*/
-												 "<div  class='zhiconceal_ '><lable class='headline'>关注因素</lable>"+d.concernedfactors+"</div>" +
-											 "</div>" +
-											 "<div   class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+												// "<div  class='zhiconceal_ '><lable class='headline'>关注因素</lable>"+d.concernedfactors+"</div>" +
+											 //"</div>" +
+											 //"<div   class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 											/*	 "<div class='col-lg-2 '>风险描述:</div>" +*/
-												 "<div  class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+d.riskDefine+"</div>" +
-											 "</div>" +
+												// "<div  class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+d.riskDefine+"</div>" +
+											// "</div>" +
 										 "</div>" +
 					         		        //deletli 原来在sub外面  sub 后面有个class（ subgroup1）
 					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
@@ -364,14 +364,14 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 				/*		 "<div class=''>筛查疾病:</div>" +*/
 						 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+disease_name+"</div>" +
 			 		"</div>" +
-			 		"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+			 		//"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 						/* "<div class=''>关注因素:</div>" +*/
-						 "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+concernedfactors+"</div>" +
-					"</div>" +
-					"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+						// "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+concernedfactors+"</div>" +
+					//"</div>" +
+					//"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 						/* "<div class=''>风险描述:</div>" +*/
-						 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+riskDefine+"</div>" +
-					"</div>" +
+					//	 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+riskDefine+"</div>" +
+					//"</div>" +
 			 		
 		 		"</div>";
 	 var por= '<div class="deletli" style="float: right;" id="'+sub+'">'+
