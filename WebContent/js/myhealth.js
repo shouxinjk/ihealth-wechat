@@ -237,12 +237,12 @@ function intn(userId){
 		       				 
 		       				$('.'+sub).append(len);
 		       				
-		       			 var source = '';
+		       			/* var source = '';
 		       			 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
 		       				'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
 		       						source += ''+d.ORIGINATE+'';
 		       				 source +='</div></div>';
-   						$("#laiyuan"+sub).append(source);
+   						$("#laiyuan"+sub).append(source);*/
    						
 	                    }
 	        	  }
@@ -338,11 +338,11 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 					 source +='</div></div>';
 			}
     }*/
-	 var source = '';
+	 /*var source = '';
 	 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
 		'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
 				source += ''+ORIGINATE+'';
-		 source +='</div></div>';
+		 source +='</div></div>';*/
 
 
 
@@ -394,7 +394,7 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	$('#'+par).children('.jc_project').after(str);
 	$('.'+sub).append(por);
 	$('.'+sub).append(len);
-	$("#laiyuan"+sub).append(source);
+	//$("#laiyuan"+sub).append(source);
 /*	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);*/
 	$.ajax({
         type: "post",
@@ -413,7 +413,33 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 
 $('.container').delegate(".zhiN","click",function(){
 	var flag = $(this).attr("data-flag");
+	var p = $(this).find("div").first();
 	if(flag==1){
+		var CHECKUPITEMID =$(this).prev().find("input").val();
+		$.ajax({
+	        type: "post",
+	        url: url+"/rest/getCheckItem",
+	        contentType:"application/json;charset=utf8",
+	        data: JSON.stringify({"id":CHECKUPITEMID}),
+	        dataType: "json",
+	        async : false,
+			cache : false,
+	        success: function (r) {
+	        	var r = eval(r.data);
+	        	var str="<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+							/* "<div class=''>关注因素:</div>" +*/
+							 "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+r.concernedfactors+"</div>" +
+							"</div>" +
+							"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+								/* "<div class=''>风险描述:</div>" +*/
+								 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+r.riskDefine+"</div>" +
+						"</div>" +
+						"<div class='trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>"+
+						"<div class='trait_div '><lable class='trait_lai headline'>指南来源</lable>"+r.ORIGINATE+
+						 "</div></div>";
+	        	p.after(str);
+	        }
+		});
 		$(this).find('.zhiconceal').css({maxHeight:"100%",display:"block"});
 		$(this).find('.show_').css({display:"block"});
 		$(this).attr("data-flag","0");
@@ -422,6 +448,7 @@ $('.container').delegate(".zhiN","click",function(){
 		$(this).find('.zhiconceal').css({display:"-webkit-box"});
 		$(this).find('.show_').css({display:"none"});
 		$(this).attr("data-flag","1");
+		p.nextAll().remove();
 	}
 })
     
@@ -482,7 +509,7 @@ function guanlian1(id){
     
 
 function tj_carep(){
-	window.location = wechatUrl +"/ihealth-wechat/subject/addcare.html";
+	window.location = addUrl +"/ihealth-wechat/subject/addcare.html";
 	//addUser()
 }
 
