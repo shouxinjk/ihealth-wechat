@@ -43,6 +43,7 @@ function relevance(userId){    //获取关联用户名
 				}
 				 $('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
 				 $('#my').after(str);
+				 $('.relevance li').last().after("<li style='margin-right:.2rem;'  class='swiper-slide'  onclick='tj_carep()'>+</li>");
 			}
 	
 	
@@ -86,6 +87,7 @@ function intn(userId){
 	$('.xmtable').html('');
 	var judge = true;
 	var group;
+	var dataList;
 	var CHECKUPITEMid;
 	$.ajax({
         type: "post",
@@ -98,6 +100,7 @@ function intn(userId){
         success: function (r) {
         	if(r.result == "success"){
         		group = eval(r.group);
+        		dataList = eval(r.data);
         	}else if(r.result == "no"){
         		judge = false;
         	}
@@ -141,16 +144,18 @@ function intn(userId){
 	        		}
 	        		str+="</div>";
 	        		 $('.xmtable').append(str);
-	        		$.ajax({
-	                    type: "post",
-	                    url: url+"/rest/getCheckItem",
-	                    contentType:"application/json;charset=utf8",
-	                    data: JSON.stringify({"id":CHECKUPITEMid}),
-	                    dataType: "json",
-	                    async : false,
-	            		cache : false,
-	                    success: function (r1) {
-	                    	var d = eval(r1.data);
+//	        		$.ajax({
+//	                    type: "post",
+//	                    url: url+"/rest/getCheckItem",
+//	                    contentType:"application/json;charset=utf8",
+//	                    data: JSON.stringify({"id":CHECKUPITEMid}),
+//	                    dataType: "json",
+//	                    async : false,
+//	            		cache : false,
+//	                    success: function (r1) {
+	        		 for(var k=0;k<dataList.length;k++){
+	        			 if(dataList[k].CHECKUPITEM_ID == CHECKUPITEMid){
+	        				 var d = dataList[k];
 	                    	var sub1 = d.SUBGROUP;
 	    		        	var sub = MD5(sub1);
 	                    	//通过状态判断项目是否显示
@@ -240,9 +245,9 @@ function intn(userId){
    						$("#laiyuan"+sub).append(source);
    						
 	                    }
-	            	});
 	        	  }
 	        	}
+	        }
 	        });
 	}
 	$(".subgroup1").last().find(".iss").remove();
@@ -476,6 +481,10 @@ function guanlian1(id){
 	    }
     
 
+function tj_carep(){
+	window.location ="http://localhost:8080/ihealth-wechat/subject/addcare.html";
+	//addUser()
+}
 
 
 
