@@ -59,7 +59,6 @@ $(function(){
 			data:{"code":code},
 			success:function(data){
 				openId = data;
-				
 			}
 		});
 	}
