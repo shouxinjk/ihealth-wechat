@@ -247,40 +247,53 @@ function intn(userId){
 	                    }
 	        	  }
 	        	}
+	        	 $('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
 	        }
 	        });
 	}
 	$(".subgroup1").last().find(".iss").remove();
 }
-
-
-
-function glide(){
-	var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        slidesPerView: 3,
-        spaceBetween: 50,
-        breakpoints: {
-            1024: {
-                slidesPerView: 10,
-                spaceBetween: 40
-            },
-            768: {
-                slidesPerView: 5,
-                spaceBetween: 30
-            },
-            640: {
-                slidesPerView: 4,
-                spaceBetween: 20
-            },
-            320: {
-                slidesPerView: 3.8,
-                spaceBetween: 0
-            }
+$('.xmtable').delegate(".buy",'click',function(){ //购买体检
+	var tname ='';
+	var userId=$('.buy').attr('data-userid');
+	//alert($('.buy').attr('data-userid'));
+	var check_id;
+	$.ajax({
+        type: "post",
+        url: url+"/rest/getCheckItemsByGroup",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"userId":userId}),
+        dataType: "json",
+        async : false,
+		cache : false,
+        success: function (r) {
+        	var data = eval(r.data);
+        		for(var i=0;i<data.length;i++){
+        				if(data[i].STATUS == "已选中"){
+        					var str=data[i].CHECKUPITEM_ID;
+        					tname +=str +',';
+        					//window.location ="http://localhost:8080/ihealth-wechat/subject/buypeitem.html?userId="+userId;
+        		}
+        				 check_id = tname.substring(0,tname.length-1);
+        	}
+        		//console.log(check_id);
         }
-    });
-}
+	});
+	$.ajax({
+        type: "post",
+        url: url+"/restOrder/addOrder",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"solutionID":check_id}),
+        dataType: "json",
+        async : false,
+		cache : false,
+        success: function (r) {
+        	
+        }
+	});
+});
+
+
 
 $('.xmtable').delegate(".subgroup1",'click',function(){
 	$(this).parent().siblings('.zhiN').remove();
@@ -514,6 +527,35 @@ function tj_carep(){
 }
 
 
+
+
+
+function glide(){
+	var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        slidesPerView: 3,
+        spaceBetween: 50,
+        breakpoints: {
+            1024: {
+                slidesPerView: 10,
+                spaceBetween: 40
+            },
+            768: {
+                slidesPerView: 5,
+                spaceBetween: 30
+            },
+            640: {
+                slidesPerView: 4,
+                spaceBetween: 20
+            },
+            320: {
+                slidesPerView: 3.8,
+                spaceBetween: 0
+            }
+        }
+    });
+}
 
 	
 			
