@@ -482,7 +482,7 @@ function guanlian1(id){
     
 
 function tj_carep(){
-	window.location = addUrl +"ihealth-wechat/subject/addcare.html";
+	window.location = wechatUrl +"/ihealth-wechat/subject/addcare.html";
 	//addUser()
 }
 
