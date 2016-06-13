@@ -276,7 +276,6 @@ $('.xmtable').delegate(".buy",'click',function(){ //购买体检
         		}
         				 check_id = tname.substring(0,tname.length-1);
         	}
-        		//console.log(check_id);
         }
 	});
 	$.ajax({
@@ -288,7 +287,7 @@ $('.xmtable').delegate(".buy",'click',function(){ //购买体检
         async : false,
 		cache : false,
         success: function (r) {
-        	
+        	alert(r.msg)
         }
 	});
 });
@@ -427,41 +426,49 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 $('.container').delegate(".zhiN","click",function(){
 	var flag = $(this).attr("data-flag");
 	var p = $(this).find("div").first();
+	var childdiv =$(this).children();
 	if(flag==1){
-		var CHECKUPITEMID =$(this).prev().find("input").val();
-		$.ajax({
-	        type: "post",
-	        url: url+"/rest/getCheckItem",
-	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"id":CHECKUPITEMID}),
-	        dataType: "json",
-	        async : false,
-			cache : false,
-	        success: function (r) {
-	        	var r = eval(r.data);
-	        	var str="<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-							/* "<div class=''>关注因素:</div>" +*/
-							 "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+r.concernedfactors+"</div>" +
-							"</div>" +
-							"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-								/* "<div class=''>风险描述:</div>" +*/
+		if(childdiv.length == 1){
+			var CHECKUPITEMID =$(this).prev().find("input").val();
+			$.ajax({
+		        type: "post",
+		        url: url+"/rest/getCheckItem",
+		        contentType:"application/json;charset=utf8",
+		        data: JSON.stringify({"id":CHECKUPITEMID}),
+		        dataType: "json",
+		        async : false,
+				cache : false,
+		        success: function (r) {
+		        	var r = eval(r.data);
+		        	var str="<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+								/* "<div class=''>关注因素:</div>" +*/
+								 "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+r.concernedfactors+"</div>" +
+							 "</div>" +
+							 "<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+									/* "<div class=''>风险描述:</div>" +*/
 								 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+r.riskDefine+"</div>" +
-						"</div>" +
-						"<div class='trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>"+
-						"<div class='trait_div '><lable class='trait_lai headline'>指南来源</lable>"+r.ORIGINATE+
-						 "</div></div>";
-	        	p.after(str);
-	        }
-		});
-		$(this).find('.zhiconceal').css({maxHeight:"100%",display:"block"});
-		$(this).find('.show_').css({display:"block"});
-		$(this).attr("data-flag","0");
+							 "</div>" +
+							"<div class='trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>"+
+								"<div class='trait_div '><lable class='trait_lai headline'>指南来源</lable>"+r.ORIGINATE+"</div>"+
+							"</div>";
+		        	p.after(str);
+		        }
+			});
+			$(this).find('.zhiconceal').css({maxHeight:"100%",display:"block"});
+			$(this).find('.show_').css({display:"block"});
+			$(this).attr("data-flag","0");
+		}else{
+			$(this).find('.zhiconceal').css({maxHeight:"100%",display:"block"});
+			$(this).find('.show_').css({display:"block"});
+			$(this).attr("data-flag","0");
+		}
+		
 	}else{
 		$(this).find('.zhiconceal').css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
 		$(this).find('.zhiconceal').css({display:"-webkit-box"});
 		$(this).find('.show_').css({display:"none"});
 		$(this).attr("data-flag","1");
-		p.nextAll().remove();
+		//p.nextAll().remove();
 	}
 })
     
@@ -522,7 +529,7 @@ function guanlian1(id){
     
 
 function tj_carep(){
-	window.location = addUrl +"/ihealth-wechat/subject/addcare.html";
+	window.location = wechatUrl +"/ihealth-wechat/subject/addcare.html";
 	//addUser()
 }
 
