@@ -245,10 +245,11 @@ function intn(userId){
 	}
 	$(".subgroup1").last().find(".iss").remove();
 }
-$('.xmtable').delegate(".buy",'click',function(){ //购买体检
+
+//购买体检套餐
+$('.xmtable').delegate(".buy",'click',function(){ 
 	var tname ='';
 	var userId=$('.buy').attr('data-userid');
-	//alert($('.buy').attr('data-userid'));
 	var check_id;
 	$.ajax({
         type: "post",
