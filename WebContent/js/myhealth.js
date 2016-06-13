@@ -278,7 +278,7 @@ $('.xmtable').delegate(".buy",'click',function(){ //购买体检
         async : false,
 		cache : false,
         success: function (r) {
-        	alert(r.msg)
+        	//alert(r.msg)
         	//window.location ="http://localhost:8080/ihealth-wechat/subject/buypeitem.html?userId="+userId;
         }
 	});
