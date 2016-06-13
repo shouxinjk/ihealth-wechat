@@ -335,16 +335,19 @@ em{
 	padding: .08rem;
 }
 .buy_div{
-	margin: 1rem 0 3rem 0;
+	margin: 10% 25% 26% 25%;
 }
 .buy {
+	width: 50% !important;
+	height: 1.5rem !important;
+	line-height: 1.5rem !important;
 	/* border: .05rem solid rgb(126, 200, 136); */
 	border-radius: .51rem;
 	text-align: center;
-	float: right;
+	/* float: right; */
 	padding: 0;
-	background:rgb(126, 200, 136);
-	color:#fff;
+	color: #04be02;
+	border: 1px solid #04be02;
 }
 
 
