@@ -1,4 +1,4 @@
-	function Usern(userId){
+function Usern(userId){
 		//用户名
 		$.ajax({
 			type : "post",
@@ -14,11 +14,8 @@
 					$('.Username').text(data.NAME);//获取姓名
 				}
 			}
-
 		});
-		
 	}
-
 function relevance(userId){    //获取关联用户名
 	$.ajax({
 		url:url+"/rest/findUsersById",
@@ -81,8 +78,6 @@ function spend(userId){
     });
 }
 
-
-
 function intn(userId){
 	$('.xmtable').html('');
 	var judge = true;
@@ -105,7 +100,7 @@ function intn(userId){
         		judge = false;
         	}
         }
-        });
+       });
 	if(judge){
 		$.ajax({
 	        type: "post",
@@ -126,15 +121,13 @@ function intn(userId){
 	        				if(data[i].STATUS == "已选中"){
 	        					CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					name = data[i].NAME;
-	        					str +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
-	        						
+	        					str +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
 	        					k++;
 	        				}else{
 	        					if(k==0){
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					}
 	        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
-	        					
 	        				}
 	        			}
 	        			$(".subgroup1").last().find(".iss").remove();
@@ -236,7 +229,6 @@ function intn(userId){
 		           		    	}
 		       				 
 		       				$('.'+sub).append(len);
-		       				
 		       			/* var source = '';
 		       			 source += '<div class="trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12" style="display:none">'+
 		       				'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
@@ -245,11 +237,11 @@ function intn(userId){
    						$("#laiyuan"+sub).append(source);*/
    						
 	                    }
-	        	  }
+	        		 }
 	        	}
 	        	 $('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
 	        }
-	        });
+	    });
 	}
 	$(".subgroup1").last().find(".iss").remove();
 }
@@ -272,7 +264,6 @@ $('.xmtable').delegate(".buy",'click',function(){ //购买体检
         				if(data[i].STATUS == "已选中"){
         					var str=data[i].CHECKUPITEM_ID;
         					tname +=str +',';
-        					//window.location ="http://localhost:8080/ihealth-wechat/subject/buypeitem.html?userId="+userId;
         		}
         				 check_id = tname.substring(0,tname.length-1);
         	}
@@ -288,6 +279,7 @@ $('.xmtable').delegate(".buy",'click',function(){ //购买体检
 		cache : false,
         success: function (r) {
         	alert(r.msg)
+        	//window.location ="http://localhost:8080/ihealth-wechat/subject/buypeitem.html?userId="+userId;
         }
 	});
 });
@@ -296,7 +288,6 @@ $('.xmtable').delegate(".buy",'click',function(){ //购买体检
 
 $('.xmtable').delegate(".subgroup1",'click',function(){
 	$(this).parent().siblings('.zhiN').remove();
-	//console.log($(this).parent().siblings('.zhiN').attr('class'));
 	var DESCRIPTION;
 	var status;
 	var itemID ;
@@ -355,15 +346,11 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 		'<div class="trait_div "><lable class="trait_lai headline">指南来源</lable>'
 				source += ''+ORIGINATE+'';
 		 source +='</div></div>';*/
-
-
-
 		//添加体检项目的特性
 	if (FEATURES != null && FEATURES !=''){
 		var birthArr= new Array();
 		//按逗号拆分
 		birthArr = FEATURES.split(",");
-			
 		if(birthArr.length > 0){
 			var len = '';
 			for(var p=0;p<birthArr.length;p++){
@@ -373,32 +360,28 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	}
 	if(status == '已选中'){
 		 var str ="<div  data-flag='1'   id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
-//					 "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-//						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
-//						 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+DESCRIPTION+"</div>" +
-//					 "</div>" +
+	 				/*"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+						 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
+						 "<div data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+DESCRIPTION+"</div>" +
+					 "</div>" +*/
 					 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-				/*		 "<div class=''>筛查疾病:</div>" +*/
+					 			/*"<div class=''>筛查疾病:</div>" +*/
 						 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+disease_name+"</div>" +
 			 		"</div>" +
-			 		//"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-						/* "<div class=''>关注因素:</div>" +*/
-						// "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+concernedfactors+"</div>" +
-					//"</div>" +
-					//"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-						/* "<div class=''>风险描述:</div>" +*/
-					//	 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+riskDefine+"</div>" +
-					//"</div>" +
-			 		
+			 		/*"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+						 "<div class=''>关注因素:</div>" +
+						 "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+concernedfactors+"</div>" +
+					"</div>" +
+					"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
+						 "<div class=''>风险描述:</div>" +
+						 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+riskDefine+"</div>" +
+					"</div>" +*/			 		
 		 		"</div>";
 	 var por= '<div class="deletli" style="float: right;" id="'+sub+'">'+
-					//		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
-					 	//'<div id="'+itemID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;background:rgb(126, 200, 136)"></div>'+
+						/*'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
+					 	'<div id="'+itemID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;background:rgb(126, 200, 136)"></div>'+*/
 					 	'<div id="'+itemID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"   onclick="del('+itemID+',\''+status+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/right.png\" title=\"恢复\" alt=\"恢复\"/></div>'+	
-					
 					'</div>';
-	
-	      	
 		}
 	var par = $(this).parent().parent().attr('id');
 	$(this).parent().siblings('.zhiN').remove();
@@ -406,8 +389,8 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 	$('#'+par).children('.jc_project').after(str);
 	$('.'+sub).append(por);
 	$('.'+sub).append(len);
-	//$("#laiyuan"+sub).append(source);
-/*	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);*/
+	/*$("#laiyuan"+sub).append(source);
+	$(this).parent().siblings("#laiyuan"+sub).html(DESCRIPTION);*/
 	$.ajax({
         type: "post",
         url: url+"/rest/editCheckItem",
@@ -422,12 +405,13 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
    });
 });
 
-
+//购买 体检项目
 $('.container').delegate(".zhiN","click",function(){
 	var flag = $(this).attr("data-flag");
 	var p = $(this).find("div").first();
 	var childdiv =$(this).children();
 	if(flag==1){
+		//如果.zhiN的子节点为1 才发请求， 反之只显示折叠！
 		if(childdiv.length == 1){
 			var CHECKUPITEMID =$(this).prev().find("input").val();
 			$.ajax({
@@ -441,11 +425,9 @@ $('.container').delegate(".zhiN","click",function(){
 		        success: function (r) {
 		        	var r = eval(r.data);
 		        	var str="<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-								/* "<div class=''>关注因素:</div>" +*/
 								 "<div  class='zhiconceal_  '><lable class='headline'>关注因素</lable>"+r.concernedfactors+"</div>" +
 							 "</div>" +
 							 "<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-									/* "<div class=''>风险描述:</div>" +*/
 								 "<div class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+r.riskDefine+"</div>" +
 							 "</div>" +
 							"<div class='trait_ show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>"+
@@ -474,9 +456,6 @@ $('.container').delegate(".zhiN","click",function(){
     
 
 
-
-
-//确定
 //删除体检项目
     	function del(ID,status,group,userId){
     		 $.ajax({
@@ -506,10 +485,7 @@ $('.container').delegate(".zhiN","click",function(){
     	}
 
 
-
-
-
-//        关联
+//关联关心的人
 function guanlian(id){
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
@@ -527,8 +503,8 @@ function guanlian1(id){
 	            
 	    }
     
-
-function tj_carep(){
+//体检项目 增加添加关心的人
+function tj_carep(){ 
 	window.location = wechatUrl +"/ihealth-wechat/subject/addcare.html";
 	//addUser()
 }
@@ -536,8 +512,8 @@ function tj_carep(){
 
 
 
-
-function glide(){
+//关心的人 滑动
+function glide(){ 
 	var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
