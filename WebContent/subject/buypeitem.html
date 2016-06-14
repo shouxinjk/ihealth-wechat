@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no,minimal-ui" />
+<!--   <link rel="stylesheet" href="../css/dist/style/weui.min.css"/> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/myhealth.css"/>
+    <link rel="stylesheet" href="../css/buypeitem.css"/>
+    <title>订单详情</title>
+</head>
+<body>
+<div class="container">
+	<div class='buy_top col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+		<div class='detection col-lg-9 col-xs-9 col-md-9 col-sm-9'><img alt="" src="../images/detection_img.png"/>检测项目</div>
+		<div class='cost col-lg-3 col-xs-3 col-md-3 col-sm-3'>￥价格</div>
+	</div>
+    <main class="buy_table col-lg-12 col-xs-12 col-md-12 col-sm-12">
+			<ul class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+				<!-- <li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+					<input type="checkbox"  value="1" class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick="setSelectAll();">
+					<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>糖尿病</div>
+					<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'>120元</div>
+				</li>
+				<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+					<input type="checkbox"  value="2" class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick="setSelectAll();">
+					<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>糖尿病</div>
+					<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'>120元</div>
+				</li>
+				<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+					<input type="checkbox"  value="3" class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick="setSelectAll();">
+					<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>糖尿病</div>
+					<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'>120元</div>
+				</li>
+				<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+					<input type="checkbox"  value="4" class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick="setSelectAll();">
+					<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>糖尿病</div>
+					<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'>120元</div>
+				</li> -->
+			</ul>
+    </main>
+	<div class='buy_footer col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+		<div class='buall col-lg-4 col-xs-4 col-md-4 col-sm-4'>
+			<input class="SelectAll"  type="checkbox" value="all" class='boxall' onclick="selectAll();">
+			<lable>全选</lable>
+		</div>
+		<div class='allmoney col-lg-5 col-xs-5 col-md-5 col-sm-5'>
+			<span class='always'>合计:</span>
+			<!-- <div class='buy_phone col-lg-4 col-xs-4 col-md-4 col-sm-4'><img alt="" src="../images/buy_phone.png"/>免费热线</div> -->
+			<div class='money'>￥<span>1150</span>元</div>
+			<!-- <div class='subscribe col-lg-4 col-xs-4 col-md-4 col-sm-4'><img alt="" src="../images/subscribe.png"/>立即预约</div> -->
+			
+		</div>
+		<div class='settle active col-lg-3 col-xs-3 col-md-3 col-sm-3'>结算</div>
+	</div>
+	
+	
+    <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
+        <a href="guide.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        <img class="TJ_guide_img " src="../images/TJ_guide.png" alt=""/>
+        	<span>健康指南</span>
+        </a>
+        <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4">
+     		<img class="My_health_img " src="../images/My_health.png" alt=""/>
+        	<span>我的体检</span>
+        </a>
+        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        	<img class="my_message_img " src="../images/my_message.png" alt=""/>
+        	<span>我的信息</span>
+       	</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="../js/URL.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
+<!-- <script type="text/javascript" src="../js/myhealth.js"></script> -->
+<!-- <script type="text/javascript" src="../js/md5.js"></script> -->
+<script type="text/javascript" src="../js/buypeitem.js"></script>
+<script type="text/javascript">
+var userId  = ReadCookie("userId");
+$(document).ready(function () {
+	function ReadCookie(cookieName) {
+	    var theCookie = "" + document.cookie;
+	    var ind = theCookie.indexOf(cookieName);
+	    if(ind==-1 || cookieName=="") return "";
+	    var ind1 = theCookie.indexOf(';',ind);
+	    if(ind1==-1) ind1 = theCookie.length;
+	    /*读取Cookie值*/
+	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	}
+        $('.My_health_img ').attr("src", "../images/My_health_1.png");
+        $('.My_health span').css('color','rgb(126, 200, 136)');
+        var deluserId =delCookie("userId");
+   <!--我的体检项目-->
+   		/* relevance(userId);
+   		spend(userId);
+   		glide(); */
+});       
+
+
+</script>
+</html>

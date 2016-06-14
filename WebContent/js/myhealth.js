@@ -83,6 +83,8 @@ function intn(userId){
 	var judge = true;
 	var group;
 	var dataList;
+	var checkid;
+	var tname ='';
 	var CHECKUPITEMid;
 	$.ajax({
         type: "post",
@@ -179,6 +181,7 @@ function intn(userId){
 						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/right.png\" title=\"恢复\" alt=\"恢复\"/></div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
+	         		        	/*chick =false;*/
 	         		        }else {
 	         		        	var str ="<div data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
 				         		        	/*"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
@@ -206,6 +209,9 @@ function intn(userId){
 							         		        	//'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;background:red"></div>'+	
 					         		        		'</div>'+
 					         		        	'</div>';
+
+
+	         		        	
 	         		        }
 	    		        	 $(".subgroup1").last().find(".iss").remove();
 	        		        $("#touch"+j).append(str);
@@ -239,7 +245,21 @@ function intn(userId){
 	                    }
 	        		 }
 	        	}
+	        	//通过状态判断购买显示隐藏
+        		for(var q=0;q<data.length;q++){
+        				if(data[q].STATUS == "已选中"){
+        					var str=data[q].CHECKUPITEM_ID;
+        						tname +=str +',';
+        					}
+        				 checkid = tname.substring(0,tname.length-1);
+        				
+        		}
+        		check=checkid.replace(/,/g, "");
+        		if(check.length ==0){
+        			$('.xmtable').append('<div style="display:none;" class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
+        		}else{
 	        	 $('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
+	        	}
 	        }
 	    });
 	}
@@ -251,6 +271,7 @@ $('.xmtable').delegate(".buy",'click',function(){
 	var tname ='';
 	var userId=$('.buy').attr('data-userid');
 	var check_id;
+	var check;
 	$.ajax({
         type: "post",
         url: url+"/rest/getCheckItemsByGroup",
@@ -267,20 +288,29 @@ $('.xmtable').delegate(".buy",'click',function(){
         					tname +=str +',';
         		}
         				 check_id = tname.substring(0,tname.length-1);
+        				
         	}
+        		//console.log(check_id);
+        		//check=check_id.replace(/,/g, "");
+        		
         }
 	});
+	/*if(check.length ==0){
+		alert('请选择购买的项目！');
+		return;
+	}*/
 	$.ajax({
         type: "post",
         url: url+"/restOrder/addOrder",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"solutionID":check_id}),
+        data: JSON.stringify({"solutionID":check_id,"userId":userId}),
         dataType: "json",
         async : false,
 		cache : false,
         success: function (r) {
+        	var orderid = r.orderid;
         	//alert(r.msg)
-        	//window.location ="http://localhost:8080/ihealth-wechat/subject/buypeitem.html?userId="+userId;
+        	window.location =wechatUrl +"/subject/buypeitem.html?orderid="+orderid;
         }
 	});
 });
@@ -401,13 +431,15 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
         success: function (r) {
         	if (r.result == "success") {
         		$(this).parent().siblings('.zhiN').remove();
+        		 $('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
         		}
         	}
    });
 });
 
-//购买 体检项目
+//体检项目
 $('.container').delegate(".zhiN","click",function(){
+	var userId=$('.buy').attr('data-userid');
 	var flag = $(this).attr("data-flag");
 	var p = $(this).find("div").first();
 	var childdiv =$(this).children();

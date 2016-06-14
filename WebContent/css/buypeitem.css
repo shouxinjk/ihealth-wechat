@@ -1,0 +1,93 @@
+.buy_top,.buy_footer{
+	padding:0;
+}
+.buy_top .detection{
+	padding:0;
+	line-height: 3rem;
+	font-size: 1.2rem;
+	text-align: center;
+	background: #97cc00;
+	color: #fff;
+}
+.buy_top .cost{
+	padding:0;
+	line-height: 3rem;
+	font-size: 1.2rem;
+	text-align: center;
+	background: #53c6c9;
+	color: #fff;
+}
+.buy_top .detection img{
+	height: 1.1rem;
+	margin-top: -.3rem;
+}
+.buy_footer .money{
+	padding: 0;
+	/* border-right: .05rem solid #78C92B; */
+	text-align: center;
+	font-size: 1rem;
+	color: #000;
+	float: left;
+}
+.buy_footer{
+	line-height:2rem;
+	position: fixed;
+	left: 0;
+	bottom: 2.9rem;
+}
+.buy_footer .allmoney ,.buy_footer .settle{
+	padding:0;
+}
+.settle{
+	text-align: center;
+}
+.always{
+	float: left;
+}
+/* .allmoney{
+	float: right;
+} */
+.buy_phone{
+	
+}
+.active{
+	background: #67d600;
+}
+.buy_footer img{
+	height: 1rem;
+	margin: -.3rem .2rem 0 0;
+}
+
+.buy_table,.detectionli{
+	padding: 0;
+}
+.detectionli{
+	padding-left: .5rem;
+}
+.buy_table ul{
+	padding: 0;
+}
+.buy_table ul li{
+	padding: 0;
+	line-height: 2rem;
+	border-bottom: .05rem solid #ededed;
+	list-style: none;
+	color: #000;
+}
+.costli{
+	padding: 0;
+	text-align: center;
+}
+.box,.boxall{
+	margin-top: .7rem !important;
+}
+
+
+
+
+
+
+
+
+
+
