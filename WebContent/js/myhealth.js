@@ -1,3 +1,5 @@
+
+var t;
 function Usern(userId){
 		//用户名
 		$.ajax({
@@ -47,7 +49,6 @@ function relevance(userId){    //获取关联用户名
 	
 	});
 }
-var t;
 function spend(userId){
 	$.ajax({
         type: "post",
@@ -60,11 +61,9 @@ function spend(userId){
         success: function (r) {
         	if(r.result == "success"){
 	        	var data = eval(r.data);
-		        	clearTimeout(t); 
 		   			intn(userId);
 		   			$('.pending_img').remove();
 		   			return;
-	        		 //clearTimeout(t); 
         	}else if(r.result == "no"){
         		 $('.xmtable').html('');
 	        		var pendd = "<div style='height:3rem;margin-left: 41.5%;margin-top: 1rem;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
@@ -181,7 +180,6 @@ function intn(userId){
 						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/right.png\" title=\"恢复\" alt=\"恢复\"/></div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
-	         		        	/*chick =false;*/
 	         		        }else {
 	         		        	var str ="<div data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
 				         		        	/*"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
@@ -290,7 +288,6 @@ $('.xmtable').delegate(".buy",'click',function(){
         				 check_id = tname.substring(0,tname.length-1);
         				
         	}
-        		//console.log(check_id);
         		//check=check_id.replace(/,/g, "");
         		
         }
@@ -528,7 +525,6 @@ function guanlian(id){
            
     }
 function guanlian1(id){
-	//$('.pending_img').remove();
 	clearTimeout(t); 
 			spend(id);
 	        	$('.relevance li').removeClass('relevanceMY');
@@ -539,7 +535,6 @@ function guanlian1(id){
 //体检项目 增加添加关心的人
 function tj_carep(){ 
 	window.location = wechatUrl +"/subject/addcare.html";
-	//addUser()
 }
 
 
