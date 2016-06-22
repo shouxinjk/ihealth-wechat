@@ -42,6 +42,7 @@ if(openIdObj==null){
 <script type="text/javascript" src="../js/URL.js"></script>
 <script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="../js/content.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
 <!--cookie-->
 <script type="text/javascript">
 var openId = "<%=openId%>";
@@ -76,7 +77,8 @@ $(function(){
 		success:function(ur){
 			var data = eval(ur.data);
 			if(ur.result == "no"){
-				window.location.href=wechatUrl+"/login.jsp";
+				register(openId);
+				window.location.href=wechatUrl+"/subject/"+state+".html";
 			}else if(ur.result == "success"){
 	        	SetCookie("userId",data.USER_ID,7);
 				window.location.href=wechatUrl+"/subject/"+state+".html";
