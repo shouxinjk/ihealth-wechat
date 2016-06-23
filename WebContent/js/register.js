@@ -1,4 +1,4 @@
-function register(openId){
+function register1(openId){
 	   $.ajax({
 			url : "/ihealth-wechat/userInfoServlet",
 			type : "post",

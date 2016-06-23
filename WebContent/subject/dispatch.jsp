@@ -77,7 +77,7 @@ $(function(){
 		success:function(ur){
 			var data = eval(ur.data);
 			if(ur.result == "no"){
-				register(openId);
+				register1(openId);
 				window.location.href=wechatUrl+"/subject/"+state+".html";
 			}else if(ur.result == "success"){
 	        	SetCookie("userId",data.USER_ID,7);
