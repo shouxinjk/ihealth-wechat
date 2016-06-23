@@ -76,6 +76,7 @@ $(function(){
 		cache : false,
 		success:function(ur){
 			var data = eval(ur.data);
+			alert(ur.result)
 			if(ur.result == "no"){
 				alert(1)
 				register1(openId);
