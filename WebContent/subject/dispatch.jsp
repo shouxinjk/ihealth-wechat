@@ -77,6 +77,7 @@ $(function(){
 		success:function(ur){
 			var data = eval(ur.data);
 			if(ur.result == "no"){
+				alert(1)
 				register1(openId);
 				window.location.href=wechatUrl+"/subject/"+state+".html";
 			}else if(ur.result == "success"){
