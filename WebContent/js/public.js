@@ -130,23 +130,39 @@ function msgsave(userId){
     var BIRTHDAY=$('.Wdate').val();//获取生日
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
-   
+    var phone = $('#vali').val();//获取手机号
+    if(phone != ''){
+    	  $.ajax({
+  	        type: "post",
+  	        url: url+"/rest/updateUser",
+  	        contentType:"application/json;charset=utf8",
+  	        data: JSON.stringify({"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
+  	        dataType: "json",
+  	        success: function (r) {
+  	            if (r.result == "success") {
+  	            	 console.log('保存成功');
+  	            }else{
+  	            	
+  	            }
+  	        }
+  	       
+  	    });
+    	
+    }else{
+    	$('.error').show();
+    };
+    /*//修改状态
     $.ajax({
-        type: "post",
-        url: url+"/rest/updateUser",
-        contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
-        dataType: "json",
-        success: function (r) {
-            if (r.result == "success") {
-            	 console.log('保存成功');
-            }else{
-            	
-            }
-        }
-       
-    });
-}
+	        type: "post",
+	        url: url+"/rest/updateUser",
+	        contentType:"application/json;charset=utf8",
+	        data: JSON.stringify({}),
+	        dataType: "json",
+	        success: function (r) {
+	           
+	        }
+	    });
+}*/
 
 function obtainId(id){
 	var strId = "";
@@ -557,6 +573,7 @@ function lookupUser(userId){
 
 function findByUserId(userId){
 	$('.content').html(basic);
+	$('.iphone').remove();
 	$(".information_header").append(guanxin);
 	$("#li1,#li2,#li3,#li4").css('display','none');
 	$('#li1').css('color', 'rgb(126, 200, 136)');

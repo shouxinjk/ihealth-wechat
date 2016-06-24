@@ -70,6 +70,20 @@ function revamp(userId){
     $.initProv("#pro", "#city", "北京市", "北京市");
     $.initProv1("#pro1", "#city1", "北京市", "北京市");
     Height();//身高 体重验证
+    //手机号验证
+    $('#vali').blur(function(){
+	  	  var mobilep = $('#vali').val();
+	  	   if(!mobilep.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
+	  	       $("#vali").val('');
+	  	       $('#vali').attr('placeholder','请正确输入手机号！');
+	  	       $('.error').show();
+	  	       /*return;*/
+	  	   }else{
+	  		 $('.error').hide();
+	  		
+	  	   }
+	  	 
+	  });
 	//获取用户基本信息
 	$.ajax({
 		type : "post",
@@ -133,7 +147,7 @@ function revamp(userId){
 
 
 	function on_click() { //基本信息
-	
+		var phone = $('#vali').val();//获取手机号
 		var userId = $("#user_id").val();
 		var Height = $('.height').val();
 		var Weigth = $('.weigth').val();
@@ -144,7 +158,7 @@ function revamp(userId){
 		SetCookie("connection",connection,7);
 		//$('#guanxin').css('display','none');
 		
-		    
+		//console.log(phone);   
 		msgsave(userId);//基本信息保存
 		tagCategory(userId);
 		var connection =  ReadCookie("connection");

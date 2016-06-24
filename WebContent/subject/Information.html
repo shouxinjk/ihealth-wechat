@@ -94,6 +94,19 @@
 		jibenxinxi(userId);
 		$('.my_message_img ').attr("src", "../images/my_message_1.png");
 	    $('.my_message span').css('color','rgb(126, 200, 136)');
+	    //手机号验证
+	    $('#vali').blur(function(){
+	  	  var mobilep = $('#vali').val();
+	  	   if(!mobilep.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
+	  	       $("#vali").val('');
+	  	       $('#vali').attr('placeholder','请正确输入手机号！');
+	  	       $('.error').show();
+	  	       return;
+	  	   }else{
+	  		 $('.error').hide();
+	  	   }
+	  	 
+	  });
 	})
 </script>
 </html>
