@@ -12,6 +12,7 @@ $(document).ready(function () {
         $('.my_message_img ').attr("src", "../images/my_message_1.png");
         $('.my_message span').css('color','rgb(126, 200, 136)');
         var userId  = ReadCookie("userId");
+        alert(userId)
         Usern(userId);
         wxdu(userId);
     });
@@ -27,6 +28,7 @@ $(document).ready(function () {
 			dataType : "json",
 			success : function(r) {
 				if (r.result == "success") {
+					alert(4)
 					var data = eval(r.data);
 					$('.Username').text(data.NAME);//获取姓名
 					$(".head_portrait").attr("src",data.AVATAR);
