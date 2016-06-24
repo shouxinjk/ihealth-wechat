@@ -101,6 +101,7 @@ $(function(){
 						           if (r.result == "success") {
 						        	  var userId = r.data.USER_ID;
 						        	  SetCookie("userId",userId,7);
+						        	  alert(ReadCookie("userId"))
 						        	  window.location.href=wechatUrl+"/subject/"+state+".html";
 						           }else if(r.result == "existence"){
 						        	   var userId = r.data.USER_ID;
