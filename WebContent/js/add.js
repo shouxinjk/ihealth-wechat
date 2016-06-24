@@ -8,7 +8,7 @@ var guanxin ="<tr id='guanxin' class='occupation col-lg-12 col-xs-12 col-md-12 c
 var  basic = "<table style='display: block; width:100%;height:100%;'>" +
     "<tbody style='display: block;width:100%;height:100%;' >" +
 	    "<tr class='iphone col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-			"<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>手机号码：</td>" +
+			"<td style='padding:0'>手机：</td>" +
 		    "<td>" +
 		        "<input type='tel' id='vali' placeholder='请输入11位手机号码' class='vali mobile' name='vali' maxlength='11'>" +
 		    "</td>" +
@@ -16,14 +16,14 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
 	    "</tr>" +
     
     	"<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-    		"<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>姓名：</td>" +
+    		"<td style='padding:0'>姓名：</td>" +
             "<td >" +
                 "<input id='username' value='' type='text' placeholder='请填写姓名!'/>" +
                 "<input id='user_id' type='hidden' value=''/>" +
             "</td>" +
         "</tr>" +
         "<tr class='Sex col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>性别：</td>" +
+            "<td style='padding:0'>性别：</td>" +
             "<td class='boy'>" +
                 "<lable><input type='radio' checked='checked' name='Sex' value='man' id='boy'/><span class='man'>男</span></lable>" +
             "</td>" +
@@ -32,7 +32,7 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
             "</td>" +
         "</tr>" +
         "<tr class='marital_status col-lg-12 col-xs-12 col-md-12 col-sm-12 '>" +
-            "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>婚姻：</td>" +
+            "<td style='padding:0'>婚姻：</td>" +
 //            "<td class='marriage'>" +
 //                "<input type='radio' checked='checked' name='married' value='married' /><span>已婚</span>" +
 //            "</td>" +
@@ -50,39 +50,39 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
             "</td>" +
         "</tr>" +
         "<tr class='birthday col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>生日：</td>" +
+            "<td style='padding:0'>生日：</td>" +
             "<td >" +
                 "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"如:19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
             "</td>" +
         "</tr>" +
         "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3' style='display: inline-block;padding:0'>身高：</td>" +
+            "<td  style='display: inline-block;padding:0'>身高：</td>" +
             "<td style='display: inline-block;width:29%;'>" +
                 "<input type='text' maxlength=\"4\" id='stature' name='height' class='height' value='175'  placeholder=\"170\" />" +
                 "<span style='margin-left:0.2rem;'>cm</span>" +
             "</td>" +
         "</tr>" + 
         "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3' style='display: inline-block;padding:0'>体重：</td>" +
+            "<td  style='display: inline-block;padding:0'>体重：</td>" +
             "<td style='display: inline-block;width:29%;'>" +
                 "<input type='text' name='weigth' class='weigth' value='65' placeholder=\"50\"/><span style='margin-left:0.2rem;'>kg</span>" +
             "</td>" +
         "</tr>" +
         
             "<tr class='Birthplace col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-                "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>出生地：</td>" +
+                "<td style='padding:0'>出生地：</td>" +
                 "<td>" +
                     "<select id='pro'></select><select id='city'></select>" +
                 "</td>" +
             "</tr>" +
             "<tr class='permanent_residence col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-                "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>常住地：</td>" +
+                "<td  style='padding:0'>常住地：</td>" +
                 "<td>" +
                     "<select id='pro1'></select><select id='city1'></select>" +
                 "</td>" +
             "</tr>" +
             "<tr class='occupation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-                "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>职业：</td>" +
+                "<td  style='padding:0'>职业：</td>" +
                 "<td>" +
                     "<select id='s1' class='nn'>" +
                         "<option  selected = 'selected' value='0' >IT|通信|电子|互联网</option>"+
@@ -97,7 +97,7 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
                 "</td>" +
             "</tr>" +
             "<tr class='education col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-                "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>学历：</td>" +
+                "<td  style='padding:0'>学历：</td>" +
                 "<td>" +
                     "<select id='s2'>" +
                     "<option value='1'>小学</option>"+
@@ -124,21 +124,21 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
 var  basic_1 = "<table style='display: block; width:100%;height:100%;'>" +
 "<tbody style='display: block;width:100%;height:100%;' >" +
 	"<tr class='iphone col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-		"<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>手机号码：</td>" +
+		"<td  class=''style='padding:0'>手机：</td>" +
 			"<td>" +
 			    "<input type='tel' id='vali' placeholder='请输入11位手机号码' class='vali mobile' name='vali' maxlength='11'>" +
 			"</td>" +
 		"<td class='error' style='display:none;'><img style='width: 1rem;height: 1rem;margin-top: -.2rem;' src=\"../images/error.png\" alt=\"\"/></td>" +
 	"</tr>" +
 	"<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-		"<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>姓名：</td>" +
+		"<td  style='padding:0'>姓名：</td>" +
         "<td>" +
             "<input id='username' value='张三' type='text' placeholder='请填写姓名!'/>" +
             "<input id='user_id' type='hidden' value=''/>" +
         "</td>" +
     "</tr>" +
     "<tr class='Sex col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-        "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>性别：</td>" +
+        "<td style='padding:0'>性别：</td>" +
         "<td class='boy'>" +
             "<lable><input type='radio' checked='checked' name='Sex' value='man' id='boy'/><span class='man'>男</span></lable>" +
         "</td>" +
@@ -147,7 +147,7 @@ var  basic_1 = "<table style='display: block; width:100%;height:100%;'>" +
         "</td>" +
     "</tr>" +
     "<tr class='marital_status col-lg-12 col-xs-12 col-md-12 col-sm-12 '>" +
-        "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>婚姻：</td>" +
+        "<td style='padding:0'>婚姻：</td>" +
 //        "<td class='marriage'>" +
 //            "<input type='radio' checked='checked' name='married' value='married' /><span>已婚</span>" +
 //        "</td>" +
@@ -165,39 +165,39 @@ var  basic_1 = "<table style='display: block; width:100%;height:100%;'>" +
         "</td>" +
     "</tr>" +
     "<tr class='birthday col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-        "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>生日：</td>" +
+        "<td style='padding:0'>生日：</td>" +
         "<td>" +
             "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"如:19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
         "</td>" +
     "</tr>" +
     "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-	    "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3' style='display: inline-block;padding:0'>身高：</td>" +
+	    "<td  style='display: inline-block;padding:0'>身高：</td>" +
 	    "<td style='display: inline-block;width:29%;'>" +
 	        "<input type='text' maxlength=\"4\" id='stature' name='height' class='height' value='175'  placeholder=\"170\" />" +
 	        "<span style='margin-left:0.2rem;'>cm</span>" +
 	    "</td>" +
     "</tr>" + 
 	"<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-	    "<td class='col-lg-3 col-xs-3 col-md-3 col-sm-3' style='display: inline-block;padding:0'>体重：</td>" +
+	    "<td style='display: inline-block;padding:0'>体重：</td>" +
 	    "<td style='display: inline-block;width:29%;'>" +
 	        "<input type='text' name='weigth' class='weigth' value='65' placeholder=\"50\"/><span style='margin-left:0.2rem;'>kg</span>" +
 	    "</td>" +
 	"</tr>" +
     
         "<tr class='Birthplace col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>出生地：</td>" +
+            "<td  style='padding:0'>出生地：</td>" +
             "<td>" +
                 "<select id='pro'></select><select id='city'></select>" +
             "</td>" +
         "</tr>" +
         "<tr class='permanent_residence col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>常住地：</td>" +
+            "<td  style='padding:0'>常住地：</td>" +
             "<td>" +
                 "<select id='pro1'></select><select id='city1'></select>" +
             "</td>" +
         "</tr>" +
         "<tr class='occupation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>职业：</td>" +
+            "<td  style='padding:0'>职业：</td>" +
             "<td>" +
                 "<select id='s1' class='nn'>" +
                     "<option  selected = 'selected' value='0' >IT|通信|电子|互联网</option>"+
@@ -212,7 +212,7 @@ var  basic_1 = "<table style='display: block; width:100%;height:100%;'>" +
             "</td>" +
         "</tr>" +
         "<tr class='education col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-            "<td  class='col-lg-3 col-xs-3 col-md-3 col-sm-3'style='padding:0'>学历：</td>" +
+            "<td style='padding:0'>学历：</td>" +
             "<td>" +
                 "<select id='s2'>" +
                 "<option value='1'>小学</option>"+
