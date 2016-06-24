@@ -15,6 +15,8 @@ function register1(openId){
 				       async : false,
 						cache : false,
 				       success: function (r) {
+				    	   alert(r.result);
+				    	   alert(r.data.USER_ID);
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
 				        	  delCookie("userId");
