@@ -79,7 +79,41 @@ $(function(){
 			if(ur.result == "no"){
 				alert(openId)
 				register1(openId);
-				window.location.href=wechatUrl+"/subject/"+state+".html";
+				$.ajax({
+					url : "/ihealth-wechat/userInfoServlet",
+					type : "post",
+					async : false,
+					cache : false,
+					success : function(data) {
+						var d = eval(data);
+						alert(d)
+						 $.ajax({
+						       type: "post",
+						       url: url+"/rest/register",
+						       contentType:"application/json;charset=utf8",
+						       data: JSON.stringify({"openId":openId,"avatar":d.url,"name":d.name}),
+						       dataType: "json",
+						       async : false,
+								cache : false,
+						       success: function (r) {
+						    	   alert(r.result);
+						    	   alert(r.data.USER_ID);
+						           if (r.result == "success") {
+						        	  var userId = r.data.USER_ID;
+						        	  SetCookie("userId",userId,7);
+						        	  window.location.href=wechatUrl+"/subject/"+state+".html";
+						           }else if(r.result == "existence"){
+						        	   var userId = r.data.USER_ID;
+						        	   SetCookie("userId",userId,7);
+						        	   window.location.href=wechatUrl+"/subject/"+state+".html";
+						           }
+						       },
+						       error: function () {
+						           //alert("注册失败!");
+						       }
+						   });
+					}
+			   });
 			}else if(ur.result == "success"){
 	        	SetCookie("userId",data.USER_ID,7);
 				window.location.href=wechatUrl+"/subject/"+state+".html";

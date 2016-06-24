@@ -21,7 +21,6 @@ function register1(openId){
 				    	   alert(r.data.USER_ID);
 				           if (r.result == "success") {
 				        	  var userId = r.data.USER_ID;
-				        	  delCookie("userId");
 				        	  SetCookie("userId",userId,7);
 				           }else if(r.result == "existence"){
 				        	   var userId = r.data.USER_ID;
