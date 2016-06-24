@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+	alert(1)
     	function ReadCookie(cookieName) {
     	    var theCookie = "" + document.cookie;
     	    var ind = theCookie.indexOf(cookieName);
@@ -9,8 +10,10 @@ $(document).ready(function () {
     	    /*读取Cookie值*/
     	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
     	}
+	alert(2)
         $('.my_message_img ').attr("src", "../images/my_message_1.png");
         $('.my_message span').css('color','rgb(126, 200, 136)');
+        alert(3)
         var userId  = ReadCookie("userId");
         alert(userId)
         Usern(userId);
