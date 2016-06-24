@@ -1,4 +1,5 @@
 function register1(openId){
+	alert(1)
 	   $.ajax({
 			url : "/ihealth-wechat/userInfoServlet",
 			type : "post",
@@ -6,6 +7,7 @@ function register1(openId){
 			cache : false,
 			success : function(data) {
 				var d = eval(data);
+				alert(d)
 				 $.ajax({
 				       type: "post",
 				       url: url+"/rest/register",
