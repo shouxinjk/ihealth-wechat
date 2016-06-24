@@ -95,6 +95,7 @@ function intn(userId){
 		cache : false,
         success: function (r) {
         	alert(r.data.ISMODIFY)
+        	alert(r.data);
         	if(r.data.ISMODIFY == "0"){
         		$('.hint').hide();
         		$('.cont').append("<article class='template'>以下是体检方案模板信息。您可以进入<a href='../subject/Information.html' data-id="+userId+">(基本信息)</a>进行修改!</article>");
