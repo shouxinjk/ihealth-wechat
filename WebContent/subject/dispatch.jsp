@@ -75,11 +75,8 @@ $(function(){
   		async : false,
 		cache : false,
 		success:function(ur){
-			alert(2);
 			var data = eval(ur.data);
-			alert(ur.result)
 			if(ur.result == "no"){
-				alert(1)
 				register1(openId);
 				window.location.href=wechatUrl+"/subject/"+state+".html";
 			}else if(ur.result == "success"){
