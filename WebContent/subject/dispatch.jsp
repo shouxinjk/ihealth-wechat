@@ -78,7 +78,6 @@ $(function(){
 			var data = eval(ur.data);
 			if(ur.result == "no"){
 				alert(openId)
-				register1(openId);
 				$.ajax({
 					url : "/ihealth-wechat/userInfoServlet",
 					type : "post",
