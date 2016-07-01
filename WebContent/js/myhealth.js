@@ -37,7 +37,7 @@ function relevance(userId){    //获取关联用户名
 					
 				}else{
 					for(var i=0;i<data.length;i++){
-						str+="<li style='margin-right:.2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
+						str+="<li style='margin-right:.2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
 					}
 				}
 				 $('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
@@ -534,16 +534,27 @@ $('.container').delegate(".zhiN","click",function(){
 
 
 //关联关心的人
-function guanlian(id){
+function guanlian(id,ismodify,isprivacy){
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
-      		spend(user_id);
+      		if(isprivacy == '1' || isprivacy== 'undefined'){
+      			$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
+      			$('.pendding').show();
+      			spend(user_id);
+      		}else{
+      			$('.hint').html("对方不允许你查看其体检方案,赶快联系他吧!");
+      			$('.pendding').hide();
+      		}
+      		
         	$('.relevance li').removeClass('relevanceMY');
             $("#"+id).addClass('relevanceMY');
            
     }
 function guanlian1(id){
 	clearTimeout(t); 
+	$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
+	$('.hint').css('text-align','center');
+	$('.pendding').show();
 			spend(id);
 	        	$('.relevance li').removeClass('relevanceMY');
 	            $("#my").addClass('relevanceMY');

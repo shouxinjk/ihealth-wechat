@@ -6,8 +6,6 @@ $(function(){
         $.initProv("#pro", "#city", "北京市", "北京市");
         $.initProv1("#pro1", "#city1", "北京市", "北京市");
         Height();//身高 体重验证
-       
-
     }
     if(thisId == '#live'){					//生活方式
         $('#li1').removeClass('active');
@@ -32,9 +30,6 @@ $(function(){
         $('#guanxin').remove();
     }
 });
-
-
-
 
 
 //生活方式多选
@@ -79,12 +74,15 @@ $('.information_header .information_header_li').click(function(){
         $.initProv("#pro", "#city", "北京市", "北京市");
         $.initProv1("#pro1", "#city1", "北京市", "北京市");
         Height();//身高 体重验证
+        $('.message_next1').remove();
     }
     if(liID == 'li2'){
         tagCategory(userId);
+        $('.message_next1').remove();
     }
     if(liID == 'li3'){
         listDisease(userId);
+        $('.message_next1').remove();
     }
     if(liID == 'li4'){
         carep(userId);
@@ -480,11 +478,21 @@ function on_click_3(userId){
 	    $("#li3").removeClass('active');
 }
 
+function black_(){
+	var userId = ReadCookie("userId");
+	$("#li1,#li2,#li3,#li4").css('display','block');
+	 $("#li1").removeClass('active');
+	 $("#li4").addClass('active');
+	$("#up").remove();
+	carep(userId);
+	$('.message_next1').remove();
+}
 
 
 
 //获取关心的人
 function carep(userId){
+	$('.message_next1').remove();
 	$.ajax({
 		url:url+"/rest/findUsersById",
   		type:"post",
@@ -503,7 +511,7 @@ function carep(userId){
 					for(var i=0;i<data.length;i++){
 						if(data[i].AVATAR != null){
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-									"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\")'>"+
+									"<div class=\"Care_img\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\")'>"+
 										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 									"</div>"+
 									"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
@@ -514,7 +522,7 @@ function carep(userId){
 								"</div>";
 						}else{
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\")'>"+
+							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\")'>"+
 								"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
 							"</div>"+
 							"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
@@ -562,14 +570,68 @@ function lookupUser(userId){
 		cache : false,
 		success:function(r){
 			var data = eval(r.data);
-			if(r.result == "existence"){
-				alert('不能重复添加关系！');
-			}else if(r.result == "success"){
+			if(r.result == "success"){
 				findByUserId(data.USER_ID);
+			}else if(r.result == "repeat"){
+				
+				var str ="<div class='uldiv'>";
+				for(var i=0;i<data.length;i++){
+					str +="<ul id='"+data[i].USER_ID+"' class='cf' onclick='addition(\""+data[i].USER_ID+"\")' >"+
+								"<li>"+data[i].NAME+"</li>"+
+								"<li>"+data[i].PHONE+"</li>"+
+							 "</ul>";
+				}
+				str+="</div>";
+				$('.Name').after(str);
+				$('.uldiv').before('<p class="sele">请选择你要添加关系的人！</p>');
+				$('.message_next').before("<div class='addguanxi'></div>");
+				$('.message_next').hide();
+				var ensure= "<tr class='message_next1  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+					        "<td style=\"display: block\">" +
+					            "<a href=\"#\" id='message_next1' class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='lookupUser1()'>确认添加</a>" +
+					        "</td>" +
+					    "</tr>" ;
+				$('.kongdiv').html(ensure);
 			}
 		}
 	});
 }
+function addition(id){
+	//console.log(id);
+	$('#'+id).addClass('color').siblings().removeClass('color'); 
+	$('.addguanxi').html('<span class="gx">请输入关系:</span><input id="relation_" class="relation_" type="text" placeholder="如：朋友"/><input id="userid_two" type="hidden" value="'+id+'"/><p class="shuru"  style="display:none;float: left;text-align: center;width: 100%;color: red;">请输入关系！！！</p>');
+}
+function lookupUser1(){
+	var userId = ReadCookie("userId");
+	var userid_two = $('#userid_two').val();
+	var relation =$('#relation_').val();
+	$.ajax({
+		url:url+"/rest/repeatUser",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"userid_one" : userId,
+  				"userid_two":userid_two,
+  				"connection":relation
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(r){
+			if(r.result == "success"){
+				black_();
+				$('.message_next1').remove();
+				$('.shuru').hide();
+			}else{
+				$('.shuru').show();
+			}
+			
+		}
+	});
+	
+}
+
 
 function findByUserId(userId){
 	$('.content').html(basic);

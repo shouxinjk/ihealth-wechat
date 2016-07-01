@@ -324,19 +324,49 @@ min-height: 2rem;
 
 
 input.Wdate {
-width: 70%;
+	width: 70%;
 }
 select#pro, #pro1{
-width: 47%;
+	width: 47%;
 }
 
-
-
-
-
-
-
-
+.cf{
+	float: left;
+	width: 100%;
+	margin-top: 1rem;
+	border-bottom: .05rem solid;
+}
+.cf li {
+	width: 50%;
+	float: left;
+	list-style: none;
+	font-size: .8rem;
+}
+#relation_{
+	font-size: 0.6rem;
+	padding: 0 .5rem 0 .5rem;
+	line-height: 1rem;
+	margin-left: 1rem;
+}
+.addguanxi{
+	float: left;
+	width: 100%;
+	line-height: 1.7rem;
+}
+.gx{
+	font-size: .8rem;
+	padding-top: 0.5rem;
+	display: inline-block;
+}
+.color{
+	color:#04be02;
+}
+.sele{
+	float: left;
+	width: 100%;
+	font-size: .8rem;
+	margin-top: .5rem;
+}
 
 
 

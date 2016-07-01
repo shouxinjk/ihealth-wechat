@@ -1,0 +1,66 @@
+.content li{
+	list-style:none;	
+	display: inline-block;
+	width: 100%;
+	line-height: 4rem;
+	/* margin-top:.5rem; */
+	border-bottom: solid .05rem #CFC9C9;
+}
+.Header .p1{
+	text-align: center;
+}
+.p2{
+	margin: 0;
+}
+.userimg{
+	width: 3rem;
+	height: 3rem;
+	margin-top: .4rem;
+}
+.username i{
+	font-style:normal;
+}
+.content{
+	padding:0;
+}
+.content li .userimg,.username ,.privacymessage,.addmessage{
+	padding:0;
+}
+.content li .username,.privacymessage,.addmessage{
+	font-size: .7rem;
+}
+.Header span{
+	font-size: .8rem;
+}
+.username{
+	text-align: center;
+}
+
+input{
+	top: .1rem;
+	left: .2rem;
+	position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -60,11 +60,31 @@ function jibenxinxi(userId){
 		
 	}
 
-function revamp(userId){
-	$('.content').html(basic_1);
+function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
+	if(isprivacy == 1 || isprivacy == 'undefined'){
+		$('.content').html(basic_1);
+		 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
+	}else{
+		$('.content').html(basic_ck);
+		 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在查看关心人的信息！</span>');
+		$('#vali').attr("disabled", true);//手机更改为只读方式
+		var input1 = $(".content").find("input:radio");//性别更改为只读方式
+		input1.attr("disabled","disabled");
+	 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
+		$('#username').attr('readOnly',true); //姓名更改为只读方式
+		$('.Wdate').attr("disabled", true);//生日更改为只读方式
+		$('.height').attr('readOnly',true);//身高更改为只读方式
+		$('.weigth').attr('readOnly',true);//体重更改为只读方式
+		$("#pro").prop("disabled", true);//出生地更改为只读方式
+		$("#city").prop("disabled", true);
+		$("#pro1").prop("disabled", true);//常住地更改为只读方式
+		$("#city1").prop("disabled", true);
+		$("#s1").prop("disabled", true);//职业更改为只读方式
+		$("#s2").prop("disabled", true);//学历更改为只读方式
+	}
+	
 	 $('#li1').addClass('active');
 	 $("#li1,#li2,#li3,#li4").css('display','none');
-	 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
 	$('.information_header_li').next().removeClass('active');
     $('.tcal').addClass('tcalInput');
     $.initProv("#pro", "#city", "北京市", "北京市");
@@ -117,6 +137,7 @@ function revamp(userId){
 			
 				$('#username').val(data.NAME);//获取姓名
 				$("#user_id").val(data.USER_ID);
+				
 				$("#marriageM option:selected").text(data.MARRIAGESTATUS);//获取婚姻状况
 				//$("#pro option:selected").text(data.);//获取出生地
 				//$("#city option:selected").text(data.BIRTHPLACE);
@@ -181,13 +202,21 @@ function revamp(userId){
 		
 		    
 		msgsave(userId);//基本信息保存
-		tagCategory_1(userId);
+		//tg(userId);
+		tagCategory_1(userId);//获取修改关心人的生活方式
 		var connection =  ReadCookie("connection");
 		$("#li2").addClass('active');
 		$("#li1").removeClass('active');
 		$('#guanxin').css('display','none');
 	}
-	
+	/*function tg(userId){
+		
+		var str1 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+			+ "<p style=\"display: block\">"
+			+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='revamp(\""+userId+"\")'>返回上一步</a>"
+			+ "</p>" + "</div>";
+		$('.content').html(str1);
+	}*/
 	//获取修改关心人的生活方式
 	function tagCategory_1(userId) {
 		$.ajax({
@@ -219,7 +248,7 @@ function revamp(userId){
 									+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='on_click_2(\""+userId+"\")'>下一步</a>"
 									+ "</p>" + "</div>";
 							$('.content').html(str);
-
+							
 							$.ajax({
 								url : url+'/resttag/listAllTagByUserID',
 								type : 'post',
@@ -271,9 +300,7 @@ function revamp(userId){
 
 							}
 								}
-							});
-
-							
+							});	
 						}else{
 							var str1 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
 								+ "<p style=\"display: block\">"

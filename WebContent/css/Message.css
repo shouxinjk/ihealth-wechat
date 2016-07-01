@@ -56,6 +56,13 @@ span.Username {
     /*height: 4rem;*/
     padding: 0;
 }
+.privacy{
+	float: right;
+	margin-top: 2.5rem;
+}
+.privacy a{
+	color: #000;
+}
 .container .concern,.illness_massage,.live_s,.label_message{
     padding: 0;
     font-size: 0.8rem;
