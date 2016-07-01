@@ -623,8 +623,11 @@ function lookupUser1(){
 				black_();
 				$('.message_next1').remove();
 				$('.shuru').hide();
-			}else{
+			}else if(r.result == 'error'){
 				$('.shuru').show();
+			}else if(r.result == 'existence'){
+				$('.shuru').show();
+				$('.shuru').text('关系已存在！');
 			}
 			
 		}
