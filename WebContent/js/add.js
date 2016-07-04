@@ -285,14 +285,14 @@ var  basic_ck = "<table style='display: block; width:100%;height:100%;'>" +
     "</tr>" +
     "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 	    "<td  style='display: inline-block;padding:0'>身高：</td>" +
-	    "<td style='display: inline-block;width:29%;'>" +
+	    "<td class ='yins' style='display: inline-block;width:29%;'>" +
 	        "<input type='text' maxlength=\"4\" id='stature' name='height' class='height' value='175'  placeholder=\"170\" />" +
 	        "<span style='margin-left:0.2rem;'>cm</span>" +
 	    "</td>" +
     "</tr>" + 
 	"<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 	    "<td style='display: inline-block;padding:0'>体重：</td>" +
-	    "<td style='display: inline-block;width:29%;'>" +
+	    "<td class ='yins' style='display: inline-block;width:29%;'>" +
 	        "<input type='text' name='weigth' class='weigth' value='65' placeholder=\"50\"/><span style='margin-left:0.2rem;'>kg</span>" +
 	    "</td>" +
 	"</tr>" +

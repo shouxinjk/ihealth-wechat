@@ -102,6 +102,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 		$("#city1").prop("disabled", true);
 		$("#s1").prop("disabled", true);//职业更改为只读方式
 		$("#s2").prop("disabled", true);//学历更改为只读方式
+		
 	}
 	
 	 $('#li1').addClass('active');
@@ -168,8 +169,14 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				$("#s1 option:selected").text(data.CAREER);//获取职业
 				$("#s2 option:selected").text(data.DEGREE);//获取学历
 				$('.Wdate').val(data.BIRTHDAY);//获取生日
-				$('.height').val(data.HEIGHT);//获取身高
-				$('.weigth').val(data.WEIGHT);//获取体重
+				if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
+					$(".weigth").val("**");
+					$('.height').val("**");
+				}else{
+					$('.height').val(data.HEIGHT);//获取身高
+					$('.weigth').val(data.WEIGHT);//获取体重
+				}
+				
 				$('#vali').val(data.PHONE);//获取手机号
 				if (sex == '女') {
 					$('#girl').attr("checked", "true");
