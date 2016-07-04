@@ -512,7 +512,7 @@ function carep(userId){
 					for(var i=0;i<data.length;i++){
 						if(data[i].AVATAR != null){
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-									"<div class=\"Care_img\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\")'>"+
+									"<div class=\"Care_img\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
 										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 									"</div>"+
 									"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
@@ -523,7 +523,7 @@ function carep(userId){
 								"</div>";
 						}else{
 							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
-							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\")'>"+
+							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
 								"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
 							"</div>"+
 							"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+

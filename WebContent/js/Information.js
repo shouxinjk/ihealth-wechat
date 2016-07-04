@@ -64,6 +64,7 @@ function jibenxinxi(userId){
 function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 	if(isprivacy == 1 || isprivacy == 'undefined'){
 			$('.content').html(basic_ck);
+			$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在查看关心人的信息！</span>');
 			$('#vali').attr("disabled", true);//手机更改为只读方式
 			var input1 = $(".content").find("input:radio");//性别更改为只读方式
 			input1.attr("disabled","disabled");
@@ -80,12 +81,13 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 			$("#s2").prop("disabled", true);//学历更改为只读方式
 		 if(ismodify == 1 || ismodify == 'undefined'){
 			 $('.content').html(basic_1);
-			 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
+			 $('.upname').html('您正在修改关心人的信息！');
+			 //$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
 		 }
 	
 	}else{
 		$('.content').html(basic_ck);
-		 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在查看关心人的信息！</span>');
+		 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">由于对方隐私您只能查看这些信息！</span>');
 		$('#vali').attr("disabled", true);//手机更改为只读方式
 		var input1 = $(".content").find("input:radio");//性别更改为只读方式
 		input1.attr("disabled","disabled");
@@ -168,6 +170,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				$('.Wdate').val(data.BIRTHDAY);//获取生日
 				$('.height').val(data.HEIGHT);//获取身高
 				$('.weigth').val(data.WEIGHT);//获取体重
+				$('#vali').val(data.PHONE);//获取手机号
 				if (sex == '女') {
 					$('#girl').attr("checked", "true");
 					$('#boy').removeAttr("checked");
