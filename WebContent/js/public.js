@@ -486,6 +486,7 @@ function black_(){
 	$("#up").remove();
 	carep(userId);
 	$('.message_next1').remove();
+	$('.upname').remove();
 }
 
 
