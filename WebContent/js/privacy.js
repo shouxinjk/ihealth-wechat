@@ -36,7 +36,7 @@ function allpeople(userId){ //获取谁关心了我的人
 									 		"<span class='lookprivacy'>允许查看</span>";
 									 		if(data[i].ISPRIVACY == 1){
 									 			str +="<input class='privacy_ck' name='privacy_ck' checked='checked' type='checkbox' id='"+data[i].USER_ID+"' value='1' onclick='privacy_ck(\""+data[i].USER_ID+"\");'>";
-									 		}else if(data[i].ISPRIVACY == 0){
+									 		}else if(data[i].ISPRIVACY == 0 || data[i].ISPRIVACY== undefined){
 									 			str +="<input class='privacy_ck' name='privacy_ck' type='checkbox' id='"+data[i].USER_ID+"' value='1' onclick='privacy_ck(\""+data[i].USER_ID+"\");'>";
 									 		}
 									 		str +="</div>"+
@@ -44,7 +44,7 @@ function allpeople(userId){ //获取谁关心了我的人
 									 	"<span class='addprivacy'>允许修改</span>";
 									 		if(data[i].ISMODIFY == 1){
 									 			str +="<input class='privacy_add' name='privacy_ck' type='checkbox' checked='checked' id='"+data[i].USER_ID+"m' value='1' onclick='privacy_add(\""+data[i].USER_ID+"\");'>";
-									 		}else if(data[i].ISMODIFY == 0){
+									 		}else if(data[i].ISMODIFY == 0||data[i].ISMODIFY == undefined){
 									 			str +="<input class='privacy_add' name='privacy_ck' type='checkbox' id='"+data[i].USER_ID+"m' value='1' onclick='privacy_add(\""+data[i].USER_ID+"\");'>";
 									 		}
 									 	
