@@ -591,6 +591,15 @@ function lookupUser(userId){
 					        "</td>" +
 					    "</tr>" ;
 				$('.kongdiv').html(ensure);
+				$('#phone').bind('input propertychange', function() { 
+					 //进行相关操作 
+					//console.log($('#phone').val());
+					$('.sele').remove();
+					$('.uldiv').remove(); 
+					$('.message_next').show();
+					$('.kongdiv').html('');
+					$('.addguanxi').remove();
+					});
 			}
 		}
 	});
@@ -600,10 +609,14 @@ function addition(id){
 	$('#'+id).addClass('color').siblings().removeClass('color'); 
 	$('.addguanxi').html('<span class="gx">请输入关系:</span><input id="relation_" class="relation_" type="text" placeholder="如：朋友"/><input id="userid_two" type="hidden" value="'+id+'"/><p class="shuru"  style="display:none;float: left;text-align: center;width: 100%;color: red;">请输入关系！！！</p>');
 }
-function lookupUser1(){
+function lookupUser1(id){
 	var userId = ReadCookie("userId");
 	var userid_two = $('#userid_two').val();
 	var relation =$('#relation_').val();
+	if(userid_two == userId){
+		$('.addguanxi').html('<span class="gx" style="color:red;">不能添加自己！！！</span>');
+	}
+	else{
 	$.ajax({
 		url:url+"/rest/repeatUser",
   		type:"post",
@@ -631,7 +644,7 @@ function lookupUser1(){
 			
 		}
 	});
-	
+	}
 }
 
 
