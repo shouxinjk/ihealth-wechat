@@ -65,6 +65,23 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 	if(isprivacy == 1 || isprivacy == 'undefined'){
 		$('.content').html(basic_1);
 		 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
+		 if(ismodify == 1 || ismodify == 'undefined'){
+			 $('#vali').attr("disabled", true);//手机更改为只读方式
+				var input1 = $(".content").find("input:radio");//性别更改为只读方式
+				input1.attr("disabled","disabled");
+			 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
+				$('#username').attr('readOnly',true); //姓名更改为只读方式
+				$('.Wdate').attr("disabled", true);//生日更改为只读方式
+				$('.height').attr('readOnly',true);//身高更改为只读方式
+				$('.weigth').attr('readOnly',true);//体重更改为只读方式
+				$("#pro").prop("disabled", true);//出生地更改为只读方式
+				$("#city").prop("disabled", true);
+				$("#pro1").prop("disabled", true);//常住地更改为只读方式
+				$("#city1").prop("disabled", true);
+				$("#s1").prop("disabled", true);//职业更改为只读方式
+				$("#s2").prop("disabled", true);//学历更改为只读方式
+		 }
+	
 	}else{
 		$('.content').html(basic_ck);
 		 $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在查看关心人的信息！</span>');
