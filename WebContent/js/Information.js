@@ -45,6 +45,7 @@ function jibenxinxi(userId){
 					$('.Wdate').val(data.BIRTHDAY);//获取生日
 					$('.height').val(data.HEIGHT);//获取身高
 					$('.weigth').val(data.WEIGHT);//获取体重
+					$('#vali').val(data.PHONE);//获取手机号
 					if (sex == '女') {
 						$('#girl').attr("checked", "true");
 						$('#boy').removeAttr("checked");

@@ -573,7 +573,6 @@ function lookupUser(userId){
 			if(r.result == "success"){
 				findByUserId(data.USER_ID);
 			}else if(r.result == "repeat"){
-				
 				var str ="<div class='uldiv'>";
 				for(var i=0;i<data.length;i++){
 					str +="<ul id='"+data[i].USER_ID+"' class='cf' onclick='addition(\""+data[i].USER_ID+"\")' >"+
