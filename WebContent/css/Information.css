@@ -264,8 +264,10 @@ min-height: 2rem;
 	height: 3rem;
 }
 .Care_img1 img{
-	margin-top: .8rem;
-	padding-left: 2.5rem;
+	width: 0.5rem;
+	position: relative;
+	top: .8rem;
+	left: 2.5rem;
 }
 .Care_img2 img{
 	margin-top: .7rem;
