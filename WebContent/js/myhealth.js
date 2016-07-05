@@ -484,6 +484,8 @@ $('.container').delegate(".zhiN","click",function(){
 		        	p.after(str);
 		        }
 			});
+			$(this).parent().siblings().children().find('.show_').css({display:'none'});
+			//$(this).find('.show_').css({display:"none"});
 			$(this).find('.zhiconceal').css({maxHeight:"100%",display:"block"});
 			$(this).find('.show_').css({display:"block"});
 			$(this).attr("data-flag","0");
@@ -492,13 +494,14 @@ $('.container').delegate(".zhiN","click",function(){
 			$(this).find('.show_').css({display:"block"});
 			$(this).attr("data-flag","0");
 		}
-		
+		$(this).parent().siblings().children().find('.show_').css({display:'none'});
 	}else{
 		$(this).find('.zhiconceal').css({maxHeight:"40px",overflow:"hidden",wordWrap:"break-word",textOverflow:"ellipsis",WebkitLineClamp:'2',textOverflow: "ellipsis",WebkitBoxOrient: "vertical"});
 		$(this).find('.zhiconceal').css({display:"-webkit-box"});
 		$(this).find('.show_').css({display:"none"});
 		$(this).attr("data-flag","1");
 		//p.nextAll().remove();
+		
 	}
 })
     

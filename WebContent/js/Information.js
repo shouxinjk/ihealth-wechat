@@ -172,7 +172,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 					$(".weigth").val("**");
 					$('.height').val("**");
-					$('#username').val("*" +data.NAME.substring(1, 3));//获取姓名
+					$('#username').val("*" +data.NAME.substring(1, 10));//获取姓名
 					$('#vali').val((data.PHONE).substring(0, 3)+ "****" + (data.PHONE).substring(7, 11));//获取手机号
 					
 				}else{

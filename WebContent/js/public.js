@@ -622,7 +622,7 @@ function lookupUser(userId){
 							"</div>"+
 							"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
 								"<div class=\"Care_guanxi_\"> "+
-									"<span  class=\"guanming\">"+ "*" +data[i].NAME.substring(1, 3)+"</span>"+
+									"<span  class=\"guanming\">"+ "*" +data[i].NAME.substring(1,10)+"</span>"+
 									"<i  class=\"relation\">/"+data[i].PHONE.substring(0, 3)+ "****" + (data[i].PHONE).substring(7, 11)+"</i>"+
 								"</div>"+
 								"<div class=\"Care_addr1\"> "+
