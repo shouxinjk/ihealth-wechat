@@ -157,7 +157,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				$("#city1 option:selected").text(livsArr[1]);
 			}
 			
-				$('#username').val(data.NAME);//获取姓名
+				
 				$("#user_id").val(data.USER_ID);
 				
 				$("#marriageM option:selected").text(data.MARRIAGESTATUS);//获取婚姻状况
@@ -172,12 +172,17 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 					$(".weigth").val("**");
 					$('.height').val("**");
+					$('#username').val("*" +data.NAME.substring(1, 3));//获取姓名
+					$('#vali').val((data.PHONE).substring(0, 3)+ "****" + (data.PHONE).substring(7, 11));//获取手机号
+					
 				}else{
 					$('.height').val(data.HEIGHT);//获取身高
 					$('.weigth').val(data.WEIGHT);//获取体重
+					$('#vali').val(data.PHONE);//获取手机号
+					$('#username').val(data.NAME);//获取姓名
 				}
 				
-				$('#vali').val(data.PHONE);//获取手机号
+				
 				if (sex == '女') {
 					$('#girl').attr("checked", "true");
 					$('#boy').removeAttr("checked");

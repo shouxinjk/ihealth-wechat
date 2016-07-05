@@ -511,7 +511,7 @@ function carep(userId){
 				if(data!=undefined){
 					for(var i=0;i<data.length;i++){
 						if(data[i].AVATAR != null){
-							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
+							/*str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
 									"<div class=\"Care_img\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
 										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 									"</div>"+
@@ -520,18 +520,54 @@ function carep(userId){
 										"<i  class=\"relation\">("+data[i].connection+")</i>"+
 									"</div>"+
 									"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
+								"</div>";*/
+							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
+									"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\">"+
+										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
+									"</div>"+
+									"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
+										"<div class=\"Care_guanxi_\"> "+
+											"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
+											"<i  class=\"relation\">/"+data[i].connection+"</i>"+
+										"</div>"+
+										"<div class=\"Care_addr\"> "+
+											"<span  class=\"juzhud\">居住地:</span>"+
+											"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
+										"</div>"+
+									"</div>"+
+									"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
+										"<img src=\"../images/arrows.png\" alt=\"\"/>"+
+									"</div>"+
+									//"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
 								"</div>";
 						}else{
-							str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
+							/*str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
 							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
 								"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
 							"</div>"+
 							"<div class=\"Care_guanxi\" style='text-align: center;padding-left: 1.2rem;'>"+
 								"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
 								"<i  class=\"relation\">("+data[i].connection+")</i>"+
-							"</div>"+
-							"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
-						"</div>";
+							"</div>"+*/
+							//"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
+							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
+										"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\" >"+
+											"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
+										"</div>"+
+										"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
+											"<div class=\"Care_guanxi_\"> "+
+												"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
+												"<i  class=\"relation\">/"+data[i].connection+"</i>"+
+											"</div>"+
+											"<div class=\"Care_addr\"> "+
+												"<span  class=\"juzhud\">居住地:</span>"+
+												"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
+											"</div>"+
+										"</div>"+
+										"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
+											"<img src=\"../images/arrows.png\" alt=\"\"/>"+
+										"</div>"+
+									"</div>";
 						}
 					}
 				}
@@ -576,10 +612,28 @@ function lookupUser(userId){
 			}else if(r.result == "repeat"){
 				var str ="<div class='uldiv'>";
 				for(var i=0;i<data.length;i++){
-					str +="<ul id='"+data[i].USER_ID+"' class='cf' onclick='addition(\""+data[i].USER_ID+"\")' >"+
+					/*str +="<ul id='"+data[i].USER_ID+"' class='cf'  >"+
 								"<li>"+data[i].NAME+"</li>"+
 								"<li>"+data[i].PHONE+"</li>"+
-							 "</ul>";
+							 "</ul>";*/
+					str +="<div id='"+data[i].USER_ID+"'  class=\"Care_one cf col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='addition(\""+data[i].USER_ID+"\")'>"+
+							"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\">"+
+								"<img src="+data[i].AVATAR+" alt=\"\"/>"+
+							"</div>"+
+							"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
+								"<div class=\"Care_guanxi_\"> "+
+									"<span  class=\"guanming\">"+ "*" +data[i].NAME.substring(1, 3)+"</span>"+
+									"<i  class=\"relation\">/"+data[i].PHONE.substring(0, 3)+ "****" + (data[i].PHONE).substring(7, 11)+"</i>"+
+								"</div>"+
+								"<div class=\"Care_addr1\"> "+
+									"<span  class=\"juzhud\">居住地:</span>"+
+									"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
+								"</div>"+
+							"</div>"+
+							"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
+								"<img src=\"../images/arrows.png\" alt=\"\"/>"+
+							"</div>"+
+						"</div>";
 				}
 				str+="</div>";
 				$('.Name').after(str);
@@ -606,9 +660,11 @@ function lookupUser(userId){
 	});
 }
 function addition(id){
-	//console.log(id);
-	$('#'+id).addClass('color').siblings().removeClass('color'); 
-	$('.addguanxi').html('<span class="gx">请输入关系:</span><input id="relation_" class="relation_" type="text" placeholder="如：朋友"/><input id="userid_two" type="hidden" value="'+id+'"/><p class="shuru"  style="display:none;float: left;text-align: center;width: 100%;color: red;">请输入关系！！！</p>');
+	
+	$('#'+id).addClass('color').siblings().removeClass('color');
+	$('#'+id).find('.Care_img1 img').attr('src','../images/arrows1.png');
+	$('#'+id).siblings().find('.Care_img1 img').attr('src','../images/arrows.png');
+	$('.addguanxi').html('<span class="gx">请输入关系:</span><input id="relation_" class="relation_" type="text" placeholder="如：朋友、同事等。"/><input id="userid_two" type="hidden" value="'+id+'"/><span class="shuru"  style="display:none;font-size: .5rem;margin-left: .5rem;color: red;">请输入关系！</span>');
 }
 function lookupUser1(id){
 	var userId = ReadCookie("userId");
