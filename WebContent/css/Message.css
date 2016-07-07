@@ -41,6 +41,11 @@ span.Username {
 	color: #ffffff;
 	position: relative;
 }
+.head_edit {
+	top: 2.2rem;
+	width: 1rem;
+	position: relative;
+}
 .container .content {
     float: left;
     width: 100%;
@@ -58,10 +63,11 @@ span.Username {
 }
 .privacy{
 	float: right;
-	margin-top: 2.5rem;
+	margin-top: 3rem;
 }
 .privacy a{
 	color: #000;
+	font-size: .8rem;
 }
 .container .concern,.illness_massage,.live_s,.label_message{
     padding: 0;

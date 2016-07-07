@@ -452,7 +452,7 @@ function on_click3(userId){   //疾病信息 下一步
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
 }
-function on_click_3(userId){
+function on_click_3(userId){//新用户
 		$.ajax({
 			url:url+"/restdisease/updateDisease",
 	  		type:"post",
@@ -540,9 +540,14 @@ function carep(userId){
 											"<i  class=\"relation\">/"+data[i].connection+"</i>"+
 										"</div>"+
 										"<div class=\"Care_addr\"> "+
-											"<span  class=\"juzhud\">居住地:</span>"+
-											"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
-										"</div>"+
+											"<span  class=\"juzhud\">居住地:</span>";
+											//"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
+											if(data[i].LIVEPLACE == undefined){
+												str +="<span  class=\"guanming\">未填写</span>";
+											}else{
+												str +="<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>";
+											}
+											str +="</div>"+
 									"</div>"+
 									"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 										"<img src=\"../images/arrows.png\" alt=\"\"/>"+
@@ -570,9 +575,14 @@ function carep(userId){
 												"<i  class=\"relation\">/"+data[i].connection+"</i>"+
 											"</div>"+
 											"<div class=\"Care_addr\"> "+
-												"<span  class=\"juzhud\">居住地:</span>"+
-												"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
-											"</div>"+
+												"<span  class=\"juzhud\">居住地:</span>";
+												//"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
+												if(data[i].LIVEPLACE == undefined){
+													str +="<span  class=\"guanming\">未填写</span>";
+												}else{
+													str +="<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>";
+												}
+												str +="</div>"+
 										"</div>"+
 										"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 											"<img src=\"../images/arrows.png\" alt=\"\"/>"+
@@ -790,7 +800,8 @@ function addUserAndUser(userId){
 		cache : false,
 		success:function(r){
 			if(r.result == "success"){
-				on_click3(user_id);
+				//on_click3(user_id);
+				on_click_3(user_id);
 				$("#li1,#li2,#li3,#li4").css('display','block');
 				$('#li4').css('margin-left', '0');
 				$('.addname').css('display','none');
