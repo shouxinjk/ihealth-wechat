@@ -566,7 +566,8 @@ function guanlian1(id){
     
 //体检项目 增加添加关心的人
 function tj_carep(){ 
-	window.location = wechatUrl +"/subject/addcare.html";
+	//window.location = wechatUrl +"/subject/addcare.html";
+	window.location="../subject/privacy.html";
 }
 
 
