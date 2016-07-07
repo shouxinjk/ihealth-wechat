@@ -341,7 +341,7 @@ var  basic_ck = "<table style='display: block; width:100%;height:100%;'>" +
         "</tr>" +
         "<tr class='message_next  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
             "<td style=\"display: block\">" +
-                "<a href=\"#\" class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='black_()'>返回</a>" +
+                "<a href=\"#\" class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='click_yins()'>下一步</a>" +
             "</td>" +
         "</tr>" +
     "</tbody>" +

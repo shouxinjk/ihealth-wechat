@@ -20,7 +20,27 @@ a {text-decoration:none !important;}
     font-size: 0.7rem;
     text-align: center;
     padding: 0;
+    float:left;
 }
+#li1, #li2, #li3 {
+	position: relative;
+	top: .8rem;
+	width:24%
+}
+.portrait{
+	width: 2rem;
+	height: 2rem;
+	border-radius: 3rem;
+}
+span.headname {
+	position: relative;
+	top: .3rem;
+}
+li#li_1 {
+	width: 28%;
+	text-align: start;
+}
+
 .livefs_1{
      background:#f7b779 !important; 
     color: #ffffff !important;;
@@ -397,7 +417,3 @@ select#pro, #pro1{
 #col{
 	color:#04be02;
 }
-
-
-
-

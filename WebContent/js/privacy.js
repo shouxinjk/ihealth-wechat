@@ -9,13 +9,20 @@ $(document).ready(function () {
 	    /*读取Cookie值*/
 	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
 	}
-	$('.my_message_img ').attr("src", "../images/my_message_1.png");
-    $('.my_message span').css('color','rgb(126, 200, 136)');
+	$('.TJ_guide_img ').attr("src", "../images/TJ_guide_1.png");
+    $('.TJ_guide span').css('color','rgb(126, 200, 136)');
         console.log(userId);
-        allpeople(userId) //获取谁关心了我的人  
+        carep(userId);
 });   
-
-
+$('.container').delegate(".Headerul li","click",function(){
+    $(this).addClass('model').siblings().removeClass('model');  // 删除其他兄弟元素的样式
+ });
+ $('.Headerul .set').click(function(){
+	 allpeople(userId) //获取谁关心了我的人 
+ });
+ $('.Headerul .care').click(function(){
+	 carep(userId);
+ });
 function allpeople(userId){ //获取谁关心了我的人  
 	$.ajax({
         type: "post",
@@ -29,7 +36,7 @@ function allpeople(userId){ //获取谁关心了我的人
         	var data = eval(r.data);
         	if(r.result == "success"){
         		for(var i=0;i<data.length;i++){
-        			var str="<li>"+
+        			var str="<li class='contli'>"+
 		        				"<img class='userimg  col-lg-2 col-xs-2 col-md-2 col-sm-2'  src='"+data[i].AVATAR+"' alt='' />"+
 										"<span class='username col-lg-4 col-xs-4 col-md-4 col-sm-4'>"+data[i].NAME+"<i>("+data[i].CONNECTION+")</i></span>"+
 										"<div class='privacymessage col-lg-3 col-xs-3 col-md-3 col-sm-3'>"+
@@ -50,8 +57,10 @@ function allpeople(userId){ //获取谁关心了我的人
 									 	
 									 		str +="</div>"+
         					"</li>";
-        			$(".content").append(str);
+        			$(".content").html(str);
         		}
+        	}else{
+        		$(".content").html('您亲戚朋友还没有关心您哦！！！！！');
         	}
         }
 	});
@@ -102,7 +111,6 @@ function privacy_add(i){
    	     }
     });
 }
-
 
 
 

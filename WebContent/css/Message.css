@@ -32,7 +32,7 @@ header {
 .container .Header .head_portrait{
    border-radius: 2rem;
     position: relative;
-    whidth:32%;
+    width:32%;
     height:32%;
     top: 25%;
 }

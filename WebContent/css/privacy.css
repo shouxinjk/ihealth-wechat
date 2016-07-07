@@ -1,16 +1,31 @@
-.content li{
-	list-style:none;	
-	display: inline-block;
+body {
+	font-family: 'SimHei', sans-serif;
 	width: 100%;
-	line-height: 4rem;
-	/* margin-top:.5rem; */
-	border-bottom: solid .05rem #CFC9C9;
+	height: 100%;
+	background: #f8f8f8;
+	background-size: cover;
+}
+html, body {
+	font-size: 125%;
+	font-size: 20px;
+	height: 100%;
+}
+.container {
+	height: 120% !important;
 }
 .Header .p1{
 	text-align: center;
 }
 .p2{
 	margin: 0;
+}
+.contli{
+	list-style:none;	
+	display: inline-block;
+	width: 100%;
+	line-height: 4rem;
+	/* margin-top:.5rem; */
+	border-bottom: solid .05rem #CFC9C9;
 }
 .userimg{
 	width: 3rem;
@@ -42,15 +57,90 @@ input{
 	position: relative;
 }
 
+.Header ul li{
+	list-style: none;
+	float:left;
+}
+.Header,.Headerul{
+	padding:0;
+}
+.model{
+	background-color:rgb(148, 218, 158);
+	color:#fff;
+}
+.Header ul li{
+	text-align: center;
+	padding:0;
+}
 
+.Care_img img{
+	border-radius: 5rem;
+	width: 3rem;
+	height: 3rem;
+}
+.Care_img1 img{
+	width: 0.5rem;
+	position: relative;
+	top: .8rem;
+	left: 2.5rem;
+}
+.Care_img2 img{
+	margin-top: .7rem;
+	padding-left: 2.5rem;
+}
+.Care_one{
+	padding: .5rem 0;
+	border-bottom: .05rem solid rgb(218, 218, 218);
+}
+.Care_addr {
+	color: rgb(195, 195, 195);
+}
+.Care_img{
+	padding:0;
+}
+.Care_one span{
+    padding: 0 0 0 0rem;
+    font-size: .7rem;
+}
+.Care_one i{
+	padding: 0 0 0 0rem;
+    font-size: .7rem;
+    font-style:normal;
+    line-height: 1rem;
+	display: inline-block;
+}
+.cancel{
+	text-align: center;
+	padding-left: 1.2rem;
+	margin: 0;
+	color:#04be02;
+	font-size: .6rem;
+}
+.add{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.33333333;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow: hidden;
+    width: 50% !important;
+    height: 1.5rem !important;
+    line-height: 1.5rem !important;
+    margin-top: 1rem;
+}
 
-
-
-
-
-
-
-
+.weui_btn_plain_primary {
+	color: #04be02;
+	border: 1px solid #04be02;
+}
 
 
 

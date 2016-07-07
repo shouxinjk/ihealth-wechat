@@ -26,7 +26,8 @@ $(function(){
         $('#li1').removeClass('active');
         $('#li4').addClass('active');
         //$('.content').html(Care_People);
-        carep(userId);
+        //carep(userId);
+        window.location="../subject/privacy.html";
         $('#guanxin').remove();
     }
 });
@@ -85,7 +86,8 @@ $('.information_header .information_header_li').click(function(){
         $('.message_next1').remove();
     }
     if(liID == 'li4'){
-        carep(userId);
+        //carep(userId);
+    	window.location="../subject/privacy.html";
     }
 });
 
@@ -137,10 +139,11 @@ function msgsave(userId){
   	        data: JSON.stringify({"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
   	        dataType: "json",
   	        success: function (r) {
-  	            if (r.result == "success") {
+  	            if (r.result == "suceess") {
   	            	 console.log('保存成功');
+  	            	$('#headname').text(r.data.NAME);//获取姓名
   	            }else{
-  	            	
+  	            	 console.log('1');
   	            }
   	        }
   	       
@@ -441,7 +444,8 @@ function on_click3(userId){   //疾病信息 下一步
 		success:function(delr){
 			
 			if(delr.msg == "success"){
-				carep(userId);
+				//carep(userId);
+				window.location="../subject/privacy.html";
 			}
 		}
 	});
@@ -467,7 +471,8 @@ function on_click_3(userId){
 			success:function(delr){
 				if(delr.msg == "success"){
 					var userId = ReadCookie("userId");
-					carep(userId);
+					//carep(userId);
+					window.location="../subject/privacy.html";
 				}
 			}
 		});
@@ -484,11 +489,16 @@ function black_(){
 	 $("#li1").removeClass('active');
 	 $("#li4").addClass('active');
 	$("#up").remove();
-	carep(userId);
+	//carep(userId);
+	window.location="../subject/privacy.html";
 	$('.message_next1').remove();
 	$('.upname').remove();
 }
-
+function click_yins(){
+	 $("#li1").removeClass('active');
+	 $("#li2").addClass('active');
+	 $('.content').html('由于主人设置了隐私权限，您不查看以下内容！')
+}
 
 
 //获取关心的人
@@ -538,8 +548,9 @@ function carep(userId){
 									"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 										"<img src=\"../images/arrows.png\" alt=\"\"/>"+
 									"</div>"+
-									//"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
+									
 								"</div>";
+								str+="<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
 						}else{
 							/*str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
 							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
@@ -567,31 +578,57 @@ function carep(userId){
 										"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
 											"<img src=\"../images/arrows.png\" alt=\"\"/>"+
 										"</div>"+
-									"</div>";
+										"</div>";
+										str += "<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
 						}
 					}
 				}
 				
 				str+= "</div>"+
-					  "<div class=\"button_sp_area col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
+					 /*"<div class=\"button_sp_area col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 					  	"<a href=\"../subject/addcare.html\"  class=\"add weui_btn_plain_primary\" >添加</a>"+
-					  "</div>";
+					  "</div>";*/
+				 "<div class=\"button_sp_area col-lg-12 col-xs-12 col-md-12 col-sm-12\" onclick='adduser()'>"+
+				 	"<a href=\"#\"  class=\"add weui_btn_plain_primary\" >添加</a>"+
+			  	 "</div>";
 				 $('.content').html(str);
 			}
 	});
 }
-
+function adduser(){
+	var str = "<table style='display: block; width:100%;'>" +
+				    "<tbody style='display: block' >" +
+				    "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+					    "<td>" +
+					    		"<img style='width:.7rem;margin-right: .5rem;' class='guan_phone' src=\"../images/phone.png\" alt=\"\"/>"+
+					    "</td>" +
+					    "<td>手机号/名字</td>" +
+					            "<td>" +
+					                "<input id='phone'style='margin-left: .5rem;' type='text' maxlength='11' placeholder='请输入手机号/名字！'/>" +
+					            "</td>" +
+				     "</tr>" +
+				     
+				     "<tr class='message_next  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+				        "<td style=\"display: block\">" +
+				            "<a href=\"#\" id='message_next' class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='lookupUser()'>下一步</a>" +
+				        "</td>" +
+				    "</tr>" +
+				        "</tbody>" +
+		        "</table>";
+		$('.button_sp_area').before(str);
+		$('.button_sp_area').hide();
+}
 
 
 function lookupUser(userId){
 	 var userId = ReadCookie("userId");
 	var phone = $("#phone").val();
-	   if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
+	  /* if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
 	       $("#phone").val('');
 	       $('#phone').attr('placeholder','请正确输入手机号！');
 	       $('.message_next_a1').css({'background':'rgb(69, 201, 162)','border':'none','color':'#ffffff'});
 	       return;
-	   };
+	   };*/
 	 
 	$.ajax({
 		url:url+"/rest/saveByPhone",
@@ -599,7 +636,7 @@ function lookupUser(userId){
   		contentType:'application/json;charset=utf8',
   		data:JSON
   			.stringify({
-  				"phone" : phone,
+  				"phone" :phone,
   				"userId":userId
   			}),
   		dataType : "json",
@@ -610,6 +647,7 @@ function lookupUser(userId){
 			if(r.result == "success"){
 				findByUserId(data.USER_ID);
 			}else if(r.result == "repeat"){
+				//$('.button_sp_area').show();
 				var str ="<div class='uldiv'>";
 				for(var i=0;i<data.length;i++){
 					/*str +="<ul id='"+data[i].USER_ID+"' class='cf'  >"+
@@ -645,7 +683,7 @@ function lookupUser(userId){
 					            "<a href=\"#\" id='message_next1' class=\"message_next_a1 weui_btn weui_btn_plain_primary\" onclick='lookupUser1()'>确认添加</a>" +
 					        "</td>" +
 					    "</tr>" ;
-				$('.kongdiv').html(ensure);
+				$('.addguanxi').after(ensure);
 				$('#phone').bind('input propertychange', function() { 
 					 //进行相关操作 
 					//console.log($('#phone').val());
@@ -654,6 +692,7 @@ function lookupUser(userId){
 					$('.message_next').show();
 					$('.kongdiv').html('');
 					$('.addguanxi').remove();
+					$('.message_next1').remove();
 					});
 			}
 		}
@@ -689,7 +728,8 @@ function lookupUser1(id){
 		cache : false,
 		success:function(r){
 			if(r.result == "success"){
-				black_();
+				//black_();
+				window.location="../subject/privacy.html";
 				$('.message_next1').remove();
 				$('.shuru').hide();
 			}else if(r.result == 'error'){
@@ -706,15 +746,29 @@ function lookupUser1(id){
 
 
 function findByUserId(userId){
+	$('.Headerul').hide();
 	$('.content').html(basic);
 	$('.iphone').remove();
-	$(".information_header").append(guanxin);
-	$("#li1,#li2,#li3,#li4").css('display','none');
+	//("#li1,#li2,#li3").css('display','none');
 	$('#li1').css('color', 'rgb(126, 200, 136)');
-	
-	$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" class="addname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在添加关心人的信息！</span>');
+	//$('.Header').html('<span style="font-size: .7rem;padding: 0;text-align: center;" class="addname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在添加关心人的信息！</span>');
+	$(".Header").after(guanxin);
 	$.initProv("#pro", "#city", "北京市", "北京市");
     $.initProv1("#pro1", "#city1", "北京市", "北京市");
+    var strr ="<div class='information_header col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+		"<ul>"+
+			"<li id='li_1' class=''>"+
+				"<img class='portrait'  src='../images/head_portrait.jpg' alt=''/>"+
+				"<span id='headname' class='headname'></span>"+
+			"</li>"+
+			"<li id='li1' class='information_header_li active '>基本信息</li>"+
+			"<li id='li2' class='information_header_li '>生活方式</li>"+
+			"<li id='li3' class='information_header_li '>疾病信息</li>"+
+			
+		"</ul>"+
+		"</div>";
+
+    $('.Header').html(strr);
 	jibenxinxi(userId);
 	
 }
