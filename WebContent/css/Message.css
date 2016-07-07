@@ -30,14 +30,14 @@ header {
 	background-size:100% 100%;  
 }
 .container .Header .head_portrait{
-   border-radius: 2rem;
+    border-radius: 3rem;
     position: relative;
-    width:32%;
-    height:32%;
+    width: 3rem;
+	height: 3rem;
     top: 25%;
 }
 span.Username {
-	top: 2rem;
+	top: 2.3rem;
 	color: #ffffff;
 	position: relative;
 }

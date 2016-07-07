@@ -11,7 +11,7 @@ html, body {
 	height: 100%;
 }
 .container {
-	height: 120% !important;
+	/* height: 120% !important; */
 }
 .Header .p1{
 	text-align: center;
@@ -64,9 +64,14 @@ input{
 .Header,.Headerul{
 	padding:0;
 }
+.Headerul {
+	 border-bottom: solid .05rem rgb(148, 218, 158);
+	 background-color:rgb(148, 218, 158);
+	 color:#fff;
+}
 .model{
-	background-color:rgb(148, 218, 158);
-	color:#fff;
+	background-color:#fff;
+	color:rgb(148, 218, 158);
 }
 .Header ul li{
 	text-align: center;
@@ -141,7 +146,12 @@ input{
 	color: #04be02;
 	border: 1px solid #04be02;
 }
-
+.kong_div{
+	height: 3rem;
+	float: left;
+	width: 100%;
+	padding-bottom: 5rem;
+}
 
 
 

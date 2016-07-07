@@ -24,7 +24,7 @@ a {text-decoration:none !important;}
 }
 #li1, #li2, #li3 {
 	position: relative;
-	top: .8rem;
+	top: .4rem;
 	width:24%
 }
 .portrait{
@@ -32,15 +32,23 @@ a {text-decoration:none !important;}
 	height: 2rem;
 	border-radius: 3rem;
 }
-span.headname {
+/* span.headname {
 	position: relative;
 	top: .3rem;
-}
+} */
 li#li_1 {
 	width: 28%;
 	text-align: start;
+	width: 28%;
+	text-align: start;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-
+span.woman,.man {
+	margin-left: .3rem;
+}
 .livefs_1{
      background:#f7b779 !important; 
     color: #ffffff !important;;

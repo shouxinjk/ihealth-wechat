@@ -442,10 +442,9 @@ function on_click3(userId){   //疾病信息 下一步
   		async : false,
 		cache : false,
 		success:function(delr){
-			
 			if(delr.msg == "success"){
 				//carep(userId);
-				window.location="../subject/privacy.html";
+				window.location="../subject/Message.html";
 			}
 		}
 	});
@@ -550,7 +549,7 @@ function carep(userId){
 									"</div>"+
 									
 								"</div>";
-								str+="<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
+								//str+="<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
 						}else{
 							/*str+="<div  class=\"Care_one col-lg-5 col-xs-5 col-md-5 col-sm-5\">"+
 							"<div class=\"Care_img\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
@@ -579,7 +578,7 @@ function carep(userId){
 											"<img src=\"../images/arrows.png\" alt=\"\"/>"+
 										"</div>"+
 										"</div>";
-										str += "<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
+										//str += "<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
 						}
 					}
 				}
