@@ -387,7 +387,7 @@ select#pro, #pro1{
 	float: left;
 	width: 100%;
 	/* margin-top: 1rem; */
-	border-bottom: .05rem solid;
+	/* border-bottom: .05rem solid; */
 }
 .cf li {
 	width: 50%;
@@ -425,7 +425,7 @@ select#pro, #pro1{
 	font-size: .8rem;
 	margin-top: .5rem;
 	padding-left: 0.7rem;
-	border-bottom: .05rem solid rgb(148, 218, 158);
+	border-bottom: .05rem solid rgb(218, 218, 218);
 }
 #col{
 	color:#04be02;

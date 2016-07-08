@@ -20,7 +20,7 @@ $('.container').delegate(".Headerul li","click",function(){
  });
  $('.Headerul .set').click(function(){
 	 allpeople(userId) //获取谁关心了我的人 
-	 $('.gxdr ').attr("src", "../images/TJ_guide.png");
+	  $('.gxdr ').attr("src", "../images/TJ_guide.png");
 	 $('.suo ').attr("src", "../images/suo.png");
  });
  $('.Headerul .care').click(function(){

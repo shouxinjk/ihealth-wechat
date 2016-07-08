@@ -75,6 +75,7 @@ input{
 	 background-color:rgb(148, 218, 158); */
 	 /* color:#fff; */
 	 line-height: 1.5rem;
+	 margin-top: .4rem;
 }
 .Headerul img{
 	width:1rem;
@@ -90,12 +91,13 @@ input{
 }
 .model{
 	/* background-color:#fff; */
-	color:rgb(148, 218, 158);
-	border-bottom: solid .05rem rgb(148, 218, 158);
+	color:rgb(126, 200, 136);
+	border-bottom: 0.1rem solid rgb(126, 200, 136);
 }
-.Header ul li{
+.Headerul li{
 	text-align: center;
 	padding:0;
+	font-size: 0.7rem;
 }
 
 .Care_img img{
