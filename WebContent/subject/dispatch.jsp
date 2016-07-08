@@ -51,6 +51,7 @@ $(function(){
 	
 	var code = "<%=code%>";
 	var state = "<%=state%>";
+	alert(state)
 	if(openId == ""){
 		$.ajax({
 			url:"/ihealth-wechat/openIdServlet",
@@ -95,10 +96,12 @@ $(function(){
 						       success: function (r) {
 						           if (r.result == "success") {
 						        	  var userId = r.data.USER_ID;
+						        	  alert(state+"====1")
 						        	  SetCookie("userId",userId,7);
 						        	  window.location.href=wechatUrl+"/subject/"+state+".html";
 						           }else if(r.result == "existence"){
 						        	   var userId = r.data.USER_ID;
+						        	   alert(state+"===2")
 						        	   SetCookie("userId",userId,7);
 						        	   window.location.href=wechatUrl+"/subject/"+state+".html";
 						           }
