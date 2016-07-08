@@ -41,8 +41,14 @@ html, body {
 .content li .userimg,.username ,.privacymessage,.addmessage{
 	padding:0;
 }
+.userimg{
+	border-radius: 5rem;
+	width: 3rem;
+	height: 3rem;
+	
+}
 .content li .username,.privacymessage,.addmessage{
-	font-size: .7rem;
+	font-size: .5rem;
 }
 .Header span{
 	font-size: .8rem;
@@ -65,13 +71,27 @@ input{
 	padding:0;
 }
 .Headerul {
-	 border-bottom: solid .05rem rgb(148, 218, 158);
-	 background-color:rgb(148, 218, 158);
-	 color:#fff;
+	/*  border-bottom: solid .05rem rgb(148, 218, 158);
+	 background-color:rgb(148, 218, 158); */
+	 /* color:#fff; */
+	 line-height: 1.5rem;
+}
+.Headerul img{
+	width:1rem;
+}
+.gxdr{
+	position: relative;
+	top: -.1rem;
+	left: -.4rem;
+}
+.suo{
+	position: relative;
+	left: -.4rem;
 }
 .model{
-	background-color:#fff;
+	/* background-color:#fff; */
 	color:rgb(148, 218, 158);
+	border-bottom: solid .05rem rgb(148, 218, 158);
 }
 .Header ul li{
 	text-align: center;

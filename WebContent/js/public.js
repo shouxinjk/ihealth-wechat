@@ -496,7 +496,7 @@ function black_(){
 function click_yins(){
 	 $("#li1").removeClass('active');
 	 $("#li2").addClass('active');
-	 $('.content').html('由于主人设置了隐私权限，您不查看以下内容！')
+	 $('.content').html('对方设置了隐私保护，不能查看该内容，请联系确认!')
 }
 
 
@@ -613,7 +613,7 @@ function adduser(){
 					    "</td>" +
 					    "<td>手机号/名字</td>" +
 					            "<td>" +
-					                "<input id='phone'style='margin-left: .5rem;' type='text' maxlength='11' placeholder='请输入手机号/名字！'/>" +
+					                "<input id='phone'style='margin-left: .5rem;width: 8rem;' type='text' maxlength='11' placeholder='请输入手机号/名字！'/>" +
 					            "</td>" +
 				     "</tr>" +
 				     
@@ -688,7 +688,7 @@ function lookupUser(userId){
 				}
 				str+="</div>";
 				$('.Name').after(str);
-				$('.uldiv').before('<p class="sele">请选择你要添加关系的人！</p>');
+				$('.uldiv').before('<p class="sele">请选择并添加关心的人</p>');
 				$('.message_next').before("<div class='addguanxi'></div>");
 				$('.message_next').hide();
 				var ensure= "<tr class='message_next1  col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +

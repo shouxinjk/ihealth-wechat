@@ -11,6 +11,7 @@ $(document).ready(function () {
 	}
 	$('.TJ_guide_img ').attr("src", "../images/TJ_guide_1.png");
     $('.TJ_guide span').css('color','rgb(126, 200, 136)');
+    
         console.log(userId);
         carep(userId);
 });   
@@ -19,9 +20,13 @@ $('.container').delegate(".Headerul li","click",function(){
  });
  $('.Headerul .set').click(function(){
 	 allpeople(userId) //获取谁关心了我的人 
+	 $('.gxdr ').attr("src", "../images/TJ_guide.png");
+	 $('.suo ').attr("src", "../images/suo.png");
  });
  $('.Headerul .care').click(function(){
 	 carep(userId);
+	 $('.gxdr ').attr("src", "../images/TJ_guide_1.png");
+	 $('.suo ').attr("src", "../images/suo1.png");
  });
 function allpeople(userId){ //获取谁关心了我的人  
 	$.ajax({

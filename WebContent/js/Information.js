@@ -229,7 +229,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 	    }
 	    if(liID == 'li2'){
 	    	if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
-	    		 $('.content').html('由于主人设置了隐私权限，您不查看以下内容！')
+	    		 $('.content').html('对方设置了隐私保护，不能查看该内容，请联系确认!')
 	 	        $('.message_next1').remove();
 	    	}else{
 	        tagCategory(userId);
@@ -239,7 +239,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 	    }
 	    if(liID == 'li3'){
 	    	if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
-	    		$('.content').html('由于主人设置了隐私权限，您不查看以下内容！')
+	    		$('.content').html('对方设置了隐私保护，不能查看该内容，请联系确认!')
 		        $('.message_next1').remove();
 	    	}else{
 	    	listDisease_1(userId);
