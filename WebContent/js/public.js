@@ -632,13 +632,16 @@ function adduser(){
 function lookupUser(userId){
 	 var userId = ReadCookie("userId");
 	var phone = $("#phone").val();
-	  /* if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
-	       $("#phone").val('');
+	var i;
+	   if(!phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)){
+	      /* $("#phone").val('');
 	       $('#phone').attr('placeholder','请正确输入手机号！');
-	       $('.message_next_a1').css({'background':'rgb(69, 201, 162)','border':'none','color':'#ffffff'});
-	       return;
-	   };*/
-	 
+	       $('.message_next_a1').css({'background':'rgb(69, 201, 162)','border':'none','color':'#ffffff'});*/
+	       i =1;
+	   }else{
+		   i =0;
+	   }
+	  
 	$.ajax({
 		url:url+"/rest/saveByPhone",
   		type:"post",
@@ -646,7 +649,8 @@ function lookupUser(userId){
   		data:JSON
   			.stringify({
   				"phone" :phone,
-  				"userId":userId
+  				"userId":userId,
+  				"i":i
   			}),
   		dataType : "json",
   		async : false,
@@ -757,7 +761,7 @@ function lookupUser1(id){
 function findByUserId(userId){
 	$('.Headerul').hide();
 	$('.content').html(basic);
-	$('.iphone').remove();
+	//$('.iphone').remove();
 	//("#li1,#li2,#li3").css('display','none');
 	$('#li1').css('color', 'rgb(126, 200, 136)');
 	//$('.Header').html('<span style="font-size: .7rem;padding: 0;text-align: center;" class="addname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在添加关心人的信息！</span>');
