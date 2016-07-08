@@ -607,7 +607,7 @@ function carep(userId){
 function adduser(){
 	var str = "<table style='display: block; width:100%;'>" +
 				    "<tbody style='display: block' >" +
-				    "<tr class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+				    "<tr id='trname' class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 					    "<td>" +
 					    		"<img style='width:.7rem;margin-right: .5rem;' class='guan_phone' src=\"../images/phone.png\" alt=\"\"/>"+
 					    "</td>" +
