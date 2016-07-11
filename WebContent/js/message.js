@@ -14,7 +14,7 @@ $(document).ready(function () {
         var userId  = ReadCookie("userId");
         Usern(userId);
         wxdu(userId);
-        $('.userimg').after('<span class="privacy"><a href="privacy.html" data-user='+userId+'>隐私设置</a></span>')
+        $('.userimg').after('<span class="privacy"><a href="privacy.html#user"  data-user='+userId+'>隐私设置</a></span>')
     });
     function Usern(userId){
 		//用户名

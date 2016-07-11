@@ -137,6 +137,12 @@ var  basic_1 = "<table style='display: block; width:100%;height:100%;'>" +
             "<input id='user_id' type='hidden' value=''/>" +
         "</td>" +
     "</tr>" +
+    "<tr class='relation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+		"<td  style='padding:0'>关系：</td>" +
+	    "<td>" +
+	        "<input id='relation' value='' type='text' placeholder='请填你们的关系!'/>" +
+	    "</td>" +
+    "</tr>" +
     "<tr class='Sex col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
         "<td style='padding:0'>性别：</td>" +
         "<td class='boy'>" +
@@ -249,6 +255,12 @@ var  basic_ck = "<table style='display: block; width:100%;height:100%;'>" +
             "<input id='username' value='张三' type='text' placeholder='请填写姓名!'/>" +
             "<input id='user_id' type='hidden' value=''/>" +
         "</td>" +
+    "</tr>" +
+    "<tr class='relation col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
+		"<td  style='padding:0'>关系：</td>" +
+	    "<td>" +
+	        "<input id='relation' value='' type='text' placeholder=''/>" +
+	    "</td>" +
     "</tr>" +
     "<tr class='Sex col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
         "<td style='padding:0'>性别：</td>" +

@@ -37,12 +37,12 @@ function relevance(userId){    //获取关联用户名
 					
 				}else{
 					for(var i=0;i<data.length;i++){
-						str+="<li style='margin-right:.2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
+						str+="<li style='margin-right:.2rem;' data-val='"+data[i].USER_ID+"' class='swiper-slide'  id='li"+(i+1)+"' onclick='guanlian(\"li"+(i+1)+"\",\""+data[i].ismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].NAME+"\")'><input type='hidden' value='"+data[i].USER_ID+"'>"+data[i].NAME+"</li>";
 					}
 				}
 				 $('#my').attr("onclick","guanlian1('"+userId+"')").attr("data-val",userId);
 				 $('#my').after(str);
-				 $('.relevance li').last().after("<li style='margin-right:.2rem;'  class='swiper-slide'  onclick='tj_carep()'>+</li>");
+				 $('.relevance li').last().after("<li style='margin-right:.2rem;'  class='swiper-slide'  onclick='tj_carep1()'><a href=\"../subject/privacy.html#sure\">+</a></li>");
 			}
 	
 	
@@ -95,10 +95,10 @@ function intn(userId){
 		cache : false,
         success: function (r) {
         	if(r.data.ISMODIFY == 0){
-        		$('.hint').hide();
-        		$('.cont').append("<article class='template'>以下是体检方案模板信息。您可以进入<a href='../subject/Information.html' data-id="+userId+">(基本信息)</a>进行修改!</article>");
+        		//$('.hint').hide();
+        		$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href='../subject/Information.html' data-id="+userId+">(基本信息)</a>进行修改!</article>");
         	}else{
-        		
+        		$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
         	}
         }
        });
@@ -179,7 +179,7 @@ function intn(userId){
 													 "</div>" +*/
 	         		        	 					 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 														
-														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"</div>" +
+														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(点击查看风险描述)</div>" +
 													 "</div>" +
 													 //"<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'> " +
 														
@@ -206,7 +206,7 @@ function intn(userId){
 											 "</div>" +*/
 				         		        	 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 												 /*"<div class=''>筛查疾病:</div>" +*/
-												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"</div>" +
+												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(点击查看风险描述)</div>" +
 											 "</div>" +
 											 //"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 												/* "<div class=''>关注因素:</div>" +*/
@@ -274,7 +274,10 @@ function intn(userId){
         		if(check.length ==0){
         			$('.xmtable').append('<div style="display:none;" class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
         		}else{
-	        	 $('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
+        			//$('.buy_div').show();
+        			//$('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"></div>');
+           		 	//$('.buy_div').html('<div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div>');
+	        	$('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
 	        	}
 	        }
 	    });
@@ -412,7 +415,7 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
 					 "</div>" +*/
 					 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 					 			/*"<div class=''>筛查疾病:</div>" +*/
-						 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+disease_name+"</div>" +
+						 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+disease_name+"(点击查看风险描述)</div>" +
 			 		"</div>" +
 			 		/*"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 						 "<div class=''>关注因素:</div>" +
@@ -446,7 +449,8 @@ $('.xmtable').delegate(".subgroup1",'click',function(){
         success: function (r) {
         	if (r.result == "success") {
         		$(this).parent().siblings('.zhiN').remove();
-        		 $('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
+        		$('.buy_div').show();
+        		//$('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
         		}
         	}
    });
@@ -537,16 +541,17 @@ $('.container').delegate(".zhiN","click",function(){
 
 
 //关联关心的人
-function guanlian(id,ismodify,isprivacy){
+function guanlian(id,ismodify,isprivacy,NAME){
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
       		if(isprivacy == '1' || isprivacy== 'undefined'){
-      			$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
+      			$('.hint').html("以下是为"+NAME+"量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
       			$('.pendding').show();
       			spend(user_id);
       		}else{
       			$('.hint').html("对方不允许你查看其体检方案,赶快联系他吧!");
       			$('.pendding').hide();
+      			$('.xmtable').html('');
       		}
       		
         	$('.relevance li').removeClass('relevanceMY');
@@ -554,15 +559,15 @@ function guanlian(id,ismodify,isprivacy){
            
     }
 function guanlian1(id){
-	clearTimeout(t); 
-	$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
-	$('.hint').css('text-align','center');
-	$('.pendding').show();
+			clearTimeout(t); 
+			$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
+			//$('.hint').css('text-align','center');
+			$('.pendding').show();
 			spend(id);
-	        	$('.relevance li').removeClass('relevanceMY');
-	            $("#my").addClass('relevanceMY');
+			$('.relevance li').removeClass('relevanceMY');
+			$("#my").addClass('relevanceMY');
 	            
-	    }
+}
     
 //体检项目 增加添加关心的人
 function tj_carep(){ 

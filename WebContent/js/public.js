@@ -131,6 +131,69 @@ function msgsave(userId){
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
     var phone = $('#vali').val();//获取手机号
+   // if(phone != ''){
+    	  $.ajax({
+  	        type: "post",
+  	        url: url+"/rest/updateUser",
+  	        contentType:"application/json;charset=utf8",
+  	        data: JSON.stringify({"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
+  	        dataType: "json",
+  	        success: function (r) {
+  	            if (r.result == "suceess") {
+  	            	 console.log('保存成功');
+  	            	$('#headname').text(r.data.NAME);//获取姓名
+  	            }else{
+  	            	 console.log('1');
+  	            }
+  	        }
+  	       
+  	    });
+    	
+    //}else{
+    	//$('.error').show();
+    //};
+    /*//修改状态
+    $.ajax({
+	        type: "post",
+	        url: url+"/rest/updateUser",
+	        contentType:"application/json;charset=utf8",
+	        data: JSON.stringify({}),
+	        dataType: "json",
+	        success: function (r) {
+	           
+	        }
+	    });*/
+}
+
+//next 修改关心的人  基本信息保存下一步
+function msgsave_1(userId){
+	
+	var SEX = $(".Sex input[name='Sex']:checked").val();
+	if(SEX == 'man'){
+		SEX = '男';
+	}else if(SEX == 'woman'){
+		SEX = '女';
+	}
+	var NAME= $('#username').val();
+	var MARRIAGESTATUS= $("#marriageM option:selected").val();
+	//获取出生地
+	var pro=$("#pro option:selected").text();
+	var pro1=$("#pro1 option:selected").text();
+	//获取常住地
+	var city=$("#city option:selected").text();
+	var city1=$("#city1 option:selected").text();
+	//以逗号分隔
+	var BIRTHPLACE = pro + "," + city;
+	var LIVEPLACE = pro1 + "," + city1;
+	
+	var CAREER=$("#s1 option:selected").text();//获取职业
+    var DEGREE=$("#s2 option:selected").val();//获取学历
+    var relation =$("#relation").val();
+    var BIRTHDAY=$('.Wdate').val();//获取生日
+    var HEIGHT= $('.height').val();//获取身高
+    var WEIGHT=$('.weigth').val();//获取体重
+    var phone = $('#vali').val();//获取手机号
+    console.log(relation);
     if(phone != ''){
     	  $.ajax({
   	        type: "post",
@@ -164,6 +227,8 @@ function msgsave(userId){
 	        }
 	    });*/
 }
+
+
 
 function obtainId(id){
 	var strId = "";

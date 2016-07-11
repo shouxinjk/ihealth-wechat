@@ -88,6 +88,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				$('.content').html(basic_ck);
 				//$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在查看关心人的信息！</span>');
 				$('#vali').attr("disabled", true);//手机更改为只读方式
+				$('#relation').attr('readOnly',true);//关系更改为只读方式
 				var input1 = $(".content").find("input:radio");//性别更改为只读方式
 				input1.attr("disabled","disabled");
 			 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
@@ -111,6 +112,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 			$('.content').html(basic_ck);
 			// $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">由于对方隐私您只能查看这些信息！</span>');
 			$('#vali').attr("disabled", true);//手机更改为只读方式
+			$('#relation').attr('readOnly',true);//关系更改为只读方式
 			var input1 = $(".content").find("input:radio");//性别更改为只读方式
 			input1.attr("disabled","disabled");
 		 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
@@ -256,6 +258,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 			$('.content').html(basic_ck);
 			//$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在查看关心人的信息！</span>');
 			$('#vali').attr("disabled", true);//手机更改为只读方式
+			$('#relation').attr('readOnly',true);//关系更改为只读方式
 			var input1 = $(".content").find("input:radio");//性别更改为只读方式
 			input1.attr("disabled","disabled");
 		 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
@@ -279,6 +282,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 		$('.content').html(basic_ck);
 		// $('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">由于对方隐私您只能查看这些信息！</span>');
 		$('#vali').attr("disabled", true);//手机更改为只读方式
+		$('#relation').attr('readOnly',true);//关系更改为只读方式
 		var input1 = $(".content").find("input:radio");//性别更改为只读方式
 		input1.attr("disabled","disabled");
 	 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
@@ -427,7 +431,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 		//$('#guanxin').css('display','none');
 		
 		    
-		msgsave(userId);//基本信息保存
+		msgsave_1(userId);//基本信息保存
 		//tg(userId);
 		tagCategory_1(userId);//获取修改关心人的生活方式
 		var connection =  ReadCookie("connection");
