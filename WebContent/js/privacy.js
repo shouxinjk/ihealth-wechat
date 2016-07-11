@@ -86,6 +86,7 @@ function allpeople(userId){ //获取谁关心了我的人
         		$(".content").html(str);
         	}else{
         		$(".content").html('您亲戚朋友还没有关心您哦！！！！！');
+        		$('.content').css('font-size','0.7rem');
         	}
         }
 	});
