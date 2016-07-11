@@ -12,14 +12,15 @@ $(document).ready(function () {
 	 var thisId = window.location.hash;
 	
     if(thisId =='#user'){
-    	 allpeople(userId);
+    	allpeople(userId);
+    	 $('.Care').hide();
     	 $('.care').removeClass('model');
     	 $('.set').addClass('model');
     	 $('.gxdr ').attr("src", "../images/TJ_guide.png");
     	 $('.suo ').attr("src", "../images/suo.png");
     	 $('.TJ_guide_img ').attr("src", "../images/TJ_guide_1.png");
          $('.TJ_guide span').css('color','rgb(126, 200, 136)');
-    }if(thisId== '#sure'){
+    }else if(thisId== '#sure'){
     	carep(userId);
     	$('.Care').hide();
     	adduser();

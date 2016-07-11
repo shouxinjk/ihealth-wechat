@@ -561,7 +561,8 @@ function black_(){
 function click_yins(){
 	 $("#li1").removeClass('active');
 	 $("#li2").addClass('active');
-	 $('.content').html('对方设置了隐私保护，不能查看该内容，请联系确认!')
+	 $('.content').html('对方设置了隐私保护，不能查看该内容，请联系确认!');
+	 $('.content').css('font-size','0.7rem');
 }
 
 
