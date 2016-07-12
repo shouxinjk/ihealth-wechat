@@ -10,7 +10,10 @@ $(document).ready(function () {
 	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
 	}
 	 var thisId = window.location.hash;
-	
+	 var clik_a=document.location.href;	
+	 var clik_a1 =clik_a.split("?")[0];
+	 var clik_a2 =clik_a1.split("#")[1]; 
+	 console.log(thisId);
     if(thisId =='#user'){
     	allpeople(userId);
     	 $('.Care').hide();
@@ -26,6 +29,8 @@ $(document).ready(function () {
     	adduser();
     	$('.TJ_guide_img ').attr("src", "../images/TJ_guide_1.png");
         $('.TJ_guide span').css('color','rgb(126, 200, 136)');
+    }else if(thisId== 'fumu'){
+    	console.log('aaaaaaaaaaaaaaaaaaaaaaa');
     }else{
     	carep(userId);
     	$('.TJ_guide_img ').attr("src", "../images/TJ_guide_1.png");
@@ -47,6 +52,11 @@ $('.container').delegate(".Headerul li","click",function(){
 	 $('.gxdr ').attr("src", "../images/TJ_guide_1.png");
 	 $('.suo ').attr("src", "../images/suo1.png");
  });
+ //设置模板父母基本信息
+ function fum(){
+	 
+ }
+ 
 function allpeople(userId){ //获取谁关心了我的人  
 	$.ajax({
         type: "post",

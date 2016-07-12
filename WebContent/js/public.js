@@ -167,7 +167,7 @@ function msgsave(userId){
 
 //next 修改关心的人  基本信息保存下一步
 function msgsave_1(userId){
-	
+	var userID  = ReadCookie("userId");
 	var SEX = $(".Sex input[name='Sex']:checked").val();
 	if(SEX == 'man'){
 		SEX = '男';
@@ -193,13 +193,15 @@ function msgsave_1(userId){
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
     var phone = $('#vali').val();//获取手机号
+    var relation =$('#relation').val();//获取关系
     console.log(relation);
-    if(phone != ''){
+    console.log(userID);
+   /* if(phone != ''){*/
     	  $.ajax({
   	        type: "post",
   	        url: url+"/rest/updateUser",
   	        contentType:"application/json;charset=utf8",
-  	        data: JSON.stringify({"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
+  	        data: JSON.stringify({"connection":relation,"userid":userID,"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
   	        dataType: "json",
   	        success: function (r) {
   	            if (r.result == "suceess") {
@@ -212,9 +214,9 @@ function msgsave_1(userId){
   	       
   	    });
     	
-    }else{
+   /* }else{
     	$('.error').show();
-    };
+    };*/
     /*//修改状态
     $.ajax({
 	        type: "post",
@@ -596,7 +598,7 @@ function carep(userId){
 									"</div>"+
 									"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
 								"</div>";*/
-							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
+							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].connection+"\")'>"+
 									"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\">"+
 										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 									"</div>"+
@@ -631,7 +633,7 @@ function carep(userId){
 								"<i  class=\"relation\">("+data[i].connection+")</i>"+
 							"</div>"+*/
 							//"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
-							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\")'>"+
+							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].connection+"\")'>"+
 										"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\" >"+
 											"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
 										"</div>"+

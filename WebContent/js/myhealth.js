@@ -96,7 +96,13 @@ function intn(userId){
         success: function (r) {
         	if(r.data.ISMODIFY == 0){
         		//$('.hint').hide();
-        		$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href='../subject/Information.html' data-id="+userId+">(基本信息)</a>进行修改!</article>");
+        		var userID  = ReadCookie("userId");
+        		if(userId == userID){
+        			$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href='../subject/Information.html#message' data-id="+userId+">(基本信息)</a>进行修改!</article>");
+        		}else{
+        			$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href=\"../subject/privacy.html#fumu?userId="+userId+"\">(基本信息)</a>进行修改!</article>");
+        		}
+        		
         	}else{
         		$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
         	}

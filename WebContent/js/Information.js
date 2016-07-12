@@ -62,7 +62,7 @@ function jibenxinxi(userId){
 		});
 		
 	}
-function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
+function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基本信息
 	//$('.Headerul').hide();
 	var strr ="<div class='information_header col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 				"<ul>"+
@@ -181,9 +181,8 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 					$("#city1 option:selected").text(livsArr[1]);
 				}
 				
-					
+					$("#relation").val(connection);//获取关系
 					$("#user_id").val(data.USER_ID);
-					
 					$("#marriageM option:selected").text(data.MARRIAGESTATUS);//获取婚姻状况
 					//$("#pro option:selected").text(data.);//获取出生地
 					//$("#city option:selected").text(data.BIRTHPLACE);
@@ -193,6 +192,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 					$("#s1 option:selected").text(data.CAREER);//获取职业
 					$("#s2 option:selected").text(data.DEGREE);//获取学历
 					$('.Wdate').val(data.BIRTHDAY);//获取生日
+					
 					if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 						$(".weigth").val("**");
 						$('.height').val("**");
@@ -351,9 +351,8 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				$("#city1 option:selected").text(livsArr[1]);
 			}
 			
-				
 				$("#user_id").val(data.USER_ID);
-				
+				$("#relation").val(connection);//获取关系
 				$("#marriageM option:selected").text(data.MARRIAGESTATUS);//获取婚姻状况
 				//$("#pro option:selected").text(data.);//获取出生地
 				//$("#city option:selected").text(data.BIRTHPLACE);
@@ -363,6 +362,7 @@ function revamp(userId,ismodify,isprivacy){//获取修改用户的基本信息
 				$("#s1 option:selected").text(data.CAREER);//获取职业
 				$("#s2 option:selected").text(data.DEGREE);//获取学历
 				$('.Wdate').val(data.BIRTHDAY);//获取生日
+				
 				if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 					$(".weigth").val("**");
 					$('.height').val("**");
