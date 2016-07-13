@@ -185,7 +185,7 @@ function intn(userId){
 													 "</div>" +*/
 	         		        	 					 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 														
-														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(点击查看风险描述)</div>" +
+														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(查看风险描述)</div>" +
 													 "</div>" +
 													 //"<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'> " +
 														
@@ -200,8 +200,8 @@ function intn(userId){
 				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        	'<div class="deletli" style="float: right;" id="'+sub+'">'+
 	//					         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
-						         		        	//'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;background:rgb(126, 200, 136)"></div>'+
-						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/right.png\" title=\"恢复\" alt=\"恢复\"/></div>'+	
+						         		        	//'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;background:rgb(126, 200, 136)"></div>'+\"li"+(i+1)+"\",
+						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"  onclick="del('+d.CHECKUPITEM_ID+','+d.STATUS+','+sub1+','+userId+')"><img style="width: 1rem;height:1rem" src=\"../images/right.png\" title=\"恢复\" alt=\"恢复\"/></div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
 	         		        }else {
@@ -212,7 +212,7 @@ function intn(userId){
 											 "</div>" +*/
 				         		        	 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 												 /*"<div class=''>筛查疾病:</div>" +*/
-												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(点击查看风险描述)</div>" +
+												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(查看风险描述)</div>" +
 											 "</div>" +
 											 //"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
 												/* "<div class=''>关注因素:</div>" +*/
@@ -227,7 +227,7 @@ function intn(userId){
 					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        		'<div  class="deletli" style="float: right;" id="'+sub+'">'+
 					         		        			//'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a>'+
-						         		        		'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;color: #C0BEBE;"  onclick="del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/gray.png\" title=\"删除\" alt=\"删除\"/></div>'+
+						         		        		'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;color: #C0BEBE;"  onclick="del('+d.CHECKUPITEM_ID+','+d.STATUS+','+sub1+','+userId+')"><img style="width: 1rem;height:1rem" src=\"../images/gray.png\" title=\"删除\" alt=\"删除\"/></div>'+
 							         		        	//'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;background:red"></div>'+	
 					         		        		'</div>'+
 					         		        	'</div>';
