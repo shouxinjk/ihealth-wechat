@@ -294,7 +294,7 @@ function intn(userId){
 //购买体检套餐
 $('.xmtable').delegate(".buy",'click',function(){ 
 	
-	window.location =urll +"/subject/buypeitem.html";
+	window.location =url +"/subject/buypeitem.html";
 	/*var tname ='';
 	var userId=$('.buy').attr('data-userid');
 	var check_id;
