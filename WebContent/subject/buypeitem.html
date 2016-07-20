@@ -18,7 +18,7 @@
 		<div class='cost col-lg-3 col-xs-3 col-md-3 col-sm-3'>￥价格</div>
 	</div>
     <main class="buy_table col-lg-12 col-xs-12 col-md-12 col-sm-12">
-			<ul class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+			<div class='buydiv col-lg-12 col-xs-12 col-md-12 col-sm-12'>
 				<!-- <li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
 					<input type="checkbox"  value="1" class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick="setSelectAll();">
 					<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>糖尿病</div>
@@ -39,13 +39,13 @@
 					<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>糖尿病</div>
 					<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'>120元</div>
 				</li> -->
-			</ul>
+			</div>
     </main>
 	<div class='buy_footer col-lg-12 col-xs-12 col-md-12 col-sm-12'>
-		<div class='buall col-lg-4 col-xs-4 col-md-4 col-sm-4'>
+		<!-- <div class='buall col-lg-4 col-xs-4 col-md-4 col-sm-4'>
 			<input class="SelectAll"  type="checkbox" value="all" class='boxall' onclick="selectAll();">
 			<lable>全选</lable>
-		</div>
+		</div> -->
 		<div class='allmoney col-lg-5 col-xs-5 col-md-5 col-sm-5'>
 			<span class='always'>合计:</span>
 			<!-- <div class='buy_phone col-lg-4 col-xs-4 col-md-4 col-sm-4'><img alt="" src="../images/buy_phone.png"/>免费热线</div> -->
@@ -53,7 +53,7 @@
 			<!-- <div class='subscribe col-lg-4 col-xs-4 col-md-4 col-sm-4'><img alt="" src="../images/subscribe.png"/>立即预约</div> -->
 			
 		</div>
-		<div class='settle active col-lg-3 col-xs-3 col-md-3 col-sm-3'>结算</div>
+		<div class='settle active col-lg-3 col-xs-3 col-md-3 col-sm-3'><a href="payment.html">提交订单</a></div>
 	</div>
 	
 	
@@ -80,7 +80,7 @@
 <script type="text/javascript" src="../js/content.js"></script><!--cookie-->
 <!-- <script type="text/javascript" src="../js/myhealth.js"></script> -->
 <!-- <script type="text/javascript" src="../js/md5.js"></script> -->
-<script type="text/javascript" src="../js/buypeitem.js"></script>
+<script type="text/javascript" src="../js/buype.js"></script>
 <script type="text/javascript">
 var userId  = ReadCookie("userId");
 $(document).ready(function () {

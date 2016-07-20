@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no,minimal-ui" />
+<!--   <link rel="stylesheet" href="../css/dist/style/weui.min.css"/> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/myhealth.css"/>
+    <link rel="stylesheet" href="../css/buypeitem.css"/>
+     <link rel="stylesheet" href="../css/payment.css"/>
+    <title>订单详情</title>
+</head>
+<body>
+<div class="container">
+	<div class='header'>
+		 <img class="head_img " src="../images/head_portrait.jpg" alt="" />
+		 <ul class='div_ul'>
+			<li class='head_span1'>￥<i>12000</i></li>
+			<li class='head_span2'>体检订单</li>
+		
+	</div>
+    <main class="pay col-lg-12 col-xs-12 col-md-12 col-sm-12">
+		<ul>
+			<li><a href="paymentresult.html" class="wechat col-lg-12 col-lg-12 col-lg-12 col-lg-12"> 
+				<img class="wechat_img " src="../images/wechat.png" alt="" />
+				<i class=''>微信支付</i>
+				<img class='' src="../images/arrows.png"></a>
+			</li>
+			<li><a href="#" class="alipay col-lg-12 col-lg-12 col-lg-12 col-lg-12"> 
+				<img class="alipay_img " src="../images/alipay.png" alt="" /><i>支付宝支付</i><img  src="../images/arrows.png"></a>
+			</li>
+			<li><a href="#" class="unionpay col-lg-12 col-lg-12 col-lg-12 col-lg-12"> 
+				<img class="unionpay_img " src="../images/unionpay.png" alt="" /><i>网上银行支付</i><img  src="../images/arrows.png"></a>
+			</li>
+		</ul>
+				
+    </main>
+	
+    <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
+       <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4">
+     		<img class="My_health_img " src="../images/My_health.png" alt=""/>
+        	<span>我的体检</span>
+        </a>
+        <a href="privacy.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        <img class="TJ_guide_img " src="../images/TJ_guide.png" alt=""/>
+        	<span>关心的人</span>
+        </a>
+     
+        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        	<img class="my_message_img " src="../images/my_message.png" alt=""/>
+        	<span>我的信息</span>
+       	</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="../js/URL.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
+<!-- <script type="text/javascript" src="../js/myhealth.js"></script> -->
+<!-- <script type="text/javascript" src="../js/md5.js"></script> -->
+<script type="text/javascript" src="../js/buype.js"></script>
+<script type="text/javascript" src="../js/payment.js"></script>
+<script type="text/javascript">
+var userId  = ReadCookie("userId");
+$(document).ready(function () {
+	function ReadCookie(cookieName) {
+	    var theCookie = "" + document.cookie;
+	    var ind = theCookie.indexOf(cookieName);
+	    if(ind==-1 || cookieName=="") return "";
+	    var ind1 = theCookie.indexOf(';',ind);
+	    if(ind1==-1) ind1 = theCookie.length;
+	    /*读取Cookie值*/
+	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	}
+        $('.My_health_img ').attr("src", "../images/My_health_1.png");
+        $('.My_health span').css('color','rgb(126, 200, 136)');
+        var deluserId =delCookie("userId");
+   <!--我的体检项目-->
+   		/* relevance(userId);
+   		spend(userId);
+   		glide(); */
+});       
+
+
+</script>
+</html>

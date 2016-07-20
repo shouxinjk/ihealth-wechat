@@ -50,8 +50,13 @@
 .buy_phone{
 	
 }
+.active a{
+	color: #fff;
+}
 .active{
 	background: #67d600;
+	float: right;
+	
 }
 .buy_footer img{
 	height: 1rem;
@@ -82,12 +87,20 @@
 	margin-top: .7rem !important;
 }
 
+.buydiv{
+	padding:0;
+}
 
+input.subcheck.nocheck{
+	margin-top: 0.6rem;
+}
 
-
-
-
-
+ /* .buyul li input[type='checkbox']:checked{
+  	 background-color: red;
+  } */
+.ulimg{
+	margin-top: .5rem; 
+}
 
 
 

@@ -293,7 +293,9 @@ function intn(userId){
 
 //购买体检套餐
 $('.xmtable').delegate(".buy",'click',function(){ 
-	var tname ='';
+	
+	window.location =urll +"/subject/buypeitem.html";
+	/*var tname ='';
 	var userId=$('.buy').attr('data-userid');
 	var check_id;
 	var check;
@@ -319,10 +321,10 @@ $('.xmtable').delegate(".buy",'click',function(){
         		
         }
 	});
-	/*if(check.length ==0){
+	if(check.length ==0){
 		alert('请选择购买的项目！');
 		return;
-	}*/
+	}
 	$.ajax({
         type: "post",
         url: url+"/restOrder/addOrder",
@@ -334,9 +336,9 @@ $('.xmtable').delegate(".buy",'click',function(){
         success: function (r) {
         	var orderid = r.orderid;
         	//alert(r.msg)
-        	window.location =wechatUrl +"/subject/buypeitem.html?orderid="+orderid;
+        	window.location =urll +"/subject/buypeitem.html?orderid="+orderid;
         }
-	});
+	});*/
 });
 
 

@@ -598,11 +598,13 @@ function carep(userId){
 									"</div>"+
 									"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
 								"</div>";*/
-							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].connection+"\")'>"+
-									"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\">"+
+							str+="<div  class=\"Care_one line-normal-wrapper\" >"+
+							"<div class= \"item  line-scroll-wrapper  \">"+	
+							"<div class= \"line-normal-wrapper\" onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].connection+"\")'>"+	
+							"<div class=\"Care_img  \">"+
 										"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 									"</div>"+
-									"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
+									"<div class=\"Care_guanxi \">"+
 										"<div class=\"Care_guanxi_\"> "+
 											"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
 											"<i  class=\"relation\">/"+data[i].connection+"</i>"+
@@ -617,10 +619,12 @@ function carep(userId){
 											}
 											str +="</div>"+
 									"</div>"+
-									"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
+									"<div class=\"Care_img1 \">"+
 										"<img src=\"../images/arrows.png\" alt=\"\"/>"+
 									"</div>"+
-									
+									"</div>"+
+									"<div class=\"delg line-btn-delete \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'><img src=\"../images/delgx.png\" alt=\"\"/><span>取消</span></div>"+
+									"</div>"+
 								"</div>";
 								//str+="<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
 						}else{
@@ -633,11 +637,13 @@ function carep(userId){
 								"<i  class=\"relation\">("+data[i].connection+")</i>"+
 							"</div>"+*/
 							//"<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>"+
-							str+="<div  class=\"Care_one col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].connection+"\")'>"+
-										"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\" >"+
+							str+="<div  class=\"Care_one line-wrapper\"  >"+
+									"<div class= \"item  line-scroll-wrapper\">"+
+									"<div class= \"line-normal-wrapper\"	onclick='revamp(\""+data[i].USER_ID+"\",\""+data[i].uismodify+"\",\""+data[i].isprivacy+"\",\""+data[i].connection+"\")'>"+
+									"<div class=\"Care_img \" >"+
 											"<img src=\"../images/defaultimg.png\" alt=\"\"/>"+
 										"</div>"+
-										"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
+										"<div class=\"Care_guanxi \">"+
 											"<div class=\"Care_guanxi_\"> "+
 												"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
 												"<i  class=\"relation\">/"+data[i].connection+"</i>"+
@@ -652,8 +658,12 @@ function carep(userId){
 												}
 												str +="</div>"+
 										"</div>"+
-										"<div class=\"Care_img1 col-lg-3 col-xs-3 col-md-3 col-sm-3\">"+
+										"<div class=\"Care_img1 \">"+
 											"<img src=\"../images/arrows.png\" alt=\"\"/>"+
+										"</div>"+
+										"</div>"+
+										"<div class=\"delg line-btn-delete\" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'><img src=\"../images/delgx.png\" alt=\"\"/><span>取消</span></div>"+
+										
 										"</div>"+
 										"</div>";
 										//str += "<div class=\"cancel \" onclick='delguan(\""+data[i].useranduser_id+"\",\""+userId+"\")'>取消关注</div>";
@@ -671,6 +681,7 @@ function carep(userId){
 				 $('.content').html(str);
 			}
 	});
+	
 }
 function adduser(){
 	var str = "<table style='display: block; width:100%;'>" +
@@ -910,6 +921,7 @@ function delguan(useranduserid,userId){
 		success:function(r){
 			if(r.result == "success"){
 				carep(userId);
+				huand();
 				}else{
 					alert('程序异常！');
 				}
@@ -918,7 +930,79 @@ function delguan(useranduserid,userId){
 }
 
 
-
+function huand(){
+	   // 设定每一行的宽度=屏幕宽度+按钮宽度
+	   $(".line-scroll-wrapper").width($(".line-wrapper").width() + $(".line-btn-delete").width());
+	    // 设定常规信息区域宽度=屏幕宽度
+	    $(".line-normal-wrapper").width($(".line-wrapper").width());
+	    // 设定文字部分宽度（为了实现文字过长时在末尾显示...）
+	   
+	    // 获取所有行，对每一行设置监听
+	    var lines = $(".line-normal-wrapper");
+	    var len = lines.length;
+	    var lastX, lastXForMobile;
+	    // 用于记录被按下的对象
+	    var pressedObj;  // 当前左滑的对象
+	    var lastLeftObj; // 上一个左滑的对象
+	    // 用于记录按下的点
+	    var start;
+	    // 网页在移动端运行时的监听
+	    for (var i = 0; i < len; ++i) {
+	        lines[i].addEventListener('touchstart', function(e){
+	            lastXForMobile = e.changedTouches[0].pageX;
+	            pressedObj = this; // 记录被按下的对象
+	            // 记录开始按下时的点
+	            var touches = event.touches[0];
+	            start = {
+	                x: touches.pageX, // 横坐标
+	                y: touches.pageY  // 纵坐标
+	            };
+	        });
+	        lines[i].addEventListener('touchmove',function(e){
+	            // 计算划动过程中x和y的变化量
+	            var touches = event.touches[0];
+	            delta = {
+	                x: touches.pageX - start.x,
+	                y: touches.pageY - start.y
+	            };
+	            // 横向位移大于纵向位移，阻止纵向滚动
+	            if (Math.abs(delta.x) > Math.abs(delta.y)) {
+	                event.preventDefault();
+	            }
+	        });
+	        lines[i].addEventListener('touchend', function(e){
+	            var diffX = e.changedTouches[0].pageX - lastXForMobile;
+	            if (diffX < -150) {
+	                $(pressedObj).animate({marginLeft:"-40px"}, 500); // 左滑
+	                lastLeftObj && lastLeftObj != pressedObj &&
+	                $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+	                lastLeftObj = pressedObj; // 记录上一个左滑的对象
+	            } else if (diffX > 150) {
+	                $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+	                lastLeftObj = null; // 清空上一个左滑的对象
+	            }
+	        });
+	    }
+	    // 网页在PC浏览器中运行时的监听
+	    for (var i = 0; i < len; ++i) {
+	        $(lines[i]).bind('mousedown', function(e){
+	            lastX = e.clientX;
+	            pressedObj = this; // 记录被按下的对象
+	        });
+	        $(lines[i]).bind('mouseup', function(e){
+	            var diffX = e.clientX - lastX;
+	            if (diffX < -150) {
+	                $(pressedObj).animate({marginLeft:"-40px"}, 500); // 左滑
+	                lastLeftObj && lastLeftObj != pressedObj &&
+	                $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+	                lastLeftObj = pressedObj; // 记录上一个左滑的对象
+	            } else if (diffX > 150) {
+	                $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+	                lastLeftObj = null; // 清空上一个左滑的对象
+	            }
+	        });
+	    }
+}
 
 
 

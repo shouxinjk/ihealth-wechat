@@ -1,0 +1,59 @@
+li{
+	list-style:none;
+	font-size: .8rem;
+	line-height: 1.5rem;
+}
+ i{ font-style:normal}
+
+.header {
+	border-bottom: .05rem solid;
+	height: 5rem;
+	/* line-height: 5rem; */
+	padding-top: 3rem;
+	padding-left: 2rem;
+}
+.header p{
+	color: red;
+}
+.order_number ul{
+	border-bottom: .05rem solid;
+}
+.order_number{
+	padding:0;
+}
+.order_number p{
+	padding-left: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
