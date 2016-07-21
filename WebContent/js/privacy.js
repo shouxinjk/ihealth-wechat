@@ -97,12 +97,12 @@ $('.container').delegate(".Headerul li","click",function(){
 	        lines[i].addEventListener('touchend', function(e){
 	            var diffX = e.changedTouches[0].pageX - lastXForMobile;
 	            if (diffX < -150) {
-	                $(pressedObj).animate({marginLeft:"-40px"}, 500); // 左滑
+	                $(pressedObj).animate({marginLeft:"-40px"}, 200); // 左滑
 	                lastLeftObj && lastLeftObj != pressedObj &&
-	                $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+	                $(lastLeftObj).animate({marginLeft:"0"}, 200); // 已经左滑状态的按钮右滑
 	                lastLeftObj = pressedObj; // 记录上一个左滑的对象
 	            } else if (diffX > 150) {
-	                $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+	                $(pressedObj).animate({marginLeft:"0"}, 200); // 右滑
 	                lastLeftObj = null; // 清空上一个左滑的对象
 	            }
 	        });
@@ -116,12 +116,12 @@ $('.container').delegate(".Headerul li","click",function(){
 	        $(lines[i]).bind('mouseup', function(e){
 	            var diffX = e.clientX - lastX;
 	            if (diffX < -150) {
-	                $(pressedObj).animate({marginLeft:"-40px"}, 500); // 左滑
+	                $(pressedObj).animate({marginLeft:"-40px"}, 200); // 左滑
 	                lastLeftObj && lastLeftObj != pressedObj &&
-	                $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+	                $(lastLeftObj).animate({marginLeft:"0"}, 200); // 已经左滑状态的按钮右滑
 	                lastLeftObj = pressedObj; // 记录上一个左滑的对象
 	            } else if (diffX > 150) {
-	                $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+	                $(pressedObj).animate({marginLeft:"0"}, 200); // 右滑
 	                lastLeftObj = null; // 清空上一个左滑的对象
 	            }
 	        });
