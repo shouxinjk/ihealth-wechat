@@ -15,6 +15,7 @@ $(function () {
     })(jQuery);
     var orderid = $.getUrlParam('orderid');*/
     //console.log(orderid);
+	var userId  = ReadCookie("userId");
     $.ajax({
         type: "post",
         url: url+"/restOrder/getCheckItemsByGroup",
