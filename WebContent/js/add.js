@@ -52,7 +52,7 @@ var  basic = "<table style='display: block; width:100%;height:100%;'>" +
         "<tr class='birthday col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
             "<td style='padding:0'>生日：</td>" +
             "<td >" +
-                "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"如:19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
+                "<input type=\"text\" maxlength=\"4\" name=\"appDate\" id=\"appDate\" class=\"\" placeholder=\"如:19920101\"  value='' />" +
             "</td>" +
         "</tr>" +
         "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
@@ -173,7 +173,7 @@ var  basic_1 = "<table style='display: block; width:100%;height:100%;'>" +
     "<tr class='birthday col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
         "<td style='padding:0'>生日：</td>" +
         "<td>" +
-            "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"如:19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
+        	"<input type=\"text\" maxlength=\"4\" name=\"appDate\" id=\"appDate\" class=\"\"  placeholder=\"如:19920101\"  value='' />" +
         "</td>" +
     "</tr>" +
     "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
@@ -292,7 +292,7 @@ var  basic_ck = "<table style='display: block; width:100%;height:100%;'>" +
     "<tr class='birthday col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
         "<td style='padding:0'>生日：</td>" +
         "<td>" +
-            "<input type=\"text\" maxlength=\"4\" name=\"date\" class=\"Wdate\" placeholder=\"如:19920101\"  value='' onfocus=\"WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})\"/>" +
+        	"<input type=\"text\" maxlength=\"4\" name=\"appDate\" id=\"appDate\" class=\"\" placeholder=\"如:19920101\"  value='' />" +
         "</td>" +
     "</tr>" +
     "<tr class='stature col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +

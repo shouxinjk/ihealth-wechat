@@ -127,10 +127,11 @@ function msgsave(userId){
 	
 	var CAREER=$("#s1 option:selected").text();//获取职业
     var DEGREE=$("#s2 option:selected").val();//获取学历
-    var BIRTHDAY=$('.Wdate').val();//获取生日
+    var BIRTHDAY=$('#appDate').val();//获取生日
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
     var phone = $('#vali').val();//获取手机号
+    
    // if(phone != ''){
     	  $.ajax({
   	        type: "post",
@@ -189,7 +190,7 @@ function msgsave_1(userId){
 	var CAREER=$("#s1 option:selected").text();//获取职业
     var DEGREE=$("#s2 option:selected").val();//获取学历
     var relation =$("#relation").val();
-    var BIRTHDAY=$('.Wdate').val();//获取生日
+    var BIRTHDAY=$('#appDate').val();//获取生日
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
     var phone = $('#vali').val();//获取手机号
@@ -840,6 +841,24 @@ function lookupUser1(id){
 function findByUserId(userId){
 	$('.Headerul').hide();
 	$('.content').html(basic);
+	 var currYear = (new Date()).getFullYear();	
+		var opt={};
+		opt.date = {preset : 'date'};
+		opt.datetime = {preset : 'datetime'};
+		opt.time = {preset : 'time'};
+		opt.default = {
+			theme: 'android-ics light', //皮肤样式
+	        display: 'modal', //显示方式 
+	        mode: 'scroller', //日期选择模式
+			dateFormat: 'yyyy-mm-dd',
+			lang: 'zh',
+			showNow: true,
+			nowText: "今天",
+	        startYear: currYear - 10, //开始年份
+	        endYear: currYear + 10 //结束年份
+		};
+
+	  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
 	//$('.iphone').remove();
 	//("#li1,#li2,#li3").css('display','none');
 	$('#li1').css('color', 'rgb(126, 200, 136)');

@@ -42,7 +42,7 @@ function jibenxinxi(userId){
 					
 					$("#s1 option:selected").text(data.CAREER);//获取职业
 					$("#s2 option:selected").text(data.DEGREE);//获取学历
-					$('.Wdate').val(data.BIRTHDAY);//获取生日
+					$('#appDate').val(data.BIRTHDAY);//获取生日
 					$('.height').val(data.HEIGHT);//获取身高
 					$('.weigth').val(data.WEIGHT);//获取体重
 					$('#vali').val(data.PHONE);//获取手机号
@@ -64,18 +64,35 @@ function jibenxinxi(userId){
 	}
 function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基本信息
 	//$('.Headerul').hide();
-	var strr ="<div class='information_header col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
-				"<ul>"+
-					"<li id='li_1' class=''>"+
-						"<img class='portrait'  src='../images/head_portrait.jpg' alt=''/>"+
-						"<span id='headname' class='headname'></span>"+
-					"</li>"+
-					"<li id='li1' class='information_header_li active '>基本信息</li>"+
-					"<li id='li2' class='information_header_li '>生活方式</li>"+
-					"<li id='li3' class='information_header_li '>疾病信息</li>"+
-					
-				"</ul>"+
-			"</div>";
+	if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
+		var strr ="<div class='information_header col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+		"<ul>"+
+			"<li id='li_1' class=''>"+
+				"<img class='portrait'  src='../images/head_portrait.jpg' alt=''/>"+
+				"<span id='headname' class='headname'></span>"+
+			"</li>"+
+			"<li id='li1' class='information_header_li active '>基本信息</li>"+
+			"<li id='li2' style='pointer-events: none;' class='information_header_li '>生活方式</li>"+
+			"<li id='li3' style='pointer-events: none;' class='information_header_li '>疾病信息</li>"+
+			
+		"</ul>"+
+	"</div>";
+		
+	}else{
+		var strr ="<div class='information_header col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+		"<ul>"+
+			"<li id='li_1' class=''>"+
+				"<img class='portrait'  src='../images/head_portrait.jpg' alt=''/>"+
+				"<span id='headname' class='headname'></span>"+
+			"</li>"+
+			"<li id='li1' class='information_header_li active '>基本信息</li>"+
+			"<li id='li2' class='information_header_li '>生活方式</li>"+
+			"<li id='li3' class='information_header_li '>疾病信息</li>"+
+			
+		"</ul>"+
+	"</div>";
+	};
+	
 	
 	$('.Header').html(strr);
 	
@@ -93,7 +110,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 				input1.attr("disabled","disabled");
 			 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
 				$('#username').attr('readOnly',true); //姓名更改为只读方式
-				$('.Wdate').attr("disabled", true);//生日更改为只读方式
+				$('#appDate').attr("disabled", true);//生日更改为只读方式
 				$('.height').attr('readOnly',true);//身高更改为只读方式
 				$('.weigth').attr('readOnly',true);//体重更改为只读方式
 				$("#pro").prop("disabled", true);//出生地更改为只读方式
@@ -104,6 +121,24 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 				$("#s2").prop("disabled", true);//学历更改为只读方式
 			 if(ismodify == 1 || ismodify == 'undefined'){
 				 $('.content').html(basic_1);
+				/* var currYear = (new Date()).getFullYear();	
+					var opt={};
+					opt.date = {preset : 'date'};
+					opt.datetime = {preset : 'datetime'};
+					opt.time = {preset : 'time'};
+					opt.default = {
+						theme: 'android-ics light', //皮肤样式
+				        display: 'modal', //显示方式 
+				        mode: 'scroller', //日期选择模式
+						dateFormat: 'yyyy-mm-dd',
+						lang: 'zh',
+						showNow: true,
+						nowText: "今天",
+				        startYear: currYear - 10, //开始年份
+				        endYear: currYear + 10 //结束年份
+					};
+
+				  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));*/
 				 //$('.upname').html('您正在修改关心人的信息！');
 				 //$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
 			 }
@@ -117,7 +152,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			input1.attr("disabled","disabled");
 		 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
 			$('#username').attr('readOnly',true); //姓名更改为只读方式
-			$('.Wdate').attr("disabled", true);//生日更改为只读方式
+			$('#appDate').attr("disabled", true);//生日更改为只读方式
 			$('.height').attr('readOnly',true);//身高更改为只读方式
 			$('.weigth').attr('readOnly',true);//体重更改为只读方式
 			$("#pro").prop("disabled", true);//出生地更改为只读方式
@@ -191,7 +226,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 					
 					$("#s1 option:selected").text(data.CAREER);//获取职业
 					$("#s2 option:selected").text(data.DEGREE);//获取学历
-					$('.Wdate').val(data.BIRTHDAY);//获取生日
+					$('#appDate').val(data.BIRTHDAY);//获取生日
 					
 					if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 						$(".weigth").val("**");
@@ -263,7 +298,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			input1.attr("disabled","disabled");
 		 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
 			$('#username').attr('readOnly',true); //姓名更改为只读方式
-			$('.Wdate').attr("disabled", true);//生日更改为只读方式
+			$('#appDate').attr("disabled", true);//生日更改为只读方式
 			$('.height').attr('readOnly',true);//身高更改为只读方式
 			$('.weigth').attr('readOnly',true);//体重更改为只读方式
 			$("#pro").prop("disabled", true);//出生地更改为只读方式
@@ -274,6 +309,24 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			$("#s2").prop("disabled", true);//学历更改为只读方式
 		 if(ismodify == 1 || ismodify == 'undefined'){
 			 $('.content').html(basic_1);
+			 var currYear = (new Date()).getFullYear();	
+				var opt={};
+				opt.date = {preset : 'date'};
+				opt.datetime = {preset : 'datetime'};
+				opt.time = {preset : 'time'};
+				opt.default = {
+					theme: 'android-ics light', //皮肤样式
+			        display: 'modal', //显示方式 
+			        mode: 'scroller', //日期选择模式
+					dateFormat: 'yyyy-mm-dd',
+					lang: 'zh',
+					showNow: true,
+					nowText: "今天",
+			        startYear: currYear - 10, //开始年份
+			        endYear: currYear + 10 //结束年份
+				};
+
+			  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
 			 //$('.upname').html('您正在修改关心人的信息！');
 			 //$('#li1').before('<span style="font-size: .7rem;padding: 0;text-align: center;" id="up" class="upname col-lg-12 col-xs-12 col-md-12 col-sm-12">您正在修改关心人的信息！</span>');
 		 }
@@ -287,7 +340,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 		input1.attr("disabled","disabled");
 	 	$("#marriageM ").prop("disabled", true);//婚姻状况更改为只读方式
 		$('#username').attr('readOnly',true); //姓名更改为只读方式
-		$('.Wdate').attr("disabled", true);//生日更改为只读方式
+		$('#appDate').attr("disabled", true);//生日更改为只读方式
 		$('.height').attr('readOnly',true);//身高更改为只读方式
 		$('.weigth').attr('readOnly',true);//体重更改为只读方式
 		$("#pro").prop("disabled", true);//出生地更改为只读方式
@@ -361,7 +414,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 				
 				$("#s1 option:selected").text(data.CAREER);//获取职业
 				$("#s2 option:selected").text(data.DEGREE);//获取学历
-				$('.Wdate').val(data.BIRTHDAY);//获取生日
+				$('#appDate').val(data.BIRTHDAY);//获取生日
 				
 				if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 					$(".weigth").val("**");
