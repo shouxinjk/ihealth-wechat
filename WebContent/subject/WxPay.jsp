@@ -19,6 +19,7 @@ $.ajax({
 	success:function(data){
 		var da = eval(data);
 		alert(da.appid);
+		alert(da.signature);
 		wx.config({
 		    debug: true,
 		    appId: da.appid,

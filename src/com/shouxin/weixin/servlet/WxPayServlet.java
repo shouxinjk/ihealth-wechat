@@ -41,7 +41,7 @@ public class WxPayServlet extends HttpServlet {
 		String timestamp = String.valueOf(time);
 		String nonceStr = RandomStr.getNum(15);
 		String signature = "jsapi_ticket="+jsapiticket+"&noncestr="+nonceStr+"&timestamp="+timestamp+"&url="+
-							"http://localhost:8080/ihealth-wechat/subject/WxPay.jsp";
+							"http://test.shouxinjk.net/ihealth-wechat/subject/WxPay.jsp";
 		String sha1Str = "";
 		try {
 			sha1Str = SHA1.gen(signature);
