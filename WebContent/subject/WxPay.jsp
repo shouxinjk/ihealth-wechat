@@ -8,7 +8,7 @@
 
 </head>
 <body>
-
+<button onclick="show();">shouxinjk</button>
 </body>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
@@ -17,51 +17,29 @@ $.ajax({
 	url:"/ihealth-wechat/wxPayServlet",
 	type:"post",
 	success:function(data){
-		alert(1)
+		var da = eval(data);
+		wx.config({
+		    debug: false,
+		    appId: da.appid,
+		    timestamp: da.timestamp,
+		    nonceStr: da.nonceStr,
+		    signature: da.signature,
+		    jsApiList: [
+		      'chooseImage'
+		    ]
+		});
 	}
 });
-/* wx.config({
-    debug: false,
-    appId: 'wx6dfe82ae4fab747f',
-    timestamp: 1420774989,
-    nonceStr: '2nDgiWM7gCxhL8v0',
-    signature: '1f8a6552c1c99991fc8bb4e2a818fe54b2ce7687',
-    jsApiList: [
-      'checkJsApi',
-      'onMenuShareTimeline',
-      'onMenuShareAppMessage',
-      'onMenuShareQQ',
-      'onMenuShareWeibo',
-      'hideMenuItems',
-      'showMenuItems',
-      'hideAllNonBaseMenuItem',
-      'showAllNonBaseMenuItem',
-      'translateVoice',
-      'startRecord',
-      'stopRecord',
-      'onRecordEnd',
-      'playVoice',
-      'pauseVoice',
-      'stopVoice',
-      'uploadVoice',
-      'downloadVoice',
-      'chooseImage',
-      'previewImage',
-      'uploadImage',
-      'downloadImage',
-      'getNetworkType',
-      'openLocation',
-      'getLocation',
-      'hideOptionMenu',
-      'showOptionMenu',
-      'closeWindow',
-      'scanQRCode',
-      'chooseWXPay',
-      'openProductSpecificView',
-      'addCard',
-      'chooseCard',
-      'openCard'
-    ]
-}); */
+function show(){
+	wx.chooseImage({
+	    count: 1, // 默认9
+	    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+	    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+	    success: function (res) {
+	        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+	    }
+	});
+}
+/*  */
 </script>
 </html>
