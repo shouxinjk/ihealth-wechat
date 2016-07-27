@@ -322,8 +322,8 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 					lang: 'zh',
 					showNow: true,
 					nowText: "今天",
-			        startYear: currYear - 10, //开始年份
-			        endYear: currYear + 10 //结束年份
+			        startYear: currYear - 86, //开始年份1930年
+			        endYear: currYear  //结束年份现在的日期
 				};
 
 			  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
