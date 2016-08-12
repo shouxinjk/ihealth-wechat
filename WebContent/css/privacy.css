@@ -145,6 +145,7 @@ input{
 }
 .Care_guanxi {
 	width: 60%;
+	margin-top: .5rem;
 }
 .Care_guanxi_,.Care_addr {
 	width:100%;

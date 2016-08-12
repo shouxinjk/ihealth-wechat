@@ -85,9 +85,10 @@ $('.information_header .information_header_li').click(function(){
         listDisease(userId);
         $('.message_next1').remove();
     }
-    if(liID == 'li4'){
+    if(liID == 'li4'){  //亚健康
         //carep(userId);
-    	window.location="../subject/privacy.html";
+    	sub_health(userId);
+    	//window.location="../subject/privacy.html";
     }
 });
 
@@ -295,6 +296,7 @@ function on_click_2(userId){   //修改关心人的生活方式
 
 
 function listDisease(userId){//疾病信息
+	console.log(userId);
 	 $.ajax({
 		  	url:url+"/restdisease/listAllDiseaseByUserID",
 	  		type:"post",
@@ -376,7 +378,7 @@ function listDisease(userId){//疾病信息
 				    			if(userId == ReadCookie("userId")){
 				    				 str+="<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='on_click3(\""+userId+"\")'>下一步</a>" ;
 				    			}else{
-				    				str+= "<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='addUserAndUser(\""+userId+"\")'>确定添加</a>" ;
+				    				str+= "<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='addUserAndUser(\""+userId+"\")'>下一步</a>" ;
 				    			}
 				                   
 				                str+= "</p>" +
@@ -489,11 +491,6 @@ function listDisease_1(userId){//修改关心人的疾病信息
 }
 
 
-
-
-
-
-
 function on_click3(userId){   //疾病信息 下一步
 	$.ajax({
 		url:url+"/restdisease/updateDisease",
@@ -512,7 +509,8 @@ function on_click3(userId){   //疾病信息 下一步
 		success:function(delr){
 			if(delr.msg == "success"){
 				//carep(userId);
-				window.location="../subject/Message.html";
+				//window.location="../subject/Message.html";
+				sub_health(userId);
 			}
 		}
 	});
@@ -520,7 +518,106 @@ function on_click3(userId){   //疾病信息 下一步
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
 }
-function on_click_3(userId){//新用户
+
+
+
+function sub_health(userId){  //用户自己 亚健康
+	$.ajax({
+		url : url+'/restSubhealth/listAllTSubhealthAndCategory',
+		type : 'post',
+		contentType:'application/json;charset=utf8',
+		data:JSON
+			.stringify({
+				"userID" : userId
+			}),
+		dataType : "json",
+  		async : false,
+		cache : false,
+		success : function(r) {
+			var data1 = eval(r.categorydata);
+			var data2 = eval(r.subdata);
+			var data3 = eval(r.userdata);
+			var i='';
+			var str3 = "";
+			if (r.creategoryResult == 'success') {
+				$('.content').html('');
+				for (var i = 0; i < data1.length; i++) {
+					var str1 = "";
+					var str = "";
+						str += "<div class='ddiv livediv col-lg-12 col-xs-12 col-md-12 col-sm-12' data-name='ddiv"+(i+1)+"' id='ddiv"
+							+ (i + 1)
+							+ "'>"
+							+ "<span class='col-lg-3 col-xs-3 col-md-3 col-sm-3' >"
+							+ data1[i].NAME + "</span>" + "</div>";
+						if (r.subhealthResult == 'success') {
+							 str1 += "<ul class='liveul col-lg-9 col-xs-9 col-md-9 col-sm-9'>";
+								for (var a = 0; a < data2.length; a++) {
+									if(data2[a].SUBHEALTHCATEGORY_ID == data1[i].SUBHEALTHCATEGORY_ID){
+										str1 +="<li "
+										if( data3!=undefined){
+										for(var b=0; b<data3.length; b++){
+											if(data3[b].SUBHEALTH_ID == data2[a].SUBHEALTH_ID){
+												str1 += "class='livefs livefs_3'"
+												}
+											}
+										str1 +=">"+ data2[a].NAME+ "<input type='hidden' value='"+data2[a].SUBHEALTH_ID+"'/></li>";
+										}
+										
+									}
+									
+								}
+								str1 += "</ul>";
+							
+						}
+						$('.content').append(str);
+						$("#ddiv" + (i+ 1)).append(str1);
+				}
+				
+			
+			str3 += "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+						+ "<p style=\"display: block\">"
+						+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='sub_click2(\""+userId+"\")'>下一步</a>"
+						+ "</p>" + "</div>";
+				$('.content').append(str3);
+				
+			}else{
+				var str4 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+					+ "<p style=\"display: block\">"
+					+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='sub_click2(\""+userId+"\")'>下一步</a>"
+					+ "</p>" + "</div>";
+			$('.content').html(str4);
+			}
+		}
+	})
+}
+function sub_click2(userId){  //亚健康修改或保存
+		var str=""
+			$(".livefs_3 input").each(function() {
+				str += $(this).val()+","
+		    });
+	$.ajax({
+		url:url+"/restSubhealth/updateSubhealth",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"userID" : userId,
+  				"subhealthID" :str
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(r){
+			if(r.msg == "success"){
+				window.location="../subject/Message.html";
+			}
+		}
+	});
+}
+
+
+
+function on_click_3(userId){//新用户 修改关系的人
 		$.ajax({
 			url:url+"/restdisease/updateDisease",
 	  		type:"post",
@@ -539,7 +636,8 @@ function on_click_3(userId){//新用户
 				if(delr.msg == "success"){
 					var userId = ReadCookie("userId");
 					//carep(userId);
-					window.location="../subject/privacy.html";
+					sub_health_1(userId);
+					//window.location="../subject/privacy.html";
 				}
 			}
 		});
@@ -549,6 +647,103 @@ function on_click_3(userId){//新用户
 	    $("#li4").addClass('active');
 	    $("#li3").removeClass('active');
 }
+
+function sub_health_1(userId){  //用户自己 亚健康
+	$.ajax({
+		url : url+'/restSubhealth/listAllTSubhealthAndCategory',
+		type : 'post',
+		contentType:'application/json;charset=utf8',
+		data:JSON
+			.stringify({
+				"userID" : userId
+			}),
+		dataType : "json",
+  		async : false,
+		cache : false,
+		success : function(r) {
+			var data1 = eval(r.categorydata);
+			var data2 = eval(r.subdata);
+			var data3 = eval(r.userdata);
+			var i='';
+			var str3 = "";
+			if (r.creategoryResult == 'success') {
+				$('.content').html('');
+				for (var i = 0; i < data1.length; i++) {
+					var str1 = "";
+					var str = "";
+						str += "<div class='ddiv livediv col-lg-12 col-xs-12 col-md-12 col-sm-12' data-name='ddiv"+(i+1)+"' id='ddiv"
+							+ (i + 1)
+							+ "'>"
+							+ "<span class='col-lg-3 col-xs-3 col-md-3 col-sm-3' >"
+							+ data1[i].NAME + "</span>" + "</div>";
+						if (r.subhealthResult == 'success') {
+							 str1 += "<ul class='liveul col-lg-9 col-xs-9 col-md-9 col-sm-9'>";
+								for (var a = 0; a < data2.length; a++) {
+									if(data2[a].SUBHEALTHCATEGORY_ID == data1[i].SUBHEALTHCATEGORY_ID){
+										str1 +="<li "
+										if( data3!=undefined){
+										for(var b=0; b<data3.length; b++){
+											if(data3[b].SUBHEALTH_ID == data2[a].SUBHEALTH_ID){
+												str1 += "class='livefs livefs_3'"
+												}
+											}
+										str1 +=">"+ data2[a].NAME+ "<input type='hidden' value='"+data2[a].SUBHEALTH_ID+"'/></li>";
+										}
+										
+									}
+									
+								}
+								str1 += "</ul>";
+							
+						}
+						$('.content').append(str);
+						$("#ddiv" + (i+ 1)).append(str1);
+				}
+				
+			
+			str3 += "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+						+ "<p style=\"display: block\">"
+						+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='sub_click2_1(\""+userId+"\")'>下一步</a>"
+						+ "</p>" + "</div>";
+				$('.content').append(str3);
+				
+			}else{
+				var str4 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+					+ "<p style=\"display: block\">"
+					+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='sub_click2_1(\""+userId+"\")'>下一步</a>"
+					+ "</p>" + "</div>";
+			$('.content').html(str4);
+			}
+		}
+	})
+}
+function sub_click2_1(userId){  //亚健康修改或保存
+		var str=""
+			$(".livefs_3 input").each(function() {
+				str += $(this).val()+","
+		    });
+	$.ajax({
+		url:url+"/restSubhealth/updateSubhealth",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"userID" : userId,
+  				"subhealthID" :str
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(r){
+			if(r.msg == "success"){
+				window.location="../subject/privacy.html";
+			}
+		}
+	});
+}
+
+
+
 
 function black_(){
 	var userId = ReadCookie("userId");
@@ -791,6 +986,7 @@ function lookupUser(userId){
 		}
 	});
 }
+
 function addition(id){
 	
 	$('#'+id).addClass('color').siblings().removeClass('color');
@@ -875,6 +1071,7 @@ function findByUserId(userId){
 			"<li id='li1' class='information_header_li active '>基本信息</li>"+
 			"<li id='li2' class='information_header_li '>生活方式</li>"+
 			"<li id='li3' class='information_header_li '>疾病信息</li>"+
+			"<li id='li4' class='information_header_li '>亚健康</li>"+
 			
 		"</ul>"+
 		"</div>";
@@ -902,16 +1099,118 @@ function addUserAndUser(userId){
 		cache : false,
 		success:function(r){
 			if(r.result == "success"){
-				//on_click3(user_id);
-				on_click_3(user_id);
+				//on_click_3(user_id);
+				sub_health_3(userId);
 				$("#li1,#li2,#li3,#li4").css('display','block');
-				$('#li4').css('margin-left', '0');
+				$('#li3').removeClass('active');
+			    $('#li4').addClass('active');
 				$('.addname').css('display','none');
 				$("#li1").css('color','#000000');
 			}
 		}
 	});
 }
+
+function sub_health_3(userId){  //添加关心人  亚健康
+	$.ajax({
+		url : url+'/restSubhealth/listAllTSubhealthAndCategory',
+		type : 'post',
+		contentType:'application/json;charset=utf8',
+		data:JSON
+			.stringify({
+				"userID" : userId
+			}),
+		dataType : "json",
+  		async : false,
+		cache : false,
+		success : function(r) {
+			var data1 = eval(r.categorydata);
+			var data2 = eval(r.subdata);
+			var data3 = eval(r.userdata);
+			var i='';
+			var str3 = "";
+			if (r.creategoryResult == 'success') {
+				$('.content').html('');
+				for (var i = 0; i < data1.length; i++) {
+					var str1 = "";
+					var str = "";
+						str += "<div class='ddiv livediv col-lg-12 col-xs-12 col-md-12 col-sm-12' data-name='ddiv"+(i+1)+"' id='ddiv"
+							+ (i + 1)
+							+ "'>"
+							+ "<span class='col-lg-3 col-xs-3 col-md-3 col-sm-3' >"
+							+ data1[i].NAME + "</span>" + "</div>";
+						if (r.subhealthResult == 'success') {
+							 str1 += "<ul class='liveul col-lg-9 col-xs-9 col-md-9 col-sm-9'>";
+								for (var a = 0; a < data2.length; a++) {
+									if(data2[a].SUBHEALTHCATEGORY_ID == data1[i].SUBHEALTHCATEGORY_ID){
+										str1 +="<li "
+										if( data3!=undefined){
+										for(var b=0; b<data3.length; b++){
+											if(data3[b].SUBHEALTH_ID == data2[a].SUBHEALTH_ID){
+												str1 += "class='livefs livefs_3'"
+												}
+											}
+										str1 +=">"+ data2[a].NAME+ "<input type='hidden' value='"+data2[a].SUBHEALTH_ID+"'/></li>";
+										}
+										
+									}
+									
+								}
+								str1 += "</ul>";
+							
+						}
+						$('.content').append(str);
+						$("#ddiv" + (i+ 1)).append(str1);
+				}
+				
+			
+			str3 += "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+						+ "<p style=\"display: block\">"
+						+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='sub_click3(\""+userId+"\")'>确认添加</a>"
+						+ "</p>" + "</div>";
+				$('.content').append(str3);
+				
+			}else{
+				var str4 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
+					+ "<p style=\"display: block\">"
+					+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='sub_click3(\""+userId+"\")'>确认添加</a>"
+					+ "</p>" + "</div>";
+			$('.content').html(str4);
+			}
+		}
+	})
+}
+function sub_click3(userId){  //亚健康修改或保存
+		var str=""
+			$(".livefs_3 input").each(function() {
+				str += $(this).val()+","
+		    });
+	$.ajax({
+		url:url+"/restSubhealth/updateSubhealth",
+  		type:"post",
+  		contentType:'application/json;charset=utf8',
+  		data:JSON
+  			.stringify({
+  				"userID" : userId,
+  				"subhealthID" :str
+  			}),
+  		dataType : "json",
+  		async : false,
+		cache : false,
+		success:function(r){
+			if(r.msg == "success"){
+				window.location="../subject/privacy.html";
+			}
+		}
+	});
+}
+
+
+
+
+
+
+
 $('.content').delegate("#personage1",'click',function(){
 	$(".personage_illness_1").toggle(300);
 })

@@ -74,7 +74,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			"<li id='li1' class='information_header_li active '>基本信息</li>"+
 			"<li id='li2' style='pointer-events: none;' class='information_header_li '>生活方式</li>"+
 			"<li id='li3' style='pointer-events: none;' class='information_header_li '>疾病信息</li>"+
-			
+			"<li id='li4' style='pointer-events: none;' class='information_header_li '>亚健康</li>"+
 		"</ul>"+
 	"</div>";
 		
@@ -88,7 +88,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			"<li id='li1' class='information_header_li active '>基本信息</li>"+
 			"<li id='li2' class='information_header_li '>生活方式</li>"+
 			"<li id='li3' class='information_header_li '>疾病信息</li>"+
-			
+			"<li id='li4' class='information_header_li '>亚健康</li>"+
 		"</ul>"+
 	"</div>";
 	};
@@ -282,6 +282,15 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 	    	listDisease_1(userId);
 	    	//on_click_3(userId);
 	    	//$('.content').html('由于主人设置了隐私权限，您不查看以下内容！')
+	        $('.message_next1').remove();
+	    	}
+	    }
+	    if(liID == 'li4'){
+	    	if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
+	    		$('.content').html('对方设置了隐私保护，不能查看该内容，请联系确认!')
+		        $('.message_next1').remove();
+	    	}else{
+	    		sub_health_1(userId);
 	        $('.message_next1').remove();
 	    	}
 	    }
@@ -587,7 +596,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 						}else{
 							var str1 = "<div class='message_next2  col-lg-12 col-xs-12 col-md-12 col-sm-12'>"
 								+ "<p style=\"display: block\">"
-								+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='on_click2(\""+userId+"\")'>下一步</a>"
+								+ "<a href=\"#\" class=\"message_next_a2 weui_btn weui_btn_plain_primary\" onclick='on_click_2(\""+userId+"\")'>下一步</a>"
 								+ "</p>" + "</div>";
 						$('.content').html(str1);
 						}
