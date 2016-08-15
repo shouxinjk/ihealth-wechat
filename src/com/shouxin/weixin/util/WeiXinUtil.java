@@ -184,5 +184,47 @@ public class WeiXinUtil {
 		}
 		return ticket;
 	}
+	
+
+	public static String getOrder(String appid,String mch_id,String nonce_str,String body,
+			String out_trade_no,String total_fee,String spbill_create_ip,
+			String notify_url,String trade_type,String sign){
+		String url = "https://api.mch.weixin.qq.com/pay/unifiedorder?appid=APPID&mch_id=MCHID&nonce_str=NONCESTR&sign=SIGN&body=BODY"
+				+ "out_trade_no=USERTRADENO&total_fee=TOTALFEE&spbill_create_ip=IP&notify_url=URL&trade_type=TRADE_TYPE";
+		String ticketUrl = url.replace("APPID", appid).replace("MCHID", mch_id).replace("NONCESTR", nonce_str)
+				.replace("SIGN", sign).replace("BODY", body).replace("USERTRADENO", out_trade_no).replace("TOTALFEE", total_fee)
+				.replace("IP", spbill_create_ip).replace("URL", notify_url).replace("TRADE_TYPE", trade_type);
+		HttpClient client = new DefaultHttpClient();
+		HttpGet get = new HttpGet(ticketUrl);
+		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
+		String result = null;
+		try {
+			HttpResponse res = client.execute(get);
+			String responseContent = null; // ��Ӧ����
+			HttpEntity entity = res.getEntity();
+			responseContent = EntityUtils.toString(entity, "UTF-8");
+			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
+			// ��json�ַ���ת��Ϊjson����
+			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				if( json.get("return_msg")!= null){
+					System.out.println(json.get("return_msg").getAsString());
+				}else{
+					System.out.println("\n\r==json===" + json);
+					System.out.println(json.get("return_code").getAsString()+"========");
+					System.out.println(json.get("result_code").getAsString()+"++++++++");
+//					ticket.setExpiresIn(json.get("expires_in").getAsString());
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// �ر����� ,�ͷ���Դ
+			client.getConnectionManager().shutdown();
+		}
+		return "";
+	}
+	
+	
+	
 
 }

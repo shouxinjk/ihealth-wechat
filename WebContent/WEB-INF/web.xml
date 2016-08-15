@@ -41,4 +41,22 @@
 		<url-pattern>/wxPayServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>UnifiedorderServlet</servlet-name>
+		<servlet-class>com.shouxin.weixin.servlet.UnifiedorderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnifiedorderServlet</servlet-name>
+		<url-pattern>/payment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>HuidiaoServlet</servlet-name>
+		<servlet-class>com.shouxin.weixin.servlet.HuidiaoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HuidiaoServlet</servlet-name>
+		<url-pattern>/HuidiaoServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
