@@ -259,12 +259,13 @@ function on_click2(userId){   //生活方式
 		cache : false,
 		success:function(delr){
 			if(delr.msg == "success"){
-				listDisease(userId);
+				//listDisease(userId);
+				sub_health(userId);
 			}
 		}
 	});
 	$('#guanxin').remove();
-    $("#li3").addClass('active');
+    $("#li4").addClass('active');
     $("#li2").removeClass('active');
 }
 
@@ -284,12 +285,13 @@ function on_click_2(userId){   //修改关心人的生活方式
 		cache : false,
 		success:function(delr){
 			if(delr.msg == "success"){
-				listDisease_1(userId);
+				//listDisease_1(userId);
+				sub_health_1(userId);
 			}
 		}
 	});
 	$('#guanxin').remove();
-    $("#li3").addClass('active');
+    $("#li4").addClass('active');
     $("#li2").removeClass('active');
 }
 
@@ -378,7 +380,7 @@ function listDisease(userId){//疾病信息
 				    			if(userId == ReadCookie("userId")){
 				    				 str+="<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='on_click3(\""+userId+"\")'>下一步</a>" ;
 				    			}else{
-				    				str+= "<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='addUserAndUser(\""+userId+"\")'>下一步</a>" ;
+				    				str+= "<a href=\"#\" class=\"message_next_a3 weui_btn weui_btn_plain_primary\" onclick='addUserAndUser(\""+userId+"\")'>确认添加</a>" ;
 				    			}
 				                   
 				                str+= "</p>" +
@@ -509,8 +511,8 @@ function on_click3(userId){   //疾病信息 下一步
 		success:function(delr){
 			if(delr.msg == "success"){
 				//carep(userId);
-				//window.location="../subject/Message.html";
-				sub_health(userId);
+				window.location="../subject/Message.html";
+				//sub_health(userId);
 			}
 		}
 	});
@@ -609,7 +611,10 @@ function sub_click2(userId){  //亚健康修改或保存
 		cache : false,
 		success:function(r){
 			if(r.msg == "success"){
-				window.location="../subject/Message.html";
+				listDisease(userId);
+				 $("#li3").addClass('active');
+				 $("#li4").removeClass('active');
+				//window.location="../subject/Message.html";
 			}
 		}
 	});
@@ -636,8 +641,8 @@ function on_click_3(userId){//新用户 修改关系的人
 				if(delr.msg == "success"){
 					var userId = ReadCookie("userId");
 					//carep(userId);
-					sub_health_1(userId);
-					//window.location="../subject/privacy.html";
+					//sub_health_1(userId);
+					window.location="../subject/privacy.html";
 				}
 			}
 		});
@@ -736,7 +741,10 @@ function sub_click2_1(userId){  //亚健康修改或保存
 		cache : false,
 		success:function(r){
 			if(r.msg == "success"){
-				window.location="../subject/privacy.html";
+				listDisease_1(userId);
+				//window.location="../subject/privacy.html";
+				 $("#li3").addClass('active');
+				 $("#li4").removeClass('active');
 			}
 		}
 	});
@@ -1070,8 +1078,9 @@ function findByUserId(userId){
 			"</li>"+
 			"<li id='li1' class='information_header_li active '>基本信息</li>"+
 			"<li id='li2' class='information_header_li '>生活方式</li>"+
-			"<li id='li3' class='information_header_li '>疾病信息</li>"+
 			"<li id='li4' class='information_header_li '>亚健康</li>"+
+			"<li id='li3' class='information_header_li '>疾病信息</li>"+
+			
 			
 		"</ul>"+
 		"</div>";
@@ -1100,15 +1109,13 @@ function addUserAndUser(userId){
 		success:function(r){
 			if(r.result == "success"){
 				//on_click_3(user_id);
-				sub_health_3(userId);
-				$("#li1,#li2,#li3,#li4").css('display','block');
-				$('#li3').removeClass('active');
-			    $('#li4').addClass('active');
-				$('.addname').css('display','none');
-				$("#li1").css('color','#000000');
+				//sub_health_3(userId);
+				window.location="../subject/privacy.html";
 			}
 		}
 	});
+	$('.upname').hide();
+	$('.information_header li').show();
 }
 
 function sub_health_3(userId){  //添加关心人  亚健康

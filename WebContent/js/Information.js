@@ -73,8 +73,9 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			"</li>"+
 			"<li id='li1' class='information_header_li active '>基本信息</li>"+
 			"<li id='li2' style='pointer-events: none;' class='information_header_li '>生活方式</li>"+
-			"<li id='li3' style='pointer-events: none;' class='information_header_li '>疾病信息</li>"+
 			"<li id='li4' style='pointer-events: none;' class='information_header_li '>亚健康</li>"+
+			"<li id='li3' style='pointer-events: none;' class='information_header_li '>疾病信息</li>"+
+			
 		"</ul>"+
 	"</div>";
 		
@@ -87,8 +88,9 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			"</li>"+
 			"<li id='li1' class='information_header_li active '>基本信息</li>"+
 			"<li id='li2' class='information_header_li '>生活方式</li>"+
-			"<li id='li3' class='information_header_li '>疾病信息</li>"+
 			"<li id='li4' class='information_header_li '>亚健康</li>"+
+			"<li id='li3' class='information_header_li '>疾病信息</li>"+
+			
 		"</ul>"+
 	"</div>";
 	};
