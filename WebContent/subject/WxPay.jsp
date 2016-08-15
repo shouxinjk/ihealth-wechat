@@ -18,8 +18,6 @@ $.ajax({
 	type:"post",
 	success:function(data){
 		var da = eval(data);
-		alert(da.appid);
-		alert(da.signature);
 		wx.config({
 		    debug: true,
 		    appId: da.appid,
@@ -44,7 +42,7 @@ wx.error(function(res){
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 });
 function show(){
-	alert(1);
+	alert(2);
 	$.ajax({
 		url:"http://test.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
