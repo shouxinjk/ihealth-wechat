@@ -39,8 +39,10 @@ public class UnifiedorderServlet extends HttpServlet {
 		String stringSignTemp = signstr+"&key="+timestamp;
 		String sign = MD5.md5(stringSignTemp);
 		String str = WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		pw.print(str);
+		pw.println(str);
 		pw.close();
 	}
 }		

@@ -48,6 +48,7 @@ function show(){
 		type:"post",
 		data:"",
 		success:function(data){
+			alert(3);
 			alert(data);
 		}
 	});
