@@ -198,31 +198,31 @@ public class WeiXinUtil {
 		HttpGet get = new HttpGet(ticketUrl);
 		JsonParser jsonparer = new JsonParser();// ��ʼ������json��ʽ�Ķ���
 		String result = null;
+		String responseContent = null; // ��Ӧ����
 		try {
 			HttpResponse res = client.execute(get);
-			String responseContent = null; // ��Ӧ����
 			HttpEntity entity = res.getEntity();
 			responseContent = EntityUtils.toString(entity, "UTF-8");
 			System.out.println("responseContent++====="+responseContent);
 			// ��json�ַ���ת��Ϊjson����
-			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-				JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
-				if( json.get("return_msg")!= null){
-					System.out.println(json.get("return_msg").getAsString());
-				}else{
-					System.out.println("\n\r==json===" + json);
-					System.out.println(json.get("return_code").getAsString()+"========");
-					System.out.println(json.get("result_code").getAsString()+"++++++++");
-//					ticket.setExpiresIn(json.get("expires_in").getAsString());
-				}
-			}
+//			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+//				JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
+//				if( json.get("return_msg")!= null){
+//					System.out.println(json.get("return_msg").getAsString());
+//				}else{
+//					System.out.println("\n\r==json===" + json);
+//					System.out.println(json.get("return_code").getAsString()+"========");
+//					System.out.println(json.get("result_code").getAsString()+"++++++++");
+////					ticket.setExpiresIn(json.get("expires_in").getAsString());
+//				}
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// �ر����� ,�ͷ���Դ
 			client.getConnectionManager().shutdown();
 		}
-		return "";
+		return responseContent;
 	}
 	
 	

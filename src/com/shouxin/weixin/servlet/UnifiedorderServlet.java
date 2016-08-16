@@ -1,6 +1,7 @@
 package com.shouxin.weixin.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,9 @@ public class UnifiedorderServlet extends HttpServlet {
 		String timestamp ="cf109ccb4773a83ab2a9327a9bde32a4";
 		String stringSignTemp = signstr+"&key="+timestamp;
 		String sign = MD5.md5(stringSignTemp);
-		WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
-		
+		String str = WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
+		PrintWriter pw = resp.getWriter();
+		pw.print(str);
+		pw.close();
 	}
 }		
