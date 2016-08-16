@@ -44,7 +44,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		pw.print(str);
+		pw.print("aaaaa");
 		pw.close();
 	}
 }		

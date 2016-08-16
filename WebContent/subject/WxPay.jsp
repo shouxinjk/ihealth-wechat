@@ -19,7 +19,7 @@ $.ajax({
 	success:function(data){
 		var da = eval(data);
 		wx.config({
-		    debug: true,
+		    debug: false,
 		    appId: da.appid,
 		    timestamp: da.timestamp,
 		    nonceStr: da.nonceStr,
@@ -46,7 +46,6 @@ function show(){
 	$.ajax({
 		url:"http://test.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		data:"",
 		success:function(data){
 			alert(3);
 			alert(data);
