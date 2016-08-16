@@ -204,9 +204,9 @@ public class WeiXinUtil {
 			HttpEntity entity = res.getEntity();
 			responseContent = EntityUtils.toString(entity, "UTF-8");
 			System.out.println("responseContent++====="+responseContent);
-			JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
 			// ��json�ַ���ת��Ϊjson����
 			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				JsonObject json = jsonparer.parse(responseContent).getAsJsonObject();
 				if( json.get("return_msg")!= null){
 					System.out.println(json.get("return_msg").getAsString());
 				}else{
