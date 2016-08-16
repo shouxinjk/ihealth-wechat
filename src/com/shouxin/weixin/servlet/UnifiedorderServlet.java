@@ -35,7 +35,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		String trade_type = "JSAPI";
 		String signstr = "appid="+appid+"mch_id="+mch_id+"&device_info=WEB&body="+body+"&nonce_str="+nonce_str;
 		String timestamp ="cf109ccb4773a83ab2a9327a9bde32a4";
-		String stringSignTemp = timestamp+"&key="+timestamp;
+		String stringSignTemp = signstr+"&key="+timestamp;
 		String sign = MD5.md5(stringSignTemp);
 		WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
 		
