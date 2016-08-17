@@ -39,8 +39,8 @@ public class UnifiedorderServlet extends HttpServlet {
 		String stringSignTemp = signstr+"&key="+timestamp;
 		String sign = MD5.md5(stringSignTemp);
 		sign = sign.toUpperCase();
-		String str = WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
-		System.out.println(str);
+//		String str = WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
+//		System.out.println(str);
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
