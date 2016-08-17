@@ -24,21 +24,21 @@ public class UnifiedorderServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
-		String appid = PropertiesUtil.getAppid("appid");
-		String mch_id = PropertiesUtil.getAppid("mch_id");
-		String nonce_str = RandomStr.getNum(30);
-		String body = "手心健康-体检项目购买";
-		String out_trade_no = OrderNo.getDateStr();
-		String total_fee = "0.01";
-		String spbill_create_ip = SpbillCreateIPUtil.getIp(req);
-		String notify_url = "http://test.shouxinjk.net/ihealth-wechat/ordersuccess";
-		String trade_type = "JSAPI";
-		String signstr = "appid="+appid+"mch_id="+mch_id+"&device_info=WEB&body="+body+"&nonce_str="+nonce_str;
-		String timestamp ="cf109ccb4773a83ab2a9327a9bde32a4";
-		String stringSignTemp = signstr+"&key="+timestamp;
-		String sign = MD5.md5(stringSignTemp);
-		sign = sign.toUpperCase();
+//		super.doPost(req, resp);
+//		String appid = PropertiesUtil.getAppid("appid");
+//		String mch_id = PropertiesUtil.getAppid("mch_id");
+//		String nonce_str = RandomStr.getNum(30);
+//		String body = "手心健康-体检项目购买";
+//		String out_trade_no = OrderNo.getDateStr();
+//		String total_fee = "0.01";
+//		String spbill_create_ip = SpbillCreateIPUtil.getIp(req);
+//		String notify_url = "http://test.shouxinjk.net/ihealth-wechat/ordersuccess";
+//		String trade_type = "JSAPI";
+//		String signstr = "appid="+appid+"mch_id="+mch_id+"&device_info=WEB&body="+body+"&nonce_str="+nonce_str;
+//		String timestamp ="cf109ccb4773a83ab2a9327a9bde32a4";
+//		String stringSignTemp = signstr+"&key="+timestamp;
+//		String sign = MD5.md5(stringSignTemp);
+//		sign = sign.toUpperCase();
 //		String str = WeiXinUtil.getOrder(appid, mch_id, nonce_str, body, out_trade_no, total_fee, spbill_create_ip, notify_url, trade_type,sign);
 //		System.out.println(str);
 		resp.setCharacterEncoding("utf-8");
