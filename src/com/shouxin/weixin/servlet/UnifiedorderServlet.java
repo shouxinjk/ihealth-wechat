@@ -42,7 +42,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加商户订单号
 		params.put("out_trade_no", OrderNo.getDateStr());
 		//添加订单金额
-		params.put("total_fee", "0.01");
+		params.put("total_fee", 1);
 		//添加请求ip地址
 		params.put("spbill_create_ip", WXPayUtils.getIpAddr(req));
 		//添加回掉地址
