@@ -247,11 +247,13 @@ public class WeiXinUtil {
 				System.out.println(requestUrl);
 			  URL url = new URL(requestUrl);
 			  HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+			  System.out.println(connection+"=========connection");
 			  connection.setDoOutput(true);
 			  connection.setDoInput(true);
 			  connection.setUseCaches(false);
 			  connection.setRequestMethod(requestMethod);
 			  if (null != output) {
+				  System.out.println();
 			  OutputStream outputStream = connection.getOutputStream();
 			  outputStream.write(output.getBytes("UTF-"));
 			  outputStream.close();

@@ -61,7 +61,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		StringBuffer buffer = new StringBuffer();
 		try {
 			System.out.println("jinru=================");
-			buffer = WeiXinUtil.httpsRequest("https://api.mch.weixin.qq.com/pay/unifiedorder", requestParamterStr, null);
+			buffer = WeiXinUtil.httpsRequest("https://api.mch.weixin.qq.com/pay/unifiedorder", "POST", requestParamterStr);
 			System.out.println("======================");
 		} catch (KeyManagementException | NoSuchAlgorithmException | NoSuchProviderException e) {
 			// TODO Auto-generated catch block
