@@ -260,7 +260,7 @@ public class WeiXinUtil {
 			  System.out.println(output);
 			  // 从输入流读取返回内容
 			  InputStream inputStream = connection.getInputStream();
-			  InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-");
+			  InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
 			  BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 			  String str = null;
 			  StringBuffer buffer = new StringBuffer();
