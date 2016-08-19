@@ -57,6 +57,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		}
 		/**2 发送HTTPS请求获取带签名预支付信息 */
 		String requestParamterStr = WXPayUtils.map2xmlBody(params, "xml");
+		System.out.println(requestParamterStr);
 		StringBuffer buffer = new StringBuffer();
 		try {
 			buffer = WeiXinUtil.httpsRequest("https://api.mch.weixin.qq.com/pay/unifiedorder", requestParamterStr, null);
@@ -70,7 +71,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		pw.print(buffer.toString());
+		pw.print(buffer.toString()+"");
 		pw.close();
 	}
 }		
