@@ -1,0 +1,86 @@
+li{
+	list-style: none;
+}
+i{
+	font-style: normal;
+}
+.ordertable{
+	font-size: .8rem;
+}
+.ordertable tr{
+	line-height: 1.6rem;
+	text-align: center;
+}
+.ordertable tr td{
+	width:25%;
+}
+.ordertable table{
+	border-collapse: collapse;
+	width: 91%;
+	position: relative;
+	left: 4%;
+}
+.detail p{
+	margin: 1rem 0 0.5rem 0;
+	padding: 0;
+}
+.orderdetail table{
+	width:100%;
+	font-size: .8rem;
+	text-align: center;
+}
+.orderdetail tr {
+	line-height: 1.7rem;
+}
+.orderevaluate p{
+	margin: 1rem 0 0.5rem 0;
+	padding: 0;
+}
+.contevaluate,.orderleft,.contevaluate ul,.contevaluate ul li {
+	padding:0;
+}
+.orderleft span {
+	float: left;
+	font-size: .8rem;
+	line-height: 1.8rem;
+}
+.contevaluate ul li {
+	line-height: 1.6rem;
+}
+.contevaluate ul li i {
+	/* padding: 0 0 0 .5rem; */
+}
+i img {
+	width: .8rem;
+}
+.orderright{
+	padding: 0 .6rem 0 .1rem;
+	margin-top: 0.5rem;
+}
+.orderright textarea{
+	height:4.4rem;
+	resize:none;
+	padding: 0;
+	outline:none;
+	font-size: .6rem;
+}
+.evaluatespan span{
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	border: .05rem solid #918C8C;
+	width: 2.9rem;
+	height: 1.3rem;
+	font-size: .8rem;
+	line-height: 1.3rem;
+	background: #BAB3B3;
+	color: #fff;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+.subscribe,.subscribe_ul,.subscribe_div{
+	padding:0;
+}
+li{
+	list-style: none;
+}
+i,em{ font-style:normal}
+
+.subscribe_l1, .subscribe_l2{
+	font-size: .8rem;
+}
+.order_di{
+	padding:0;
+	border-bottom: .05rem solid;
+	margin-bottom: 1.1rem;
+}
+
+.yuyue{
+	width: 40%;
+	border: .05rem solid #C8C2C2;
+	position: relative;
+	float: left;
+	background: #EEE;
+	padding: .5re;
+	margin: 0 auto;
+	text-align: center;
+	left: 27%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

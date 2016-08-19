@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no,minimal-ui" />
+<!--   <link rel="stylesheet" href="../css/dist/style/weui.min.css"/> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/myhealth.css"/>
+    <link rel="stylesheet" href="../css/orderdetail.css"/>
+    <title>订单评价</title>
+</head>
+<body>
+<div class="container">
+	 <div id='nav' class='order'>
+	 	<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>订单概要:</p>
+	 	<div class='ordertable'>
+	 		<table  border="1px" cellspacing="0px" style="border-collapse:collapse">
+			<tr>
+				<td>订单编号</td>
+				<td>1233333333</td>
+				<td>生成时间</td>
+				<td style='line-height:.9rem;'>2016-09-13 12:10:08</td>
+			</tr>
+			<tr> 
+				<td>订单金额</td>
+				<td>1235</td>
+				<td>订单状态</td>
+				<td>已确认</td>
+			</tr>
+			<tr>
+				<td>体检人</td>
+				<td>哈哈哈</td>
+				<td>体检时间</td>
+				<td style='line-height:.9rem;'>2016-09-13 12:10:08</td>
+			</tr>
+			</table>
+	 	</div>
+	 
+    </div>
+    <main class="my_main col-lg-12 col-xs-12 col-md-12 col-sm-12">
+    	<div class='detail'>
+    		<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>项目明细:</p>
+    	</div>
+	    <div class='orderdetail'>
+		 		<table  border="1px" cellspacing="0px" style="border-collapse:collapse">
+					<tr>
+						<td>服务项目</td>
+						<td>价格</td>
+					</tr>
+					<tr> 
+						<td>电子结直肠镜（华西）</td>
+						<td>12</td>
+					</tr>
+					<tr>
+						<td>胃镜（华西）</td>
+						<td>232</td>
+					</tr>
+					<tr>
+						<td>胸部低剂量螺旋CT</td>
+						<td>232</td>
+					</tr>
+					<tr>
+						<td>合计</td>
+						<td>12232</td>
+					</tr>
+				</table>
+		 	</div>
+    </main>
+	<div class='evaluate'>
+			<div class='orderevaluate'>
+    			<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>项目明细:</p>
+    		</div>
+    		<div class='contevaluate col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+    			<div class='orderleft col-lg-6 col-xs-6 col-md-6 col-sm-6'>
+    				<ul class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+    					<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+    						<span>专业性</span>
+    						<i class='xin1' data-score="1"></i>
+    					</li>
+    					<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+    						<span>速度快</span>
+    						<i class='xin2' data-score="2"></i>
+    					</li>
+    					<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+    						<span>服务号</span>
+    						<i class='xin3' data-score="3"></i>
+    					</li>
+    				</ul>
+    			</div>
+    			<div class='orderright col-lg-6 col-xs-6 col-md-6 col-sm-6'>
+    				<textarea class='col-lg-12 col-xs-12 col-md-12 col-sm-12'></textarea>
+    			</div>
+    		</div>
+	</div>
+	<div class='evaluatespan col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+		<span>评价</span>
+	</div>
+	
+	
+    <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
+      <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4">
+     		<img class="My_health_img" src="../images/My_health.png" alt=""/>
+        	<span>我的体检</span>
+        </a>
+        <a href="privacy.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        <img class="TJ_guide_img" src="../images/TJ_guide.png" alt=""/>
+        	<span>关心的人</span>
+        </a>
+      
+        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        	<img class="my_message_img" src="../images/my_message.png" alt=""/>
+        	<span>我的信息</span>
+       	</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.raty.js"></script>
+<script type="text/javascript" src="../js/orderdetail.js"></script>
+<script type="text/javascript" src="../js/URL.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
+<!-- <script type="text/javascript" src="../js/myhealth.js"></script> -->
+<!-- <script type="text/javascript" src="../js/md5.js"></script> -->
+
+<script type="text/javascript">
+var userId  = ReadCookie("userId");
+$(document).ready(function () {
+	function ReadCookie(cookieName) {
+	    var theCookie = "" + document.cookie;
+	    var ind = theCookie.indexOf(cookieName);
+	    if(ind==-1 || cookieName=="") return "";
+	    var ind1 = theCookie.indexOf(';',ind);
+	    if(ind1==-1) ind1 = theCookie.length;
+	    /*读取Cookie值*/
+	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	}
+	 $('.my_message_img ').attr("src", "../images/my_message_1.png");
+     $('.my_message span').css('color','rgb(126, 200, 136)');
+        var deluserId =delCookie("userId");
+        
+        
+}); 
+</script>
+</html>

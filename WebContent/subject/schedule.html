@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no,minimal-ui" />
+<!--   <link rel="stylesheet" href="../css/dist/style/weui.min.css"/> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/myhealth.css"/>
+    <link rel="stylesheet" href="../css/schedule.css"/>
+    <link rel="stylesheet" href="../css/swiper-3.3.1.min.css"/>
+    <title>体检日程</title>
+</head>
+<body>
+<div class="container">
+ 	<div id='nav' class='swiper-container'>
+        <ul class="relevance swiper-wrapper">
+            <li id='my' class="relevanceMY swiper-slide">自己</li>
+             <li id='my1' class="relevanceMY swiper-slide">老妈</li>
+              <li id='my2' class="relevanceMY swiper-slide">老爸</li>
+        </ul>
+    </div>
+	
+    <main class="pe_status col-lg-12 col-xs-12 col-md-12 col-sm-12">
+			<div class='pe_status_d col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+				<p class='name col-lg-12 col-xs-12 col-md-12 col-sm-12'>我自己</p>
+				<ul class='pe_status_ul col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+					<li class='pe_status_l2 col-lg-12 col-xs-12 col-md-12 col-sm-12'><i>美年大健康体检中心成都高新店</i></li>
+					<li class='pe_status_l6 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>地址:</span><i>美年大健康体检中心成都高新店</i></li>
+					<li class='pe_status_l3 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>时间:</span><i>2016-12-11</i></li>
+					<li class='pe_status_l4 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单:</span><i>133333333</i>(子订单:<em>3333</em>)</li>
+					<li class='pe_status_l5 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>1220</i></li>
+				</ul>
+				<div class='hint col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+					<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>提示:</p>
+					<ul class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
+						<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'><i>1</i>,<em>需要空腹</em></li>
+						<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'><i>2</i>,<em>停车位紧张，最好搭乘公共交通</em></li>
+					</ul>
+				</div>
+			</div>
+			
+    </main>
+	
+    <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
+       <a href="myhealth.html" class="My_health col-lg-4 col-xs-4 col-md-4 col-sm-4">
+     		<img class="My_health_img " src="../images/My_health.png" alt=""/>
+        	<span>我的体检</span>
+        </a>
+        <a href="privacy.html" class=" TJ_guide col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        <img class="TJ_guide_img " src="../images/TJ_guide.png" alt=""/>
+        	<span>关心的人</span>
+        </a>
+     
+        <a href="Message.html" class="my_message col-lg-4 col-xs-4 col-md-4 col-sm-4">
+        	<img class="my_message_img " src="../images/my_message.png" alt=""/>
+        	<span>我的信息</span>
+       	</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/URL.js"></script>
+<script type="text/javascript" src="../js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="../js/content.js"></script><!--cookie-->
+<!-- <script type="text/javascript" src="../js/myhealth.js"></script> -->
+<!-- <script type="text/javascript" src="../js/md5.js"></script> -->
+<script type="text/javascript" src="../js/schedule.js"></script>
+
+<script type="text/javascript">
+var userId  = ReadCookie("userId");
+$(document).ready(function () {
+	function ReadCookie(cookieName) {
+	    var theCookie = "" + document.cookie;
+	    var ind = theCookie.indexOf(cookieName);
+	    if(ind==-1 || cookieName=="") return "";
+	    var ind1 = theCookie.indexOf(';',ind);
+	    if(ind1==-1) ind1 = theCookie.length;
+	    /*读取Cookie值*/
+	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	}
+	$('.my_message_img ').attr("src", "../images/my_message_1.png");
+    $('.my_message span').css('color','rgb(126, 200, 136)');
+        //var deluserId =delCookie("userId");
+   <!--我的体检项目-->
+   		/* relevance(userId);
+   		spend(userId); */
+   		glide();
+});       
+
+
+</script>
+</html>

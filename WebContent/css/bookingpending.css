@@ -1,0 +1,62 @@
+html,body{
+    font-size:125%;
+    font-size: 20px;
+    height: 100%;
+}
+body{
+    font-family: 'SimHei', sans-serif;
+    width: 100%;
+    height:100%;
+    background:#f8f8f8;
+    background-size: cover;
+}
+li{
+	list-style: none;
+	font-size: .8rem;
+	line-height: 1.4rem;
+}
+.sure_top p,.pe_status_d {
+	border-bottom: .05rem solid;
+}
+.sure_top p{
+	font-size: .8rem;
+	padding: .5rem 0 .5rem 0;
+}
+.pe_status_d,.pe_status_ul,.pe_status_d li{
+	padding:0;
+}
+i,em{ font-style:normal}
+
+.add_de li{
+	float: left;
+	padding: .rem;
+	height: 1.5rem !important;
+	line-height: 1.5rem !important;
+	border-radius: .51rem;
+	text-align: center;
+	padding: rem;
+	width: 5rem;
+	margin: .5rem 1.5rem 0 1.5rem;
+	color: #04be02;
+	border: 1px solid #04be02;
+}
+.add_de ul{
+	padding:0;
+}
+.check p{
+	text-align: center;
+}
+.check {
+	margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
