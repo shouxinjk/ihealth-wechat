@@ -44,7 +44,7 @@ wx.error(function(res){
 function show(){
 	alert(2);
 	$.ajax({
-		url:"http://test.shouxinjk.net/ihealth-wechat/payment/order",
+		url:"http://www.shouxinjk.net/ihealth-wechat/payment/order",
 		type:"post",
 		success:function(data){
 			alert(3);
