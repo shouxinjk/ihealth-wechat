@@ -254,7 +254,7 @@ public class WeiXinUtil {
 			  if (null != output) {
 				  System.out.println("aaaaaa====");
 			  OutputStream outputStream = connection.getOutputStream();
-			  outputStream.write(output.getBytes("UTF-"));
+			  outputStream.write(output.getBytes("UTF-8"));
 			  outputStream.close();
 			  }
 			  System.out.println(output);
