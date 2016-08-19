@@ -33,6 +33,9 @@ public class UnifiedorderServlet extends HttpServlet {
 		SortedMap<String, Object> params = new TreeMap<String,Object>();
 		//添加appid
 		params.put("appid", "wx9160e991d49b4a97");
+		//添加用户openID
+		String openId = (String) req.getSession().getAttribute("openId");
+		params.put("openid", openId);
 		//添加mch_id商户号id
 		params.put("mch_id", "1373455102");
 		//添加小于35位随机字符串
