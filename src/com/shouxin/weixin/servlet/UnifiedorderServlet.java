@@ -32,9 +32,9 @@ public class UnifiedorderServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		SortedMap<String, Object> params = new TreeMap<String,Object>();
 		//添加appid
-		params.put("appid", PropertiesUtil.getAppid("appid"));
+		params.put("appid", "wx9160e991d49b4a97");
 		//添加mch_id商户号id
-		params.put("mch_id", PropertiesUtil.getAppid("mch_id"));
+		params.put("mch_id", "1373455102");
 		//添加小于35位随机字符串
 		params.put("nonce_str", WXPayUtils.getRandomString(32));
 		//添加商品描述
