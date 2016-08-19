@@ -242,8 +242,7 @@ public class WeiXinUtil {
 	
 	
 	public static StringBuffer httpsRequest(String requestUrl, String requestMethod, String output)
-			  throws NoSuchAlgorithmException, NoSuchProviderException, KeyManagementException, MalformedURLException,
-			  IOException, ProtocolException, UnsupportedEncodingException {
+			  throws Exception {
 				System.out.println(requestUrl);
 			  URL url = new URL(requestUrl);
 			  HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -253,7 +252,7 @@ public class WeiXinUtil {
 			  connection.setUseCaches(false);
 			  connection.setRequestMethod(requestMethod);
 			  if (null != output) {
-				  System.out.println();
+				  System.out.println("aaaaaa====");
 			  OutputStream outputStream = connection.getOutputStream();
 			  outputStream.write(output.getBytes("UTF-"));
 			  outputStream.close();
