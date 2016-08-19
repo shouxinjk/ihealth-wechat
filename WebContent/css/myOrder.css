@@ -1,0 +1,69 @@
+#nav,.relevance{
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+i{
+	font-style: normal;
+}
+.my_main{
+	font-size: .8rem;
+}
+.my_main,.oder_left,.oder_right,.more_oder{
+	padding:0;
+}
+.oder_left img{
+	border-radius: 5rem;
+	width: 3rem;
+	height: 3rem;
+	padding:0;
+	margin-left: 1.6rem;
+}
+.oder_right ul,.oder_right li{
+	padding:0;
+}
+.oder_right li {
+	line-height: 1.4rem;
+}
+.oder_left span,.oder_left a{
+	text-align: center;
+	padding:0;
+}
+
+.pingj{
+	margin-top: 1.5rem;
+}
+.pingj span{
+	border: .05rem solid;
+	width: 3rem;
+	margin-left: 1.7rem;
+	display: block;
+}
+.more_oder {
+	border-bottom: .05rem solid #B5B2B2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

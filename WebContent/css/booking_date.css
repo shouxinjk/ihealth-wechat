@@ -1,0 +1,78 @@
+.subscribe,.subscribe_ul,.subscribe_div{
+	padding:0;
+}
+li{
+	list-style: none;
+}
+i,em{ font-style:normal}
+
+.subscribe_l1, .subscribe_l2{
+	font-size: .8rem;
+}
+
+.choosecal{ width:100%; margin:3% auto; overflow:hidden;}
+.caltline1,.caltline2{ width:94%; background-color:#F90; overflow:hidden; padding:2% 3%;}
+.caltline1 p,.caltline2 p{ float:left; width:10%; font-weight:700; text-align:right;}
+.caltline2{ background-color:#FFF;}
+.caltline2 p{ width:20%;}
+.caltline2 .datetext{ width:35%; border:1px solid #000; background-color:#FFF; font-weight:700;}
+.calender{ width: 93%;margin-top: 3%;margin: 0 auto;}
+.selectmouth{ background-color:#F30; width:100%; overflow:hidden;padding:2% 3%;border-radius:5px 5px 0 0;}
+.selectmouth p{ float:left; width:33%; color:#FFF; font-weight:700; cursor:pointer;}
+.selectmouth .selectdate{ width:100%; background-color:#F30; border:none; color:#FFF; font-weight:700; text-align:center;}
+.data_table{ width: 100.6%;border:1px solid #cccccc;border-collapse:collapse; }
+.data_table thead{ background-color:#333;}
+.data_table thead td{ color:#FFF; text-align:center;border:1px solid #333;border-collapse:collapse;width: 14%;}
+.data_table tbody td{border-collapse: collapse;
+	text-align: center;
+	color: #0C6;
+	display: block;
+	width: 14.28%;
+	float: left;
+	border: 1px solid #cccccc;}
+.data_table tbody td.orderdate{ color:#000;}
+.data_table tbody td.tdselect{ color:#fff;background-color:#999}
+tr {
+	width: 100%;
+	display: table;
+}
+
+input.datetext.datetoday {
+	margin-left: 26%;
+	text-align: center;
+	border: none;
+}
+.sure {
+	text-align: center;
+	border: .05rem solid;
+	width: 3rem;
+	font-size: .8rem;
+	/* height: 2rem; */
+	margin-right: 1rem;
+	position: relative;
+	/* top: 1rem; */
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
