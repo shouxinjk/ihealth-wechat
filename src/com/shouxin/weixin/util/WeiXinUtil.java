@@ -1,5 +1,20 @@
 package com.shouxin.weixin.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+
+import javax.net.ssl.HttpsURLConnection;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -225,6 +240,37 @@ public class WeiXinUtil {
 		return responseContent;
 	}
 	
+	
+	public static StringBuffer httpsRequest(String requestUrl, String requestMethod, String output)
+			  throws NoSuchAlgorithmException, NoSuchProviderException, KeyManagementException, MalformedURLException,
+			  IOException, ProtocolException, UnsupportedEncodingException {
+			  URL url = new URL(requestUrl);
+			  HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+			  connection.setDoOutput(true);
+			  connection.setDoInput(true);
+			  connection.setUseCaches(false);
+			  connection.setRequestMethod(requestMethod);
+			  if (null != output) {
+			  OutputStream outputStream = connection.getOutputStream();
+			  outputStream.write(output.getBytes("UTF-"));
+			  outputStream.close();
+			  }
+			  // 从输入流读取返回内容
+			  InputStream inputStream = connection.getInputStream();
+			  InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-");
+			  BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+			  String str = null;
+			  StringBuffer buffer = new StringBuffer();
+			  while ((str = bufferedReader.readLine()) != null) {
+			  buffer.append(str);
+			  }
+			  bufferedReader.close();
+			  inputStreamReader.close();
+			  inputStream.close();
+			  inputStream = null;
+			  connection.disconnect();
+			  return buffer;
+	} 
 	
 	
 
