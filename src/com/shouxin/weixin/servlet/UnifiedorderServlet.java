@@ -60,7 +60,9 @@ public class UnifiedorderServlet extends HttpServlet {
 		System.out.println(requestParamterStr);
 		StringBuffer buffer = new StringBuffer();
 		try {
+			System.out.println("jinru=================");
 			buffer = WeiXinUtil.httpsRequest("https://api.mch.weixin.qq.com/pay/unifiedorder", requestParamterStr, null);
+			System.out.println("======================");
 		} catch (KeyManagementException | NoSuchAlgorithmException | NoSuchProviderException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,7 +71,6 @@ public class UnifiedorderServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		pw.print(requestParamterStr);
-		pw.close();
+		pw.print(requestParamterStr+"");
 	}
 }		
