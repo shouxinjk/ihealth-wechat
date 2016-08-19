@@ -34,7 +34,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加appid
 		params.put("appid", "wx9160e991d49b4a97");
 		//添加用户openID
-		//添加
+		System.out.println("tongyixiadan=====");
 		String openId = (String) req.getSession().getAttribute("openId");
 		params.put("openid", openId);
 		//添加mch_id商户号id
