@@ -34,8 +34,8 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加appid
 		params.put("appid", "wx9160e991d49b4a97");
 		//添加用户openID
-		String openId = (String) req.getSession().getAttribute("openId");
-		params.put("openid", openId);
+//		String openId = (String) req.getSession().getAttribute("openId");
+//		params.put("openid", openId);
 		//添加mch_id商户号id
 		params.put("mch_id", "1373455102");
 		//添加小于35位随机字符串
@@ -51,7 +51,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加回掉地址
 		params.put("notify_url", "http://test.shouxinjk.net/ihealth-wechat/ordersuccess");
 		//添加交易类型
-		params.put("trade_type", "JSAPI");
+		params.put("trade_type", "APP");
 		//设置签名
 		try {
 			params.put("sign", WXPayUtils.createSign("UTF-8", params, "cf109ccb4773a83ab2a9327a9bde32a4"));
