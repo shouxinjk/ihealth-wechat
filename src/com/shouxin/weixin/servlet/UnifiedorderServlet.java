@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.util.Date;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -12,6 +14,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.shouxin.weixin.util.MD5;
 import com.shouxin.weixin.util.OrderNo;
@@ -64,17 +68,43 @@ public class UnifiedorderServlet extends HttpServlet {
 		System.out.println(requestParamterStr);
 		StringBuffer buffer = new StringBuffer();
 		try {
-			System.out.println("jinru=================");
+			//统一下单请求
 			buffer = WeiXinUtil.httpsRequest("https://api.mch.weixin.qq.com/pay/unifiedorder", "POST", requestParamterStr);
-			System.out.println("======================");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(buffer.toString());
+		SortedMap<String, String> map  = null;
+		try {
+			map = WXPayUtils.parseXml(buffer.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String return_code = map.get("return_code");
+		//判断统一下单时否成功！
+		if(StringUtils.isNotEmpty(return_code) && "SUCCESS".equals(return_code)){
+			String return_msg = map.get("return_msg");
+			if(StringUtils.isNotEmpty(return_msg) && !"OK".equals(return_msg)){
+				System.out.println("[微信支付][预支付]统一下单错误，错误码是：" + map.get("err_code") 
+				+ ",错误信息为：" + map.get("err_code_des"));
+			}
+			
+		}else{
+			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
+		}
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
-		pw.print(buffer+"");
+		String result_code = map.get("result_code");
+		if("SUCCESS".equals(result_code)){
+			long time = new Date().getTime();
+			//统一下单成功，返回数据
+			map.put("timestamp", time+"");
+			pw.print(map);
+		}else{
+			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
+		}
+		pw.close();
+		
 	}
 }		
