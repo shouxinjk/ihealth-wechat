@@ -25,6 +25,8 @@ import com.shouxin.weixin.util.SpbillCreateIPUtil;
 import com.shouxin.weixin.util.WXPayUtils;
 import com.shouxin.weixin.util.WeiXinUtil;
 
+import net.sf.json.JSONObject;
+
 public class UnifiedorderServlet extends HttpServlet {
 
 	@Override
@@ -99,6 +101,8 @@ public class UnifiedorderServlet extends HttpServlet {
 			long time = new Date().getTime();
 			//统一下单成功，返回数据
 			map.put("timestamp", time+"");
+			JSONObject json = JSONObject.fromObject(map);
+			System.out.println(json+"========json");
 			pw.print(map);
 		}else{
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
