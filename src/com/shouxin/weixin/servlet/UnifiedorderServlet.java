@@ -53,7 +53,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加订单金额
 		params.put("total_fee", 1);
 		//添加请求ip地址
-		params.put("spbill_create_ip", WXPayUtils.getIpAddr(req));
+		params.put("spbill_create_ip", SpbillCreateIPUtil.getIp(req));
 		//添加回掉地址
 		params.put("notify_url", "http://test.shouxinjk.net/ihealth-wechat/ordersuccess");
 		//添加交易类型
