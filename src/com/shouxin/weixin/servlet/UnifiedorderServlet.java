@@ -94,7 +94,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 		}
 		resp.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;charset=utf-8");
+		resp.setContentType("applocation/json;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
 		String result_code = map.get("result_code");
 		if("SUCCESS".equals(result_code)){
@@ -103,7 +103,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			map.put("timestamp", time+"");
 			JSONObject json = JSONObject.fromObject(map);
 			System.out.println(json+"========json");
-			pw.print(map);
+			pw.print(json);
 		}else{
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 		}
