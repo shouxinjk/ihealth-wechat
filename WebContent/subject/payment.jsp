@@ -41,30 +41,44 @@ wx.error(function(res){
 	//alert(re);
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 });
+
+function onBridgeReady(){
+	WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', {
+                "appId":data.appid, /* 微信支付，坑一 冒号是中文字符 */
+                "timeStamp":data.timestamp,
+                "nonceStr":data.nonceStr,
+                "package":'prepat_id='+data.prepay_id,
+                "signType":"MD5",
+                "paySign":data.paySign
+            },
+            function(res){     
+                if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                    alert("充值成功");
+                }else{
+               	 alert(1);
+                    alert(res.err_msg);
+                }
+            }
+        ); 
+}
+
 function show(){
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		success:function(data){
-                 WeixinJSBridge.invoke(
-                     'getBrandWCPayRequest', {
-                         "appId":data.appid, /* 微信支付，坑一 冒号是中文字符 */
-                         "timeStamp":data.timestamp,
-                         "nonceStr":data.nonceStr,
-                         "package":'prepat_id='+data.prepay_id,
-                         "signType":"MD5",
-                         "paySign":data.paySign
-                     },
-                     function(res){     
-                         if(res.err_msg == "get_brand_wcpay_request：ok" ) {
-                             alert("充值成功");
-                         }else{
-                        	 alert(1);
-                             alert(res.err_msg);
-                         }
+                 if (typeof WeixinJSBridge == "undefined"){
+                     if( document.addEventListener ){
+                         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                     }else if (document.attachEvent){
+                         document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+                         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
-                 ); 
-
+                  }else{
+                	  alert(1)
+                     onBridgeReady();
+                  } 
 		}
 	});
 }
