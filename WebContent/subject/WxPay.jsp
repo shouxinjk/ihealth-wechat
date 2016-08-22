@@ -47,7 +47,7 @@ function show(){
 		type:"post",
 		success:function(data){
 			//var da = eval(data);
-			alert(data);
+			alert(data.appid);
 			/* var time = da.timestamp;
 			var timestamp = parseInt(time);
 			alert(timestamp);
