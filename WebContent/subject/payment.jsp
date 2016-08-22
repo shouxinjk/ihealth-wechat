@@ -48,12 +48,12 @@ function show(){
 		success:function(data){
                  WeixinJSBridge.invoke(
                      'getBrandWCPayRequest', {
-                         "appid":data.appid, /* 微信支付，坑一 冒号是中文字符 */
-                         "timestamp":data.timestamp,
+                         "appId":data.appid, /* 微信支付，坑一 冒号是中文字符 */
+                         "timeStamp":data.timestamp,
                          "nonceStr":data.nonceStr,
                          "package":'prepat_id='+data.prepay_id,
                          "signType":"MD5",
-                         "paysign":data.paysign
+                         "paySign":data.paysign
                      },
                      function(res){     
                          if(res.err_msg == "get_brand_wcpay_request：ok" ) {
