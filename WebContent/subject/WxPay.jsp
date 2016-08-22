@@ -46,9 +46,9 @@ function show(){
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment/order",
 		type:"post",
 		success:function(data){
-			var da = eval(data);
-			alert(da);
-			var time = da.timestamp;
+			//var da = eval(data);
+			alert(data);
+			/* var time = da.timestamp;
 			var timestamp = parseInt(time);
 			alert(timestamp);
 			wx.chooseWXPay({
@@ -61,7 +61,7 @@ function show(){
 			        // 支付成功后的回调函数
 			        alert(res);
 			    }
-			});
+			}); */
 		}
 	});
 	

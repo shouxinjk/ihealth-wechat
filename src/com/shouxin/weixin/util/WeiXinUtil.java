@@ -243,21 +243,17 @@ public class WeiXinUtil {
 	
 	public static StringBuffer httpsRequest(String requestUrl, String requestMethod, String output)
 			  throws Exception {
-				System.out.println(requestUrl);
 			  URL url = new URL(requestUrl);
 			  HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-			  System.out.println(connection+"=========connection");
 			  connection.setDoOutput(true);
 			  connection.setDoInput(true);
 			  connection.setUseCaches(false);
 			  connection.setRequestMethod(requestMethod);
 			  if (null != output) {
-				  System.out.println("aaaaaa====");
 			  OutputStream outputStream = connection.getOutputStream();
 			  outputStream.write(output.getBytes("UTF-8"));
 			  outputStream.close();
 			  }
-			  System.out.println(output);
 			  // 从输入流读取返回内容
 			  InputStream inputStream = connection.getInputStream();
 			  InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");

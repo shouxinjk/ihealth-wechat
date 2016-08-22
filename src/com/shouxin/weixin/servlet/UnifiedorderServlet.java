@@ -38,7 +38,6 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加appid
 		params.put("appid", "wx9160e991d49b4a97");
 		//添加用户openID
-		System.out.println("tongyixiadan=====");
 		String openId = (String) req.getSession().getAttribute("openId");
 		params.put("openid", openId);
 		//添加mch_id商户号id
@@ -65,7 +64,6 @@ public class UnifiedorderServlet extends HttpServlet {
 		}
 		/**2 发送HTTPS请求获取带签名预支付信息 */
 		String requestParamterStr = WXPayUtils.map2xmlBody(params, "xml");
-		System.out.println(requestParamterStr);
 		StringBuffer buffer = new StringBuffer();
 		try {
 			//统一下单请求
@@ -74,6 +72,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(buffer.toString());
 		SortedMap<String, String> map  = null;
 		try {
 			map = WXPayUtils.parseXml(buffer.toString());
