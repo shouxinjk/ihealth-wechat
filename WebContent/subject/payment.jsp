@@ -45,12 +45,12 @@ wx.error(function(res){
 function onBridgeReady(data){
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":data.appid, /* 微信支付，坑一 冒号是中文字符 */
-                "timeStamp":data.timestamp,
-                "nonceStr":data.nonceStr,
+                "appId":data.appid+'', /* 微信支付，坑一 冒号是中文字符 */
+                "timeStamp":data.timestamp+'',
+                "nonceStr":data.nonceStr+'',
                 "package":'prepat_id='+data.prepay_id,
                 "signType":"MD5",
-                "paySign":data.paySign
+                "paySign":data.paySign+''
             },
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request：ok" ) {
