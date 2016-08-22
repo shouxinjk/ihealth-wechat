@@ -53,7 +53,7 @@ function show(){
                          "nonceStr":data.nonceStr,
                          "package":'prepat_id='+data.prepay_id,
                          "signType":"MD5",
-                         "paySign":data.paysign
+                         "paySign":data.paySign
                      },
                      function(res){     
                          if(res.err_msg == "get_brand_wcpay_request：ok" ) {
