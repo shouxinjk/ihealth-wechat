@@ -46,7 +46,7 @@ function show(){
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		success:function(data){
-			wx.chooseWXPay({
+			/* wx.chooseWXPay({
 				appid:data.appid,
 			    timestamp: data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
 			    nonceStr: data.nonceStr, // 支付签名随机串，不长于 32 位
@@ -57,7 +57,38 @@ function show(){
 			        // 支付成功后的回调函数
 			        alert(res.err_msg);
 			    }
-			}); 
+			});  */
+			
+			 function onBridgeReady(){
+                 WeixinJSBridge.invoke(
+                     'getBrandWCPayRequest', {
+                         "appId":data.appId, /* 微信支付，坑一 冒号是中文字符 */
+                         "timeStamp":data.timeStamp,
+                         "nonceStr":data.nonceStr,
+                         "package":'prepat_id='+data.prepay_id,
+                         "signType":"MD5",
+                         "paySign":data.paySign
+                     },
+                     function(res){     
+                         if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                             alert("充值成功");
+                         }else{
+                             alert(res.err_msg);
+                         }
+                     }
+                 ); 
+              } 
+
+              if (typeof WeixinJSBridge == "undefined"){
+                 if( document.addEventListener ){
+                     document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                 }else if (document.attachEvent){
+                     document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+                     document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                 }
+              }else{
+                 onBridgeReady();
+              }
 		}
 	});
 	
