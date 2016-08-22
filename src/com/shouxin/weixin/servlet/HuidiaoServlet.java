@@ -17,8 +17,7 @@ public class HuidiaoServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
-		System.out.println("AAAAAAA");
+		System.out.println(req.getParameter("return_code")+"==================return_code");
 	}
 	
 }
