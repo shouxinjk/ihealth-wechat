@@ -43,7 +43,7 @@ wx.error(function(res){
 });
 function show(){
 	$.ajax({
-		url:"http://www.shouxinjk.net/ihealth-wechat/payment/order",
+		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		success:function(data){
 			alert(data.appid);
