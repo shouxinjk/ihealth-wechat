@@ -44,7 +44,8 @@ public class HuidiaoServlet extends HttpServlet {
 		    	    if (map.get("result_code").toString().equalsIgnoreCase("SUCCESS")) {
 		    	        //TODO 对数据库的操作
 		    	    	SortedMap<String, Object> map1 = new TreeMap<String, Object>();
-		    	    	map.put("SUCCESS", "SUCCESS");
+		    	    	map1.put("return_code", "SUCCESS");
+		    	    	map1.put("return_msg", "OK");
 		    	        resp.getWriter().write(WXPayUtils.map2xmlBody(map1, "xml"));   //告诉微信服务器，我收到信息了，不要在调用回调action了
 		    	    }
 		        }catch(Exception e){
