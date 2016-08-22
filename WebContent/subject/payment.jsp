@@ -50,9 +50,9 @@ function show(){
                      'getBrandWCPayRequest', {
                          "appid":data.appid, /* 微信支付，坑一 冒号是中文字符 */
                          "timestamp":data.timestamp,
-                         "noncestr":data.noncestr,
+                         "nonceStr":data.nonceStr,
                          "package":'prepat_id='+data.prepay_id,
-                         "signtype":"MD5",
+                         "signType":"MD5",
                          "paysign":data.paysign
                      },
                      function(res){     
