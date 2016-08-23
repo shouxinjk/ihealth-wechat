@@ -253,6 +253,7 @@ public class WXPayUtils {
 
 		}
 		sb.append("key=" + apiKey);
+		System.out.println(sb.toString()+"=============微信签名");
 		String sign = MD5Encode(sb.toString(), charaterEncodeing).toUpperCase();
 		return sign;
 	}

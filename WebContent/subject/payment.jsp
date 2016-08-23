@@ -44,7 +44,7 @@ wx.error(function(res){
 
 function onBridgeReady(data1){
 	var data = eval(data1);
-	wx.chooseWXPay({
+	/* wx.chooseWXPay({
 		appId:data.appid,
 	    timestamp:data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
 	    nonceStr:data.nonceStr, // 支付签名随机串，不长于 32 位
@@ -62,8 +62,8 @@ function onBridgeReady(data1){
                     alert(res.err_desc);
                 }
 	    }
-	});
-	/* WeixinJSBridge.invoke(
+	}); */
+	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
                 "appId":data.appid, 
                 "timeStamp":data.timestamp, 
@@ -82,7 +82,7 @@ function onBridgeReady(data1){
                     alert(res.err_desc);
                 }
             }
-        );  */
+        );  
 }
 
 function show(){

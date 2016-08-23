@@ -111,7 +111,7 @@ public class UnifiedorderServlet extends HttpServlet {
 //					+ String.valueOf(time) + "&key=cf109ccb4773a83ab2a9327a9bde32a4";
 //			String paySign = MD5.md5(paySignStr).toUpperCase();
 			try {
-				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4").toUpperCase());
+				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4"));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
