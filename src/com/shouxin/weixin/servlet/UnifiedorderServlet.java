@@ -102,16 +102,22 @@ public class UnifiedorderServlet extends HttpServlet {
 			//统一下单成功，返回数据
 			SortedMap<String, Object> map2 = new TreeMap<String,Object>();
 			map2.put("appid", "wx9160e991d49b4a97");
-			map2.put("timestamp", time+"");
+			map2.put("timestamp", String.valueOf(time));
 			map2.put("nonceStr",  WXPayUtils.getRandomString(32));
 			map2.put("package", "prepay_id="+map.get("prepay_id"));
 			map2.put("signType", "MD5");
-			try {
-				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4").toUpperCase());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			String paySignStr = "appId=wx9160e991d49b4a97&nonceStr=" + 
+					WXPayUtils.getRandomString(32) + "&package=prepay_id=" + map.get("prepay_id") + "&signType=MD5&timeStamp=" 
+					+ String.valueOf(time) + "&key=cf109ccb4773a83ab2a9327a9bde32a4";
+			String paySign = MD5.md5(paySignStr).toUpperCase();
+//			try {
+//				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4").toUpperCase());
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			System.out.println(paySign);
+			map2.put("paySign", paySign);
 			JSONObject json = JSONObject.fromObject(map2);
 			System.out.println(json+"========json");
 			pw.print(json);
