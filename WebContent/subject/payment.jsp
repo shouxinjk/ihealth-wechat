@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>微信支付</title>
 
 </head>
 <body>
@@ -59,6 +59,8 @@ function onBridgeReady(data1){
                 }else{
                	 	alert(1);
                     alert(res.err_msg);
+                    alert(res.err_code);
+                    alert(res.err_desc);
                 }
             }
         ); 
