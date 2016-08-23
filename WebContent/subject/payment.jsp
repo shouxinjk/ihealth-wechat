@@ -42,7 +42,8 @@ wx.error(function(res){
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 });
 
-function onBridgeReady(data){
+function onBridgeReady(data1){
+	var data = eval(data1);
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
                 "appId":data.appid+'', /* 微信支付，坑一 冒号是中文字符 */
@@ -57,7 +58,7 @@ function onBridgeReady(data){
                     alert("充值成功");
                 }else{
                	 	alert(1);
-                    alert(res.err_msg);
+                    alert(res);
                 }
             }
         ); 
