@@ -107,7 +107,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			map2.put("package", "prepay_id="+map.get("prepay_id"));
 			map2.put("signType", "MD5");
 			try {
-				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4"));
+				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4").toUpperCase());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
