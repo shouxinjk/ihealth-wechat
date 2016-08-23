@@ -58,7 +58,7 @@ function onBridgeReady(data1){
                     alert("充值成功");
                 }else{
                	 	alert(1);
-                    alert(res);
+                    alert(res.err_msg);
                 }
             }
         ); 
