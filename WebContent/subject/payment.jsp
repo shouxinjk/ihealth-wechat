@@ -46,7 +46,7 @@ function onBridgeReady(data){
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
                 "appId":data.appid+'', /* 微信支付，坑一 冒号是中文字符 */
-                "timeStamp":data.timestamp+'',
+                "timeStamp":data.timestamp+'', 
                 "nonceStr":data.nonceStr+'',
                 "package":'prepat_id='+data.prepay_id,
                 "signType":"MD5",
