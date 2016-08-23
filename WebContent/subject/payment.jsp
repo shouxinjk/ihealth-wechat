@@ -66,7 +66,7 @@ function onBridgeReady(data1){
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
                 "appId":data.appId, 
-                "timeStamp":data.timestamp, 
+                "timeStamp":data.timeStamp, 
                 "nonceStr":data.nonceStr,
                 "package":data.package,
                 "signType":"MD5",
