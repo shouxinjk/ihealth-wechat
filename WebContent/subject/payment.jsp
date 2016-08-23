@@ -49,7 +49,7 @@ function onBridgeReady(data1){
                 "appId":data.appid+'', /* 微信支付，坑一 冒号是中文字符 */
                 "timeStamp":data.timestamp+'', 
                 "nonceStr":data.nonceStr+'',
-                "package":'prepat_id='+data.prepay_id,
+                "package":data.package,
                 "signType":"MD5",
                 "paySign":data.paySign+''
             },
