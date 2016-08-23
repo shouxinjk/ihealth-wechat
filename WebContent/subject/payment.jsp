@@ -65,7 +65,7 @@ function onBridgeReady(data1){
 	}); */
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":data.appid, 
+                "appId":data.appId, 
                 "timeStamp":data.timestamp, 
                 "nonceStr":data.nonceStr,
                 "package":data.package,

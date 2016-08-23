@@ -98,7 +98,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		PrintWriter pw = resp.getWriter();
 		String result_code = map.get("result_code");
 		if("SUCCESS".equals(result_code)){
-			long time = new Date().getTime();
+			long time = Long.parseLong(String.valueOf(System.currentTimeMillis()).toString().substring(0,10));
 			//统一下单成功，返回数据
 			SortedMap<String, Object> map2 = new TreeMap<String,Object>();
 			map2.put("appId", "wx9160e991d49b4a97");
