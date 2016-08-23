@@ -103,7 +103,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			SortedMap<String, Object> map2 = new TreeMap<String,Object>();
 			map2.put("appid", "wx9160e991d49b4a97");
 			map2.put("timestamp", time+"");
-			map2.put("nonceStr",  WXPayUtils.getRandomString(32).toUpperCase());
+			map2.put("nonceStr",  WXPayUtils.getRandomString(32));
 			map2.put("package", "prepay_id="+map.get("prepay_id"));
 			map2.put("signType", "MD5");
 			try {
