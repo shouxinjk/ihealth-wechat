@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>微信支付</title>
+<title>微信支付1</title>
 
 </head>
 <body>
