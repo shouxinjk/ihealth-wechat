@@ -104,7 +104,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			map2.put("appid", "wx9160e991d49b4a97");
 			map2.put("timestamp", time+"");
 			map2.put("nonceStr",  WXPayUtils.getRandomString(32).toUpperCase());
-			map2.put("package", String.format("prepay_id={0}", map.get("prepay_id")));
+			map2.put("package", "prepay_id="+map.get("prepay_id"));
 			map2.put("signType", "MD5");
 			try {
 				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4"));
