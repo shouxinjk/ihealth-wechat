@@ -17,14 +17,16 @@
 	<div class='header'>
 		 <img class="head_img " src="../images/head_portrait.jpg" alt="" />
 		 <ul class='div_ul'>
-			<li class='head_span1'>￥<i>12000</i></li>
+			<li class='head_span1'>￥<i>12000</i>
+				<input type="hidden" id="orderno">
+			</li>
 			<li class='head_span2'>体检订单</li>
 		
 	</div>
     <main class="pay col-lg-12 col-xs-12 col-md-12 col-sm-12">
 		<ul>
 			<li><a href="paymentresult.html" class="wechat col-lg-12 col-lg-12 col-lg-12 col-lg-12"> 
-				<img class="wechat_img " src="../images/wechat.png" alt="" />
+				<img class="wechat_img " onclick="WXPay();" src="../images/wechat.png" alt="" />
 				<i class=''>微信支付</i>
 				<img class='' src="../images/arrows.png"></a>
 			</li>
@@ -55,6 +57,7 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../js/swiper-3.3.1.jquery.min.js"></script>
 <script type="text/javascript" src="../js/URL.js"></script>

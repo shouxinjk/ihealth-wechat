@@ -37,21 +37,23 @@ public class UnifiedorderServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		SortedMap<String, Object> params = new TreeMap<String,Object>();
+		String orderNo = req.getParameter("orderNO");
+		int price = Integer.parseInt(req.getParameter("price"));
 		//添加appid
-		params.put("appid", "wx9160e991d49b4a97");
+		params.put("appid", PropertiesUtil.getAppid("appid"));
 		//添加用户openID
 		String openId = (String) req.getSession().getAttribute("openId");
 		params.put("openid", openId);
 		//添加mch_id商户号id
-		params.put("mch_id", "1373455102");
+		params.put("mch_id", PropertiesUtil.getAppid("mch_id"));
 		//添加小于35位随机字符串
 		params.put("nonce_str", WXPayUtils.getRandomString(32));
 		//添加商品描述
-		params.put("body", "手心健康-体检项目购买1");
+		params.put("body", "手心健康-体检项目购买");
 		//添加商户订单号
-		params.put("out_trade_no", OrderNo.getOrderNo("160824000002"));
+		params.put("out_trade_no", orderNo);
 		//添加订单金额
-		params.put("total_fee", 1);
+		params.put("total_fee", price);
 		//添加请求ip地址
 		params.put("spbill_create_ip", SpbillCreateIPUtil.getIp(req));
 		//添加回掉地址
@@ -60,7 +62,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		params.put("trade_type", "JSAPI");
 		//设置签名
 		try {
-			params.put("sign", WXPayUtils.createSign("UTF-8", params, "cf109ccb4773a83ab2a9327a9bde32a4"));
+			params.put("sign", WXPayUtils.createSign("UTF-8", params, PropertiesUtil.getAppid("key")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
