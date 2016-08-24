@@ -53,7 +53,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加商户订单号
 		params.put("out_trade_no", orderNo);
 		//添加订单金额
-		params.put("total_fee", price);
+		params.put("total_fee", 1);
 		//添加请求ip地址
 		params.put("spbill_create_ip", SpbillCreateIPUtil.getIp(req));
 		//添加回掉地址
