@@ -294,8 +294,8 @@ function intn(userId){
 //购买体检套餐
 $('.xmtable').delegate(".buy",'click',function(){ 
 	
-	window.location ="../subject/buypeitem.html";
-	/*var tname ='';
+	//window.location ="../subject/buypeitem.html";
+	var tname ='';
 	var userId=$('.buy').attr('data-userid');
 	var check_id;
 	var check;
@@ -317,7 +317,7 @@ $('.xmtable').delegate(".buy",'click',function(){
         				 check_id = tname.substring(0,tname.length-1);
         				
         	}
-        		//check=check_id.replace(/,/g, "");
+        		check=check_id.replace(/,/g, "");
         		
         }
 	});
@@ -338,7 +338,7 @@ $('.xmtable').delegate(".buy",'click',function(){
         	//alert(r.msg)
         	window.location =urll +"/subject/buypeitem.html?orderid="+orderid;
         }
-	});*/
+	});
 });
 
 
