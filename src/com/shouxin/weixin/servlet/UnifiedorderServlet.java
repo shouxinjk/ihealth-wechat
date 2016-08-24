@@ -49,7 +49,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加商品描述
 		params.put("body", "手心健康-体检项目购买1");
 		//添加商户订单号
-		params.put("out_trade_no", OrderNo.getOrderNo("160824000001"));
+		params.put("out_trade_no", OrderNo.getOrderNo("160824000002"));
 		//添加订单金额
 		params.put("total_fee", 1);
 		//添加请求ip地址
