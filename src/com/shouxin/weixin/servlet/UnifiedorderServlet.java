@@ -55,7 +55,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加请求ip地址
 		params.put("spbill_create_ip", SpbillCreateIPUtil.getIp(req));
 		//添加回掉地址
-		params.put("notify_url", "http://test.shouxinjk.net/ihealth-wechat/ordersuccess");
+		params.put("notify_url", "http://www.shouxinjk.net/ihealth-wechat/ordersuccess");
 		//添加交易类型
 		params.put("trade_type", "JSAPI");
 		//设置签名
@@ -81,6 +81,9 @@ public class UnifiedorderServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("applocation/json;charset=utf-8");
+		PrintWriter pw = resp.getWriter();
 		String return_code = map.get("return_code");
 		//判断统一下单时否成功！
 		if(StringUtils.isNotEmpty(return_code) && "SUCCESS".equals(return_code)){
@@ -88,14 +91,14 @@ public class UnifiedorderServlet extends HttpServlet {
 			if(StringUtils.isNotEmpty(return_msg) && !"OK".equals(return_msg)){
 				System.out.println("[微信支付][预支付]统一下单错误，错误码是：" + map.get("err_code") 
 				+ ",错误信息为：" + map.get("err_code_des"));
+				pw.print(map.get("err_code_des"));
 			}
 			
 		}else{
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
+			pw.print(map.get("return_msg"));
 		}
-		resp.setCharacterEncoding("utf-8");
-		resp.setContentType("applocation/json;charset=utf-8");
-		PrintWriter pw = resp.getWriter();
+	
 		String result_code = map.get("result_code");
 		if("SUCCESS".equals(result_code)){
 			long time = Long.parseLong(String.valueOf(System.currentTimeMillis()).toString().substring(0,10));
@@ -122,6 +125,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			System.out.println(json+"========json");
 			pw.print(json);
 		}else{
+			pw.print(map.get("return_msg"));
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 		}
 		pw.close();
