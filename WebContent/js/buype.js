@@ -3,17 +3,24 @@ var userId = ReadCookie("userId");
     $(this).addClass('active').siblings().removeClass('active');  // 删除其他兄弟元素的样式
    
  });*/
-
+(function ($) {
+    $.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+})(jQuery);
+var orderid = $.getUrlParam('orderid');
 $(function () {
-/*	//从URL里获取orderid
-    (function ($) {../images/right.png
+	//从URL里获取orderid
+    (function ($) {
         $.getUrlParam = function (name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return unescape(r[2]); return null;
         }
     })(jQuery);
-    var orderid = $.getUrlParam('orderid');*/
+    var orderid = $.getUrlParam('orderid');
     //console.log(orderid);
 	var userId  = ReadCookie("userId");
     $.ajax({
@@ -36,8 +43,8 @@ $(function () {
         				for(var j=0;j<data[i].pds.length;j++){
 							if(j == 0){
 									str +="<li class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
-									str +=  "<input value="+i+" type='checkbox' checked='checked' class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+									str +=  "<input value="+i+" type='checkbox' checked='checked' class='subcheck yes box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
+									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
 									str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
 									str +="</li>";
 									
@@ -45,7 +52,7 @@ $(function () {
 							else{
 									str +="<li style='display:none;'  class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
 									str +=  "<input  value="+i+" type='checkbox'  class='subcheck nocheck col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
 									str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
 									str +="</li>";
 									 $(".nocheck").attr("checked", false);	
@@ -56,8 +63,8 @@ $(function () {
         						for(var j=0;j<data[i].pds.length;j++){
         							if(j == 0){
     										str +="<li class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
-    										str +=  "<input type='checkbox' checked='checked' class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+    										str +=  "<input type='checkbox' checked='checked' class='subcheck yes box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
+    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
     										str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
     										str +="</li>";
     										
@@ -65,7 +72,7 @@ $(function () {
         							else{
     										str +="<li style='display:none;'  class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
     										str +=  "<input type='checkbox'  class='subcheck nocheck col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
     										str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
     										str +="</li>";
     										 $(".nocheck").attr("checked", false);	
@@ -91,6 +98,35 @@ $(function () {
     	});
    
 });
+$('.buy_footer').delegate(".settle",'click',function(){ 
+	var fruit = "";
+    var vegetable = "";
+    var checkid;
+  var o=  $("input:checked").next().children().length;
+  $("input:checked").next().children().each(function() {
+        fruit += $(this).val() + ",";
+        checkid = fruit.substring(0,fruit.length-1);
+    });
+	console.log(checkid);
+	var orderm=($('.money').children().text());
+	console.log(orderid);
+	
+	$.ajax({
+        type: "post",
+        url: url+"/restOrder/editOrderAndItem",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"order_id":orderid,"itemID":checkid,"ORDERTOTALAMOUNT":orderm}),
+        dataType: "json",
+        async : false,
+		cache : false,
+        success: function (r) {
+        	console.log(r.msg);
+        	window.location="../subject/payment.html?orderid="+orderid;
+        }
+	});
+});
+
+
 
 /**/
 
@@ -105,7 +141,7 @@ $('.container').delegate(".buyul .ulimg1","click",function(){
 	//$(this).siblings('li').hide();
 	$(this).attr('src','../images/ulimg.png');
 	$(this).removeClass().addClass("ulimg");
-	 $(this).siblings('li').find(':checked').parent().siblings('li').css('display','none');
+	$(this).siblings('li').find(':checked').parent().siblings('li').css('display','none');
 });
 
 
@@ -125,6 +161,8 @@ function ulclick(i){//多个体检项目 只能勾选一个
 };
 
 function allp(){ 
+	var tname='';
+	var check;
 	var price= 0.0;//进入算总价
 	$(".buydiv ul li input[type=checkbox]").each(function(){
 	    //var chk = $(this).find("[checked]");
@@ -132,9 +170,18 @@ function allp(){
 	    	var m=$(this).siblings().last().children('lable').text();
 	    	price +=m*1;
 	    	$('.money span').text(price);
+	    	/*var le =$('.buyul li').length;
+	    	console.log(le);
+	    	for(var q=0;q<le.length;q++){
+		    	var m1=$(this).siblings().last().children('input').val();
+		    	tname +=str +',';
+	    	}
+	    }
+	    checkid = tname.substring(0,tname.length-1);
+	    $('.dis').text(checkid);
+	});*/
 	    }
 	});
-	
 }
 
 

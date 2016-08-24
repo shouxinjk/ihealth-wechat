@@ -14,6 +14,9 @@ $(function () {
         }
     })(jQuery);
     var orderid = $.getUrlParam('orderid');
+    
+    var chid;
+	var check;
     //console.log(orderid);
     $.ajax({
         type: "post",
@@ -33,18 +36,27 @@ $(function () {
 								"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].name+"</div>"+
 								"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].settlementprice+"</lable>元</div>"+
 							"</li>";
+        			
+        			
         			$(".buy_table ul").append(str);
         			$(":checkbox").attr("checked", true);
         			price +=data[i].settlementprice;
         		}
+        		chid = tname.substring(0,tname.length-1);
+        		$('.dis').html(chid);
         		$('.money span').text(price);
         	}
+        	/*check=chid.replace(/,/g, "");*/
         }
 	});
     
 });
 
 	
+
+
+
+
 function selectAll(){  //点击全选时计算总价
 	var price= 0.0;
 	  $(":checkbox").attr("checked", true);
