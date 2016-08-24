@@ -66,6 +66,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		}
 		/**2 发送HTTPS请求获取带签名预支付信息 */
 		String requestParamterStr = WXPayUtils.map2xmlBody(params, "xml");
+		System.out.println(requestParamterStr);
 		StringBuffer buffer = new StringBuffer();
 		try {
 			//统一下单请求
