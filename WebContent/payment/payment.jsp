@@ -90,6 +90,7 @@ function show(){
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		success:function(data){
+			alert(data);
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
