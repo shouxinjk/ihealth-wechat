@@ -47,7 +47,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加小于35位随机字符串
 		params.put("nonce_str", WXPayUtils.getRandomString(32));
 		//添加商品描述
-		params.put("body", "手心健康-体检项目购买");
+		params.put("body", "手心健康-体检项目购买1");
 		//添加商户订单号
 		params.put("out_trade_no", OrderNo.getDateStr());
 		//添加订单金额
@@ -91,11 +91,13 @@ public class UnifiedorderServlet extends HttpServlet {
 			if(StringUtils.isNotEmpty(return_msg) && !"OK".equals(return_msg)){
 				System.out.println("[微信支付][预支付]统一下单错误，错误码是：" + map.get("err_code") 
 				+ ",错误信息为：" + map.get("err_code_des"));
+				System.out.println(11111);
 				pw.print(map.get("err_code_des"));
 			}
 			
 		}else{
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
+			System.out.println(22222);
 			pw.print(map.get("return_msg"));
 		}
 	
@@ -125,6 +127,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			System.out.println(json+"========json");
 			pw.print(json);
 		}else{
+			System.out.println(333333);
 			pw.print(map.get("return_msg"));
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 		}
