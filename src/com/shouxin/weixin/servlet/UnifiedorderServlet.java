@@ -39,7 +39,7 @@ public class UnifiedorderServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		SortedMap<String, Object> params = new TreeMap<String,Object>();
 		String orderNo = req.getParameter("orderNO");
-		System.out.println(orderNo);
+		//System.out.println(orderNo);
 		//int price = Integer.parseInt(req.getParameter("price"));
 		//添加appid
 		params.put("appid", PropertiesUtil.getAppid("appid"));
@@ -90,8 +90,6 @@ public class UnifiedorderServlet extends HttpServlet {
 		resp.setContentType("applocation/json;charset=utf-8");
 		PrintWriter pw = resp.getWriter();
 		String return_code = map.get("return_code");
-		String return_msgs = map.get("return_msg");
-		JSONObject json1 = JSONObject.fromObject(map);
 		//判断统一下单时否成功！
 		if(StringUtils.isNotEmpty(return_code) && "SUCCESS".equals(return_code)){
 			String return_msg = map.get("return_msg");
@@ -99,13 +97,11 @@ public class UnifiedorderServlet extends HttpServlet {
 				System.out.println("[微信支付][预支付]统一下单错误，错误码是：" + map.get("err_code") 
 				+ ",错误信息为：" + map.get("err_code_des"));
 				System.out.println(11111);
-				pw.print(map.get("err_code_des"));
 			}
 			
 		}else{
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 			System.out.println(22222);
-			pw.print(map.get("return_msg"));
 		}
 	
 		String result_code = map.get("result_code");
@@ -118,10 +114,6 @@ public class UnifiedorderServlet extends HttpServlet {
 			map2.put("nonceStr",  WXPayUtils.getRandomString(32));
 			map2.put("package", "prepay_id="+map.get("prepay_id"));
 			map2.put("signType", "MD5");
-//			String paySignStr = "appId=wx9160e991d49b4a97&nonceStr=" + 
-//					WXPayUtils.getRandomString(32) + "&package=prepay_id=" + map.get("prepay_id") + "&signType=MD5&timeStamp=" 
-//					+ String.valueOf(time) + "&key=cf109ccb4773a83ab2a9327a9bde32a4";
-//			String paySign = MD5.md5(paySignStr).toUpperCase();
 			try {
 				map2.put("paySign", WXPayUtils.createSign("UTF-8", map2, "cf109ccb4773a83ab2a9327a9bde32a4"));
 			} catch (Exception e) {
@@ -135,7 +127,6 @@ public class UnifiedorderServlet extends HttpServlet {
 			pw.print(json);
 		}else{
 			System.out.println(333333);
-			pw.print(map.get("return_msg"));
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 		}
 		pw.close();
