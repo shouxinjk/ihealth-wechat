@@ -137,7 +137,6 @@ public class UnifiedorderServlet extends HttpServlet {
 			pw.print(map.get("return_msg"));
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
 		}
-		pw.print(json1);
 		pw.close();
 		
 	}
