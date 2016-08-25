@@ -47,7 +47,7 @@ function onBridgeReady(data1){
                 "paySign":data.paySign
             },
             function(res){     
-                if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                     alert("充值成功");
                 }else{
                     alert(res.err_msg);
