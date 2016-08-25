@@ -2,6 +2,7 @@ package com.shouxin.weixin.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -100,6 +101,7 @@ public class UnifiedorderServlet extends HttpServlet {
 			
 		}else{
 			System.out.println("[微信支付][预支付]统一下单错误，错误信息为：" + map.get("return_msg"));
+			System.out.println(Charset.forName("UTF-8").encode(map.get("return_msg")));
 			System.out.println(22222);
 			pw.print(map.get("return_msg"));
 		}
