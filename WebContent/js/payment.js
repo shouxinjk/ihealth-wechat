@@ -66,12 +66,13 @@ function fun1(){
 function WXPay(){
 	alert(111);
 	var orderNO = $("#orderno").val();
+	alert(orderNO)
 	var price = $('.head_span1 i').text();
 	alert(price);
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		data:{"orderNo":orderNO,"price":1},
+		data:{"orderNO":orderNO,"price":1},
 		success:function(data){
 			alert(data);
                  if (typeof WeixinJSBridge == "undefined"){
