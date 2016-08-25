@@ -88,6 +88,7 @@ function onBridgeReady(data1){
 }
 //微信支付统一下单接口
 function WXPay(){
+	alert(111);
 	var orderNO = $("#orderno").val();
 	var price = $('.head_span1 i').text();
 	alert(price);
