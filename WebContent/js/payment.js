@@ -90,6 +90,7 @@ function onBridgeReady(data1){
 function WXPay(){
 	var orderNO = $("#orderno").val();
 	var price = $('.head_span1 i').text();
+	alert(price);
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
