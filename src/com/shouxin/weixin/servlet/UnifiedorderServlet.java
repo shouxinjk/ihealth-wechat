@@ -120,8 +120,6 @@ public class UnifiedorderServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-//			System.out.println(paySign);
-//			map2.put("paySign", paySign);
 			map2.put("orderNo",orderNo);
 			JSONObject json = JSONObject.fromObject(map2);
 			System.out.println(json+"========json");

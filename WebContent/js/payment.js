@@ -48,6 +48,7 @@ function onBridgeReady(data1){
             },
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                	alert(res.orderNo);
                 	window.location ="../subject/paymentresult.html?orderid="+res.orderNo;
                 }else{
                     alert(res.err_msg);
