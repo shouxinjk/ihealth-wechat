@@ -35,7 +35,7 @@ function Usern(userId){
 }
 
 //微信支付请求接口
-function onBridgeReady(data1){
+function onBridgeReady(data1,orderNo){
 	var data = eval(data1);
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
@@ -48,8 +48,7 @@ function onBridgeReady(data1){
             },
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-                	alert(res.orderNo);
-                	window.location ="../subject/paymentresult.html?orderid="+res.orderNo;
+                	window.location ="../subject/paymentresult.html?orderid="+orderNo;
                 }else{
                     alert(res.err_msg);
                     alert(res.err_code);
@@ -72,6 +71,9 @@ function WXPay(){
 		data:{"orderNO":orderNO,"price":1},
 		success:function(data){
 			//alert(data);
+			
+			var orderNo = data.orderNo;
+			alert(orderNo);
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -80,7 +82,7 @@ function WXPay(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                     onBridgeReady(data);
+                     onBridgeReady(data,orderNo);
                   } 
 		}
 	});
