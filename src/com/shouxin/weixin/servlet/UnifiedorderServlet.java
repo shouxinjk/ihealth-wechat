@@ -38,8 +38,8 @@ public class UnifiedorderServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		SortedMap<String, Object> params = new TreeMap<String,Object>();
-		String orderNo = req.getParameter("orderNO");
-		int price = Integer.parseInt(req.getParameter("price"));
+		//String orderNo = req.getParameter("orderNO");
+		//int price = Integer.parseInt(req.getParameter("price"));
 		//添加appid
 		params.put("appid", PropertiesUtil.getAppid("appid"));
 		//添加用户openID
@@ -52,7 +52,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加商品描述
 		params.put("body", "手心健康-体检项目购买");
 		//添加商户订单号
-		params.put("out_trade_no", orderNo);
+		params.put("out_trade_no", OrderNo.getOrderNo("160825000001"));
 		//添加订单金额
 		params.put("total_fee", 1);
 		//添加请求ip地址
