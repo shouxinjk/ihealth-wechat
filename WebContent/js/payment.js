@@ -101,7 +101,7 @@ function WXPay(){
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		data:{"orderNo":orderNo,"price":1},
+		data:{"orderNo":orderNO,"price":1},
 		success:function(data){
 			alert(data);
                  if (typeof WeixinJSBridge == "undefined"){
