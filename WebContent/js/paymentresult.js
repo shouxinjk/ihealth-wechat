@@ -25,6 +25,7 @@ function gain(userId){
 		}),
 		dataType : "json",
 		success : function(r) {
+			alert(r.orderData.ORDERNO +"===="+r.orderData.ORDERTOTALAMOUNT);
 			$('.nub i').text(r.orderData.ORDERNO);
 			$('.je i').text(r.orderData.ORDERTOTALAMOUNT);
 		}
