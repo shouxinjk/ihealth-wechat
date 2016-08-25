@@ -86,6 +86,11 @@ function onBridgeReady(data1){
             }
         );  
 }
+
+function fun1(){
+	alert(1);
+}
+
 //微信支付统一下单接口
 function WXPay(){
 	alert(111);
