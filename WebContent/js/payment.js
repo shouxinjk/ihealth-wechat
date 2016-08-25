@@ -48,7 +48,7 @@ function onBridgeReady(data1){
             },
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-                    alert("充值成功");
+                	window.location ="../subject/paymentresult.html?orderid="+res.orderNo;
                 }else{
                     alert(res.err_msg);
                     alert(res.err_code);
