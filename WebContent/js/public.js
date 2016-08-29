@@ -1108,8 +1108,9 @@ function addUserAndUser(userId){
   		async : false,
 		cache : false,
 		success:function(r){
+			alert(r);
 			if(r.result == "success"){
-				alert(222);
+				
 				//on_click_3(user_id);
 				//sub_health_3(userId);
 				window.location="../subject/privacy.html";
