@@ -329,12 +329,13 @@ $('.xmtable').delegate(".buy",'click',function(){
         type: "post",
         url: url+"/restOrder/addOrder",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"solutionID":check_id,"userId":userId}),
+        data: JSON.stringify({"userId":userId}),
         dataType: "json",
         async : false,
 		cache : false,
         success: function (r) {
         	var orderid = r.orderid;
+        	alert(orderid);
         	//alert(r.msg)
         	window.location =urll +"/subject/buypeitem.html?orderid="+orderid;
         }
