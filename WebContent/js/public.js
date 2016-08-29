@@ -1091,7 +1091,6 @@ function findByUserId(userId){
 }
 
 function addUserAndUser(userId){
-	alert(1111);
 	var user_id = ReadCookie("userId");
 	var connection = ReadCookie("connection");
 	$.ajax({
@@ -1108,9 +1107,7 @@ function addUserAndUser(userId){
   		async : false,
 		cache : false,
 		success:function(r){
-			alert(r.result);
 			if(r.result == "success"){
-				
 				//on_click_3(user_id);
 				//sub_health_3(userId);
 				window.location="../subject/privacy.html";
