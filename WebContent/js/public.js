@@ -1108,7 +1108,7 @@ function addUserAndUser(userId){
   		async : false,
 		cache : false,
 		success:function(r){
-			alert(r);
+			alert(r.result);
 			if(r.result == "success"){
 				
 				//on_click_3(user_id);
