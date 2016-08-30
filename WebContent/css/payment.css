@@ -1,7 +1,7 @@
 .header {
 	height: 6rem;
 	padding-left: .5rem;
-	border-bottom: .05rem solid;
+	border-bottom: .05rem solid rgb(218, 218, 218);
 }
 .head_img{
 	border-radius: 3rem;
@@ -35,7 +35,7 @@ li.head_span2 {
 	padding:0;
 }
 .pay li a{
-	border-bottom: .05rem solid;
+	border-bottom: .05rem solid rgb(218, 218, 218);
 	line-height: 2.5rem;
 	display: block;
 	padding: .3rem 0 0.3rem .5rem;
