@@ -52,6 +52,7 @@
 }
 .active a{
 	color: #fff;
+	font-size: .8rem;
 }
 .active{
 	background: #67d600;
