@@ -29,22 +29,18 @@ li.head_span2 {
 .wechat_img,.alipay_img, .unionpay_img{
 	width:2.5rem;
 	height:2.5rem;
+	float: left;
 }
 .pay,.pay ul,.pay li{
 	padding:0;
 }
 .pay li a{
-	display: block
+	display: block;
+	line-height: 2.5rem;
 }
 .pay li{
 	border-bottom: .05rem solid rgb(218, 218, 218);
 	padding: .5rem 0;
-}
-.jiant{
-	width: 0.5rem;
-	position: relative;
-	top: .8rem;
-	padding: 0;
 }
 
 .pay li a i{
@@ -52,16 +48,18 @@ li.head_span2 {
 	font-size: .7rem;
 	color:#000;
 }
-.wechat i{
-	padding: 0 50% 0 3%;
+.wechat i,.alipay i,.unionpay i{
+	padding: 0 .5rem 0 .5rem;
+	width: 75%;
+	display: block;
+	float: left;
 }
-.alipay i{
-	padding: 0 50% 0 5%;
+.jiant{
+	width: 0.5rem;
+	position: relative;
+	/* top: .8rem; */
+	padding: 0;
 }
-.unionpay i{
-	padding: 0 46% 0 5%;
-}
-
 
 
 
