@@ -1,7 +1,7 @@
 .header {
 	height: 6rem;
 	padding-left: .5rem;
-	border-bottom: .05rem solid;
+	border-bottom: .05rem solid rgb(218, 218, 218);
 }
 .head_img{
 	border-radius: 3rem;
@@ -37,7 +37,7 @@ li.head_span2 {
 	display: block
 }
 .pay li{
-	border-bottom: .05rem solid;
+	border-bottom: .05rem solid rgb(218, 218, 218);
 	padding: .5rem 0;
 }
 .jiant{
