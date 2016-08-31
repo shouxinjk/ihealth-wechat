@@ -73,7 +73,6 @@ function WXPay(){
 			//alert(data);
 			
 			var orderNo = data.orderNo;
-			alert(orderNo);
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);

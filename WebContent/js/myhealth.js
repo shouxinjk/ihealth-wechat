@@ -335,7 +335,6 @@ $('.xmtable').delegate(".buy",'click',function(){
 		cache : false,
         success: function (r) {
         	var orderid = r.orderid;
-        	alert(orderid);
         	//alert(r.msg)
         	window.location =urll +"/subject/buypeitem.html?orderid="+orderid;
         }
