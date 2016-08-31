@@ -7,9 +7,7 @@ $(function(){
 	        }
 	    })(jQuery);
 	    var orderid = $.getUrlParam('orderid');*/
-	shux();
-});
-function shux(){
+
 	function ReadCookie(cookieName) {
 	    var theCookie = "" + document.cookie;
 	    var ind = theCookie.indexOf(cookieName);
@@ -45,7 +43,7 @@ function shux(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":orderid}),
+	        data: JSON.stringify({"order_id":"10378d15101a4a95bb40444d2fd53f89"}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
@@ -94,7 +92,7 @@ function shux(){
 	        }
 	       
 	    });
-}
+});
 $('.subscribe').delegate(".closeyu","click",function(){
 	var med = $(this).attr('data-id');
 	 $.ajax({
@@ -107,7 +105,7 @@ $('.subscribe').delegate(".closeyu","click",function(){
 	            if (r.msg == "success") {
 	            	$('.subscribe').html('');
 	            			//window.location.reload();
-	            	shux();
+	            	window.location="../subject/booking.html";
 	            		}
 	        		}
 	            })
