@@ -45,7 +45,7 @@ function shux(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":"10378d15101a4a95bb40444d2fd53f89"}),
+	        data: JSON.stringify({"order_id":orderid}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
