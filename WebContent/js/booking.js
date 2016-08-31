@@ -96,8 +96,22 @@ $(function(){
 $('.subscribe').delegate(".closeyu","click",function(){
 	alert('1111');
 	var med = $(this).attr('data-id');
-	alert('222');
-	 $.ajax({
+	alert(med);
+	
+	$.ajax({
+        type: "post",
+        url: url+"/restOrder/editAboutTimeQuxiao",
+        contentType:"application/json;charset=utf8",
+        data: JSON.stringify({"order_id":med}),
+        dataType: "json",
+        async : false,
+		cache : false,
+        success: function (r) {
+        	
+            	alert(r.msg);
+        }
+	
+	 /*$.ajax({
 	        type: "post",
 	        url: url+"/restOrder/editAboutTimeQuxiao",
 	        contentType:"application/json;charset=utf8",
@@ -113,7 +127,7 @@ $('.subscribe').delegate(".closeyu","click",function(){
 	        	},
 	        	error:function(e){
 	        		alert(e);
-	        	}
+	        	}*/
 	        	
 	            });
 });
