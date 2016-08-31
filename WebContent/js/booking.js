@@ -16,7 +16,7 @@ $(function(){
 	    /*读取Cookie值*/
 	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
 	}
-	var orderid =delCookie("order_id");
+	var orderid =ReadCookie("order_id");
 	  //获得年月日      得到日期oTime  
         function getMyDate(str){  
             var oDate = new Date(str),  
