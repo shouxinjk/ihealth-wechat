@@ -94,7 +94,7 @@ $(function(){
 	    });
 });
 $('.subscribe').delegate(".closeyu","click",function(){
-	
+	alert('1111');
 	var med = $(this).attr('data-id');
 	 $.ajax({
 	        type: "post",
