@@ -61,7 +61,7 @@ $(function(){
 				            				"<ul class='subscribe_ul col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 				            					"<li class='subscribe_l1 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检人:</span><i>"+data[i].UNAME+"</i></li>"+
 				            					"<li class='subscribe_l2 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单编号:</span><i>"+data[i].ORDERNO+"</i>(子订单:<em>"+data[i].MEDICALORDERNO.substring(12,data[i].MEDICALORDERNO.length)+"</em>)</li>"+
-				            					"<li class='subscribe_l3 col-lg-12 col-xs-12 col-md-12 col-sm-12'><a href='booking_date.html?mdcid="+data[i].MEDICALORDER_ID+"'>"+time+"更改日程</a><span class='closeyu' data-id='"+data[i].MEDICALORDER_ID+"'>取消预约</span></li>"+
+				            					"<li class='subscribe_l3 col-lg-12 col-xs-12 col-md-12 col-sm-12'><a href='booking_date.html?mdcid="+data[i].MEDICALORDER_ID+"'>"+time+"更改日程</a><span class='closeyu' data-id='"+data[i].MEDICALORDER_ID+"'><input type='hidden' value='"+data[i].MEDICALORDER_ID+"'/>取消预约</span></li>"+
 				            				"</ul>"+
 				            			"</div>"+
 				            			"<div class='add_date'>"+
@@ -110,8 +110,12 @@ $('.subscribe').delegate(".closeyu","click",function(){
 	            			//window.location.reload();
 	            	window.location ="../subject/booking.html"
 	            		}
-	        		}
-	            })
+	        	},
+	        	error:function(e){
+	        		alert(e);
+	        	}
+	        	
+	            });
 });
 
 
