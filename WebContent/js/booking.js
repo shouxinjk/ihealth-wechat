@@ -43,7 +43,7 @@ $(function(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":orderid}),
+	        data: JSON.stringify({"order_id":"10378d15101a4a95bb40444d2fd53f89"}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
@@ -103,6 +103,7 @@ $('.subscribe').delegate(".closeyu","click",function(){
 	        data: JSON.stringify({"order_id":med}),
 	        dataType: "json",
 	        success: function (r) {
+	        	alert(r);
 	            if (r.msg == "success") {
 	            	alert(r.msg);
 	            			//window.location.reload();
