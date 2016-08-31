@@ -21,12 +21,14 @@ li{
 .order_number{
 	padding:0;
 }
-.order_number p{
-	padding-left: 2rem;
+.subscribe{
+	display: block;
+	border: .05rem solid;
+	width: 38%;
+	text-align: center;
+	border-radius: 1rem;
+	margin: 0 auto;
 }
-
-
-
 
 
 
