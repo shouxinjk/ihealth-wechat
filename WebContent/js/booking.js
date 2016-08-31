@@ -7,6 +7,9 @@ $(function(){
 	        }
 	    })(jQuery);
 	    var orderid = $.getUrlParam('orderid');*/
+	shux();
+});
+function shux(){
 	function ReadCookie(cookieName) {
 	    var theCookie = "" + document.cookie;
 	    var ind = theCookie.indexOf(cookieName);
@@ -42,7 +45,7 @@ $(function(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":orderid}),
+	        data: JSON.stringify({"order_id":"10378d15101a4a95bb40444d2fd53f89"}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
@@ -91,9 +94,8 @@ $(function(){
 	        }
 	       
 	    });
-});
+}
 $('.subscribe').delegate(".closeyu","click",function(){
-	alert('1111');
 	var med = $(this).attr('data-id');
 	 $.ajax({
 	        type: "post",
@@ -103,7 +105,9 @@ $('.subscribe').delegate(".closeyu","click",function(){
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
-	            	window.location.reload();
+	            	$('.subscribe').html('');
+	            			//window.location.reload();
+	            	shux();
 	            		}
 	        		}
 	            })
