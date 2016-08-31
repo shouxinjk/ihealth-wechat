@@ -29,14 +29,15 @@ function gain(userId){
 			$('.nub i').text(r.orderData.ORDERNO);
 			$('.je i').text(r.orderData.ORDERTOTALAMOUNT);
 			$("#order_id").val(r.orderData.ORDER_ID);
+			 SetCookie("order_id",r.orderData.ORDER_ID,7);
 		}
 
 	});
 
 }
 $('.order_number').delegate(".subscribe","click",function(){
-	var o= $("#order_id").val();
-	window.location ="../subject/booking.html?orderid="+o;
+	//var o= $("#order_id").val();
+	window.location ="../subject/booking.html";
 });
 
 

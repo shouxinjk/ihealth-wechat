@@ -1,12 +1,22 @@
 $(function(){
-	 (function ($) {
+	/* (function ($) {
 	        $.getUrlParam = function (name) {
 	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 	            var r = window.location.search.substr(1).match(reg);
 	            if (r != null) return unescape(r[2]); return null;
 	        }
 	    })(jQuery);
-	    var orderid = $.getUrlParam('orderid');
+	    var orderid = $.getUrlParam('orderid');*/
+	function ReadCookie(cookieName) {
+	    var theCookie = "" + document.cookie;
+	    var ind = theCookie.indexOf(cookieName);
+	    if(ind==-1 || cookieName=="") return "";
+	    var ind1 = theCookie.indexOf(';',ind);
+	    if(ind1==-1) ind1 = theCookie.length;
+	    /*读取Cookie值*/
+	    return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+	}
+	var orderid =delCookie("order_id");
 	  //获得年月日      得到日期oTime  
         function getMyDate(str){  
             var oDate = new Date(str),  
@@ -32,7 +42,7 @@ $(function(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":orderid}),
+	        data: JSON.stringify({"order_id":"10378d15101a4a95bb40444d2fd53f89"}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
