@@ -25,7 +25,7 @@ function gain(userId){
 		}),
 		dataType : "json",
 		success : function(r) {
-			alert(r.orderData +"===="+r.msg);
+			/*alert(r.orderData +"===="+r.msg);*/
 			$('.nub i').text(r.orderData.ORDERNO);
 			$('.je i').text(r.orderData.ORDERTOTALAMOUNT);
 		}
@@ -33,7 +33,8 @@ function gain(userId){
 	});
 
 }
-$('.subscribe').click(function(orderid){
+$('.order_number').delegate(".subscribe","click",function(orderid){
+	alert(orderid);
 	window.location ="../subject/booking.html?orderid="+orderid;
 });
 
