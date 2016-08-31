@@ -141,7 +141,7 @@ function msgsave(userId){
   	        data: JSON.stringify({"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
   	        dataType: "json",
   	        success: function (r) {
-  	            if (r.result == "suceess") {
+  	            if (r.result == "success") {
   	            	 console.log('保存成功');
   	            	$('#headname').text(r.data.NAME);//获取姓名
   	            }else{
@@ -206,7 +206,7 @@ function msgsave_1(userId){
   	        data: JSON.stringify({"connection":relation,"userid":userID,"tel":phone,"userId":userId,"sex":SEX,"name":NAME,"marriageStatus":MARRIAGESTATUS,"birthPlace":BIRTHPLACE,"livePlace":LIVEPLACE,"career":CAREER,"degree":DEGREE,"birthday":BIRTHDAY,"height":HEIGHT,"weight":WEIGHT}),
   	        dataType: "json",
   	        success: function (r) {
-  	            if (r.result == "suceess") {
+  	            if (r.result == "success") {
   	            	 console.log('保存成功');
   	            	$('#headname').text(r.data.NAME);//获取姓名
   	            }else{

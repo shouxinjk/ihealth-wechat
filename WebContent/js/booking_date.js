@@ -1,5 +1,4 @@
-
-window.onload=function(){
+    window.onload=function(){
         var mydate=new Date();
 
         var thisyear=mydate.getFullYear();
@@ -43,8 +42,8 @@ window.onload=function(){
             orderabledate(thisyear,thismonth,thisday);
         }
         initdata();
-        $(".datetoday").val(thisyear+"-"+thismonth+"-"+thisday);  //显示日期
-       // jQuery(".dateendday").val(thisyear+"-"+thismonth+"-"+(thisday+1));
+        $(".datetoday").val(thisyear+"-"+thismonth+"-"+thisday);
+        jQuery(".dateendday").val(thisyear+"-"+thismonth+"-"+(thisday+1));
         function orderabledate(thisyear,thismonth,thisday){//能预订的日期
             if(thisyear<thisyear1){
                 $(".data_table tbody td").addClass("orderdate");
@@ -199,40 +198,3 @@ window.onload=function(){
                 }
         );*/
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
