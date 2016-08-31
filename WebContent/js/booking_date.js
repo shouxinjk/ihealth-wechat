@@ -124,7 +124,8 @@
             outmonth=thismonth1;
             initdata();
         }
-        $(".data_table tbody td.usedate").live("click",function(){//点击日期的效果
+        $('.data_table').delegate(".data_table tbody td.usedate","click",function(){
+       //点击日期的效果
             var thishtml=parseInt(jQuery(this).html());
             $(".data_table td").removeClass("tdselect");
             $(this).addClass("tdselect");
