@@ -9,7 +9,7 @@ $(function () {
             if (r != null) return unescape(r[2]); return null;
         }
     })(jQuery);
-    var orderid = $.getUrlParam('orderid');	
+     var orderid = $.getUrlParam('orderid');	
     console.log(orderid);
     gain(userId);
 });
@@ -28,14 +28,15 @@ function gain(userId){
 			/*alert(r.orderData +"===="+r.msg);*/
 			$('.nub i').text(r.orderData.ORDERNO);
 			$('.je i').text(r.orderData.ORDERTOTALAMOUNT);
+			$("#order_id").val(r.orderData.ORDER_ID);
 		}
 
 	});
 
 }
-$('.order_number').delegate(".subscribe","click",function(orderid){
-	alert(orderid);
-	window.location ="../subject/booking.html?orderid="+orderid;
+$('.order_number').delegate(".subscribe","click",function(){
+	var o= $("#order_id").val();
+	window.location ="../subject/booking.html?orderid="+o;
 });
 
 
