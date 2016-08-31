@@ -5,7 +5,7 @@
 
         var thismonth=mydate.getMonth()+1;
 
-        var thisday=mydate.getDate()+2; //初始选择日期
+        var thisday=mydate.getDate(); //初始选择日期
 
         var mydate1=new Date();
 
@@ -13,7 +13,7 @@
 
         var thismonth1=mydate1.getMonth()+1;
 
-        var thisday1=mydate1.getDate()+2;//初始选择日期
+        var thisday1=mydate1.getDate();//初始选择日期
 
         var selectday=thisday; //标记日期
 
@@ -199,3 +199,58 @@
                 }
         );*/
     }
+    $('.choosecal').delegate(".suretijian","click",function(){
+    	 (function ($) {
+    	        $.getUrlParam = function (name) {
+    	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    	            var r = window.location.search.substr(1).match(reg);
+    	            if (r != null) return unescape(r[2]); return null;
+    	        }
+    	    })(jQuery);
+    	    var orderid = $.getUrlParam('mdcid');
+    	
+    	  var time  = $(".datetoday").val();
+    	
+    	
+    	  $.ajax({
+    	        type: "post",
+    	        url: url+"/restOrder/editAboutTime",
+    	        contentType:"application/json;charset=utf8",
+    	        data: JSON.stringify({"order_id":orderid,"time":time}),
+    	        dataType: "json",
+    	        async : false,
+    			cache : false,
+    	        success: function (r) {
+    	        	var data = eval(r.items);
+    	        	if(r.msg=="success"){
+    	        		alert('预约成功！');
+    	        		window.location ="../subject/booking.html"
+    	        		}
+    	        	}
+    	  });
+    	
+    	
+    	
+    	
+    	
+    });    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

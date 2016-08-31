@@ -1,5 +1,6 @@
 body{
 	overflow-x: hidden;
+	margin:0;
 }
 .subscribe,.subscribe_ul,.subscribe_div{
 	padding:0;
@@ -28,7 +29,7 @@ i,em{ font-style:normal}
 .data_table thead td{ color:#FFF; text-align:center;border:1px solid #333;border-collapse:collapse;width: 14%;}
 .data_table tbody td{border-collapse: collapse;
 	text-align: center;
-	color: #0C6;
+	/* color: #0C6; */
 	display: block;
 	width: 13%;
 	float: left;
@@ -47,13 +48,13 @@ input.datetext.datetoday {
 }
 .sure {
 	text-align: center;
-	border: .05rem solid;
-	width: 3rem;
+	border: .05rem solid #cccccc;
+	width: 5rem;
 	font-size: .8rem;
-	/* height: 2rem; */
+	border-radius: 2rem;
+	margin-top: .5rem;
 	margin-right: 1rem;
 	position: relative;
-	/* top: 1rem; */
 	float: right;
 }
 .footer a {
