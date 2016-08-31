@@ -94,6 +94,7 @@ $(function(){
 	    });
 });
 $('.subscribe').delegate(".closeyu","click",function(){
+	
 	var med = $(this).attr('data-id');
 	 $.ajax({
 	        type: "post",
@@ -103,9 +104,9 @@ $('.subscribe').delegate(".closeyu","click",function(){
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
-	            	$('.subscribe').html('');
+	            	alert(r.msg);
 	            			//window.location.reload();
-	            	window.location="../subject/booking.html";
+	            	window.location ="../subject/booking.html"
 	            		}
 	        		}
 	            })
