@@ -9,6 +9,7 @@ i{
 }
 .my_main{
 	font-size: .8rem;
+	margin-bottom: 5rem;
 }
 .my_main,.oder_left,.oder_right,.more_oder{
 	padding:0;
@@ -44,9 +45,14 @@ i{
 	border-bottom: .05rem solid #B5B2B2;
 }
 
+#nav ul .relevanceMY {
+	background: #9b91f5;
+	color: #f5fff5;
+}
 
-
-
+.orderno{
+	color:#2a6496;
+}
 
 
 

@@ -18,21 +18,21 @@
 	 		<table  border="1px" cellspacing="0px" style="border-collapse:collapse">
 			<tr>
 				<td>订单编号</td>
-				<td>1233333333</td>
+				<td class='nub'></td>
 				<td>生成时间</td>
-				<td style='line-height:.9rem;'>2016-09-13 12:10:08</td>
+				<td class='ordertime' style='line-height:.9rem;'></td>
 			</tr>
 			<tr> 
 				<td>订单金额</td>
-				<td>1235</td>
+				<td class='omoney'></td>
 				<td>订单状态</td>
-				<td>已确认</td>
+				<td class='ostatus'></td>
 			</tr>
 			<tr>
 				<td>体检人</td>
-				<td>哈哈哈</td>
+				<td class='oname'></td>
 				<td>体检时间</td>
-				<td style='line-height:.9rem;'>2016-09-13 12:10:08</td>
+				<td class='tjtime' style='line-height:.9rem;'></td>
 			</tr>
 			</table>
 	 	</div>
@@ -44,11 +44,11 @@
     	</div>
 	    <div class='orderdetail'>
 		 		<table  border="1px" cellspacing="0px" style="border-collapse:collapse">
-					<tr>
+					<tr class='trtb'>
 						<td>服务项目</td>
 						<td>价格</td>
 					</tr>
-					<tr> 
+					<!-- <tr> 
 						<td>电子结直肠镜（华西）</td>
 						<td>12</td>
 					</tr>
@@ -59,15 +59,15 @@
 					<tr>
 						<td>胸部低剂量螺旋CT</td>
 						<td>232</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td>合计</td>
-						<td>12232</td>
+						<td class='total'>0</td>
 					</tr>
 				</table>
 		 	</div>
     </main>
-	<div class='evaluate'>
+	<!-- <div class='evaluate'>
 			<div class='orderevaluate'>
     			<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>项目明细:</p>
     		</div>
@@ -95,7 +95,7 @@
 	</div>
 	<div class='evaluatespan col-lg-12 col-xs-12 col-md-12 col-sm-12'>
 		<span>评价</span>
-	</div>
+	</div> -->
 	
 	
     <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -137,7 +137,7 @@ $(document).ready(function () {
 	}
 	 $('.my_message_img ').attr("src", "../images/my_message_1.png");
      $('.my_message span').css('color','rgb(126, 200, 136)');
-        var deluserId =delCookie("userId");
+       // var deluserId =delCookie("userId");
         
         
 }); 

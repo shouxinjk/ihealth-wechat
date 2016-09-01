@@ -16,19 +16,19 @@
 <div class="container">
 	 <div id='nav' class='swiper-container'>
         <ul class="relevance swiper-wrapper">
-            <li id='my' class="relevanceMY swiper-slide">自己</li>
-             <li id='my1' class="relevanceMY swiper-slide">老妈</li>
-              <li id='my2' class="relevanceMY swiper-slide">老爸</li>
+            <li id='my' class="swiper-slide">自己</li>
+             <!-- <li id='my1' class="relevanceMY swiper-slide">老妈</li>
+              <li id='my2' class="relevanceMY swiper-slide">老爸</li> -->
         </ul>
     </div>
     <main class="my_main col-lg-12 col-xs-12 col-md-12 col-sm-12">
-    	<div class='more_oder col-lg-12 col-xs-12 col-md-12 col-sm-12'>
-	    	<div class='oder_left col-lg-4 col-xs-4 col-md-4 col-sm-4'>
+    	<!-- <div class='more_oder col-lg-12 col-xs-12 col-md-12 col-sm-12'> -->
+	    	<!-- <div class='oder_left col-lg-4 col-xs-4 col-md-4 col-sm-4'>
 	    		<img class="col-lg-12 col-xs-12 col-md-12 col-sm-12" src="../images/defaultimg.png" alt=""/>
 	    		<span class="col-lg-12 col-xs-12 col-md-12 col-sm-12">我自己</span>
 	    		<a href="orderdetail.html" class='pingj col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>评价</span></a>
-	    	</div>	
-	    	<div class='oder_right col-lg-8 col-xs-8 col-md-8 col-sm-8'>
+	    	</div>	 -->
+	    	<!-- <div class='oder_right col-lg-8 col-xs-8 col-md-8 col-sm-8'>
 	    		<ul class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
 	    			<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>
 	    				<span class='po'>我自己</span>(<i>订单编号:12333333</i>)
@@ -39,8 +39,8 @@
 	    			<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>已确认</i></li>
 	    			<li></li>
 	    		</ul>
-	    	</div>	
-    	</div>
+	    	</div>	 -->
+    	<!-- </div> -->
     </main>
 
     <div class="footer col-lg-12 col-xs-12 col-md-12 col-sm-12">
@@ -81,10 +81,9 @@ $(document).ready(function () {
 	}
 	 $('.my_message_img ').attr("src", "../images/my_message_1.png");
      $('.my_message span').css('color','rgb(126, 200, 136)');
-        var deluserId =delCookie("userId");
-   		/* relevance(userId);
-   		spend(userId);*/
+        var userId =ReadCookie("userId");
    		glide(); 
+   		relevance(userId);
 });       
 
 

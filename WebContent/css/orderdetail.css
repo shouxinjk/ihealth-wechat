@@ -8,7 +8,7 @@ i{
 	font-size: .8rem;
 }
 .ordertable tr{
-	line-height: 1.6rem;
+	line-height: 1.75rem;
 	text-align: center;
 }
 .ordertable tr td{
@@ -77,7 +77,9 @@ i img {
 	color: #fff;
 }
 
-
+main.my_main{
+	margin-bottom: 5rem;
+}
 
 
 
