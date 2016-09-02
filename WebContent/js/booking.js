@@ -94,29 +94,25 @@ $(function(){
 	    });
 });
 $('.subscribe').delegate(".closeyu","click",function(){
-	alert('1111');
-	var med = $(this).attr('data-id');
-	alert(med);
-	$.ajax({
-        type: "post",
-        url: url+"/restOrder/editAboutTimeQuxiao",
-        contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"order_id":med}),
-        dataType: "json",
-        async : false,
-		cache : false,
-        success: function (r) {
-        	if (r.msg == "success") {
-        		window.location.reload();
-            	//window.location ="../subject/booking.html"
-        	}
-        }
-	
-	        	
-	});
+    alert('1111');
+    var med = $(this).attr('data-id');
+    alert(med);
+    $.ajax({
+    	type:"post",
+    	url:url+"/restOrder/editAboutTimeQuxiao",
+    	contentType:"application/json;charset=utf8",
+    	data: JSON.stringify({"order_id":med}),
+    	dataType: "json",
+    	async : false,
+    	cache : false,
+    	success:function(r){
+    		if(r.msg == "success"){
+    			alert('hhaha');
+    			window.location.reload();
+    		}
+    	}
+    });
 })
-
-
 
 
 
