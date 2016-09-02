@@ -61,7 +61,7 @@
  
  function orderdetail(orderid){
 		$.ajax({
-			url:url+"/restOrder/orderSummary",
+			url:url+"/restOrder/medicalOrderSummary",
 	  		type:"post",
 	  		contentType:'application/json;charset=utf8',
 	  		data:JSON
@@ -73,11 +73,11 @@
 			cache : false,
 			success:function(r){
 				  if (r.result == "SUCCESS") {
-							var time =getMyDate(r.orderData.ORDERGENERATIONTIME);
-							var time1 =getMyDate(r.orderData.ORDERBOOKINGTIME);
-							$('.nub').text(r.orderData.ORDERNO);
+							var time =getMyDate(r.orderData.MEDICALORDERGENERATIONTIME);
+							var time1 =getMyDate(r.orderData.MEDICALORDERBOOKINGTIME);
+							$('.nub').text(r.orderData.MEDICALORDERNO);
 							$('.ordertime').text(time);
-							$('.omoney').text(r.orderData.ORDERTOTALAMOUNT);
+							$('.omoney').text(r.orderData.MEDICALTOTALAMOUNT);
 							$('.ostatus').text(r.orderData.STATUS);
 							if(r.orderData.ORDERBOOKINGTIME == undefined){
 								$('.tjtime').text('未体检');
@@ -98,7 +98,7 @@
 									$('.orderdetail .trtb').after(str);
 									
 								}
-								$('.total').text(r.orderData.ORDERTOTALAMOUNT);
+								$('.total').text(r.orderData.MEDICALTOTALAMOUNT);
 							}
 						}
 			});
@@ -121,3 +121,24 @@
  
  
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
