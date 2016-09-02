@@ -36,8 +36,8 @@ function gain(userId){
 
 }
 $('.order_number').delegate(".subscribe","click",function(){
-	//var o= $("#order_id").val();
-	window.location ="../subject/booking.html";
+	var o= $("#order_id").val();
+	window.location ="../subject/booking.html?ORDER_ID="+o;
 });
 
 

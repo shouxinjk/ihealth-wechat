@@ -1,12 +1,12 @@
 $(function(){
-	/* (function ($) {
+	(function ($) {
 	        $.getUrlParam = function (name) {
 	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 	            var r = window.location.search.substr(1).match(reg);
 	            if (r != null) return unescape(r[2]); return null;
 	        }
 	    })(jQuery);
-	    var orderid = $.getUrlParam('orderid');*/
+	    var order_id = $.getUrlParam('ORDER_ID');
 
 	function ReadCookie(cookieName) {
 	    var theCookie = "" + document.cookie;
@@ -43,7 +43,7 @@ $(function(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":orderid}),
+	        data: JSON.stringify({"order_id":order_id}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
@@ -92,10 +92,7 @@ $(function(){
 	        }
 	       
 	    });
-})
-
-
-
+});
 $('.subscribe').delegate(".closeyu","click",function(){
     var med = $(this).attr('data-id');
     $.ajax({
