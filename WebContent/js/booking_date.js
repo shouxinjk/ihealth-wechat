@@ -1,6 +1,22 @@
-    window.onload=function(){
-        var mydate=new Date();
+(function ($) {
+    	        $.getUrlParam = function (name) {
+    	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    	            var r = window.location.search.substr(1).match(reg);
+    	            if (r != null) return unescape(r[2]); return null;
+    	        }
+    	    })(jQuery);
+var times =$.getUrlParam('time');  
 
+
+window.onload=function(){
+	    var mydate;
+	    var day;
+    	if(times == "NaN-NaN-NaN"){
+    		mydate=new Date();
+    	}else{
+    		mydate = new Date(times);
+    	}
+        
         var thisyear=mydate.getFullYear();
 
         var thismonth=mydate.getMonth()+1;
@@ -39,7 +55,7 @@
             var weekday=getfirstday(thisyear,thismonth);
             setcalender(days,weekday);
             markdate(thisyear,thismonth,selectday);
-            orderabledate(thisyear,thismonth,thisday);
+            orderabledate(thisyear,thismonth,day);
         }
         initdata();
         $(".datetoday").val(thisyear+"-"+thismonth+"-"+thisday);
@@ -198,15 +214,11 @@
                     jQuery(".caltline1").find("img").attr("src","images/iconpoint.png");
                 }
         );*/
+        
+
     }
     $('.choosecal').delegate(".suretijian","click",function(){
-    	 (function ($) {
-    	        $.getUrlParam = function (name) {
-    	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    	            var r = window.location.search.substr(1).match(reg);
-    	            if (r != null) return unescape(r[2]); return null;
-    	        }
-    	    })(jQuery);
+    	 
     	    var orderid = $.getUrlParam('mdcid');
     	
     	  var time  = $(".datetoday").val();
@@ -234,9 +246,6 @@
     	
     	
     });    
-    
-    
-    
     
     
     

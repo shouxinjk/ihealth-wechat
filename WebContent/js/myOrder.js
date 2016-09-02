@@ -199,7 +199,7 @@ function orderlist(userId){
 				}
 			  }else{
 				  var namelist = $('.relevanceMY').text();
-					$('.my_main').html('还没有为'+namelist+'预约体检日程哦！');
+					$('.my_main').html('还没有为'+namelist+'生成订单哦！');
 					}
 				
 				}

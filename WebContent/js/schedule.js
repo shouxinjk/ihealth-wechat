@@ -188,7 +188,7 @@ function datelist(userId){
 				}
 			}else{
 				  var namelist = $('.relevanceMY').text();
-					$('.pe_status').html('还没有'+namelist+'生成订单哦！');
+					$('.pe_status').html('当前还没有'+namelist+'的体检日程哦！');
 				
 				}
 		}
