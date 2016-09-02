@@ -300,14 +300,13 @@ $('.xmtable').delegate(".buy",'click',function(){
 	//window.location ="../subject/buypeitem.html";
 	var tname ='';
 	var userId=$('.buy').attr('data-userid');
-	alert(userId);
 	var check_id;
 	var check;
 	$.ajax({
         type: "post",
         url: url+"/rest/getCheckItemsByGroup",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"userId":uid}),
+        data: JSON.stringify({"userId":userId}),
         dataType: "json",
         async : false,
 		cache : false,
@@ -333,7 +332,7 @@ $('.xmtable').delegate(".buy",'click',function(){
         type: "post",
         url: url+"/restOrder/addOrder",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"userId":uid}),
+        data: JSON.stringify({"userId":userId}),
         dataType: "json",
         async : false,
 		cache : false,

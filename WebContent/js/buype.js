@@ -34,6 +34,9 @@ $(function () {
         success: function (r) {
         	var data = eval(r.data);
         	if(r.result=="success"){
+        		if(r.prompt != ""){
+        			alert("以下套餐项目不能购买:"+r.prompt);
+        		}
         		for(var i=0;i<data.length;i++){
         			var price= 0.0;
         			var str="";
