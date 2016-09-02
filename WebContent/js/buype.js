@@ -38,7 +38,7 @@ $(function () {
         			alert("以下套餐项目不能购买:"+r.prompt);
         		}
         		for(var i=0;i<data.length;i++){
-        			var price= 0.0;
+        			var price= 0;
         			var str="";
         			str+="<ul id='id"+(i+1)+"'   class='buyul col-lg-12 col-xs-12 col-md-12 col-sm-12' onclick='ulclick("+i+");'>";
         			if(data[i].pds.length>1){
@@ -112,13 +112,14 @@ $('.buy_footer').delegate(".settle",'click',function(){
     });
 	console.log(checkid);
 	var orderm=($('.money').children().text());
+	var orderms = orderm*100;
 	console.log(orderid);
 	
 	$.ajax({
         type: "post",
         url: url+"/restOrder/editOrderAndItem",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"order_id":orderid,"itemID":checkid,"ORDERTOTALAMOUNT":orderm}),
+        data: JSON.stringify({"order_id":orderid,"itemID":checkid,"ORDERTOTALAMOUNT":orderms}),
         dataType: "json",
         async : false,
 		cache : false,
