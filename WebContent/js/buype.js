@@ -22,7 +22,7 @@ $(function () {
     })(jQuery);
     var orderid = $.getUrlParam('orderid');
     //console.log(orderid);
-	var userId  = ReadCookie("userId");
+	var userId  = $.getUrlParam('userid');
     $.ajax({
         type: "post",
         url: url+"/restOrder/getCheckItemsByGroup",

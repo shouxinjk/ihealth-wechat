@@ -340,7 +340,7 @@ $('.xmtable').delegate(".buy",'click',function(){
         success: function (r) {
         	var orderid = r.orderid;
         	//alert(r.msg)
-        	window.location =urll +"/subject/buypeitem.html?orderid="+orderid;
+        	window.location =urll +"/subject/buypeitem.html?orderid="+orderid+"&userid="+userId1;
         }
 	});
 });
