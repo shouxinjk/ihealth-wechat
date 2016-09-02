@@ -25,7 +25,7 @@ function Usern(userId){
 			}),
 			dataType : "json",
 			success : function(r) {
-				$('.head_span1 i').text(r.orderData.ORDERTOTALAMOUNT);
+				$('.head_span1 i').text((r.orderData.ORDERTOTALAMOUNT/100));
 				$('.head_img').attr('src',r.userData.AVATAR);
 				$("#orderno").val(r.orderData.ORDERNO);
 			}
@@ -64,11 +64,12 @@ function WXPay(){
 	var orderNO = $("#orderno").val();
 	//alert(orderNO)
 	var price = $('.head_span1 i').text();
+	price = price*100;
 	//alert(price);
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		data:{"orderNO":orderNO,"price":1},
+		data:{"orderNO":orderNO,"price":price},
 		success:function(data){
 			//alert(data);
 			
