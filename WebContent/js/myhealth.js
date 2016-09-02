@@ -279,6 +279,7 @@ function intn(userId){
         				
         		}
         		check=checkid.replace(/,/g, "");
+        		
         		if(check.length ==0){
         			$('.xmtable').append('<div style="display:none;" class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+uid+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
         		}else{
@@ -299,6 +300,7 @@ $('.xmtable').delegate(".buy",'click',function(){
 	//window.location ="../subject/buypeitem.html";
 	var tname ='';
 	var userId=$('.buy').attr('data-userid');
+	alert(userId);
 	var check_id;
 	var check;
 	$.ajax({
