@@ -300,6 +300,7 @@ $('.xmtable').delegate(".buy",'click',function(){
 	//window.location ="../subject/buypeitem.html";
 	var tname ='';
 	var userId=$('.buy').attr('data-userid');
+	alert(userId)
 	var check_id;
 	var check;
 	$.ajax({
