@@ -299,15 +299,15 @@ $('.xmtable').delegate(".buy",'click',function(){
 	
 	//window.location ="../subject/buypeitem.html";
 	var tname ='';
-	var userId=$('.buy').attr('data-userid');
-	alert(userId)
+	var userId1=$('.buy').attr('data-userid');
+	alert(userId1)
 	var check_id;
 	var check;
 	$.ajax({
         type: "post",
         url: url+"/rest/getCheckItemsByGroup",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"userId":userId}),
+        data: JSON.stringify({"userId":userId1}),
         dataType: "json",
         async : false,
 		cache : false,
@@ -333,7 +333,7 @@ $('.xmtable').delegate(".buy",'click',function(){
         type: "post",
         url: url+"/restOrder/addOrder",
         contentType:"application/json;charset=utf8",
-        data: JSON.stringify({"userId":userId}),
+        data: JSON.stringify({"userId":userId1}),
         dataType: "json",
         async : false,
 		cache : false,
