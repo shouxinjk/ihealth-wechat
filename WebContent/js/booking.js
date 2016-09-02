@@ -43,7 +43,7 @@ $(function(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":"8a9c1526bff441e58e52d98c366c954d"}),
+	        data: JSON.stringify({"order_id":orderid}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
