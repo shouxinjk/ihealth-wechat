@@ -24,6 +24,10 @@ function SetCookie(cookieName,cookieValue,nDays) {
 	    return decodeURIComponent(theCookie.substring(ind+cookieName.length+1,ind1));
 
 	}
+	
+	function random(){
+		return Math.floor(Math.random()*n+1);
+	}
 
 	function delCookie(cookieName)//删除cookie
 	{

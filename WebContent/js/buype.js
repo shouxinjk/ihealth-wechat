@@ -44,16 +44,16 @@ $(function () {
 							if(j == 0){
 									str +="<li class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
 									str +=  "<input value="+i+" type='checkbox' checked='checked' class='subcheck yes box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
-									str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
+									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].pds[j].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+									str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+(data[i].pds[j].PRICE/100)+"</lable>元</div>";
 									str +="</li>";
 									
 							}
 							else{
 									str +="<li style='display:none;'  class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
 									str +=  "<input  value="+i+" type='checkbox'  class='subcheck nocheck col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
-									str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
+									str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].pds[j].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+									str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+(data[i].pds[j].PRICE/100)+"</lable>元</div>";
 									str +="</li>";
 									 $(".nocheck").attr("checked", false);	
 							}
@@ -64,16 +64,16 @@ $(function () {
         							if(j == 0){
     										str +="<li class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
     										str +=  "<input type='checkbox' checked='checked' class='subcheck yes box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
-    										str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
+    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].pds[j].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+    										str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+(data[i].pds[j].PRICE/100)+"</lable>元</div>";
     										str +="</li>";
     										
 									}
         							else{
     										str +="<li style='display:none;'  class='col-lg-11 col-xs-11 col-md-11 col-sm-11'>";
     										str +=  "<input type='checkbox'  class='subcheck nocheck col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>";
-    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
-    										str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+data[i].pds[j].PRICE+"</lable>元</div>";
+    										str +=	"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].pds[j].NAME+"("+data[i].pds[j].MNAME+")<input type='hidden' name='fruit' value='"+data[i].pds[j].MEDICALEXAMITEM_ID+"'/></div>";
+    										str +=	"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+(data[i].pds[j].PRICE/100)+"</lable>元</div>";
     										str +="</li>";
     										 $(".nocheck").attr("checked", false);	
 									}
