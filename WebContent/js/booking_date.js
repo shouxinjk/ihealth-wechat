@@ -11,7 +11,6 @@ var times =$.getUrlParam('time');
 window.onload=function(){
 	    var mydate;
 	    var day;
-	    alert(times);
     	if(times == "NaN-NaN-NaN"){
     		mydate=new Date();
     	}else{
