@@ -113,6 +113,7 @@ $('.buy_footer').delegate(".settle",'click',function(){
 	console.log(checkid);
 	var orderm=($('.money').children().text());
 	var orderms = orderm*100;
+	alert(orderms);
 	console.log(orderid);
 	
 	$.ajax({
