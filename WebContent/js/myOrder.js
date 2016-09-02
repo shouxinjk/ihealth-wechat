@@ -58,7 +58,7 @@ function myAllOrders(userId){
 										str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+time+"</i></li>";
 									}
 									
-									str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+pds[i].ORDERTOTALAMOUNT+"</i></li>";
+									str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
 									if(pds[i].STATUS == '新建'){
 										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+" <a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
 									}else{
@@ -185,7 +185,7 @@ function orderlist(userId){
 													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+pds[i].time+"</i></li>";
 												}
 												
-												str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+pds[i].ORDERTOTALAMOUNT+"</i></li>";
+												str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
 												if(pds[i].STATUS == '新建'){
 													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
 												}else{

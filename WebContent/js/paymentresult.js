@@ -27,7 +27,7 @@ function gain(userId){
 		success : function(r) {
 			/*alert(r.orderData +"===="+r.msg);*/
 			$('.nub i').text(r.orderData.ORDERNO);
-			$('.je i').text(r.orderData.ORDERTOTALAMOUNT);
+			$('.je i').text((r.orderData.ORDERTOTALAMOUNT/100));
 			$("#order_id").val(r.orderData.ORDER_ID);
 			 SetCookie("order_id",r.orderData.ORDER_ID,7);
 		}

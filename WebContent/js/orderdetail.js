@@ -77,7 +77,7 @@
 							var time1 =getMyDate(r.orderData.ORDERBOOKINGTIME);
 							$('.nub').text(r.orderData.ORDERNO);
 							$('.ordertime').text(time);
-							$('.omoney').text(r.orderData.ORDERTOTALAMOUNT);
+							$('.omoney').text(r.orderData.ORDERTOTALAMOUNT/100);
 							$('.ostatus').text(r.orderData.STATUS);
 							if(r.orderData.ORDERBOOKINGTIME == undefined){
 								$('.tjtime').text('未体检');
@@ -92,13 +92,13 @@
 									for(var i=0;i<data.length;i++){
 										str+="<tr>"+
 												"<td>"+data[i].MNAME+"("+data[i].CNAME+")</td>"+
-												"<td>"+data[i].SELLINGPRICE+"</td>"+
+												"<td>"+(data[i].SELLINGPRICE/100)+"</td>"+
 											 "</tr>";
 									}
 									$('.orderdetail .trtb').after(str);
 									
 								}
-								$('.total').text(r.orderData.ORDERTOTALAMOUNT);
+								$('.total').text(r.orderData.ORDERTOTALAMOUNT/100);
 							}
 						}
 			});

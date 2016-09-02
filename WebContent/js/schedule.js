@@ -106,7 +106,7 @@ function datealllist(userId){//所有日程
 									"<li class='pe_status_l6 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>地址:</span><i>"+pds[i].LOCATION+"</i></li>"+
 									"<li class='pe_status_l3 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>时间:</span><i>"+time+"</i></li>"+
 									"<li class='pe_status_l4 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单:</span><i><a href='orderdetail_tijian.html?ORDER_ID="+pds[i].MEDICALORDER_ID+"'>"+pds[i].MEDICALORDERNO+"</a></i></li>"+
-									"<li class='pe_status_l5 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+pds[i].ORDERTOTALAMOUNT+"</i></li>"+
+									"<li class='pe_status_l5 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>"+
 								"</ul>"+
 								/*"<div class='hint col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 									"<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>提示:</p>"+
@@ -173,7 +173,7 @@ function datelist(userId){
 									"<li class='pe_status_l6 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>地址:</span><i>"+pds[i].LOCATION+"</i></li>"+
 									"<li class='pe_status_l3 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>时间:</span><i>"+time+"</i></li>"+
 									"<li class='pe_status_l4 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单:</span><i><a href='orderdetail_tijian.html?ORDER_ID="+pds[i].MEDICALORDER_ID+"'>"+pds[i].MEDICALORDERNO+"</a></i></li>"+
-									"<li class='pe_status_l5 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+pds[i].ORDERTOTALAMOUNT+"</i></li>"+
+									"<li class='pe_status_l5 col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>"+
 								"</ul>"+
 								/*"<div class='hint col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 									"<p class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>提示:</p>"+
