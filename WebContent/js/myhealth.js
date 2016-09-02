@@ -1,5 +1,6 @@
 
 var t;
+var uid;
 function Usern(userId){
 		//用户名
 		$.ajax({
@@ -19,6 +20,7 @@ function Usern(userId){
 		});
 	}
 function relevance(userId){    //获取关联用户名
+	uid= userId;
 	$.ajax({
 		url:url+"/rest/findUsersById",
   		type:"post",
@@ -278,12 +280,12 @@ function intn(userId){
         		}
         		check=checkid.replace(/,/g, "");
         		if(check.length ==0){
-        			$('.xmtable').append('<div style="display:none;" class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
+        			$('.xmtable').append('<div style="display:none;" class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+uid+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
         		}else{
         			//$('.buy_div').show();
         			//$('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"></div>');
            		 	//$('.buy_div').html('<div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div>');
-	        	$('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+userId+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
+	        	$('.xmtable').append('<div class="buy_div col-lg-12 col-xs-12 col-md-12 col-sm-12"><div data-userid="'+uid+'" class="buy col-lg-3 col-xs-3 col-md-3 col-sm-3">购买</div></div>');
 	        	}
 	        }
 	    });
@@ -552,6 +554,7 @@ $('.container').delegate(".zhiN","click",function(){
 function guanlian(id,ismodify,isprivacy,NAME){
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
+      		uid= user_id;
       		if(isprivacy == '1' || isprivacy== 'undefined'){
       			$('.hint').html("以下是为"+NAME+"量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
       			$('.pendding').show();
