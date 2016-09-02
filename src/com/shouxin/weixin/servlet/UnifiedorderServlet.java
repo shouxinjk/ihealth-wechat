@@ -40,7 +40,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		SortedMap<String, Object> params = new TreeMap<String,Object>();
 		String orderNo = req.getParameter("orderNO");
 		//System.out.println(orderNo);
-		//int price = Integer.parseInt(req.getParameter("price"));
+		int price = Integer.parseInt(req.getParameter("price"));
 		//添加appid
 		params.put("appid", PropertiesUtil.getAppid("appid"));
 		//添加用户openID
@@ -55,7 +55,7 @@ public class UnifiedorderServlet extends HttpServlet {
 		//添加商户订单号
 		params.put("out_trade_no", orderNo);
 		//添加订单金额
-		params.put("total_fee", 1);
+		params.put("total_fee", price);
 		//添加请求ip地址
 		params.put("spbill_create_ip", SpbillCreateIPUtil.getIp(req));
 		//添加回掉地址
