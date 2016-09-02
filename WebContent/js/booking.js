@@ -1,5 +1,5 @@
 $(function(){
-	(function ($) {
+	/*(function ($) {
 	        $.getUrlParam = function (name) {
 	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 	            var r = window.location.search.substr(1).match(reg);
@@ -7,7 +7,7 @@ $(function(){
 	        }
 	    })(jQuery);
 	    var order_id = $.getUrlParam('ORDER_ID');
-
+*/
 	function ReadCookie(cookieName) {
 	    var theCookie = "" + document.cookie;
 	    var ind = theCookie.indexOf(cookieName);
@@ -43,7 +43,7 @@ $(function(){
 	        type: "post",
 	        url: url+"/restOrder/aboutOrderPageData",
 	        contentType:"application/json;charset=utf8",
-	        data: JSON.stringify({"order_id":order_id}),
+	        data: JSON.stringify({"order_id":orderid}),
 	        dataType: "json",
 	        success: function (r) {
 	            if (r.msg == "success") {
