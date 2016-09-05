@@ -162,18 +162,21 @@ function intn(userId){
 	        						p++;
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 		        					str +="<span class='active_ subgroup1 trigger' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
-		        					$('.trigger').trigger("click");
+		        					//$('.trigger').trigger("click");
+		        					//cli();
 	        					}else{
 	        						if(k==0){
 		        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 		        					}
 		        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        					}
-	        					$('.trigger').trigger("click");
+	        					cli();
+	        				//	$('.trigger').trigger("click");
         					}
-	        				
+	        				//cli();
 	        			}
-	        			$('.trigger').trigger("click");
+	        			
+	        			//$('.trigger').trigger("click");
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
 	        				str = str.substring(0,str.length-1);
@@ -269,7 +272,9 @@ function intn(userId){
 	}
 	$(".subgroup1").last().find(".iss").remove();
 }
-
+function cli(){ 
+	$('.trigger').trigger("click");
+};
 //购买体检套餐
 $('.xmtable').delegate(".buy",'click',function(){ 
 	
