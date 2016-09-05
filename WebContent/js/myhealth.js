@@ -161,18 +161,19 @@ function intn(userId){
 	        					if(p == 0){
 	        						p++;
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
-		        					str +="<span class='active_ subgroup1 '>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
-		        					
+		        					str +="<span class='active_ subgroup1' id='trigger'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
+		        					$('#trigger').trigger("click");
 	        					}else{
 	        						if(k==0){
 		        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 		        					}
 		        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        					}
+	        					$('#trigger').trigger("click");
         					}
+	        				$('#trigger').trigger("click");
 	        			}
-	        			$('.active_').trigger("click");
-	        			
+	        			//$('.active_').trigger("click");
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
 	        				str = str.substring(0,str.length-1);
