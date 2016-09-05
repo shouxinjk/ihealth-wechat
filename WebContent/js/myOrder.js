@@ -59,8 +59,11 @@ function myAllOrders(userId){
 									}
 									
 									str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
-									if(pds[i].STATUS == '新建'){
-										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+" <a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
+									if(pds[i].STATUS == '已付款'){
+										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
+									}
+									else if(pds[i].STATUS == '已预约'){
+										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>更改日期</a></i></li>";
 									}else{
 										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"</i></li>";
 									}
@@ -186,8 +189,11 @@ function orderlist(userId){
 												}
 												
 												str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
-												if(pds[i].STATUS == '新建'){
+												if(pds[i].STATUS == '已付款'){
 													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
+												}
+												else if(pds[i].STATUS == '已预约'){
+													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>更改日期</a></i></li>";
 												}else{
 													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"</i></li>";
 												}
