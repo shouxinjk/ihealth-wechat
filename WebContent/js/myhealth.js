@@ -170,10 +170,10 @@ function intn(userId){
 		        					}
 		        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        					}
-	        					cli();
+	        					//cli();
 	        				//	$('.trigger').trigger("click");
         					}
-	        				//cli();
+	        				cli();
 	        			}
 	        			
 	        			//$('.trigger').trigger("click");
