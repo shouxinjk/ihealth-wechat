@@ -164,15 +164,6 @@ function intn(userId){
 	        		}
 	        		str+="</div>";
 	        		 $('.xmtable').append(str);
-//	        		$.ajax({
-//	                    type: "post",
-//	                    url: url+"/rest/getCheckItem",
-//	                    contentType:"application/json;charset=utf8",
-//	                    data: JSON.stringify({"id":CHECKUPITEMid}),
-//	                    dataType: "json",
-//	                    async : false,
-//	            		cache : false,
-//	                    success: function (r1) {
 	        		 for(var k=0;k<dataList.length;k++){
 	        			 if(dataList[k].CHECKUPITEM_ID == CHECKUPITEMid){
 	        				 var d = dataList[k];
@@ -181,56 +172,24 @@ function intn(userId){
 	                    	//通过状态判断项目是否显示
 	    		        	 if(!(d.STATUS == "已删除")){
 	         		        	 var str ="<div data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
-						         		        	/* "<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-														 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
-														 "<div   data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.DESCRIPTION+"</div>" +
-													 "</div>" +*/
 	         		        	 					 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-														
 														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(查看风险描述)</div>" +
 													 "</div>" +
-													 //"<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'> " +
-														
-														// "<div class='zhiconceal_ '><lable class='headline'>关注因素</lable>"+d.concernedfactors+"</div>" +
-													 //"</div>" +
-													 //"<div  class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-														 
-														// "<div class=' zhiconceal_ '><lable class='headline'>风险描述</lable>"+d.riskDefine+"</div>" +
-													 //"</div>" +
-												 
 												 "</div>" +
 				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        	'<div class="deletli" style="float: right;" id="'+sub+'">'+
-	//					         		        		'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini rms" style="float:right;"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"删除\" alt=\"删除\"/></a>'+
-						         		        	//'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;background:rgb(126, 200, 136)"></div>'+
 						         		        	'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;color: #000;"  onclick="del(\''+d.CHECKUPITEM_ID+'\',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/right.png\" title=\"恢复\" alt=\"恢复\"/></div>'+	
 					         		        	'</div>'+
 				         		        	'</div>';
 	         		        }else {
 	         		        	var str ="<div data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
-				         		        	/*"<div class='zhilaiyuan col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-												 "<div class='col-lg-2 col-xs-2 col-md-2 col-sm-2'>项目详情:</div>" +
-												 "<div   data-flag='1' class='zhiconceal col-lg-10 col-xs-10 col-md-10 col-sm-10'>"+d.DESCRIPTION+"</div>" +
-											 "</div>" +*/
 				         		        	 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-												 /*"<div class=''>筛查疾病:</div>" +*/
 												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(查看风险描述)</div>" +
 											 "</div>" +
-											 //"<div class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-												/* "<div class=''>关注因素:</div>" +*/
-												// "<div  class='zhiconceal_ '><lable class='headline'>关注因素</lable>"+d.concernedfactors+"</div>" +
-											 //"</div>" +
-											 //"<div   class='zhisource show_ col-lg-12 col-xs-12 col-md-12 col-sm-12' style='display:none'>" +
-											/*	 "<div class='col-lg-2 '>风险描述:</div>" +*/
-												// "<div  class='zhiconceal_  '><lable class='headline'>风险描述</lable>"+d.riskDefine+"</div>" +
-											// "</div>" +
 										 "</div>" +
-					         		        //deletli 原来在sub外面  sub 后面有个class（ subgroup1）
 					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
 					         		        		'<div  class="deletli" style="float: right;" id="'+sub+'">'+
-					         		        			//'<a href=\"javascript:del('+d.CHECKUPITEM_ID+',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')\" id="'+d.CHECKUPITEM_ID+'" class="remove weui_btn weui_btn_mini hms" style="float:right"><img style="width: 1rem;height:1rem" src=\"../images/delete.png\" title=\"恢复\" alt=\"恢复\"/></a>'+
 						         		        		'<div id="'+d.CHECKUPITEM_ID+'" class="remove delet" style="float:right;-webkit-border-bottom-right-radius: .5rem;-webkit-border-top-right-radius: .5rem;color: #C0BEBE;"  onclick="del(\''+d.CHECKUPITEM_ID+'\',\''+d.STATUS+'\',\''+sub1+'\',\''+userId+'\')"><img style="width: 1rem;height:1rem" src=\"../images/gray.png\" title=\"删除\" alt=\"删除\"/></div>'+
-							         		        	//'<div id="'+d.CHECKUPITEM_ID+'" class="remove  recover" style="float:right;-webkit-border-bottom-left-radius: .5rem;-webkit-border-top-left-radius: .5rem;background:red"></div>'+	
 					         		        		'</div>'+
 					         		        	'</div>';
 
@@ -300,7 +259,6 @@ $('.xmtable').delegate(".buy",'click',function(){
 	//window.location ="../subject/buypeitem.html";
 	var tname ='';
 	var userId1=$('.buy').attr('data-userid');
-	alert(userId1)
 	var check_id;
 	var check;
 	$.ajax({
