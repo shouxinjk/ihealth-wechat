@@ -161,19 +161,19 @@ function intn(userId){
 	        					if(p == 0){
 	        						p++;
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
-		        					str +="<span class='active_ subgroup1' id='trigger'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
-		        					$('#trigger').trigger("click");
+		        					str +="<span class='active_ subgroup1 trigger' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
+		        					$('.trigger').trigger("click");
 	        					}else{
 	        						if(k==0){
 		        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 		        					}
 		        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        					}
-	        					$('#trigger').trigger("click");
+	        					$('.trigger').trigger("click");
         					}
-	        				$('#trigger').trigger("click");
+	        				
 	        			}
-	        			//$('.active_').trigger("click");
+	        			$('.trigger').trigger("click");
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
 	        				str = str.substring(0,str.length-1);
@@ -190,7 +190,7 @@ function intn(userId){
 	    		        	 if(!(d.STATUS == "已删除")){
 	         		        	 var str ="<div data-flag='1' id='laiyuan"+sub+"' class='zhiN source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' style='color:#000'>" +
 	         		        	 					 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(查看风险描述)</div>" +
+														 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(点击查看风险描述)</div>" +
 													 "</div>" +
 												 "</div>" +
 				         		        	'<div class="'+sub+' subdiv col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
@@ -201,7 +201,7 @@ function intn(userId){
 	         		        }else {
 	         		        	var str ="<div data-flag='1' id='laiyuan"+sub+"' class='zhiN del source_adr col-lg-12 col-xs-12 col-md-12 col-sm-12' >" +
 				         		        	 "<div data-flag='1' class='zhisource col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
-												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(查看风险描述)</div>" +
+												 "<div  class='zhiconceal_ '><lable class='headline'>筛查疾病</lable>"+d.disease_name+"(点击查看风险描述)</div>" +
 											 "</div>" +
 										 "</div>" +
 					         		        	'<div class="'+sub+' subdiv  col-lg-12 col-xs-12 col-md-12 col-sm-12">'+
@@ -543,9 +543,6 @@ function glide(){
 
 	
 			
-
-
-
 
 
 
