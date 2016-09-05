@@ -142,6 +142,7 @@ function intn(userId){
 	        	for(var j=0;j<group.length;j++){
 	        		var str ="<div class='touch item col-lg-12 col-xs-12 col-md-12 col-sm-12' id='touch"+j+"' userAddressId='1'><div class='jc_project col-lg-12 col-xs-12 col-md-12 col-sm-12'>";
 	        		var k =0;
+	        		var p =0;
 	        		for(var i=0;i<data.length;i++){
 	        			if(group[j].SUBGROUP == data[i].SUBGROUP){
 	        				var name;
@@ -150,13 +151,26 @@ function intn(userId){
 	        					name = data[i].NAME;
 	        					str +="<span class='active_ subgroup1 ' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
 	        					k++;
-	        				}else{
+	        				} else if(data[i].STATUS == "已删除"){
 	        					if(k==0){
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 	        					}
 	        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        				}
+	        				else if(data[i].STATUS == "ready"){
+	        					if(p == 0){
+	        						p++;
+	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
+		        					str +="<span class='active_ subgroup1 trigger'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
+	        					}else{
+	        						if(k==0){
+		        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
+		        					}
+		        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
+	        					}
+        					}
 	        			}
+	        			$('.trigger').trigger("click");
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
 	        				str = str.substring(0,str.length-1);
