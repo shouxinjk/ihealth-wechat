@@ -159,24 +159,21 @@ function intn(userId){
 	        				}
 	        				else if(data[i].STATUS == "ready"){
 	        					if(p == 0){
-	        						p++;
+	        					
 	        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 		        					str +="<span class='active_ subgroup1 trigger' >"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";	
-		        					//$('.trigger').trigger("click");
-		        					//cli();
+		        					p++;
 	        					}else{
 	        						if(k==0){
 		        						CHECKUPITEMid = data[i].CHECKUPITEM_ID;
 		        					}
 		        					str +="<span class='subgroup1'>"+data[i].NAME+"("+data[i].FREQUENCY+")<input type='hidden' value='"+data[i].CHECKUPITEM_ID+"'><i class='iss'>/</i>&nbsp;</span>";
 	        					}
-	        					//cli();
-	        				//	$('.trigger').trigger("click");
         					}
-	        				cli();
+	        				
 	        			}
 	        			
-	        			//$('.trigger').trigger("click");
+	        			
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
 	        				str = str.substring(0,str.length-1);
@@ -184,6 +181,8 @@ function intn(userId){
 	        		}
 	        		str+="</div>";
 	        		 $('.xmtable').append(str);
+	        		// cli();
+	        		 $('.trigger').trigger("click");
 	        		 for(var k=0;k<dataList.length;k++){
 	        			 if(dataList[k].CHECKUPITEM_ID == CHECKUPITEMid){
 	        				 var d = dataList[k];
@@ -272,9 +271,9 @@ function intn(userId){
 	}
 	$(".subgroup1").last().find(".iss").remove();
 }
-function cli(){ 
+/*function cli(){ 
 	$('.trigger').trigger("click");
-};
+};*/
 //购买体检套餐
 $('.xmtable').delegate(".buy",'click',function(){ 
 	
