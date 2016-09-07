@@ -105,9 +105,9 @@ function intn(userId){
         			$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href=\"../subject/privacy.html#fumu?userId="+userId+"\">(基本信息)</a>进行修改!</article>");
         		}
         		
-        	}else{
+        	}/*else{
         		$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
-        	}
+        	}*/
         }
        });
 	
@@ -485,6 +485,7 @@ function guanlian(id,ismodify,isprivacy,NAME){
       		var user_id = $("#"+id).find("input").val();
       		uid= user_id;
       		if(isprivacy == '1' || isprivacy== 'undefined'){
+      			$('.hint').html(" ");
       			$('.hint').html("以下是为"+NAME+"量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
       			$('.pendding').show();
       			spend(user_id);
