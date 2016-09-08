@@ -67,7 +67,7 @@ function WXPay(){
 	price = price*100;
 	//alert(price);
 	$.ajax({
-		url:"http://test.shouxinjk.net/ihealth-wechat/payment",
+		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		data:{"orderNO":orderNO,"price":price},
 		success:function(data){
