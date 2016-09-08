@@ -41,10 +41,22 @@ public class UnifiedorderServlet extends HttpServlet {
 		String orderNo = req.getParameter("orderNO");
 		//System.out.println(orderNo);
 		int price = Integer.parseInt(req.getParameter("price"));
-		//添加appid
-		params.put("appid", PropertiesUtil.getAppid("appid"));
 		//添加用户openID
 		String openId = (String) req.getSession().getAttribute("openId");
+		//判断从测试公众号进入还是正式公众号进入
+		String openIdCeshi = PropertiesUtil.getAppid(openId);
+		if(openIdCeshi!=null && !openIdCeshi.equals("")){
+			//从测试公众号进入,然后修改openid为正式号openid
+			openId = openIdCeshi;
+			params.put("appid", "wx9160e991d49b4a97");
+			//添加回掉地址
+			params.put("notify_url", "http://test.shouxinjk.net/ihealth-wechat/ordersuccess");
+		}else{
+			//添加appid
+			params.put("appid", PropertiesUtil.getAppid("appid"));
+			//添加回掉地址
+			params.put("notify_url", "http://www.shouxinjk.net/ihealth-wechat/ordersuccess");
+		}
 		params.put("openid", openId);
 		//添加mch_id商户号id
 		params.put("mch_id", PropertiesUtil.getAppid("mch_id"));
@@ -58,8 +70,6 @@ public class UnifiedorderServlet extends HttpServlet {
 		params.put("total_fee", price);
 		//添加请求ip地址
 		params.put("spbill_create_ip", SpbillCreateIPUtil.getIp(req));
-		//添加回掉地址
-		params.put("notify_url", "http://www.shouxinjk.net/ihealth-wechat/ordersuccess");
 		//添加交易类型
 		params.put("trade_type", "JSAPI");
 		//设置签名
