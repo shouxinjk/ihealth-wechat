@@ -71,6 +71,7 @@ function spend(userId){
 	        		var pendd = "<div style='height:3rem;margin-left: 41.5%;margin-top: 1rem;' class=\"pending_img col-lg-12 col-xs-12 col-md-12 col-sm-12\">"+
 	        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
 	        		$(".pendding").html(pendd); 
+	        		$('.hint').html("未能生成任何体检项目信息，请补充或更新用户信息，以便我们生成准确的体检套餐");
 	        		t =setTimeout(function() {
 	        			 spend(userId);
 	                 }, 1500);
@@ -99,11 +100,11 @@ function intn(userId){
         	if(r.data.ISMODIFY == 0){
         		//$('.hint').hide();
         		var userID  = ReadCookie("userId");
-        		if(userId == userID){
+        		/*if(userId == userID){
         			$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href='../subject/Information.html#message' data-id="+userId+">(基本信息)</a>进行修改!</article>");
         		}else{
         			$('.hint').html("<article class='template'>以下是体检方案模板信息。您可以进入<a href=\"../subject/privacy.html#fumu?userId="+userId+"\">(基本信息)</a>进行修改!</article>");
-        		}
+        		}*/
         		
         	}/*else{
         		$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
@@ -172,13 +173,14 @@ function intn(userId){
         					}
 	        				
 	        			}
-	        			
+	        		
 	        			
 	        			$(".subgroup1").last().find(".iss").remove();
 	        			if(i==data.length-1){
 	        				str = str.substring(0,str.length-1);
 	        			}
 	        		}
+	        		
 	        		str+="</div>";
 	        		 $('.xmtable').append(str);
 	        		// cli();
@@ -247,6 +249,9 @@ function intn(userId){
 	                    }
 	        		 }
 	        	}
+	        	
+	        	
+	        	
 	        	//通过状态判断购买显示隐藏
         		for(var q=0;q<data.length;q++){
         				if(data[q].STATUS == "已选中"){

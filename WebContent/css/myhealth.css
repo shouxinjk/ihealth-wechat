@@ -76,6 +76,9 @@ a {text-decoration:none !important;}
             -webkit-align-items: center;
             align-items: center;
         }
+li.swiper-slide a {
+	color: #9b91f5;
+}
 .relevance li {
 	list-style: none;
 	/* float: left; */
