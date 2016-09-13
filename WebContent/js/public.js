@@ -1330,9 +1330,3 @@ function huand(){
 	    }
 }
 
-window.onresize = function() {
-    var top = $(".footer").offset().top;
-    var user_message_box = $('.footer');
-    top > 400 ? user_message_box.hide() : user_message_box.show();
-};
-

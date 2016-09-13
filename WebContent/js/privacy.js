@@ -222,6 +222,15 @@ function privacy_add(i){
 
 
 
+window.onresize = function() {
+    var top = $(".message_next").offset().top;
+    alert(top);
+    var user_message_box = $('.message_next');
+    top > 400 ? user_message_box.hide() : user_message_box.show();
+};
+
+
+
 
 
 
