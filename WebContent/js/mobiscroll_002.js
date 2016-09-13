@@ -570,6 +570,7 @@
                     if (that.hide(false, 'set') !== false) {
                         that.setValue(false, true);
                         event('onSelect', [that.val]);
+                    	//alert([that.val]);
                     }
                 });
 

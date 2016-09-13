@@ -182,7 +182,7 @@ function orderlist(userId){
 												"<span class='po'>"+pds[i].NAME+"</span>(<i><a href='orderdetail.html?ORDER_ID="+pds[i].ORDER_ID+"'>订单编号:"+pds[i].ORDERNO+"</a></i>)"+
 											"</li>";
 										/*	"<li class='address col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+pds[i].CNAME+"</li>";*/
-												if(pds[i].time== undefined){
+												if(pds[i].time == undefined){
 													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>未预约</i></li>";
 												}else{
 													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+pds[i].time+"</i></li>";

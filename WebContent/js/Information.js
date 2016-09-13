@@ -230,6 +230,8 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 					$("#s2 option:selected").text(data.DEGREE);//获取学历
 					$('#appDate').val(data.BIRTHDAY);//获取生日
 					
+					
+					
 					if(isprivacy == 0 ||( ismodify==0 && isprivacy == 0)){
 						$(".weigth").val("**");
 						$('.height').val("**");
@@ -320,7 +322,7 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 			$("#s2").prop("disabled", true);//学历更改为只读方式
 		 if(ismodify == 1 || ismodify == 'undefined'){
 			 $('.content').html(basic_1);
-			 var currYear = (new Date()).getFullYear();	
+			 var currYear = (new Date($('#appDate').val())).getFullYear();	
 				var opt={};
 				opt.date = {preset : 'date'};
 				opt.datetime = {preset : 'datetime'};
