@@ -39,7 +39,6 @@ $(document).ready(function () {
         console.log(userId);
         window.onresize = function() {
             var top = $(".footer").offset().top;
-            alert(top);
             var user_message_box = $('.footer');
             top > 400 ? user_message_box.hide() : user_message_box.show();
         };
@@ -230,7 +229,6 @@ function privacy_add(i){
 
 window.onresize = function() {
     var top = $(".footer").offset().top;
-    alert(top);
     var user_message_box = $('.footer');
     top > 400 ? user_message_box.hide() : user_message_box.show();
 };
