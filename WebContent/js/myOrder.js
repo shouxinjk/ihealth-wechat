@@ -40,7 +40,7 @@ function myAllOrders(userId){
 				var str = "";
 				if(pds.length>0){
 					for(var i=0;i<pds.length;i++){
-						var time =getMyDate(pds[i].ORDERBOOKINGTIME);
+						var time =getMyDate(pds[i].ORDERGENERATIONTIME);
 						str+="<div class='more_oder col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 						"<div class='oder_left col-lg-4 col-xs-4 col-md-4 col-sm-4'>"+
 			    			"<img class='col-lg-12 col-xs-12 col-md-12 col-sm-12' src='"+pds[i].AVATAR+"'/>"+
@@ -52,7 +52,7 @@ function myAllOrders(userId){
 									"<span class='po'>"+pds[i].NAME+"</span>(<i> <a href='orderdetail.html?ORDER_ID="+pds[i].ORDER_ID+"'>订单编号:"+pds[i].ORDERNO+"</a></i>)"+
 								"</li>";
 								/*"<li class='address col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+pds[i].CNAME+"</li>";*/
-									if(pds[i].time== undefined){
+									if(time== undefined){
 										str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>未预约</i></li>";
 									}else{
 										str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+time+"</i></li>";
@@ -170,7 +170,7 @@ function orderlist(userId){
 				var str = "";
 				if(pds.length>0){
 					for(var i=0;i<pds.length;i++){
-						var time =getMyDate(pds[i].ORDERBOOKINGTIME);
+						var time =getMyDate(pds[i].ORDERGENERATIONTIME);
 						str+="<div class='more_oder col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 									"<div class='oder_left col-lg-4 col-xs-4 col-md-4 col-sm-4'>"+
 						    			"<img class='col-lg-12 col-xs-12 col-md-12 col-sm-12' src='"+pds[i].AVATAR+"'/>"+
@@ -182,10 +182,10 @@ function orderlist(userId){
 												"<span class='po'>"+pds[i].NAME+"</span>(<i><a href='orderdetail.html?ORDER_ID="+pds[i].ORDER_ID+"'>订单编号:"+pds[i].ORDERNO+"</a></i>)"+
 											"</li>";
 										/*	"<li class='address col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+pds[i].CNAME+"</li>";*/
-												if(pds[i].time == undefined){
+												if(time == undefined){
 													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>未预约</i></li>";
 												}else{
-													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+pds[i].time+"</i></li>";
+													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+time+"</i></li>";
 												}
 												
 												str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
