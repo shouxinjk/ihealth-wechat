@@ -40,7 +40,7 @@ function myAllOrders(userId){
 				var str = "";
 				if(pds.length>0){
 					for(var i=0;i<pds.length;i++){
-						var time =getMyDate(pds[i].ORDERGENERATIONTIME);
+						var time =getMyDate(pds[i].ORDERBOOKINGTIME);
 						str+="<div class='more_oder col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 						"<div class='oder_left col-lg-4 col-xs-4 col-md-4 col-sm-4'>"+
 			    			"<img class='col-lg-12 col-xs-12 col-md-12 col-sm-12' src='"+pds[i].AVATAR+"'/>"+
@@ -170,7 +170,7 @@ function orderlist(userId){
 				var str = "";
 				if(pds.length>0){
 					for(var i=0;i<pds.length;i++){
-						var time =getMyDate(pds[i].ORDERGENERATIONTIME);
+						var time =getMyDate(pds[i].ORDERBOOKINGTIME);
 						str+="<div class='more_oder col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
 									"<div class='oder_left col-lg-4 col-xs-4 col-md-4 col-sm-4'>"+
 						    			"<img class='col-lg-12 col-xs-12 col-md-12 col-sm-12' src='"+pds[i].AVATAR+"'/>"+
