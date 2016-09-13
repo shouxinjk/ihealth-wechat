@@ -37,7 +37,13 @@ $(document).ready(function () {
         $('.TJ_guide span').css('color','rgb(126, 200, 136)');
     }
         console.log(userId);
-        
+        window.onresize = function() {
+            var top = $(".footer").offset().top;
+            alert(top);
+            var user_message_box = $('.footer');
+            top > 400 ? user_message_box.hide() : user_message_box.show();
+        };
+
 });   
 $('.container').delegate(".Headerul li","click",function(){
     $(this).addClass('model').siblings().removeClass('model');  // 删除其他兄弟元素的样式
@@ -223,9 +229,9 @@ function privacy_add(i){
 
 
 window.onresize = function() {
-    var top = $(".message_next").offset().top;
+    var top = $(".footer").offset().top;
     alert(top);
-    var user_message_box = $('.message_next');
+    var user_message_box = $('.footer');
     top > 400 ? user_message_box.hide() : user_message_box.show();
 };
 
