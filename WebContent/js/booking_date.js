@@ -236,7 +236,7 @@ window.onload=function(){
     	        	var data = eval(r.items);
     	        	if(r.msg=="success"){
     	        		alert('预约成功！');
-    	        		window.location ="../subject/booking.html"
+    	        		window.location ="../subject/booking.html?ORDER_ID="+orderid;
     	        		}
     	        	}
     	  });
