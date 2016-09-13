@@ -236,7 +236,7 @@ window.onload=function(){
     	        	var data = eval(r.items);
     	        	if(r.msg=="success"){
     	        		alert('预约成功！');
-    	        		window.location ="../subject/booking_tijiao.html?ORDER_ID="+orderid+"";
+    	        		window.location ="../subject/booking_tijiao.html?ORDER_ID="+orderid;
     	        		}
     	        	}
     	  });
