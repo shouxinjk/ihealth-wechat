@@ -129,6 +129,7 @@ function msgsave(userId){
 	var CAREER=$("#s1 option:selected").text();//获取职业
     var DEGREE=$("#s2 option:selected").val();//获取学历
     var BIRTHDAY=$('#appDate').val();//获取生日
+    alert(BIRTHDAY);
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
     var phone = $('#vali').val();//获取手机号
@@ -1058,7 +1059,7 @@ function findByUserId(userId){
 			lang: 'zh',
 			showNow: true,
 			nowText: "今天",
-	        startYear: currYear - 10, //开始年份
+	        startYear: currYear - 86, //开始年份
 	        endYear: currYear + 10 //结束年份
 		};
 
@@ -1329,5 +1330,9 @@ function huand(){
 	    }
 }
 
-
+window.onresize = function() {
+    var top = $(".footer").offset().top;
+    var user_message_box = $('.footer');
+    top > 400 ? user_message_box.hide() : user_message_box.show();
+};
 
