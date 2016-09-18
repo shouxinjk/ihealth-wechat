@@ -40,7 +40,6 @@ $('.content').delegate(".livediv li","click",function(){
 });
 //生活方式单选
 $('.content').delegate(".dandiv li","click",function(){
-	alert('111');
     //$(this).addClass('livefs livefs_3').siblings().removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
 	$(this).toggleClass('livefs livefs_3').siblings().removeClass('livefs livefs_3');
  });
@@ -913,11 +912,9 @@ function adduser(){
 		        "</table>";
 	var he =($('.Header ').height() + $('.content').height()+$('.kong_div').height()+$('.footer').height());
 	var whe =$(window).height();
-	alert('3333');
 		$('.button_sp_area').before(str);
 		$('.button_sp_area').hide();
 		if(he > whe){
-			alert('2222');
 			 $.scrollTo('.kong_div'); 
 			//$('.content').scrollTop( $('.content')[0].scrollHeight );
 		}
