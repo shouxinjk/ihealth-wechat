@@ -51,8 +51,8 @@ function onBridgeReady(data1,orderNo){
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
                 }else{
                     alert(res.err_msg);
-                    alert(res.err_code);
-                    alert(res.err_desc);
+                   /* alert(res.err_code);
+                    alert(res.err_desc);*/
                 }
             }
         );  
