@@ -913,7 +913,7 @@ function adduser(){
 		        "</table>";
 	var he =($('.Header ').height() + $('.content').height()+$('.kong_div').height()+$('.footer').height());
 	var whe =$(window).height();
-	
+	alert('3333');
 		$('.button_sp_area').before(str);
 		$('.button_sp_area').hide();
 		if(he > whe){
