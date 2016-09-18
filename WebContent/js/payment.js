@@ -47,12 +47,16 @@ function onBridgeReady(data1,orderNo){
                 "paySign":data.paySign
             },
             function(res){     
-                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                if(res.err_msg =="get_brand_wcpay_request:ok") {
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
+                	 alert("微信支付成功!");
+                }else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                    alert("用户取消支付!"); 
                 }else{
                     alert(res.err_msg);
-                   alert(res.err_code);
-                    alert(res.err_desc);
+                    alert("支付失败!");
+                   /* alert(res.err_code);
+                    alert(res.err_desc);*/
                 }
             }
         );  
@@ -82,7 +86,7 @@ function WXPay(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                     onBridgeReady(data,orderNo);
+                     onBridgeReady(data.orderNo);
                   } 
 		}
 	});
