@@ -46,7 +46,7 @@ function onBridgeReady(data1,orderNo){
                 "signType":"MD5",
                 "paySign":data.paySign
             },
-            function(res){     
+           /* function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
                 }else{
@@ -86,4 +86,40 @@ function WXPay(){
                   } 
 		}
 	});
-}
+}*/
+            
+            function (res) {
+            	if (res.err_msg == 'get_brand_wcpay_request:ok') {
+            		core.json('order/pay', {
+            			 op: 'complete',
+            			 orderid: '$_GPC(orderid)',
+            			 type: 'weixin', deduct: deduct
+            		}, function (pay_json) {
+            			 if (pay_json.status == 1) {
+            				 $('#container').html(tpl('tpl_order_pay', pay_json.result));
+            				 return;
+            			 }
+            			 core.tip.show(pay_json.result);
+            			 $('.button').removeAttr('submitting');
+            		 }, true, true);
+            	} else if (res.err_msg == 'get_brand_wcpay_request:cancel') {	
+            		$('.button').removeAttr('submitting');	
+            		core.tip.show('取消支付');	
+            	 } else {	
+            		  $('.button').removeAttr('submitting');
+            		  alert(JSON.stringify(res));
+            		  alert(res.err_msg);
+            	 }
+            })
+};
+            			
+            			
+            			
+            			
+            			
+            			
+            			
+            			
+            			
+            			
+            	
