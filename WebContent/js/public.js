@@ -36,10 +36,12 @@ $(function(){
 //生活方式多选
 $('.content').delegate(".livediv li","click",function(){
 	$(this).toggleClass('livefs livefs_3');
-})
+	
+});
 //生活方式单选
-.delegate(".dandiv li","click",function(){
-    $(this).addClass('livefs livefs_3').siblings().removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
+$('.content').delegate(".dandiv li","click",function(){
+    //$(this).addClass('livefs livefs_3').siblings().removeClass('livefs livefs_3');  // 删除其他兄弟元素的样式
+	$(this).toggleClass('livefs livefs_3').siblings().removeClass('livefs livefs_3');
  });
 
 
@@ -129,7 +131,7 @@ function msgsave(userId){
 	var CAREER=$("#s1 option:selected").text();//获取职业
     var DEGREE=$("#s2 option:selected").val();//获取学历
     var BIRTHDAY=$('#appDate').val();//获取生日
-    alert(BIRTHDAY);
+    //alert(BIRTHDAY);
     var HEIGHT= $('.height').val();//获取身高
     var WEIGHT=$('.weigth').val();//获取体重
     var phone = $('#vali').val();//获取手机号
@@ -512,7 +514,7 @@ function on_click3(userId){   //疾病信息 下一步
 		success:function(delr){
 			if(delr.msg == "success"){
 				//carep(userId);
-				window.location="../subject/Message.html";
+				//window.location="../subject/Message.html";
 				//sub_health(userId);
 			}
 		}
@@ -889,7 +891,7 @@ function carep(userId){
 	
 }
 function adduser(){
-	var str = "<table style='display: block; width:100%;'>" +
+	var str = "<table style='display: block; width:100%;' class='tabl col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 				    "<tbody style='display: block' >" +
 				    "<tr id='trname' class='Name col-lg-12 col-xs-12 col-md-12 col-sm-12'>" +
 					    "<td>" +
@@ -908,8 +910,15 @@ function adduser(){
 				    "</tr>" +
 				        "</tbody>" +
 		        "</table>";
+	var he =($('.Header ').height() + $('.content').height()+$('.kong_div').height()+$('.footer').height());
+	var whe =$(window).height();
+	
 		$('.button_sp_area').before(str);
 		$('.button_sp_area').hide();
+		if(he > whe){
+			 $.scrollTo('.kong_div'); 
+			//$('.content').scrollTop( $('.content')[0].scrollHeight );
+		}
 }
 
 
