@@ -35,16 +35,16 @@ function Usern(userId){
 }
 
 //微信支付请求接口
-function onBridgeReady(){
-	
+function onBridgeReady(data1,orderNo){
+	var data = eval(data1);
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":appId, 
-                "timeStamp":timeStamp, 
-                "nonceStr":nonceStr,
-                "package":package,
+                "appId":data.appId, 
+                "timeStamp":data.timeStamp, 
+                "nonceStr":data.nonceStr,
+                "package":data.package,
                 "signType":"MD5",
-                "paySign":paySign
+                "paySign":data.paySign
             },
             function(res){     
                 if(res.err_msg =="get_brand_wcpay_request:ok") {
@@ -86,7 +86,7 @@ function WXPay(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                     onBridgeReady();
+                     onBridgeReady(data,orderNo);
                   } 
 		}
 	});
