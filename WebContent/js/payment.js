@@ -53,7 +53,7 @@ function onBridgeReady(data1,orderNo){
                 }else if (res.err_msg == "get_brand_wcpay_request:cancel") {
                     alert("用户取消支付!"); 
                 }else{
-                    alert(res.err_msg);
+                    alert(res.err_msg == "get_brand_wcpay_request：fail");
                     alert("支付失败!");
                    /* alert(res.err_code);
                     alert(res.err_desc);*/
