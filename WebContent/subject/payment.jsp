@@ -42,8 +42,8 @@ wx.error(function(res){
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 });
 
-function onBridgeReady(data1){
-	var data = eval(data1);
+function onBridgeReady(){
+	
 	/* wx.chooseWXPay({
 		appId:data.appid,
 	    timestamp:data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
@@ -65,15 +65,15 @@ function onBridgeReady(data1){
 	}); */
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":data.appId, 
-                "timeStamp":data.timeStamp, 
-                "nonceStr":data.nonceStr,
-                "package":data.package,
+                "appId":appId, 
+                "timeStamp":timeStamp, 
+                "nonceStr":nonceStr,
+                "package":package,
                 "signType":"MD5",
-                "paySign":data.paySign
+                "paySign":paySign
             },
             function(res){     
-                if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                     alert("充值成功");
                 }else{
                	 	alert(1);
@@ -89,7 +89,7 @@ function show(){
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		success:function(data){
+		success:function(res){
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -99,7 +99,7 @@ function show(){
                      }
                   }else{
                 	  alert(1)
-                     onBridgeReady(data);
+                     onBridgeReady(res);
                   } 
 		}
 	});
