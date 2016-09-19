@@ -42,7 +42,7 @@ wx.error(function(res){
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 });
 
-function onBridgeReady(data1){ 
+function onBridgeReady(data1){
 	var data = eval(data1);
 	/* wx.chooseWXPay({
 		appId:data.appid,
@@ -73,13 +73,13 @@ function onBridgeReady(data1){
                 "paySign":data.paySign
             },
             function(res){     
-                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                if(res.err_msg == "get_brand_wcpay_request：ok" ) {
                     alert("充值成功");
                 }else{
                	 	alert(1);
                     alert(res.err_msg);
-                  	alert(res.err_code);
-                    alert(res.err_desc); 
+                    alert(res.err_code);
+                    alert(res.err_desc);
                 }
             }
         );  

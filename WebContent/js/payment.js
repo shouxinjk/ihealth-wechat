@@ -47,9 +47,8 @@ function onBridgeReady(data1,orderNo){
                 "paySign":data.paySign
             },
             function(res){     
-                if(res.err_msg =="get_brand_wcpay_request:ok") {
+                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
-                	 alert("微信支付成功!");
                 }else{
                     alert(res.err_msg);
                     alert(res.err_code);
@@ -61,18 +60,18 @@ function onBridgeReady(data1,orderNo){
 
 //微信支付统一下单接口
 function WXPay(){
-	alert(111);
+	//alert(111);
 	var orderNO = $("#orderno").val();
-	alert(orderNO)
+	//alert(orderNO)
 	var price = $('.head_span1 i').text();
 	price = price*100;
-	alert(price);
+	//alert(price);
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		data:{"orderNO":orderNO,"price":price},
 		success:function(data){
-			alert(data);
+			//alert(data);
 			
 			var orderNo = data.orderNo;
                  if (typeof WeixinJSBridge == "undefined"){
@@ -88,4 +87,3 @@ function WXPay(){
 		}
 	});
 }
-            
