@@ -56,7 +56,7 @@ function onBridgeReady(data1){
 	         if(res.err_msg == "get_brand_wcpay_request：ok" ) {
                     alert("充值成功");
                 }else{
-               	 	/*  */alert(1);
+               	 	alert(1);
                     alert(res.err_msg);
                     alert(res.err_code);
                     alert(res.err_desc);
