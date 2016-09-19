@@ -35,24 +35,26 @@ function Usern(userId){
 }
 
 //微信支付请求接口
-function onBridgeReady(){
+function onBridgeReady(data1,orderNo){
+	var data = eval(data1);
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":appId, 
-                "timeStamp":timeStamp, 
-                "nonceStr":nonceStr,
-                "package":package,
+                "appId":data.appId, 
+                "timeStamp":data.timeStamp, 
+                "nonceStr":data.nonceStr,
+                "package":data.package,
                 "signType":"MD5",
-                "paySign":paySign
+                "paySign":data.paySign
             },
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-                	window.location.replace=("../subject/paymentresult.html");
-                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-                	window.location.replace =("../subject/buypeitem.html");
-                }else(res.err_msg=="get_brand_wcpay_request:fail"){
-                	alert(res.err_code);
-                    alert(res.err_desc);
+                	window.location ="../subject/paymentresult.html?orderid="+orderNo;
+                }else{
+                	window.location.replace("../subject/buypeitem.html?orderid="+orderNo);
+                	
+                    /*alert(res.err_msg);
+                    alert(res.err_code);
+                    alert(res.err_desc);*/
                 }
             }
         );  
@@ -61,6 +63,7 @@ function onBridgeReady(){
 //微信支付统一下单接口
 function WXPay(){
 	//alert(111);
+	var orderNO = $("#orderno").val();
 	//alert(orderNO)
 	var price = $('.head_span1 i').text();
 	price = price*100;
@@ -68,8 +71,11 @@ function WXPay(){
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		success:function(){
+		data:{"orderNO":orderNO,"price":price},
+		success:function(data){
 			//alert(data);
+			
+			var orderNo = data.orderNo;
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -78,7 +84,7 @@ function WXPay(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                     onBridgeReady();
+                     onBridgeReady(data,orderNo);
                   } 
 		}
 	});

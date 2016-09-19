@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>微信支付</title>
 
 </head>
@@ -42,8 +42,8 @@ wx.error(function(res){
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
 });
 
-function onBridgeReady(){
-	
+function onBridgeReady(data1){
+	var data = eval(data1);
 	/* wx.chooseWXPay({
 		appId:data.appid,
 	    timestamp:data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
@@ -65,12 +65,12 @@ function onBridgeReady(){
 	}); */
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
-                "appId":appId, 
-                "timeStamp":timeStamp, 
-                "nonceStr":nonceStr,
-                "package":package,
+                "appId":data.appId, 
+                "timeStamp":data.timeStamp, 
+                "nonceStr":data.nonceStr,
+                "package":data.package,
                 "signType":"MD5",
-                "paySign":paySign
+                "paySign":data.paySign
             },
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
@@ -89,7 +89,7 @@ function show(){
 	$.ajax({
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
-		success:function(res){
+		success:function(data){
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -99,7 +99,7 @@ function show(){
                      }
                   }else{
                 	  alert(1)
-                     onBridgeReady(res);
+                     onBridgeReady(data);
                   } 
 		}
 	});
