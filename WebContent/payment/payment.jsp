@@ -87,7 +87,7 @@ function onBridgeReady(data1){
 
 function show(){
 	$.ajax({
-		url:"http://www.shouxinjk.net/ihealth-wechat/payment.jsp",
+		url:"http://www.shouxinjk.net/ihealth-wechat/payment.html",
 		type:"post",
 		success:function(data){
 			alert(data);
