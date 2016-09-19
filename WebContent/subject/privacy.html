@@ -16,7 +16,6 @@
 </head>
 <body>
 	<div class="container">
-		<header>
 			<div class="Header col-lg-12 col-xs-12 col-md-12 col-sm-12">
 				<ul class="Headerul col-lg-12 col-xs-12 col-md-12 col-sm-12">
 					<li class='care model col-lg-3 col-xs-3 col-md-3 col-sm-3'><img class="gxdr"  src="../images/TJ_guide_1.png" alt="" />关心的人</li>
@@ -27,7 +26,6 @@
 				<p class='p2'>谁关心了我:</p>
 				<span>(是否允许对方查看和修改‘我的信息’)</span> -->
 			</div>
-		</header>
 		<div class="content  col-lg-12 col-xs-12 col-md-12 col-sm-12">
 				<!-- <li>
 					 <img class="userimg  col-lg-2 col-xs-2 col-md-2 col-sm-2"  src="../images/TJ_guide.png" alt="" />
@@ -69,6 +67,7 @@
  <script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="../js/Information.js"></script>
 <script type="text/javascript" src="../js/privacy.js"></script>
+<script type="text/javascript" src="../js/scrollTo.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var currYear = (new Date()).getFullYear();	
@@ -164,6 +163,12 @@
 	    };
 	    
 	});
+	window.onresize = function() {
+	    var top = $(".footer").offset().top;
+	    var user_message_box = $('.footer');
+	    top > 400 ? user_message_box.hide() : user_message_box.show();
+	};
+
 </script>
 
 </html>

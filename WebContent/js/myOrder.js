@@ -52,7 +52,7 @@ function myAllOrders(userId){
 									"<span class='po'>"+pds[i].NAME+"</span>(<i> <a href='orderdetail.html?ORDER_ID="+pds[i].ORDER_ID+"'>订单编号:"+pds[i].ORDERNO+"</a></i>)"+
 								"</li>";
 								/*"<li class='address col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+pds[i].CNAME+"</li>";*/
-									if(pds[i].time== undefined){
+									if(time== undefined){
 										str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>未预约</i></li>";
 									}else{
 										str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+time+"</i></li>";
@@ -60,10 +60,10 @@ function myAllOrders(userId){
 									
 									str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
 									if(pds[i].STATUS == '已付款'){
-										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
+										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking_tijiao.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
 									}
 									else if(pds[i].STATUS == '已预约'){
-										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>更改日期</a></i></li>";
+										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking_tijiao.html?ORDER_ID="+pds[i].ORDER_ID+"'>更改日期</a></i></li>";
 									}else{
 										str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"</i></li>";
 									}
@@ -182,18 +182,18 @@ function orderlist(userId){
 												"<span class='po'>"+pds[i].NAME+"</span>(<i><a href='orderdetail.html?ORDER_ID="+pds[i].ORDER_ID+"'>订单编号:"+pds[i].ORDERNO+"</a></i>)"+
 											"</li>";
 										/*	"<li class='address col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+pds[i].CNAME+"</li>";*/
-												if(pds[i].time== undefined){
+												if(time == undefined){
 													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>未预约</i></li>";
 												}else{
-													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+pds[i].time+"</i></li>";
+													str +="<li class='time col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>体检时间:</span><i>"+time+"</i></li>";
 												}
 												
 												str +="<li class='money col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>金额:</span><i>"+(pds[i].ORDERTOTALAMOUNT/100)+"</i></li>";
 												if(pds[i].STATUS == '已付款'){
-													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
+													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking_tijiao.html?ORDER_ID="+pds[i].ORDER_ID+"'>预约体检</a></i></li>";
 												}
 												else if(pds[i].STATUS == '已预约'){
-													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking.html?ORDER_ID="+pds[i].ORDER_ID+"'>更改日期</a></i></li>";
+													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"<a href='booking_tijiao.html?ORDER_ID="+pds[i].ORDER_ID+"'>更改日期</a></i></li>";
 												}else{
 													str +="<li class='status col-lg-12 col-xs-12 col-md-12 col-sm-12'><span>订单状态:</span><i>"+pds[i].STATUS+"</i></li>";
 												}

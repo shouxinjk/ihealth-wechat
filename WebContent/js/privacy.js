@@ -37,7 +37,12 @@ $(document).ready(function () {
         $('.TJ_guide span').css('color','rgb(126, 200, 136)');
     }
         console.log(userId);
-        
+        window.onresize = function() {
+            var top = $(".footer").offset().top;
+            var user_message_box = $('.footer');
+            top > 400 ? user_message_box.hide() : user_message_box.show();
+        };
+
 });   
 $('.container').delegate(".Headerul li","click",function(){
     $(this).addClass('model').siblings().removeClass('model');  // 删除其他兄弟元素的样式
@@ -142,9 +147,9 @@ function allpeople(userId){ //获取谁关心了我的人
         	if(r.result == "success"){
         		var str="";
         		for(var i=0;i<data.length;i++){
-        			str+="<li class='contli'>"+
-        				"<img class='userimg  col-lg-2 col-xs-2 col-md-2 col-sm-2'  src='"+data[i].AVATAR+"' alt='' />"+
-										"<span class='username col-lg-4 col-xs-4 col-md-4 col-sm-4'>"+data[i].NAME+"<i>("+data[i].CONNECTION+")</i></span>"+
+        			str+="<li class='contli col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
+        								"<img class='userimg  col-lg-3 col-xs-3 col-md-3 col-sm-3'  src='"+data[i].AVATAR+"' alt='' />"+
+										"<span class='username col-lg-3 col-xs-3 col-md-3 col-sm-3'>"+data[i].NAME+"<i>("+data[i].CONNECTION+")</i></span>"+
 										"<div class='privacymessage col-lg-3 col-xs-3 col-md-3 col-sm-3'>"+
 									 		"<span class='lookprivacy'>允许查看</span>";
 									 		if(data[i].ISPRIVACY == 1){
@@ -219,6 +224,14 @@ function privacy_add(i){
    	     }
     });
 }
+
+
+
+window.onresize = function() {
+    var top = $(".footer").offset().top;
+    var user_message_box = $('.footer');
+    top > 400 ? user_message_box.hide() : user_message_box.show();
+};
 
 
 

@@ -222,7 +222,7 @@ window.onload=function(){
     	    var orderid = $.getUrlParam('mdcid');
     	
     	  var time  = $(".datetoday").val();
-    	  var order_id = $.getUrlParam('ORDER_ID');
+    	
     	
     	  $.ajax({
     	        type: "post",
@@ -236,7 +236,7 @@ window.onload=function(){
     	        	var data = eval(r.items);
     	        	if(r.msg=="success"){
     	        		alert('预约成功！');
-    	        		window.location ="../subject/booking.html?ORDER_ID="+order_id;
+    	        		window.location ="../subject/booking_tijiao.html?ORDER_ID="+orderid;
     	        		}
     	        	}
     	  });
