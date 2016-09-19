@@ -51,6 +51,7 @@ function relevance(userId){    //获取关联用户名
 	
 	});
 }
+var p =0;
 function spend(userId){
 	$.ajax({
         type: "post",
@@ -72,9 +73,16 @@ function spend(userId){
 	        						"<img src=\"../images/pending.gif\" alt=\"\"/></div>";
 	        		$(".pendding").html(pendd); 
 	        		$('.hint').html("未能生成任何体检项目信息，请补充或更新用户信息，以便我们生成准确的体检套餐");
+	        		p++;
 	        		t =setTimeout(function() {
 	        			 spend(userId);
+	        			// console.log(p);
 	                 }, 1500);
+	        		if(p >19){
+	        			$(".pendding").html(''); 
+	        			clearTimeout(t);
+	        		}
+	        		
         	}
        }
     });
@@ -486,6 +494,7 @@ $('.container').delegate(".zhiN","click",function(){
 
 //关联关心的人
 function guanlian(id,ismodify,isprivacy,NAME){
+	p=0;
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
       		uid= user_id;
@@ -505,6 +514,7 @@ function guanlian(id,ismodify,isprivacy,NAME){
            
     }
 function guanlian1(id){
+			p=0;
 			clearTimeout(t); 
 			$('.hint').html("以下是为你量身定制的体检方案。提供更多信息以推荐更精准的项目清单。");
 			$('.pendding').show();
