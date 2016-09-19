@@ -78,8 +78,8 @@ function onBridgeReady(data1){
                 }else{
                	 	alert(1);
                     alert(res.err_msg);
-                    /* alert(res.err_code);
-                    alert(res.err_desc); */
+                  	alert(res.err_code);
+                    alert(res.err_desc); 
                 }
             }
         );  
