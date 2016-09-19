@@ -49,13 +49,14 @@ function onBridgeReady(data1,orderNo){
             function(res){     
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
+                }else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                	window.location ="../subject/buypeitem.html?orderid="+orderNo;
                 }else{
-                	window.location.replace("../subject/buypeitem.html?orderid="+orderNo);
-                	
-                    /*alert(res.err_msg);
+                	alert(res.err_msg);
                     alert(res.err_code);
-                    alert(res.err_desc);*/
+                    alert(res.err_desc);
                 }
+                
             }
         );  
 }
