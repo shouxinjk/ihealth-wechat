@@ -76,8 +76,8 @@ function onBridgeReady(data1){
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                     alert("充值成功");
                 }else{
-               	 /* 	alert(1); */
-                    alert(res.err_msg =="get_brand_wcpay_request:cancel");
+               	 	alert(1);
+                    alert(res.err_msg);
                     /* alert(res.err_code);
                     alert(res.err_desc); */
                 }
@@ -90,7 +90,7 @@ function show(){
 		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		success:function(data){
-			/* alert(data); */
+			alert(data);
                  if (typeof WeixinJSBridge == "undefined"){
                      if( document.addEventListener ){
                          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -99,8 +99,8 @@ function show(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                	  /* alert(1) */
-                     onBridgeReady();
+                	  alert(1)
+                     onBridgeReady(data);
                   } 
 		}
 	});

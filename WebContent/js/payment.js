@@ -55,8 +55,8 @@ function onBridgeReady(data1,orderNo){
                 }else{
                     alert(res.err_msg == "get_brand_wcpay_request：fail");
                     alert("支付失败!");
-                   /* alert(res.err_code);
-                    alert(res.err_desc);*/
+                    alert(res.err_code);
+                    alert(res.err_desc);	
                 }
             }
         );  
