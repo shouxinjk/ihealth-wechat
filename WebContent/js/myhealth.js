@@ -20,7 +20,7 @@ function Usern(userId){
 		});
 	}
 function relevance(userId){  
-	alert('mmmmm');//获取关联用户名
+	//获取关联用户名
 	uid= userId;
 	$.ajax({
 		url:url+"/rest/findUsersById",
@@ -75,11 +75,9 @@ function spend(userId){
 	        		$(".pendding").html(pendd); 
 	        		$('.hint').html("未能生成任何体检项目信息，请补充或更新用户信息，以便我们生成准确的体检套餐");
 	        		p++;
-	        		alert('aaaaa');
 	        		t =setTimeout(function() {
 	        			 spend(userId);
 	        			// console.log(p);
-	        			 alert(p);
 	                 }, 1500);
 	        		if(p >18){
 	        			$(".pendding").html(''); 
@@ -499,7 +497,6 @@ $('.container').delegate(".zhiN","click",function(){
 //关联关心的人
 function guanlian(id,ismodify,isprivacy,NAME){
 	p=0;
-	alert('bbb');
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
       		uid= user_id;
