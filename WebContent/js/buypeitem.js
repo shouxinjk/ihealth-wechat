@@ -32,7 +32,7 @@ $(function () {
         	if(r.msg=="success"){
         		for(var i=0;i<data.length;i++){
         			var str="<li class='col-lg-12 col-xs-12 col-md-12 col-sm-12'>"+
-								"<input type='checkbox'  value='"+data[i].medicalexamitem_ID+"' class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>"+
+								"<input type='checkbox'  value='"+data[i].medicalexamitem_ID+"' id='yans' class='subcheck box col-lg-1 col-xs-1 col-md-1 col-sm-1' onclick='setSelectAll("+i+");'/>"+
 								"<div class='detectionli col-lg-8 col-xs-8 col-md-8 col-sm-8'>"+data[i].name+"</div>"+
 								"<div class='costli col-lg-3 col-xs-3 col-md-3 col-sm-3'><lable>"+(data[i].settlementprice/100)+"</lable>元</div>"+
 							"</li>";

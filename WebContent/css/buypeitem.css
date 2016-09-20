@@ -92,7 +92,10 @@
 .box,.boxall{
 	margin-top: .7rem !important;
 }
-
+#yans{
+	border:.05rem solid #ededed;
+	outline:none;
+}
 .buydiv{
 	padding:0;
 }
