@@ -74,6 +74,7 @@ function spend(userId){
 	        		$(".pendding").html(pendd); 
 	        		$('.hint').html("未能生成任何体检项目信息，请补充或更新用户信息，以便我们生成准确的体检套餐");
 	        		p++;
+	        		alert('aaaaa');
 	        		t =setTimeout(function() {
 	        			 spend(userId);
 	        			// console.log(p);

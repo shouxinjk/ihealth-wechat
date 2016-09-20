@@ -93,8 +93,9 @@
 	margin-top: .7rem !important;
 }
 #yans{
-	border:.05rem solid #ededed;
-	outline:none;
+	-webkit-border:.05rem solid #ededed;
+	-webkit-outline:none;
+	-webkit-appearance: none;
 }
 .buydiv{
 	padding:0;
