@@ -498,6 +498,7 @@ $('.container').delegate(".zhiN","click",function(){
 //关联关心的人
 function guanlian(id,ismodify,isprivacy,NAME){
 	p=0;
+	alert('bbb');
 	clearTimeout(t); 
       		var user_id = $("#"+id).find("input").val();
       		uid= user_id;
