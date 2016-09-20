@@ -19,7 +19,8 @@ function Usern(userId){
 			}
 		});
 	}
-function relevance(userId){    //获取关联用户名
+function relevance(userId){  
+	alert('mmmmm');//获取关联用户名
 	uid= userId;
 	$.ajax({
 		url:url+"/rest/findUsersById",
