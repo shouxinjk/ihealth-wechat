@@ -77,10 +77,12 @@ function spend(userId){
 	        		t =setTimeout(function() {
 	        			 spend(userId);
 	        			// console.log(p);
+	        			 alert(p)
 	                 }, 1500);
 	        		if(p >19){
 	        			$(".pendding").html(''); 
 	        			clearTimeout(t);
+	        			
 	        		}
 	        		
         	}
