@@ -79,7 +79,7 @@ function spend(userId){
 	        			// console.log(p);
 	        			 alert(p)
 	                 }, 1500);
-	        		if(p >19){
+	        		if(p >18){
 	        			$(".pendding").html(''); 
 	        			clearTimeout(t);
 	        			
