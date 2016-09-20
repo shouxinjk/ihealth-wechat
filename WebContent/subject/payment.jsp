@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>微信支付</title>
 
 </head>
@@ -44,6 +44,25 @@ wx.error(function(res){
 
 function onBridgeReady(data1){
 	var data = eval(data1);
+	/* wx.chooseWXPay({
+		appId:data.appid,
+	    timestamp:data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+	    nonceStr:data.nonceStr, // 支付签名随机串，不长于 32 位
+	    package:data.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+	    signType:"MD5", // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+	    paySign:data.paySign, // 支付签名
+	    success: function (res) {
+	        // 支付成功后的回调函数
+	         if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                    alert("充值成功");
+                }else{
+               	 	alert(1);
+                    alert(res.err_msg);
+                    alert(res.err_code);
+                    alert(res.err_desc);
+                }
+	    }
+	}); */
 	WeixinJSBridge.invoke(
             'getBrandWCPayRequest', {
                 "appId":data.appId, 
@@ -54,40 +73,21 @@ function onBridgeReady(data1){
                 "paySign":data.paySign
             },
             function(res){     
-                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-/*                     alert("充值成功"); */
+                if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                    alert("充值成功");
                 }else{
-               	 	/* alert(1);
+               	 	alert(1);
                     alert(res.err_msg);
                     alert(res.err_code);
-                    alert(res.err_desc); */
+                    alert(res.err_desc);
                 }
             }
-        ); 
-		/* wx.chooseWXPay({
-		appId:data.appid,
-	    timestamp:data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-	    nonceStr:data.nonceStr, // 支付签名随机串，不长于 32 位
-	    package:data.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-	    signType:"MD5", // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-	    paySign:data.paySign, // 支付签名
-	    success: function (res) {
-	        // 支付成功后的回调函数
-	         if(res.err_msg == "get_brand_wcpay_request：ok" ) {
-	                alert("充值成功");
-	            }else{
-	           	 	alert(1);
-	                alert(res.err_msg);
-	                alert(res.err_code);
-	                alert(res.err_desc);
-	            }
-	    }
-	}); */
+        );  
 }
 
 function show(){
 	$.ajax({
-		url:"http://www.shouxinjk.net/ihealth-wechat/subject/payment.html",
+		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		success:function(data){
                  if (typeof WeixinJSBridge == "undefined"){
@@ -98,7 +98,7 @@ function show(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                	 /*  alert(1) */
+                	  alert(1)
                      onBridgeReady(data);
                   } 
 		}

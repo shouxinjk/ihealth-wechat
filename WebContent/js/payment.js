@@ -50,10 +50,9 @@ function onBridgeReady(data1,orderNo){
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
                 }else{
-                	window.location ="../subject/payment.html?orderid="+orderNo;
-                   /* alert(res.err_msg);
+                    alert(res.err_msg);
                     alert(res.err_code);
-                    alert(res.err_desc);*/
+                    alert(res.err_desc);
                 }
             }
         );  
@@ -68,7 +67,7 @@ function WXPay(){
 	price = price*100;
 	//alert(price);
 	$.ajax({
-		url:"http://www.shouxinjk.net/ihealth-wechat/subject/payment.html",
+		url:"http://www.shouxinjk.net/ihealth-wechat/payment",
 		type:"post",
 		data:{"orderNO":orderNO,"price":price},
 		success:function(data){
