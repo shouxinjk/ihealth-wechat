@@ -76,6 +76,7 @@ $(function(){
 		cache : false,
 		success:function(ur){
 			var data = eval(ur.data);
+			alert(ur.result)
 			if(ur.result == "no"){
 				$.ajax({
 					url : "/ihealth-wechat/userInfoServlet",
@@ -110,6 +111,7 @@ $(function(){
 					}
 			   });
 			}else if(ur.result == "success"){
+				alert(state)
 	        	SetCookie("userId",data.USER_ID,7);
 				window.location.href=wechatUrl+"/subject/"+state+".html";
 			}
