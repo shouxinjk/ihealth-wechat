@@ -75,6 +75,7 @@ $(function(){
   		async : false,
 		cache : false,
 		success:function(ur){
+			alert(ur.data);
 			var data = eval(ur.data);
 			alert(ur.result)
 			if(ur.result == "no"){
