@@ -84,7 +84,7 @@ function WXPay(){
                          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
                      }
                   }else{
-                     onBridgeReady(orderNo);
+                     onBridgeReady(data,orderNo);
                   } 
 		}
 	});
