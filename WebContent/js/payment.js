@@ -50,7 +50,7 @@ function onBridgeReady(data1,orderNo){
                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                 	window.location ="../subject/paymentresult.html?orderid="+orderNo;
                 }else{
-                	window.location ="../subject/buypeitem.html?orderid="+orderNo;
+                	/*window.location ="../subject/buypeitem.html?orderid="+orderNo;*/
                 	alert("取消支付成功");
                    /* alert(res.err_msg);
                     alert(res.err_code);
