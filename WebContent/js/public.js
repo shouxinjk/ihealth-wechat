@@ -959,6 +959,7 @@ function lookupUser(userId){
 								"<li>"+data[i].NAME+"</li>"+
 								"<li>"+data[i].PHONE+"</li>"+
 							 "</ul>";*/
+					
 					str +="<div id='"+data[i].USER_ID+"'  class=\"Care_one cf col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='addition(\""+data[i].USER_ID+"\")'>"+
 					"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\">"+
 						"<img src="+data[i].AVATAR+" alt=\"\"/>"+
