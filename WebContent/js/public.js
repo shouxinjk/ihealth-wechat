@@ -959,16 +959,26 @@ function lookupUser(userId){
 								"<li>"+data[i].NAME+"</li>"+
 								"<li>"+data[i].PHONE+"</li>"+
 							 "</ul>";*/
-					
 					str +="<div id='"+data[i].USER_ID+"'  class=\"Care_one cf col-lg-12 col-xs-12 col-md-12 col-sm-12\"  onclick='addition(\""+data[i].USER_ID+"\")'>"+
 					"<div class=\"Care_img col-lg-2 col-xs-2 col-md-2 col-sm-2\">"+
 						"<img src="+data[i].AVATAR+" alt=\"\"/>"+
 					"</div>"+
-					"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">"+
-						"<div class=\"Care_guanxi_\"> "+
-							"<span  class=\"guanming\">"+data[i].NAME+"</span>"+
-							"<i  class=\"relation\">/"+data[i].PHONE+ "</i>"+
-						"</div>"+
+					"<div class=\"Care_guanxi col-lg-7 col-xs-7 col-md-7 col-sm-7\">";
+					if(data[i].NAME == undefined){
+						str +="<div class=\"Care_guanxi_\"> ";
+						str +="<span  class=\"guanming\">用户未填写姓名</span>";
+						str +="<i  class=\"relation\">/"+data[i].PHONE.substring(0, 3)+ "****" + (data[i].PHONE).substring(7, 11)+"</i>";
+						str +="</div>";
+					}else{
+						str +="<div class=\"Care_guanxi_\"> ";
+						str +="<span  class=\"guanming\">"+ "*" +data[i].NAME.substring(1,10)+"</span>";
+						str +="<i  class=\"relation\">/"+data[i].PHONE.substring(0, 3)+ "****" + (data[i].PHONE).substring(7, 11)+"</i>";
+						str +="</div>";
+					}
+					/*"<div class=\"Care_guanxi_\"> "+
+						"<span  class=\"guanming\">"+ "*" +data[i].NAME.substring(1,10)+"</span>"+
+						"<i  class=\"relation\">/"+data[i].PHONE.substring(0, 3)+ "****" + (data[i].PHONE).substring(7, 11)+"</i>"+
+					"</div>"+*/
 						"<div class=\"Care_addr1\"> "+
 							"<span  class=\"juzhud\">居住地:</span>"+
 							"<span  class=\"guanming\">"+data[i].LIVEPLACE+"</span>"+
