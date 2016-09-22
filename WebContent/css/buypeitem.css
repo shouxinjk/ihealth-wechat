@@ -75,10 +75,10 @@
 	text-overflow: ellipsis;
 }
 .buy_table ul{
-	padding: 0;
+	/* padding: 0; */
 }
 .buy_table ul li{
-	padding: 0;
+	/* padding: 0; */
 	line-height: 2rem;
 	border-bottom: .05rem solid #ededed;
 	list-style: none;
@@ -94,9 +94,11 @@
 }
 #yans:checked{background:#ededed;}
 #yans{
-	-webkit-border:.05rem solid #ededed;
-	-webkit-outline:none;
-	-webkit-appearance: none;
+	border:.05rem solid #ededed;
+	outline:none;
+	appearance: none;
+	position: relative;
+	left:.5rem;
 }
 .buydiv{
 	padding:0;
