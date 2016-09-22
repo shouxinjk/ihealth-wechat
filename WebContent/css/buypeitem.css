@@ -98,10 +98,11 @@
 	outline:none;
 	appearance: none;
 	position: relative;
-	left:.5rem;
+	left:.3rem;
 }
 .buydiv{
 	padding:0;
+	background: #f8f8f8;
 }
 
 input.subcheck.nocheck{
