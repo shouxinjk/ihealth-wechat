@@ -208,7 +208,7 @@ input{
 	padding-bottom: 5rem;
 }
 
-
+.privacy_ck:checked{-webkit-background-color:red !important;}
 
 
 
