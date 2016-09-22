@@ -78,6 +78,8 @@ function setSelectAll(i){ //点击checkbox 时总价变化
 	    	var m=$(this).siblings().last().children('lable').text();
 	    	price +=m*1;
 	    	$('.money span').text(price);
+	    	$(this).css({background:"#ededed",border:".05rem solid #ededed"});
+	    	alert('1111');
 	    }
 	    
 	  
