@@ -496,7 +496,8 @@ function listDisease_1(userId){//修改关心人的疾病信息
 }
 
 
-function on_click3(userId){   //疾病信息 下一步
+function on_click3(userId){ 
+	//疾病信息 下一步
 	$.ajax({
 		url:url+"/restdisease/updateDisease",
   		type:"post",
@@ -513,8 +514,9 @@ function on_click3(userId){   //疾病信息 下一步
 		cache : false,
 		success:function(delr){
 			if(delr.msg == "success"){
+				
 				//carep(userId);
-				//window.location="../subject/Message.html";
+				window.location="../subject/Message.html";
 				//sub_health(userId);
 			}
 		}
@@ -522,6 +524,9 @@ function on_click3(userId){   //疾病信息 下一步
 	$('#guanxin').remove();
     $("#li4").addClass('active');
     $("#li3").removeClass('active');
+    if(obtainId("livefs_1") == '' ||obtainId("livefs_2")==''||obtainId("livefs_3")==''){
+		window.location="../subject/Message.html";
+	};
 }
 
 
@@ -649,7 +654,9 @@ function on_click_3(userId){//新用户 修改关系的人
 				}
 			}
 		});
-		
+		 if(obtainId("livefs_1") == '' ||obtainId("livefs_2")==''||obtainId("livefs_3")==''){
+			 window.location="../subject/privacy.html";
+			};
 		$('.upname').hide();
 		$('.information_header li').show();
 	    $("#li4").addClass('active');
