@@ -74,10 +74,10 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.buy_table ul{
+.buy_table{
 	 padding: 0; 
 }
-.buy_table ul li{
+.buy_table  li{
 	 padding: 0; 
 	line-height: 2rem;
 	border-bottom: .05rem solid #ededed;
