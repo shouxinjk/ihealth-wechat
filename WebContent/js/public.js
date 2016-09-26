@@ -498,8 +498,6 @@ function listDisease_1(userId){//修改关心人的疾病信息
 
 function on_click3(userId){ 
 	//疾病信息 下一步
-	alert('111111111111111');
-	alert(obtainId("livefs_1"),obtainId("livefs_2"),obtainId("livefs_3"));
 	$.ajax({
 		url:url+"/restdisease/updateDisease",
   		type:"post",
