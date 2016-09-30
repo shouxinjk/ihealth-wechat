@@ -172,12 +172,12 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 	    $('.tcal').addClass('tcalInput');
 	    $.initProv("#pro", "#city", "北京市", "北京市");
 	    $.initProv1("#pro1", "#city1", "北京市", "北京市");
-	    
+	    /*
 	        $("select option").each(function() {
 	            text = $(this).text();
 	            if($("select option:contains("+text+")").length > 1)
 	                $("select option:contains("+text+"):gt(0)").remove();
-	        });
+	        });*/
 	    Height();//身高 体重验证
 	    //手机号验证
 	    $('#vali').blur(function(){
@@ -271,11 +271,11 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
 	        $('.tcal').addClass('tcalInput');
 	        $.initProv("#pro", "#city", "北京市", "北京市");
 	        $.initProv1("#pro1", "#city1", "北京市", "北京市");
-	        $("select option").each(function() {
+	       /* $("select option").each(function() {
 	            text = $(this).text();
 	            if($("select option:contains("+text+")").length > 1)
 	                $("select option:contains("+text+"):gt(0)").remove();
-	        });
+	        });*/
 	        Height();//身高 体重验证
 	        $('.message_next1').remove();
 	    }
@@ -382,11 +382,11 @@ function revamp(userId,ismodify,isprivacy,connection){//获取修改用户的基
     $('.tcal').addClass('tcalInput');
     $.initProv("#pro", "#city", "北京市", "北京市");
     $.initProv1("#pro1", "#city1", "北京市", "北京市");
-    $("select option").each(function() {
+  /*  $("select option").each(function() {
         text = $(this).text();
         if($("select option:contains("+text+")").length > 1)
             $("select option:contains("+text+"):gt(0)").remove();
-    });
+    });*/
     Height();//身高 体重验证
     //手机号验证
     $('#vali').blur(function(){
